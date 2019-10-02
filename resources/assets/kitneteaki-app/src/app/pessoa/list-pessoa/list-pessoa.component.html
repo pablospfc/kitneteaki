@@ -1,0 +1,74 @@
+<section class="content-header">
+  <h1>
+    Pessoas
+    <small>Listar</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Pessoas</li>
+    <li class="active">Listar Pessoas</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header">
+      <i class="ion ion-clipboard"></i>
+
+      <h3 class="box-title">Gestão de Pessoas</h3>
+
+      <div class="box-tools pull-right">
+        <!-- BOTÕES DE ADICIONAR-->
+        <button type="button" class="btn btn-success pull-right" [routerLink]="['/new-pessoa']"><i class="fa fa-plus"></i> Adicionar</button>
+      </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>RG</th>
+          <th>Data de Nascimento</th>
+          <th>Tipo</th>
+          <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Trident</td>
+          <td>Internet
+            Explorer 4.0
+          </td>
+          <td>Win 95+</td>
+          <td> 4</td>
+          <td>X</td>
+        </tr>
+
+        <tr>
+          <td>Trident</td>
+          <td>Internet
+            Explorer 4.0
+          </td>
+          <td>Win 95+</td>
+          <td> 4</td>
+          <td>X</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <th>Rendering engine</th>
+          <th>Browser</th>
+          <th>Platform(s)</th>
+          <th>Engine version</th>
+          <th>CSS grade</th>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!-- /.box-body -->
+
+  </div>
+</section>

@@ -1,0 +1,192 @@
+<section class="content-header">
+  <h1>
+    Pessoas
+    <small>Adicionar</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Pessoa</a></li>
+    <li class="active">Adicionar</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Cadastrar Pessoa</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" role="form" (ngSubmit)="onSubmit()" >
+          <div class="box-body">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="nome">Nome</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="nome"
+                     name="nome"
+                     [(ngModel)]="pessoa.nome"
+                     placeholder="Nome"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="nome">Data de Nascimento</label>
+              <div class="col-sm-10">
+                <input type="text"
+                       class="form-control"
+                       id="data_nascimento"
+                       name="data_nascimento"
+                       [(ngModel)]="pessoa.data_nascimento"
+                       placeholder="Data Nascimento"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="cpf">CPF</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="cpf"
+                     name="cpf"
+                     [(ngModel)]="pessoa.cpf"
+                     placeholder="CPF"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="nome">RG</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="rg"
+                     name="rg"
+                     [(ngModel)]="pessoa.rg"
+                     placeholder="RG"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="orgao_expedidor">Órgão Expedidor</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="orgao_expedidor"
+                     name="orgao_expedidor"
+                     [(ngModel)]="pessoa.orgao_expedidor"
+                     placeholder="Órgão Expedidor"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="uf_expedidor">UF Expedidor</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="uf_expedidor"
+                     name="uf_expedidor"
+                     [(ngModel)]="pessoa.uf_expedidor"
+                     placeholder="UF Expedidor"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="profissao">Profissão</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="profissao"
+                     name="profissao"
+                     [(ngModel)]="pessoa.profissao"
+                     placeholder="Profissão"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="naturalidade">Naturalidade</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="naturalidade"
+                     name="naturalidade"
+                     [(ngModel)]="pessoa.naturalidade"
+                     placeholder="Naturalidade"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="estado_civil">Estado Civil</label>
+              <div class="col-sm-10">
+              <select class="form-control"
+                      id="estado_civil"
+                      name="estado_civil">
+                <option [value]="1">Solteiro(a)</option>
+                <option [value]="2">Casado(a)</option>
+                <option [value]="3">Separado(a)</option>
+                <option [value]="4">Divorciado(a)</option>
+                <option [value]="5">Viúvo(a)</option>
+              </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="tipo">Tipo</label>
+              <div class="col-sm-10">
+              <select class="form-control"
+                      id="tipo"
+                      name="estado_civil">
+                <option [value]="1">Proprietário</option>
+                <option [value]="2">Inquilino</option>
+              </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="cep">CEP</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="cep"
+                     name="cep"
+                     [(ngModel)]="pessoa.cep"
+                     placeholder="CEP"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="logradouro">Logradouro</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="logradouro"
+                     name="logradouro"
+                     [(ngModel)]="pessoa.logradouro"
+                     placeholder="Logradouro"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="bairro">Bairro</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="bairro"
+                     name="bairro"
+                     [(ngModel)]="pessoa.bairro"
+                     placeholder="Bairro"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="cidade">Cidade</label>
+              <div class="col-sm-10">
+              <input type="text"
+                     class="form-control"
+                     id="cidade"
+                     name="cidade"
+                     [(ngModel)]="pessoa.cidade"
+                     placeholder="Cidade">
+              </div>
+            </div>
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
