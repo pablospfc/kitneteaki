@@ -12,18 +12,19 @@ class Pessoa extends Model
     protected $fillable = [
         "id_estado_civil",
         "id_tipo_pessoa",
+        "id_genero",
+        "id_categoria_pessoa",
+        "id_nacionalidade",
         "nome",
-        "cpf",
+        "cpf_cnpj",
         "rg",
-        "endereco",
+        "passaporte",
         "data_nascimento",
         "orgao_expedidor",
-        "uf_expedidor",
-        "profissao",
-        "naturalidade",
-        "bairro",
-        "cep",
+        "data_emissao",
         "email",
-        "disponivel"
+        "telefone_celular",
+        "whatsapp",
+        "profissao"
     ];
 }

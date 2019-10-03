@@ -35,6 +35,9 @@ class CreatePessoasTable extends Migration
             $table->string("orgao_expedidor")->nullable();
             $table->date("data_emissao");
             $table->string("profissao");
+            $table->string("telefone_celular");
+            $table->string("whatsapp");
+            $table->string("email");
             $table->boolean("disponivel");
             $table->timestamps();
         });

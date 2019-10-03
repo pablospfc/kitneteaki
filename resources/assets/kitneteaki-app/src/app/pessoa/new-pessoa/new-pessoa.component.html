@@ -20,172 +20,224 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal" role="form" (ngSubmit)="onSubmit()" >
+        <form #pessoaForm="ngForm" role="form" (ngSubmit)="onSubmit(pessoaForm)">
+
           <div class="box-body">
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="nome">Nome</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="nome"
-                     name="nome"
-                     [(ngModel)]="pessoa.nome"
-                     placeholder="Nome"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="nome">Data de Nascimento</label>
-              <div class="col-sm-10">
+            <h4>Dados Pessoais</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="nome">Nome</label>
                 <input type="text"
+                       class="form-control"
+                       id="nome"
+                       name="nome"
+                       [(ngModel)]="pessoa.nome"
+                       #nome="ngModel"
+                       [required]="true"
+                       placeholder="Nome"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input type="date"
                        class="form-control"
                        id="data_nascimento"
                        name="data_nascimento"
                        [(ngModel)]="pessoa.data_nascimento"
+                       [required]="true"
                        placeholder="Data Nascimento"/>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="cpf">CPF</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="cpf"
-                     name="cpf"
-                     [(ngModel)]="pessoa.cpf"
-                     placeholder="CPF"/>
+
+              <div class="form-group col-md-3">
+                <label for="genero">Gênero(*)</label>
+                <select class="form-control"
+                        id="genero"
+                        [(ngModel)]="pessoa.id_genero"
+                        [required]="true"
+                        name="id_genero">
+                  <option [value]="1">Masculino</option>
+                  <option [value]="2">Feminino</option>
+                  <option [value]="3">Outro</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="estado_civil">Estado Civil</label>
+                <select class="form-control"
+                        id="estado_civil"
+                        [(ngModel)]="pessoa.id_estado_civil"
+                        [required]="true"
+                        name="id_estado_civil">
+                  <option [value]="1">Solteiro(a)</option>
+                  <option [value]="2">Casado(a)</option>
+                  <option [value]="3">Separado(a)</option>
+                  <option [value]="4">Divorciado(a)</option>
+                  <option [value]="5">Viúvo(a)</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="categoria_pessoa">Categoria</label>
+                <select class="form-control"
+                        id="categoria_pessoa"
+                        [(ngModel)]="pessoa.id_categoria_pessoa"
+                        [required]="true"
+                        name="id_categoria_pessoa">
+                  <option [value]="1">Proprietário</option>
+                  <option [value]="2">Inquilino</option>
+                </select>
               </div>
             </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="nome">RG</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="rg"
-                     name="rg"
-                     [(ngModel)]="pessoa.rg"
-                     placeholder="RG"/>
+
+            <h4>Documentos de Identificação</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-4">
+                <label for="nacionalidade">Nacionalidade</label>
+                <select class="form-control"
+                        id="nacionalidade"
+                        [(ngModel)]="pessoa.id_nacionalidade"
+                        [required]="true"
+                        name="id_nacionalidade">
+                  <option [value]="1">Brasileiro</option>
+                  <option [value]="2">Estrangeiro</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="tipo_pessoa">Tipo de Pessoa</label>
+                <select class="form-control"
+                        id="tipo_pessoa"
+                        [(ngModel)]="pessoa.id_tipo_pessoa"
+                        [disabled]="pessoa.id_nacionalidade == 2"
+                        [required]="pessoa.id_nacionalidade == 1"
+                        name="id_tipo_pessoa">
+                  <option [value]="1">Pessoa Física</option>
+                  <option [value]="2">Pessoa Jurídica</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="cpf">CPF/CNPJ:</label>
+                <input type="text"
+                       [(ngModel)]="pessoa.cpf_cnpj"
+                       [disabled]="pessoa.id_nacionalidade == 2"
+                       [required]="pessoa.id_nacionalidade == 1"
+                       name="cpf_cnpj"
+                       class="form-control"
+                       id="cpf"
+                       placeholder="CPF"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="rg">RG:</label>
+                <input type="text"
+                       name="rg"
+                       [(ngModel)]="pessoa.rg"
+                       [disabled]="pessoa.id_nacionalidade == 2"
+                       [required]="pessoa.id_nacionalidade == 1"
+                       class="form-control"
+                       id="rg"
+                       placeholder="RG"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="orgaoExpedidor">Órgão Emissor:</label>
+                <input type="text"
+                       name="orgao_expedidor"
+                       [(ngModel)]="pessoa.orgao_expedidor"
+                       [disabled]="pessoa.id_nacionalidade == 2"
+                       [required]="pessoa.id_nacionalidade == 1"
+                       class="form-control"
+                       id="orgaoExpedidor"
+                       placeholder="Órgão Expedidor"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="passaporte">Passaporte:</label>
+                <input type="text"
+                       name="passaporte"
+                       [(ngModel)]="pessoa.passaporte"
+                       [disabled]="pessoa.id_nacionalidade == 1"
+                       [required]="pessoa.id_nacionalidade == 2"
+                       class="form-control"
+                       id="passaporte"
+                       placeholder="Passaporte"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="dataEmissao">Data de Emissão:</label>
+                <input type="date"
+                       name="data_emissao"
+                       [(ngModel)]="pessoa.data_emissao"
+                       [disabled]="pessoa.id_nacionalidade == 2"
+                       [required]="pessoa.id_nacionalidade == 1"
+                       class="form-control"
+                       id="dataEmissao"
+                       placeholder="Data de Emissão"/>
               </div>
             </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="orgao_expedidor">Órgão Expedidor</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="orgao_expedidor"
-                     name="orgao_expedidor"
-                     [(ngModel)]="pessoa.orgao_expedidor"
-                     placeholder="Órgão Expedidor"/>
+
+            <h4>Contato</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="telefone_celular">Telefone Celular:</label>
+                <input type="text"
+                       class="form-control"
+                       id="telefone_celular"
+                       name="telefone_celular"
+                       [(ngModel)]="pessoa.telefone_celular"
+                       [required]="true"
+                       placeholder="Telefone Celular"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="whatsapp">WhatsApp:</label>
+                <input type="text"
+                       class="form-control"
+                       id="whatsapp"
+                       name="whatsapp"
+                       [(ngModel)]="pessoa.whatsapp"
+                       [required]="true"
+                       placeholder="WhatsApp"/>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="telefone_celular">E-mail:</label>
+                <input type="text"
+                       class="form-control"
+                       id="email"
+                       name="email"
+                       [(ngModel)]="pessoa.email"
+                       [required]="true"
+                       placeholder="E-mail"/>
               </div>
             </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="uf_expedidor">UF Expedidor</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="uf_expedidor"
-                     name="uf_expedidor"
-                     [(ngModel)]="pessoa.uf_expedidor"
-                     placeholder="UF Expedidor"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="profissao">Profissão</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="profissao"
-                     name="profissao"
-                     [(ngModel)]="pessoa.profissao"
-                     placeholder="Profissão"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="naturalidade">Naturalidade</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="naturalidade"
-                     name="naturalidade"
-                     [(ngModel)]="pessoa.naturalidade"
-                     placeholder="Naturalidade"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="estado_civil">Estado Civil</label>
-              <div class="col-sm-10">
-              <select class="form-control"
-                      id="estado_civil"
-                      name="estado_civil">
-                <option [value]="1">Solteiro(a)</option>
-                <option [value]="2">Casado(a)</option>
-                <option [value]="3">Separado(a)</option>
-                <option [value]="4">Divorciado(a)</option>
-                <option [value]="5">Viúvo(a)</option>
-              </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="tipo">Tipo</label>
-              <div class="col-sm-10">
-              <select class="form-control"
-                      id="tipo"
-                      name="estado_civil">
-                <option [value]="1">Proprietário</option>
-                <option [value]="2">Inquilino</option>
-              </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="cep">CEP</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="cep"
-                     name="cep"
-                     [(ngModel)]="pessoa.cep"
-                     placeholder="CEP"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="logradouro">Logradouro</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="logradouro"
-                     name="logradouro"
-                     [(ngModel)]="pessoa.logradouro"
-                     placeholder="Logradouro"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="bairro">Bairro</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="bairro"
-                     name="bairro"
-                     [(ngModel)]="pessoa.bairro"
-                     placeholder="Bairro"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label" for="cidade">Cidade</label>
-              <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="cidade"
-                     name="cidade"
-                     [(ngModel)]="pessoa.cidade"
-                     placeholder="Cidade">
+
+            <h4>Dados Adicionais</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="profissao">Profissão:</label>
+                <input type="text"
+                       class="form-control"
+                       id="profissao"
+                       name="profissao"
+                       [(ngModel)]="pessoa.profissao"
+                       [required]="true"
+                       placeholder="Profissão"/>
               </div>
             </div>
           </div>
           <!-- /.box-body -->
 
           <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!pessoaForm.valid">Salvar</button>
           </div>
         </form>
+
       </div>
     </div>
   </div>
