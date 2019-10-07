@@ -1,4 +1,5 @@
 export class Pessoa {
+  id: number;
   id_estado_civil: number;
   id_tipo_pessoa: number;
   id_genero: number;

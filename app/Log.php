@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Log extends Model
 {
-    protected $table = "pessoa";
+    protected $table = "log";
     public $timestamps = true;
     protected $fillable = [
         "message"

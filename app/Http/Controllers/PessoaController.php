@@ -23,7 +23,7 @@ class PessoaController extends Controller
     public function index()
     {
         try {
-            $data = \App\Pessoa::all();
+            $data = $this->pessoa->getAll();
             return response()->json($data, 200);
         } catch (\Exception $e) {
             throw new \Exception("Ocorreu um problema ao listar dados");
@@ -52,10 +52,9 @@ class PessoaController extends Controller
             $response = \App\Pessoa::create($request->all());
             return response()->json(['message' => 'Dados cadastrados com sucesso.'], 200);
         } catch (\Exception $e) {
-            \App\Log::create($e);
-            throw new \Exception("Ocorreu um erro ao salvar dados" . $e->getMessage());
+            \App\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 200);
         }
-
     }
 
     /**
@@ -66,7 +65,12 @@ class PessoaController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $data = \App\Pessoa::find($id);
+            return response()->json($data, 200);
+        } catch (\Exception $e) {
+            throw new \Exception("Ocorreu um problema ao listar dados");
+        }
     }
 
     /**
@@ -94,7 +98,8 @@ class PessoaController extends Controller
                 ->update($request->all());
             return response()->json(['message' => 'Dados atualizados com sucesso.'], 200);
         } catch (\Exception $e) {
-            throw new \Exception("Ocorreu um problema ao atualizar dados");
+            \App\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um erro ao atualizar dados. Por favor tente novamente'], 200);
         }
     }
 

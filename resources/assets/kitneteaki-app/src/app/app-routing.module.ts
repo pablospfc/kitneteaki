@@ -9,6 +9,7 @@ import { ListContaComponent } from './conta/list-conta/list-conta.component';
 import { LoginTemplateComponent } from './templates/login-template/login-template.component';
 import { LoginComponent } from './auth/login/login.component';
 import {NewPessoaComponent} from "./pessoa/new-pessoa/new-pessoa.component";
+import {PessoaResolverGuard} from "./_guards/pessoa-resolver.guard";
 
 
 const routes: Routes = [
@@ -26,7 +27,17 @@ const routes: Routes = [
       },
       {
         path: 'new-pessoa',
-        component: NewPessoaComponent
+        component: NewPessoaComponent,
+        resolve: {
+          pessoa: PessoaResolverGuard
+        }
+      },
+      {
+        path: 'update-pessoa/:id',
+        component: NewPessoaComponent,
+        resolve: {
+          pessoa: PessoaResolverGuard
+        }
       },
       {
         path: 'list-contrato',
@@ -56,7 +67,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

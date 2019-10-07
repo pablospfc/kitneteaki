@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Pessoa} from "../shared/pessoa.model";
+import {Pessoa} from "../../_models/pessoa.model";
 import {NgForm} from "@angular/forms";
-import {PessoaService} from "../shared/pessoa.service";
+import {PessoaService} from "../../_services/pessoa.service";
+import {AlertService} from "../../_services/alert.service";
+import {ActivatedRoute, Resolve} from "@angular/router";
 
 @Component({
   selector: 'app-new-pessoa',
@@ -10,28 +12,32 @@ import {PessoaService} from "../shared/pessoa.service";
 })
 export class NewPessoaComponent implements OnInit {
 
-  pessoa: Pessoa;
-  public error = null;
-  public success = null;
+  public pessoa: Pessoa;
   formValue: any;
-  constructor(private pessoaServie: PessoaService) {
-
+  constructor(private pessoaService: PessoaService, private alertService: AlertService, private actRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.pessoa = new Pessoa();
+
+      this.actRoute.data.subscribe(data => {
+        console.log('Check route resolver data');
+        this.pessoa = data;
+        console.log(data);
+      });
+
   }
 
   onSubmit(form: NgForm) {
     this.formValue = form.value;
-    return this.pessoaServie.save(form.value)
+    this.pessoaService.save(form.value)
       .subscribe(success => {
-        this.success = success;
-        console.log(this.success);
+          const message = (success as any).message;
+          this.alertService.success(message, true);
       },
         error => {
-        this.error = error.message;
-        console.log(this.error);
+          const message = (error as any).message;
+          this.alertService.error(message);
         });
   }
 

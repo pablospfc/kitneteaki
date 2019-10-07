@@ -23,6 +23,19 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/alert/alert.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/alert/alert.component.html ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"message\" [ngClass]=\"message.cssClass\">{{message.text}}</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html":
 /*!**************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
@@ -149,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Pessoas\r\n    <small>Listar</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li class=\"active\">Pessoas</li>\r\n    <li class=\"active\">Listar Pessoas</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"box box-primary\">\r\n    <div class=\"box-header\">\r\n      <i class=\"ion ion-clipboard\"></i>\r\n\r\n      <h3 class=\"box-title\">Gestão de Pessoas</h3>\r\n\r\n      <div class=\"box-tools pull-right\">\r\n        <!-- BOTÕES DE ADICIONAR-->\r\n        <button type=\"button\" class=\"btn btn-success pull-right\" [routerLink]=\"['/new-pessoa']\"><i class=\"fa fa-plus\"></i> Adicionar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.box-header -->\r\n    <div class=\"box-body\">\r\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\r\n      <table id=\"example1\" class=\"table table-bordered table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>CPF</th>\r\n          <th>RG</th>\r\n          <th>Data de Nascimento</th>\r\n          <th>Tipo</th>\r\n          <th>Ação</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 4.0\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td> 4</td>\r\n          <td>X</td>\r\n        </tr>\r\n\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 4.0\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td> 4</td>\r\n          <td>X</td>\r\n        </tr>\r\n        </tbody>\r\n        <tfoot>\r\n        <tr>\r\n          <th>Rendering engine</th>\r\n          <th>Browser</th>\r\n          <th>Platform(s)</th>\r\n          <th>Engine version</th>\r\n          <th>CSS grade</th>\r\n        </tr>\r\n        </tfoot>\r\n      </table>\r\n    </div>\r\n    <!-- /.box-body -->\r\n\r\n  </div>\r\n</section>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Pessoas\r\n    <small>Listar</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li class=\"active\">Pessoas</li>\r\n    <li class=\"active\">Listar Pessoas</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"box box-primary\">\r\n    <div class=\"box-header\">\r\n      <i class=\"ion ion-clipboard\"></i>\r\n\r\n      <h3 class=\"box-title\">Gestão de Pessoas</h3>\r\n\r\n      <div class=\"box-tools pull-right\">\r\n        <!-- BOTÕES DE ADICIONAR-->\r\n        <button type=\"button\" class=\"btn btn-success pull-right\" [routerLink]=\"['/new-pessoa']\"><i class=\"fa fa-plus\"></i> Adicionar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.box-header -->\r\n    <div class=\"box-body\">\r\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\r\n      <table id=\"tblPessoa\" class=\"table table-bordered table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>CPF/CNPJ/Passaporte</th>\r\n          <th>Categoria</th>\r\n          <th>Nacionalidade</th>\r\n          <th>WhatsApp</th>\r\n          <th>Tipo</th>\r\n          <th>Ação</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr *ngFor=\"let pessoa of pessoas\">\r\n          <td>{{pessoa.nome}}</td>\r\n          <td>{{pessoa.cpf_cnpj ? pessoa.cpf_cnpj : pessoa.passaporte}}</td>\r\n          <td>{{pessoa.categoria}}</td>\r\n          <td>{{pessoa.nacionalidade}}</td>\r\n          <td>{{pessoa.whatsapp ? pessoa.whatsapp : 'Não Pertence' }}</td>\r\n          <td>{{pessoa.tipo_pessoa ? pessoa.tipo_pessoa : 'É Estrangeiro'}}</td>\r\n          <td>\r\n            <button type=\"button\"\r\n                    [routerLink]=\"['/update-pessoa/'+pessoa.id]\"\r\n                    class=\"btn btn-default btn-xs\">\r\n              <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\r\n            </button>\r\n            <button type=\"button\"\r\n                    class=\"btn btn-default btn-xs\">\r\n              <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\r\n            </button>\r\n          </td>\r\n        </tr>\r\n        </tbody>\r\n        <tfoot>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>CPF/CNPJ/Passaporte</th>\r\n          <th>Categoria</th>\r\n          <th>Nacionalidade</th>\r\n          <th>WhatsApp</th>\r\n          <th>Tipo</th>\r\n          <th>Ação</th>\r\n        </tr>\r\n        </tfoot>\r\n      </table>\r\n    </div>\r\n    <!-- /.box-body -->\r\n\r\n  </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -162,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Pessoas\r\n    <small>Adicionar</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li><a href=\"#\">Pessoa</a></li>\r\n    <li class=\"active\">Adicionar</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"row\">\r\n    <!-- left column -->\r\n    <div class=\"col-md-12\">\r\n      <div class=\"box box-primary\">\r\n        <div class=\"box-header with-border\">\r\n          <h3 class=\"box-title\">Cadastrar Pessoa</h3>\r\n        </div>\r\n        <!-- /.box-header -->\r\n        <!-- form start -->\r\n        <form #pessoaForm=\"ngForm\" role=\"form\" (ngSubmit)=\"onSubmit(pessoaForm)\">\r\n\r\n          <div class=\"box-body\">\r\n            <h4>Dados Pessoais</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-6\">\r\n                <label for=\"nome\">Nome</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"nome\"\r\n                       name=\"nome\"\r\n                       [(ngModel)]=\"pessoa.nome\"\r\n                       #nome=\"ngModel\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Nome\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"data_nascimento\">Data de Nascimento</label>\r\n                <input type=\"date\"\r\n                       class=\"form-control\"\r\n                       id=\"data_nascimento\"\r\n                       name=\"data_nascimento\"\r\n                       [(ngModel)]=\"pessoa.data_nascimento\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Data Nascimento\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"genero\">Gênero(*)</label>\r\n                <select class=\"form-control\"\r\n                        id=\"genero\"\r\n                        [(ngModel)]=\"pessoa.id_genero\"\r\n                        [required]=\"true\"\r\n                        name=\"id_genero\">\r\n                  <option [value]=\"1\">Masculino</option>\r\n                  <option [value]=\"2\">Feminino</option>\r\n                  <option [value]=\"3\">Outro</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"estado_civil\">Estado Civil</label>\r\n                <select class=\"form-control\"\r\n                        id=\"estado_civil\"\r\n                        [(ngModel)]=\"pessoa.id_estado_civil\"\r\n                        [required]=\"true\"\r\n                        name=\"id_estado_civil\">\r\n                  <option [value]=\"1\">Solteiro(a)</option>\r\n                  <option [value]=\"2\">Casado(a)</option>\r\n                  <option [value]=\"3\">Separado(a)</option>\r\n                  <option [value]=\"4\">Divorciado(a)</option>\r\n                  <option [value]=\"5\">Viúvo(a)</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"categoria_pessoa\">Categoria</label>\r\n                <select class=\"form-control\"\r\n                        id=\"categoria_pessoa\"\r\n                        [(ngModel)]=\"pessoa.id_categoria_pessoa\"\r\n                        [required]=\"true\"\r\n                        name=\"id_categoria_pessoa\">\r\n                  <option [value]=\"1\">Proprietário</option>\r\n                  <option [value]=\"2\">Inquilino</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Documentos de Identificação</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"nacionalidade\">Nacionalidade</label>\r\n                <select class=\"form-control\"\r\n                        id=\"nacionalidade\"\r\n                        [(ngModel)]=\"pessoa.id_nacionalidade\"\r\n                        [required]=\"true\"\r\n                        name=\"id_nacionalidade\">\r\n                  <option [value]=\"1\">Brasileiro</option>\r\n                  <option [value]=\"2\">Estrangeiro</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"tipo_pessoa\">Tipo de Pessoa</label>\r\n                <select class=\"form-control\"\r\n                        id=\"tipo_pessoa\"\r\n                        [(ngModel)]=\"pessoa.id_tipo_pessoa\"\r\n                        [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                        [required]=\"pessoa.id_nacionalidade == 1\"\r\n                        name=\"id_tipo_pessoa\">\r\n                  <option [value]=\"1\">Pessoa Física</option>\r\n                  <option [value]=\"2\">Pessoa Jurídica</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"cpf\">CPF/CNPJ:</label>\r\n                <input type=\"text\"\r\n                       [(ngModel)]=\"pessoa.cpf_cnpj\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                       [required]=\"pessoa.id_nacionalidade == 1\"\r\n                       name=\"cpf_cnpj\"\r\n                       class=\"form-control\"\r\n                       id=\"cpf\"\r\n                       placeholder=\"CPF\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"rg\">RG:</label>\r\n                <input type=\"text\"\r\n                       name=\"rg\"\r\n                       [(ngModel)]=\"pessoa.rg\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                       [required]=\"pessoa.id_nacionalidade == 1\"\r\n                       class=\"form-control\"\r\n                       id=\"rg\"\r\n                       placeholder=\"RG\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"orgaoExpedidor\">Órgão Emissor:</label>\r\n                <input type=\"text\"\r\n                       name=\"orgao_expedidor\"\r\n                       [(ngModel)]=\"pessoa.orgao_expedidor\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                       [required]=\"pessoa.id_nacionalidade == 1\"\r\n                       class=\"form-control\"\r\n                       id=\"orgaoExpedidor\"\r\n                       placeholder=\"Órgão Expedidor\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"passaporte\">Passaporte:</label>\r\n                <input type=\"text\"\r\n                       name=\"passaporte\"\r\n                       [(ngModel)]=\"pessoa.passaporte\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 1\"\r\n                       [required]=\"pessoa.id_nacionalidade == 2\"\r\n                       class=\"form-control\"\r\n                       id=\"passaporte\"\r\n                       placeholder=\"Passaporte\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"dataEmissao\">Data de Emissão:</label>\r\n                <input type=\"date\"\r\n                       name=\"data_emissao\"\r\n                       [(ngModel)]=\"pessoa.data_emissao\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                       [required]=\"pessoa.id_nacionalidade == 1\"\r\n                       class=\"form-control\"\r\n                       id=\"dataEmissao\"\r\n                       placeholder=\"Data de Emissão\"/>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Contato</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"telefone_celular\">Telefone Celular:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"telefone_celular\"\r\n                       name=\"telefone_celular\"\r\n                       [(ngModel)]=\"pessoa.telefone_celular\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Telefone Celular\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"whatsapp\">WhatsApp:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"whatsapp\"\r\n                       name=\"whatsapp\"\r\n                       [(ngModel)]=\"pessoa.whatsapp\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"WhatsApp\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"telefone_celular\">E-mail:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"email\"\r\n                       name=\"email\"\r\n                       [(ngModel)]=\"pessoa.email\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"E-mail\"/>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Dados Adicionais</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"profissao\">Profissão:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"profissao\"\r\n                       name=\"profissao\"\r\n                       [(ngModel)]=\"pessoa.profissao\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Profissão\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <!-- /.box-body -->\r\n\r\n          <div class=\"box-footer\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!pessoaForm.valid\">Salvar</button>\r\n          </div>\r\n        </form>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Pessoas\r\n    <small>Adicionar</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li><a href=\"#\">Pessoa</a></li>\r\n    <li class=\"active\">Adicionar</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"row\">\r\n    <!-- left column -->\r\n    <div class=\"col-md-12\">\r\n      <div class=\"box box-primary\">\r\n        <div class=\"box-header with-border\">\r\n          <h3 class=\"box-title\">Cadastrar Pessoa</h3>\r\n        </div>\r\n        <!-- /.box-header -->\r\n        <!-- form start -->\r\n        <form #pessoaForm=\"ngForm\" role=\"form\" (ngSubmit)=\"onSubmit(pessoaForm)\">\r\n\r\n          <app-alert></app-alert>\r\n\r\n          <div class=\"box-body\">\r\n            <h4>Dados Pessoais</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-6\">\r\n                <label for=\"nome\">Nome</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"nome\"\r\n                       name=\"nome\"\r\n                       [(ngModel)]=\"pessoa.nome\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Nome\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"data_nascimento\">Data de Nascimento</label>\r\n                <input type=\"date\"\r\n                       class=\"form-control\"\r\n                       id=\"data_nascimento\"\r\n                       name=\"data_nascimento\"\r\n                       [(ngModel)]=\"pessoa.data_nascimento\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Data Nascimento\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"genero\">Gênero</label>\r\n                <select class=\"form-control\"\r\n                        id=\"genero\"\r\n                        [(ngModel)]=\"pessoa.id_genero\"\r\n                        [required]=\"true\"\r\n                        name=\"id_genero\">\r\n                  <option [value]=\"1\">Masculino</option>\r\n                  <option [value]=\"2\">Feminino</option>\r\n                  <option [value]=\"3\">Outro</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"estado_civil\">Estado Civil</label>\r\n                <select class=\"form-control\"\r\n                        id=\"estado_civil\"\r\n                        [(ngModel)]=\"pessoa.id_estado_civil\"\r\n                        [required]=\"true\"\r\n                        name=\"id_estado_civil\">\r\n                  <option [value]=\"1\">Solteiro(a)</option>\r\n                  <option [value]=\"2\">Casado(a)</option>\r\n                  <option [value]=\"3\">Separado(a)</option>\r\n                  <option [value]=\"4\">Divorciado(a)</option>\r\n                  <option [value]=\"5\">Viúvo(a)</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"categoria_pessoa\">Categoria</label>\r\n                <select class=\"form-control\"\r\n                        id=\"categoria_pessoa\"\r\n                        [(ngModel)]=\"pessoa.id_categoria_pessoa\"\r\n                        [required]=\"true\"\r\n                        name=\"id_categoria_pessoa\">\r\n                  <option [value]=\"1\">Proprietário</option>\r\n                  <option [value]=\"2\">Inquilino</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Documentos de Identificação</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"nacionalidade\">Nacionalidade</label>\r\n                <select class=\"form-control\"\r\n                        id=\"nacionalidade\"\r\n                        [(ngModel)]=\"pessoa.id_nacionalidade\"\r\n                        [required]=\"true\"\r\n                        name=\"id_nacionalidade\">\r\n                  <option [value]=\"1\">Brasileiro</option>\r\n                  <option [value]=\"2\">Estrangeiro</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"tipo_pessoa\">Tipo de Pessoa</label>\r\n                <select class=\"form-control\"\r\n                        id=\"tipo_pessoa\"\r\n                        [(ngModel)]=\"pessoa.id_tipo_pessoa\"\r\n                        [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                        [required]=\"pessoa.id_nacionalidade == 1\"\r\n                        name=\"id_tipo_pessoa\">\r\n                  <option [value]=\"1\">Pessoa Física</option>\r\n                  <option [value]=\"2\">Pessoa Jurídica</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"cpf\">CPF/CNPJ:</label>\r\n                <input type=\"text\"\r\n                       [(ngModel)]=\"pessoa.cpf_cnpj\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                       [required]=\"pessoa.id_nacionalidade == 1\"\r\n                       name=\"cpf_cnpj\"\r\n                       class=\"form-control\"\r\n                       id=\"cpf\"\r\n                       placeholder=\"CPF\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"rg\">RG:</label>\r\n                <input type=\"text\"\r\n                       name=\"rg\"\r\n                       [(ngModel)]=\"pessoa.rg\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                       [required]=\"pessoa.id_nacionalidade == 1\"\r\n                       class=\"form-control\"\r\n                       id=\"rg\"\r\n                       placeholder=\"RG\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"orgaoExpedidor\">Órgão Emissor:</label>\r\n                <input type=\"text\"\r\n                       name=\"orgao_expedidor\"\r\n                       [(ngModel)]=\"pessoa.orgao_expedidor\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                       [required]=\"pessoa.id_nacionalidade == 1\"\r\n                       class=\"form-control\"\r\n                       id=\"orgaoExpedidor\"\r\n                       placeholder=\"Órgão Expedidor\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"passaporte\">Passaporte:</label>\r\n                <input type=\"text\"\r\n                       name=\"passaporte\"\r\n                       [(ngModel)]=\"pessoa.passaporte\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 1\"\r\n                       [required]=\"pessoa.id_nacionalidade == 2\"\r\n                       class=\"form-control\"\r\n                       id=\"passaporte\"\r\n                       placeholder=\"Passaporte\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"dataEmissao\">Data de Emissão:</label>\r\n                <input type=\"date\"\r\n                       name=\"data_emissao\"\r\n                       [(ngModel)]=\"pessoa.data_emissao\"\r\n                       [disabled]=\"pessoa.id_nacionalidade == 2\"\r\n                       [required]=\"pessoa.id_nacionalidade == 1\"\r\n                       class=\"form-control\"\r\n                       id=\"dataEmissao\"\r\n                       placeholder=\"Data de Emissão\"/>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Contato</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"telefone_celular\">Telefone Celular:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"telefone_celular\"\r\n                       name=\"telefone_celular\"\r\n                       [(ngModel)]=\"pessoa.telefone_celular\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Telefone Celular\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"whatsapp\">WhatsApp:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"whatsapp\"\r\n                       name=\"whatsapp\"\r\n                       [(ngModel)]=\"pessoa.whatsapp\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"WhatsApp\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"telefone_celular\">E-mail:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"email\"\r\n                       name=\"email\"\r\n                       [(ngModel)]=\"pessoa.email\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"E-mail\"/>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Dados Adicionais</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"profissao\">Profissão:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"profissao\"\r\n                       name=\"profissao\"\r\n                       [(ngModel)]=\"pessoa.profissao\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Profissão\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <!-- /.box-body -->\r\n\r\n          <div class=\"box-footer\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!pessoaForm.valid\">Salvar</button>\r\n          </div>\r\n        </form>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -421,6 +434,291 @@ function __importDefault(mod) {
 
 /***/ }),
 
+/***/ "./src/app/_guards/pessoa-resolver.guard.ts":
+/*!**************************************************!*\
+  !*** ./src/app/_guards/pessoa-resolver.guard.ts ***!
+  \**************************************************/
+/*! exports provided: PessoaResolverGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PessoaResolverGuard", function() { return PessoaResolverGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_pessoa_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/pessoa.service */ "./src/app/_services/pessoa.service.ts");
+
+
+
+
+let PessoaResolverGuard = class PessoaResolverGuard {
+    constructor(service) {
+        this.service = service;
+    }
+    resolve(route, state) {
+        if (route.params && route.params['id']) {
+            return this.service.getById(route.params['id']);
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({
+            id: null,
+            id_estado_civil: null,
+            id_tipo_pessoa: null,
+            id_genero: null,
+            id_categoria_pessoa: null,
+            id_nacionalidade: null,
+            nome: null,
+            cpf_cnpj: null,
+            rg: null,
+            passaporte: null,
+            data_nascimento: null,
+            orgao_expedidor: null,
+            data_emissao: null,
+            email: null,
+            telefone_celular: null,
+            whatsapp: null,
+            profissao: null
+        });
+    }
+};
+PessoaResolverGuard.ctorParameters = () => [
+    { type: _services_pessoa_service__WEBPACK_IMPORTED_MODULE_3__["PessoaService"] }
+];
+PessoaResolverGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PessoaResolverGuard);
+
+
+
+/***/ }),
+
+/***/ "./src/app/_models/pessoa.model.ts":
+/*!*****************************************!*\
+  !*** ./src/app/_models/pessoa.model.ts ***!
+  \*****************************************/
+/*! exports provided: Pessoa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pessoa", function() { return Pessoa; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class Pessoa {
+}
+
+
+/***/ }),
+
+/***/ "./src/app/_services/alert.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/_services/alert.service.ts ***!
+  \********************************************/
+/*! exports provided: AlertService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertService", function() { return AlertService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+let AlertService = class AlertService {
+    constructor(router) {
+        this.router = router;
+        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.keepAfterRouteChange = false;
+        // clear alert messages on route change unless 'keepAfterRouteChange' flag is true
+        this.router.events.subscribe(event => {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationStart"]) {
+                if (this.keepAfterRouteChange) {
+                    // only keep for a single route change
+                    this.keepAfterRouteChange = false;
+                }
+                else {
+                    // clear alert message
+                    this.clear();
+                }
+            }
+        });
+    }
+    getAlert() {
+        return this.subject.asObservable();
+    }
+    success(message, keepAfterRouteChange = false) {
+        this.keepAfterRouteChange = keepAfterRouteChange;
+        this.subject.next({ type: 'success', text: message });
+    }
+    error(message, keepAfterRouteChange = false) {
+        this.keepAfterRouteChange = keepAfterRouteChange;
+        this.subject.next({ type: 'error', text: message });
+    }
+    clear() {
+        // clear by calling subject.next() without parameters
+        this.subject.next();
+    }
+};
+AlertService.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AlertService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AlertService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/_services/pessoa.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/_services/pessoa.service.ts ***!
+  \*********************************************/
+/*! exports provided: PessoaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PessoaService", function() { return PessoaService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+let PessoaService = class PessoaService {
+    constructor(http) {
+        this.http = http;
+        this.API = `${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API}pessoa`;
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+            })
+        };
+    }
+    list() {
+        return this.http.get(this.API + '/listar')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => {
+            return res;
+        }));
+    }
+    getById(id) {
+        return this.http.get(this.API + '/buscar/' + id)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => {
+            //console.log(res);
+            return res;
+        }));
+    }
+    create(pessoa) {
+        return this.http.post(this.API + '/cadastrar', pessoa, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
+            return response;
+        }));
+    }
+    update(pessoa) {
+        return this.http.put(`${this.API}/atualizar/${pessoa.id}`, pessoa)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
+            return response;
+        }));
+    }
+    save(pessoa) {
+        if (pessoa.id) {
+            return this.update(pessoa);
+        }
+        return this.create(pessoa);
+    }
+};
+PessoaService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
+PessoaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PessoaService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/alert/alert.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/alert/alert.component.scss ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FsZXJ0L2FsZXJ0LmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/alert/alert.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/alert/alert.component.ts ***!
+  \******************************************/
+/*! exports provided: AlertComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertComponent", function() { return AlertComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/alert.service */ "./src/app/_services/alert.service.ts");
+
+
+
+let AlertComponent = class AlertComponent {
+    constructor(alertService) {
+        this.alertService = alertService;
+    }
+    ngOnInit() {
+        this.subscription = this.alertService.getAlert()
+            .subscribe(message => {
+            switch (message && message.type) {
+                case 'success':
+                    message.cssClass = 'alert alert-success';
+                    break;
+                case 'error':
+                    message.cssClass = 'alert alert-danger';
+                    break;
+            }
+            this.message = message;
+        });
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+};
+AlertComponent.ctorParameters = () => [
+    { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_2__["AlertService"] }
+];
+AlertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-alert',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./alert.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/alert/alert.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./alert.component.scss */ "./src/app/alert/alert.component.scss")).default]
+    })
+], AlertComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -443,6 +741,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _templates_login_template_login_template_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./templates/login-template/login-template.component */ "./src/app/templates/login-template/login-template.component.ts");
 /* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
 /* harmony import */ var _pessoa_new_pessoa_new_pessoa_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pessoa/new-pessoa/new-pessoa.component */ "./src/app/pessoa/new-pessoa/new-pessoa.component.ts");
+/* harmony import */ var _guards_pessoa_resolver_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./_guards/pessoa-resolver.guard */ "./src/app/_guards/pessoa-resolver.guard.ts");
+
 
 
 
@@ -470,7 +770,17 @@ const routes = [
             },
             {
                 path: 'new-pessoa',
-                component: _pessoa_new_pessoa_new_pessoa_component__WEBPACK_IMPORTED_MODULE_11__["NewPessoaComponent"]
+                component: _pessoa_new_pessoa_new_pessoa_component__WEBPACK_IMPORTED_MODULE_11__["NewPessoaComponent"],
+                resolve: {
+                    pessoa: _guards_pessoa_resolver_guard__WEBPACK_IMPORTED_MODULE_12__["PessoaResolverGuard"]
+                }
+            },
+            {
+                path: 'update-pessoa/:id',
+                component: _pessoa_new_pessoa_new_pessoa_component__WEBPACK_IMPORTED_MODULE_11__["NewPessoaComponent"],
+                resolve: {
+                    pessoa: _guards_pessoa_resolver_guard__WEBPACK_IMPORTED_MODULE_12__["PessoaResolverGuard"]
+                }
             },
             {
                 path: 'list-contrato',
@@ -502,8 +812,8 @@ let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { useHash: true })],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
     })
 ], AppRoutingModule);
 
@@ -584,6 +894,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pessoa_new_pessoa_new_pessoa_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pessoa/new-pessoa/new-pessoa.component */ "./src/app/pessoa/new-pessoa/new-pessoa.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./alert/alert.component */ "./src/app/alert/alert.component.ts");
+
 
 
 
@@ -620,7 +932,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _layout_footer_footer_component__WEBPACK_IMPORTED_MODULE_7__["FooterComponent"],
             _layout_menu_menu_component__WEBPACK_IMPORTED_MODULE_6__["MenuComponent"],
             _templates_dashboard_template_dashboard_template_component__WEBPACK_IMPORTED_MODULE_8__["DashboardTemplateComponent"],
-            _templates_login_template_login_template_component__WEBPACK_IMPORTED_MODULE_9__["LoginTemplateComponent"]
+            _templates_login_template_login_template_component__WEBPACK_IMPORTED_MODULE_9__["LoginTemplateComponent"],
+            _alert_alert_component__WEBPACK_IMPORTED_MODULE_19__["AlertComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -629,6 +942,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
         ],
         providers: [],
+        exports: [
+            _alert_alert_component__WEBPACK_IMPORTED_MODULE_19__["AlertComponent"]
+        ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })
 ], AppModule);
@@ -1014,13 +1330,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListPessoaComponent", function() { return ListPessoaComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_pessoa_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/pessoa.service */ "./src/app/_services/pessoa.service.ts");
+/* harmony import */ var _models_pessoa_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_models/pessoa.model */ "./src/app/_models/pessoa.model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
 
 
 let ListPessoaComponent = class ListPessoaComponent {
-    constructor() { }
+    constructor(pessoaService, router, route) {
+        this.pessoaService = pessoaService;
+        this.router = router;
+        this.route = route;
+        this.pessoas = [];
+        this.pessoa = _models_pessoa_model__WEBPACK_IMPORTED_MODULE_3__["Pessoa"];
+    }
     ngOnInit() {
+        this.list();
+    }
+    list() {
+        this.pessoaService.list()
+            .subscribe(response => {
+            // console.log(response);
+            this.pessoas = response;
+        });
+    }
+    openEditPessoa(id) {
+        this.router.navigate(['update-pessoa', id], { relativeTo: this.route });
     }
 };
+ListPessoaComponent.ctorParameters = () => [
+    { type: _services_pessoa_service__WEBPACK_IMPORTED_MODULE_2__["PessoaService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
+];
 ListPessoaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-list-pessoa',
@@ -1058,35 +1402,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewPessoaComponent", function() { return NewPessoaComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _shared_pessoa_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/pessoa.model */ "./src/app/pessoa/shared/pessoa.model.ts");
-/* harmony import */ var _shared_pessoa_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/pessoa.service */ "./src/app/pessoa/shared/pessoa.service.ts");
+/* harmony import */ var _models_pessoa_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_models/pessoa.model */ "./src/app/_models/pessoa.model.ts");
+/* harmony import */ var _services_pessoa_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_services/pessoa.service */ "./src/app/_services/pessoa.service.ts");
+/* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_services/alert.service */ "./src/app/_services/alert.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
 
 
 
 
 let NewPessoaComponent = class NewPessoaComponent {
-    constructor(pessoaServie) {
-        this.pessoaServie = pessoaServie;
-        this.error = null;
-        this.success = null;
+    constructor(pessoaService, alertService, actRoute) {
+        this.pessoaService = pessoaService;
+        this.alertService = alertService;
+        this.actRoute = actRoute;
     }
     ngOnInit() {
-        this.pessoa = new _shared_pessoa_model__WEBPACK_IMPORTED_MODULE_2__["Pessoa"]();
+        this.pessoa = new _models_pessoa_model__WEBPACK_IMPORTED_MODULE_2__["Pessoa"]();
+        this.actRoute.data.subscribe(data => {
+            console.log('Check route resolver data');
+            this.pessoa = data;
+            console.log(data);
+        });
     }
     onSubmit(form) {
         this.formValue = form.value;
-        return this.pessoaServie.save(form.value)
+        this.pessoaService.save(form.value)
             .subscribe(success => {
-            this.success = success;
-            console.log(this.success);
+            const message = success.message;
+            this.alertService.success(message, true);
         }, error => {
-            this.error = error.message;
-            console.log(this.error);
+            const message = error.message;
+            this.alertService.error(message);
         });
     }
 };
 NewPessoaComponent.ctorParameters = () => [
-    { type: _shared_pessoa_service__WEBPACK_IMPORTED_MODULE_3__["PessoaService"] }
+    { type: _services_pessoa_service__WEBPACK_IMPORTED_MODULE_3__["PessoaService"] },
+    { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }
 ];
 NewPessoaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1095,89 +1450,6 @@ NewPessoaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./new-pessoa.component.scss */ "./src/app/pessoa/new-pessoa/new-pessoa.component.scss")).default]
     })
 ], NewPessoaComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/pessoa/shared/pessoa.model.ts":
-/*!***********************************************!*\
-  !*** ./src/app/pessoa/shared/pessoa.model.ts ***!
-  \***********************************************/
-/*! exports provided: Pessoa */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pessoa", function() { return Pessoa; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
-class Pessoa {
-}
-
-
-/***/ }),
-
-/***/ "./src/app/pessoa/shared/pessoa.service.ts":
-/*!*************************************************!*\
-  !*** ./src/app/pessoa/shared/pessoa.service.ts ***!
-  \*************************************************/
-/*! exports provided: PessoaService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PessoaService", function() { return PessoaService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-
-
-
-
-
-let PessoaService = class PessoaService {
-    constructor(http) {
-        this.http = http;
-        this.API = `${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API}pessoa`;
-    }
-    list() {
-        return this.http.get(this.API + '/listar')
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(res => {
-            return res;
-        }));
-    }
-    getById(id) {
-    }
-    create(pessoa) {
-        return this.http.post(this.API + '/cadastrar', pessoa)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
-            return response;
-        }));
-    }
-    update(pessoa) {
-        return this.http.put(`${this.API}/atualizar/${pessoa.id}`, pessoa)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
-            return response;
-        }));
-    }
-    save(pessoa) {
-        if (pessoa.id) {
-            return this.update(pessoa);
-        }
-        return this.create(pessoa);
-    }
-};
-PessoaService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
-];
-PessoaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], PessoaService);
 
 
 

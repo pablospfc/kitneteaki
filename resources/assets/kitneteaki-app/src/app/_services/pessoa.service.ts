@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {environment} from "../../../environments/environment";
-import {Pessoa} from "./pessoa.model";
+import {environment} from "../../environments/environment";
+import {Pessoa} from "../_models/pessoa.model";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError, BehaviorSubject} from "rxjs";
-import {map, filter, catchError, mergeMap, retry, tap} from "rxjs/operators";
+import {map, filter, catchError, mergeMap, retry, tap, take} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,11 @@ import {map, filter, catchError, mergeMap, retry, tap} from "rxjs/operators";
 export class PessoaService {
 
   private readonly API = `${environment.API}pessoa`;
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
 
   constructor(private http: HttpClient) {
   }
@@ -25,12 +30,18 @@ export class PessoaService {
       );
   }
 
-  public getById(id: number) {
-
+  public getById(id: number): Observable<any> {
+    return this.http.get(this.API + '/buscar/' + id)
+      .pipe(
+        map(res => {
+          //console.log(res);
+          return res;
+        })
+      );
   }
 
   private create(pessoa) {
-    return this.http.post(this.API + '/cadastrar', pessoa)
+    return this.http.post(this.API + '/cadastrar', pessoa, this.httpOptions)
       .pipe(
         map(response => {
           return response;

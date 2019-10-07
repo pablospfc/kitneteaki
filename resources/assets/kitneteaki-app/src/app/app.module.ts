@@ -22,6 +22,7 @@ import { LoginComponent } from './auth/login/login.component';
 import {NewPessoaComponent} from "./pessoa/new-pessoa/new-pessoa.component";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {HttpClientModule} from "@angular/common/http";
     FooterComponent,
     MenuComponent,
     DashboardTemplateComponent,
-    LoginTemplateComponent
+    LoginTemplateComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,9 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule
   ],
   providers: [],
+  exports: [
+    AlertComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

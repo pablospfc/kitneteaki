@@ -25,45 +25,48 @@
     <!-- /.box-header -->
     <div class="box-body">
       <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-      <table id="example1" class="table table-bordered table-striped">
+      <table id="tblPessoa" class="table table-bordered table-striped">
         <thead>
         <tr>
           <th>Nome</th>
-          <th>CPF</th>
-          <th>RG</th>
-          <th>Data de Nascimento</th>
+          <th>CPF/CNPJ/Passaporte</th>
+          <th>Categoria</th>
+          <th>Nacionalidade</th>
+          <th>WhatsApp</th>
           <th>Tipo</th>
           <th>Ação</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Trident</td>
-          <td>Internet
-            Explorer 4.0
+        <tr *ngFor="let pessoa of pessoas">
+          <td>{{pessoa.nome}}</td>
+          <td>{{pessoa.cpf_cnpj ? pessoa.cpf_cnpj : pessoa.passaporte}}</td>
+          <td>{{pessoa.categoria}}</td>
+          <td>{{pessoa.nacionalidade}}</td>
+          <td>{{pessoa.whatsapp ? pessoa.whatsapp : 'Não Pertence' }}</td>
+          <td>{{pessoa.tipo_pessoa ? pessoa.tipo_pessoa : 'É Estrangeiro'}}</td>
+          <td>
+            <button type="button"
+                    [routerLink]="['/update-pessoa/'+pessoa.id]"
+                    class="btn btn-default btn-xs">
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            </button>
+            <button type="button"
+                    class="btn btn-default btn-xs">
+              <i class="fa fa-remove" aria-hidden="true"></i>
+            </button>
           </td>
-          <td>Win 95+</td>
-          <td> 4</td>
-          <td>X</td>
-        </tr>
-
-        <tr>
-          <td>Trident</td>
-          <td>Internet
-            Explorer 4.0
-          </td>
-          <td>Win 95+</td>
-          <td> 4</td>
-          <td>X</td>
         </tr>
         </tbody>
         <tfoot>
         <tr>
-          <th>Rendering engine</th>
-          <th>Browser</th>
-          <th>Platform(s)</th>
-          <th>Engine version</th>
-          <th>CSS grade</th>
+          <th>Nome</th>
+          <th>CPF/CNPJ/Passaporte</th>
+          <th>Categoria</th>
+          <th>Nacionalidade</th>
+          <th>WhatsApp</th>
+          <th>Tipo</th>
+          <th>Ação</th>
         </tr>
         </tfoot>
       </table>
