@@ -34,7 +34,6 @@ export class PessoaService {
     return this.http.get(this.API + '/buscar/' + id)
       .pipe(
         map(res => {
-          //console.log(res);
           return res;
         })
       );
@@ -59,6 +58,7 @@ export class PessoaService {
   }
 
   public save(pessoa) {
+    console.log(pessoa);
     if (pessoa.id) {
       return this.update(pessoa);
     }

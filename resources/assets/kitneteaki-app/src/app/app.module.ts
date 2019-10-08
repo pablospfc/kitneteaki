@@ -23,6 +23,7 @@ import {NewPessoaComponent} from "./pessoa/new-pessoa/new-pessoa.component";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { AlertComponent } from './alert/alert.component';
+import {NgBrToolsModule} from "ng-br-tools";
 
 @NgModule({
   declarations: [

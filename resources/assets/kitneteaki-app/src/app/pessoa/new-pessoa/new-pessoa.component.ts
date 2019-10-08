@@ -19,11 +19,8 @@ export class NewPessoaComponent implements OnInit {
 
   ngOnInit() {
     this.pessoa = new Pessoa();
-
-      this.actRoute.data.subscribe(data => {
-        console.log('Check route resolver data');
-        this.pessoa = data;
-        console.log(data);
+    this.actRoute.data.subscribe(data => {
+        this.pessoa = data.pessoa;
       });
 
   }

@@ -10,8 +10,8 @@ import {PessoaService} from "../_services/pessoa.service";
 export class PessoaResolverGuard implements Resolve<Pessoa> {
   constructor(private service: PessoaService) {}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Pessoa> {
-    if (route.params && route.params['id']) {
-      return this.service.getById(route.params['id']);
+    if (route.params && route.params.id) {
+      return this.service.getById(route.params.id);
     }
 
     return of({
