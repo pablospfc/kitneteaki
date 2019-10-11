@@ -19,6 +19,12 @@ class CreateImovelTable extends Migration
             $table->foreign("id_tipo_imovel")->references("id")->on("tipo_imovel");
             $table->string("nome");
             $table->string("logradouro");
+            $table->string("condominio");
+            $table->string("apartamento");
+            $table->string("latitude");
+            $table->string("longitude");
+            $table->string("ponto_referencia");
+            $table->string("bloco");
             $table->string("numero");
             $table->string("cep");
             $table->string("complemento");

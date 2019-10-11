@@ -5,6 +5,7 @@ import { NewPessoaComponent } from './new-pessoa/new-pessoa.component';
 import {FormsModule} from "@angular/forms";
 import {AppModule} from "../app.module";
 import {RouterModule} from "@angular/router";
+import {SharedModule} from "../shared/shared.module";
 
 
 
@@ -14,6 +15,7 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     FormsModule,
     AppModule,
+    SharedModule,
     RouterModule
   ]
 })

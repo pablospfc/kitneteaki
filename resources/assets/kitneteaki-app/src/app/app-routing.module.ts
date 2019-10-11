@@ -10,6 +10,7 @@ import { LoginTemplateComponent } from './templates/login-template/login-templat
 import { LoginComponent } from './auth/login/login.component';
 import {NewPessoaComponent} from "./pessoa/new-pessoa/new-pessoa.component";
 import {PessoaResolverGuard} from "./_guards/pessoa-resolver.guard";
+import {NewImovelComponent} from "./imovel/new-imovel/new-imovel.component";
 
 
 const routes: Routes = [
@@ -46,6 +47,14 @@ const routes: Routes = [
       {
         path: 'list-imovel',
         component: ListImovelComponent
+      },
+      {
+        path: 'new-imovel',
+        component: NewImovelComponent
+      },
+      {
+        path: 'update-imovel/:id',
+        component: NewImovelComponent
       },
       {
         path: 'list-conta',

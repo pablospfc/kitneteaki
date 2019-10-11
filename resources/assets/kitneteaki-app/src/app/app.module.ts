@@ -23,7 +23,7 @@ import {NewPessoaComponent} from "./pessoa/new-pessoa/new-pessoa.component";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { AlertComponent } from './alert/alert.component';
-import {NgBrToolsModule} from "ng-br-tools";
+import {NewImovelComponent} from "./imovel/new-imovel/new-imovel.component";
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import {NgBrToolsModule} from "ng-br-tools";
     ListContratoComponent,
     ListPessoaComponent,
     NewPessoaComponent,
+    NewImovelComponent,
     LoginComponent,
     HeaderComponent,
     FooterComponent,

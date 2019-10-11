@@ -20,7 +20,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form #pessoaForm="ngForm" role="form" (ngSubmit)="onSubmit(pessoaForm)">
+        <form #pessoaForm="ngForm" name="pessoaForm" role="form" (ngSubmit)="onSubmit(pessoaForm)">
           <input type="hidden" name="id" value="id" [(ngModel)]="pessoa.id"/>
 
           <app-alert></app-alert>
@@ -129,7 +129,8 @@
                        name="cpf_cnpj"
                        class="form-control"
                        id="cpf"
-                       placeholder="CPF"/>
+                       placeholder="12"
+                />
               </div>
 
               <div class="form-group col-md-3">
@@ -234,10 +235,11 @@
             </div>
           </div>
           <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <button type="submit" class="btn btn-primary" [disabled]="!pessoaForm.valid">Salvar</button>
+              <button type="button" class="btn btn-success" [routerLink]="['/list-pessoa']">Voltar</button>
+            </div>
 
-          <div class="box-footer">
-            <button type="submit" class="btn btn-primary" [disabled]="!pessoaForm.valid">Salvar</button>
-          </div>
         </form>
 
       </div>
