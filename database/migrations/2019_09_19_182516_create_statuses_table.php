@@ -27,7 +27,13 @@ class CreateStatusesTable extends Migration
             ['id_tipo_status' => 1, 'nome' => 'Vencido'],
             ['id_tipo_status' => 2, 'nome' => 'Em Aberto'],
             ['id_tipo_status' => 2, 'nome' => 'Atrasado'],
-            ['id_tipo_status' => 2, 'nome' => 'Liquidado']
+            ['id_tipo_status' => 2, 'nome' => 'Liquidado'],
+            ['id_tipo_status' => 3, 'nome' => 'Disponível'],
+            ['id_tipo_status' => 3, 'nome' => 'Reservado'],
+            ['id_tipo_status' => 3, 'nome' => 'Alugado'],
+            ['id_tipo_status' => 3, 'nome' => 'Suspenso'],
+
+
             ]
         );
     }

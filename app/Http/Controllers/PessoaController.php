@@ -53,7 +53,7 @@ class PessoaController extends Controller
             return response()->json(['message' => 'Dados cadastrados com sucesso.'], 200);
         } catch (\Exception $e) {
             \App\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 200);
+            return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 500);
         }
     }
 

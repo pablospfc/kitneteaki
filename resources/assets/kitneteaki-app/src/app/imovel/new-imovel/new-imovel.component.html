@@ -1,0 +1,261 @@
+<section class="content-header">
+  <h1>
+    Imóveis
+    <small>{{imovel.id ? 'Atualizar' : 'Adicionar'}}</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Imovel</a></li>
+    <li class="active">{{imovel.id ? 'Atualizar' : 'Adicionar'}}</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">{{imovel.id ? 'Atualizar' : 'Adicionar'}} Pessoa</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form #imovelForm="ngForm" name="pessoaForm" role="form" (ngSubmit)="onSubmit(imovelForm)">
+          <input type="hidden" name="id" value="id" [(ngModel)]="imovel.id"/>
+
+          <app-alert></app-alert>
+
+          <div class="box-body">
+            <h4>Dados Básicos</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="nome">Nome</label>
+                <input type="text"
+                       class="form-control"
+                       id="nome"
+                       name="nome"
+                       [(ngModel)]="imovel.nome"
+                       [required]="true"
+                       placeholder="Nome"/>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="tipo_imovel">Tipo</label>
+                <select class="form-control"
+                        id="tipo_imovel"
+                        [(ngModel)]="imovel.id_tipo_imovel"
+                        [required]="true"
+                        name="id_tipo_imovel">
+                  <option [value]="1">Kitnet</option>
+                  <option [value]="2">Casa</option>
+                  <option [value]="3">Apartamento</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="status">Status</label>
+                <select class="form-control"
+                        id="status"
+                        [(ngModel)]="imovel.id_status"
+                        [required]="true"
+                        name="id_estado_civil">
+                  <option [value]="7">Disponível</option>
+                  <option [value]="8">Reservado</option>
+                  <option [value]="9">Alugado</option>
+                  <option [value]="10">Suspenso</option>
+                </select>
+              </div>
+
+            </div>
+
+            <h4>Endereço</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="cep">CEP</label>
+                <input type="text"
+                       class="form-control"
+                       id="cep"
+                       name="cep"
+                       [(ngModel)]="imovel.cep"
+                       [required]="true"
+                       placeholder="CEP"/>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="logradouro">Logradouro</label>
+                <input type="text"
+                       class="form-control"
+                       id="logradouro"
+                       name="logradouro"
+                       [(ngModel)]="imovel.logradouro"
+                       [required]="true"
+                       placeholder="Logradouro"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="bairro">Bairro</label>
+                <input type="text"
+                       class="form-control"
+                       id="bairro"
+                       name="bairro"
+                       [(ngModel)]="imovel.bairro"
+                       [required]="true"
+                       placeholder="Bairro"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="cidade">Cidade</label>
+                <input type="text"
+                       class="form-control"
+                       id="cidade"
+                       name="cidade"
+                       [(ngModel)]="imovel.cidade"
+                       [required]="true"
+                       placeholder="Cidade"/>
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="estado">Estado</label>
+                <input type="text"
+                       class="form-control"
+                       id="estado"
+                       name="estado"
+                       [(ngModel)]="imovel.estado"
+                       [required]="true"
+                       placeholder="Estado"/>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="complemento">Complemento</label>
+                <input type="text"
+                       class="form-control"
+                       id="complemento"
+                       name="complemento"
+                       [(ngModel)]="imovel.complemento"
+                       [required]="false"
+                       placeholder="Complemento"/>
+              </div>
+            </div>
+
+            <h4>Valores</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="valor_iptu">Valor de IPTU:</label>
+                <input type="text"
+                       class="form-control"
+                       id="valor_iptu"
+                       name="valor_iptu"
+                       [(ngModel)]="imovel.valor_iptu"
+                       [required]="true"
+                       placeholder="IPTU"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="valor_condominio">Valor de Condomínio:</label>
+                <input type="text"
+                       class="form-control"
+                       id="valor_condominio"
+                       name="valor_condominio"
+                       [(ngModel)]="imovel.valor_condominio"
+                       [required]="true"
+                       placeholder="Valor de Condomínio"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="valor_imovel">Valor do Imóvel:</label>
+                <input type="text"
+                       class="form-control"
+                       id="valor_imovel"
+                       name="valor_imovel"
+                       [(ngModel)]="imovel.valor_imovel"
+                       [required]="true"
+                       placeholder="Valor de Imóvel"/>
+              </div>
+            </div>
+
+            <h4>Dados Adicionais</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="latitude">Latitude</label>
+                <input type="text"
+                       class="form-control"
+                       id="latitude"
+                       name="latitude"
+                       [(ngModel)]="imovel.latitude"
+                       [required]="false"
+                       placeholder="Latitude"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="longitude">Longitude</label>
+                <input type="text"
+                       class="form-control"
+                       id="longitude"
+                       name="longitude"
+                       [(ngModel)]="imovel.longitude"
+                       [required]="false"
+                       placeholder="Longitude"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="condominio">Condomínio</label>
+                <input type="text"
+                       class="form-control"
+                       id="condominio"
+                       name="condominio"
+                       [(ngModel)]="imovel.longitude"
+                       [required]="false"
+                       placeholder="Longitude"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="apartamento">Apartamento</label>
+                <input type="text"
+                       class="form-control"
+                       id="apartamento"
+                       name="apartamento"
+                       [(ngModel)]="imovel.apartamento"
+                       [required]="false"
+                       placeholder="Apartamento"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="bloco">Bloco</label>
+                <input type="text"
+                       class="form-control"
+                       id="bloco"
+                       name="bloco"
+                       [(ngModel)]="imovel.bloco"
+                       [required]="false"
+                       placeholder="Bloco"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="bloco">Número</label>
+                <input type="text"
+                       class="form-control"
+                       id="numero"
+                       name="numero"
+                       [(ngModel)]="imovel.numero"
+                       [required]="false"
+                       placeholder="Número"/>
+              </div>
+
+            </div>
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="!imovelForm.valid">Salvar</button>
+            <button type="button" class="btn btn-success" [routerLink]="['/list-imovel']">Voltar</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>

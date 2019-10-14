@@ -38,7 +38,6 @@ class CreatePessoasTable extends Migration
             $table->string("telefone_celular");
             $table->string("whatsapp");
             $table->string("email");
-            $table->boolean("disponivel");
             $table->timestamps();
         });
     }

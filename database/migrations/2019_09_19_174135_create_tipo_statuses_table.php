@@ -21,7 +21,8 @@ class CreateTipoStatusesTable extends Migration
 
         DB::table('tipo_status')->insert([
             ['nome' => 'Contrato'],
-            ['nome' => 'Pagamento']
+            ['nome' => 'Pagamento'],
+            ['nome' => 'Imóvel']
             ]
             );
     }

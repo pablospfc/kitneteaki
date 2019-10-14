@@ -17,6 +17,8 @@ class CreateImovelTable extends Migration
             $table->increments('id');
             $table->integer("id_tipo_imovel")->unsigned();
             $table->foreign("id_tipo_imovel")->references("id")->on("tipo_imovel");
+            $table->integer("id_status")->unsigned();
+            $table->foreign("id_status")->references("id")->on("status");
             $table->string("nome");
             $table->string("logradouro");
             $table->string("condominio");
@@ -25,6 +27,9 @@ class CreateImovelTable extends Migration
             $table->string("longitude");
             $table->string("ponto_referencia");
             $table->string("bloco");
+            $table->decimal("valor_iptu");
+            $table->decimal("valor_condominio");
+            $table->decimal("valor_imovel");
             $table->string("numero");
             $table->string("cep");
             $table->string("complemento");

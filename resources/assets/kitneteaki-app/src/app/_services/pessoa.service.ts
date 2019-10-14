@@ -42,8 +42,8 @@ export class PessoaService {
   private create(pessoa) {
     return this.http.post(this.API + '/cadastrar', pessoa, this.httpOptions)
       .pipe(
-        map(response => {
-          return response;
+        catchError(error => {
+          return throwError(error.error);
         })
       );
   }
@@ -51,14 +51,13 @@ export class PessoaService {
   private update(pessoa) {
     return this.http.put(`${this.API}/atualizar/${pessoa.id}`, pessoa)
       .pipe(
-        map(response => {
-          return response;
+        catchError(error => {
+          return throwError(error.error);
         })
       );
   }
 
   public save(pessoa) {
-    console.log(pessoa);
     if (pessoa.id) {
       return this.update(pessoa);
     }
