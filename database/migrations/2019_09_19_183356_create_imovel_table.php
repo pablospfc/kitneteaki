@@ -19,6 +19,8 @@ class CreateImovelTable extends Migration
             $table->foreign("id_tipo_imovel")->references("id")->on("tipo_imovel");
             $table->integer("id_status")->unsigned();
             $table->foreign("id_status")->references("id")->on("status");
+            $table->integer("id_transacao_imovel")->unsigned();
+            $table->foreign("id_transacao_imovel")->references("id")->on("transacao_imovel");
             $table->string("nome");
             $table->string("logradouro");
             $table->string("condominio");

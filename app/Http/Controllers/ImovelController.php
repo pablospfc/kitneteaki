@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use Illuminate\Http\Request;
 
 class ImovelController extends Controller
@@ -17,7 +18,8 @@ class ImovelController extends Controller
             $data = \App\Imovel::all();
             return response()->json($data, 200);
         } catch (\Exception $e) {
-            throw new \Exception("Ocorreu um problema ao listar dados.");
+            Log::create(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Ocorreu um problema ao listar dados.'],500);
         }
     }
 
@@ -43,7 +45,8 @@ class ImovelController extends Controller
             \App\Imovel::create($request->all());
             return response()->json(['message'=>"Dados inseridos com sucesso."],200);
         }catch(\Exception $e){
-            throw new \Exception("Ocorreu um problema ao cadastrar dados");
+            \App\Log::create(['message'=> $e->getMessage()] );
+            return response()->json(['message'=>"Ocorreu um erro ao cadastrar dados. Por favor tente novamente"],500);
         }
     }
 
@@ -55,7 +58,9 @@ class ImovelController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = \App\Imovel::find($id);
+
+        return response()->json($data, 200);
     }
 
     /**
@@ -83,7 +88,8 @@ class ImovelController extends Controller
                 ->update($request->all());
             return response()->json(['message' => 'Dados atualizados com sucesso.'], 200);
         } catch (\Exception $e) {
-            throw new \Exception("Ocorreu um problema ao atualizar dados.");
+            Log::create(['message'=>$e->getMessage()]);
+            return response()->json(['message'=> 'Ocorreu um problema ao atualizar dados. Por favor tente novamente.'],500);
         }
     }
 

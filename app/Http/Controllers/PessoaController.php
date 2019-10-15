@@ -26,7 +26,7 @@ class PessoaController extends Controller
             $data = $this->pessoa->getAll();
             return response()->json($data, 200);
         } catch (\Exception $e) {
-            throw new \Exception("Ocorreu um problema ao listar dados");
+            return response()->json(['message' => 'Ocorreu um problema ao listar dados'],500);
         }
     }
 

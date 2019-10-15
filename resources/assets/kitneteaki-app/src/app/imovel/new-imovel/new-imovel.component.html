@@ -16,7 +16,7 @@
     <div class="col-md-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{imovel.id ? 'Atualizar' : 'Adicionar'}} Pessoa</h3>
+          <h3 class="box-title">{{imovel.id ? 'Atualizar' : 'Adicionar'}} Imóvel</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -50,6 +50,18 @@
                   <option [value]="1">Kitnet</option>
                   <option [value]="2">Casa</option>
                   <option [value]="3">Apartamento</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="transacao_imovel">Transação</label>
+                <select class="form-control"
+                        id="transacao_imovel"
+                        [(ngModel)]="imovel.id_transacao_imovel"
+                        [required]="true"
+                        name="id_transacao_imovel">
+                  <option [value]="1">Aluguel</option>
+                  <option [value]="2">Temporada</option>
                 </select>
               </div>
 
@@ -150,6 +162,7 @@
                        name="valor_iptu"
                        [(ngModel)]="imovel.valor_iptu"
                        [required]="true"
+                       [disabled]="imovel.id_transacao_imovel == 2"
                        placeholder="IPTU"/>
               </div>
 
@@ -160,6 +173,7 @@
                        id="valor_condominio"
                        name="valor_condominio"
                        [(ngModel)]="imovel.valor_condominio"
+                       [disabled]="imovel.id_transacao_imovel == 2 || imovel.id_tipo_imovel != 3"
                        [required]="true"
                        placeholder="Valor de Condomínio"/>
               </div>
@@ -207,9 +221,10 @@
                        class="form-control"
                        id="condominio"
                        name="condominio"
-                       [(ngModel)]="imovel.longitude"
+                       [(ngModel)]="imovel.condominio"
                        [required]="false"
-                       placeholder="Longitude"/>
+                       [disabled]="imovel.id_tipo_imovel != 3"
+                       placeholder="Condomínio"/>
               </div>
 
               <div class="form-group col-md-3">
@@ -220,6 +235,7 @@
                        name="apartamento"
                        [(ngModel)]="imovel.apartamento"
                        [required]="false"
+                       [disabled]="imovel.id_tipo_imovel != 3"
                        placeholder="Apartamento"/>
               </div>
 
@@ -231,6 +247,7 @@
                        name="bloco"
                        [(ngModel)]="imovel.bloco"
                        [required]="false"
+                       [disabled]="imovel.id_tipo_imovel != 3"
                        placeholder="Bloco"/>
               </div>
 
@@ -242,6 +259,7 @@
                        name="numero"
                        [(ngModel)]="imovel.numero"
                        [required]="false"
+                       [disabled]="imovel.id_tipo_imovel == 3"
                        placeholder="Número"/>
               </div>
 
