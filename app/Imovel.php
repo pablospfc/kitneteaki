@@ -34,16 +34,17 @@ class Imovel extends Model
 
     public function getAll() {
         return self::select(
+          "imo.id as id",
           "imo.nome as nome",
           "sta.nome as status",
           "tip.nome as tipo_imovel",
           "tra.nome as transacao_imovel",
-          "imo.valor as valor_imovel"
+          "imo.valor_imovel as valor_imovel"
         )
             ->from("imovel as imo")
             ->join("tipo_imovel as tip","imo.id_tipo_imovel","=","tip.id")
             ->join("transacao_imovel as tra","imo.id_transacao_imovel", "=", "tra.id")
-            ->join("status as sta", "imo.id_status_imovel", "=", "sta.id")
+            ->join("status as sta", "imo.id_status", "=", "sta.id")
             ->get()
             ->toArray();
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imovel;
 use App\Log;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,16 @@ class ImovelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $imovel;
+
+    function __construct()
+    {
+        $this->imovel = new Imovel();
+    }
     public function index()
     {
         try {
-            $data = \App\Imovel::all();
+            $data = $this->imovel->getAll();
             return response()->json($data, 200);
         } catch (\Exception $e) {
             Log::create(['message' => $e->getMessage()], 500);

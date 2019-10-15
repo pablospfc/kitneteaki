@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ImovelService} from "../../_services/imovel.service";
 
 @Component({
   selector: 'app-list-imovel',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListImovelComponent implements OnInit {
 
-  constructor() { }
+  public imoveis = [];
+  constructor(private imovelService: ImovelService) { }
 
   ngOnInit() {
+    this.list();
+  }
+
+  list() {
+    return this.imovelService.list()
+      .subscribe( response => {
+        this.imoveis = response;
+      });
   }
 
 }

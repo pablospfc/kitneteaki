@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {environment} from "../../environments/environment";
-import {Pessoa} from "../_models/pessoa.model";
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {Observable, throwError, BehaviorSubject} from "rxjs";
-import {map, filter, catchError, mergeMap, retry, tap, take} from "rxjs/operators";
+import {environment} from '../../environments/environment';
+import {Pessoa} from '../_models/pessoa.model';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Observable, throwError, BehaviorSubject} from 'rxjs';
+import {map, filter, catchError, mergeMap, retry, tap, take} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
