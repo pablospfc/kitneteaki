@@ -8,9 +8,10 @@ import { DashboardTemplateComponent } from './templates/dashboard-template/dashb
 import { ListContaComponent } from './conta/list-conta/list-conta.component';
 import { LoginTemplateComponent } from './templates/login-template/login-template.component';
 import { LoginComponent } from './auth/login/login.component';
-import {NewPessoaComponent} from "./pessoa/new-pessoa/new-pessoa.component";
-import {PessoaResolverGuard} from "./_guards/pessoa-resolver.guard";
-import {NewImovelComponent} from "./imovel/new-imovel/new-imovel.component";
+import {NewPessoaComponent} from './pessoa/new-pessoa/new-pessoa.component';
+import {PessoaResolverGuard} from './_guards/pessoa-resolver.guard';
+import {NewImovelComponent} from './imovel/new-imovel/new-imovel.component';
+import {ImovelResolverGuard} from './_guards/imovel-resolver.guard';
 
 
 const routes: Routes = [
@@ -50,11 +51,17 @@ const routes: Routes = [
       },
       {
         path: 'new-imovel',
-        component: NewImovelComponent
+        component: NewImovelComponent,
+        resolve: {
+          imovel: ImovelResolverGuard
+        }
       },
       {
         path: 'update-imovel/:id',
-        component: NewImovelComponent
+        component: NewImovelComponent,
+        resolve: {
+          imovel: ImovelResolverGuard
+        }
       },
       {
         path: 'list-conta',

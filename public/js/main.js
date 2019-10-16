@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Imóveis\r\n    <small>{{imovel.id ? 'Atualizar' : 'Adicionar'}}</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li><a href=\"#\">Imovel</a></li>\r\n    <li class=\"active\">{{imovel.id ? 'Atualizar' : 'Adicionar'}}</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"row\">\r\n    <!-- left column -->\r\n    <div class=\"col-md-12\">\r\n      <div class=\"box box-primary\">\r\n        <div class=\"box-header with-border\">\r\n          <h3 class=\"box-title\">{{imovel.id ? 'Atualizar' : 'Adicionar'}} Imóvel</h3>\r\n        </div>\r\n        <!-- /.box-header -->\r\n        <!-- form start -->\r\n        <form #imovelForm=\"ngForm\" name=\"pessoaForm\" role=\"form\" (ngSubmit)=\"onSubmit(imovelForm)\">\r\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"imovel.id\"/>\r\n\r\n          <app-alert></app-alert>\r\n\r\n          <div class=\"box-body\">\r\n            <h4>Dados Básicos</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-6\">\r\n                <label for=\"nome\">Nome</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"nome\"\r\n                       name=\"nome\"\r\n                       [(ngModel)]=\"imovel.nome\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Nome\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"tipo_imovel\">Tipo</label>\r\n                <select class=\"form-control\"\r\n                        id=\"tipo_imovel\"\r\n                        [(ngModel)]=\"imovel.id_tipo_imovel\"\r\n                        [required]=\"true\"\r\n                        name=\"id_tipo_imovel\">\r\n                  <option [value]=\"1\">Kitnet</option>\r\n                  <option [value]=\"2\">Casa</option>\r\n                  <option [value]=\"3\">Apartamento</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"transacao_imovel\">Transação</label>\r\n                <select class=\"form-control\"\r\n                        id=\"transacao_imovel\"\r\n                        [(ngModel)]=\"imovel.id_transacao_imovel\"\r\n                        [required]=\"true\"\r\n                        name=\"id_transacao_imovel\">\r\n                  <option [value]=\"1\">Aluguel</option>\r\n                  <option [value]=\"2\">Temporada</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"status\">Status</label>\r\n                <select class=\"form-control\"\r\n                        id=\"status\"\r\n                        [(ngModel)]=\"imovel.id_status\"\r\n                        [required]=\"true\"\r\n                        name=\"id_status\">\r\n                  <option [value]=\"7\">Disponível</option>\r\n                  <option [value]=\"8\">Reservado</option>\r\n                  <option [value]=\"9\">Alugado</option>\r\n                  <option [value]=\"10\">Suspenso</option>\r\n                </select>\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <h4>Endereço</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"cep\">CEP</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"cep\"\r\n                       name=\"cep\"\r\n                       [(ngModel)]=\"imovel.cep\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"CEP\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"logradouro\">Logradouro</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"logradouro\"\r\n                       name=\"logradouro\"\r\n                       [(ngModel)]=\"imovel.logradouro\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Logradouro\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"bairro\">Bairro</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"bairro\"\r\n                       name=\"bairro\"\r\n                       [(ngModel)]=\"imovel.bairro\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Bairro\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"cidade\">Cidade</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"cidade\"\r\n                       name=\"cidade\"\r\n                       [(ngModel)]=\"imovel.cidade\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Cidade\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-2\">\r\n                <label for=\"estado\">Estado</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"estado\"\r\n                       name=\"estado\"\r\n                       [(ngModel)]=\"imovel.estado\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Estado\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"complemento\">Complemento</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"complemento\"\r\n                       name=\"complemento\"\r\n                       [(ngModel)]=\"imovel.complemento\"\r\n                       [required]=\"false\"\r\n                       placeholder=\"Complemento\"/>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Valores</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"valor_iptu\">Valor de IPTU:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"valor_iptu\"\r\n                       name=\"valor_iptu\"\r\n                       [(ngModel)]=\"imovel.valor_iptu\"\r\n                       [required]=\"true\"\r\n                       [disabled]=\"imovel.id_transacao_imovel == 2\"\r\n                       placeholder=\"IPTU\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"valor_condominio\">Valor de Condomínio:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"valor_condominio\"\r\n                       name=\"valor_condominio\"\r\n                       [(ngModel)]=\"imovel.valor_condominio\"\r\n                       [disabled]=\"imovel.id_transacao_imovel == 2 || imovel.id_tipo_imovel != 3\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Valor de Condomínio\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"valor_imovel\">Valor do Imóvel:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"valor_imovel\"\r\n                       name=\"valor_imovel\"\r\n                       [(ngModel)]=\"imovel.valor_imovel\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Valor de Imóvel\"/>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Dados Adicionais</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"latitude\">Latitude</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"latitude\"\r\n                       name=\"latitude\"\r\n                       [(ngModel)]=\"imovel.latitude\"\r\n                       [required]=\"false\"\r\n                       placeholder=\"Latitude\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"longitude\">Longitude</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"longitude\"\r\n                       name=\"longitude\"\r\n                       [(ngModel)]=\"imovel.longitude\"\r\n                       [required]=\"false\"\r\n                       placeholder=\"Longitude\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"condominio\">Condomínio</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"condominio\"\r\n                       name=\"condominio\"\r\n                       [(ngModel)]=\"imovel.condominio\"\r\n                       [required]=\"false\"\r\n                       [disabled]=\"imovel.id_tipo_imovel != 3\"\r\n                       placeholder=\"Condomínio\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"apartamento\">Apartamento</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"apartamento\"\r\n                       name=\"apartamento\"\r\n                       [(ngModel)]=\"imovel.apartamento\"\r\n                       [required]=\"false\"\r\n                       [disabled]=\"imovel.id_tipo_imovel != 3\"\r\n                       placeholder=\"Apartamento\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"bloco\">Bloco</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"bloco\"\r\n                       name=\"bloco\"\r\n                       [(ngModel)]=\"imovel.bloco\"\r\n                       [required]=\"false\"\r\n                       [disabled]=\"imovel.id_tipo_imovel != 3\"\r\n                       placeholder=\"Bloco\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"bloco\">Número</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"numero\"\r\n                       name=\"numero\"\r\n                       [(ngModel)]=\"imovel.numero\"\r\n                       [required]=\"false\"\r\n                       [disabled]=\"imovel.id_tipo_imovel == 3\"\r\n                       placeholder=\"Número\"/>\r\n              </div>\r\n\r\n            </div>\r\n          </div>\r\n          <!-- /.box-body -->\r\n          <div class=\"box-footer text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!imovelForm.valid\">Salvar</button>\r\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-imovel']\">Voltar</button>\r\n          </div>\r\n\r\n        </form>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Imóveis\r\n    <small>{{imovel.id ? 'Atualizar' : 'Adicionar'}}</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li><a href=\"#\">Imovel</a></li>\r\n    <li class=\"active\">{{imovel.id ? 'Atualizar' : 'Adicionar'}}</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"row\">\r\n    <!-- left column -->\r\n    <div class=\"col-md-12\">\r\n      <div class=\"box box-primary\">\r\n        <div class=\"box-header with-border\">\r\n          <h3 class=\"box-title\">{{imovel.id ? 'Atualizar' : 'Adicionar'}} Imóvel</h3>\r\n        </div>\r\n        <!-- /.box-header -->\r\n        <!-- form start -->\r\n        <form #imovelForm=\"ngForm\" name=\"imovelForm\" role=\"form\" (ngSubmit)=\"onSubmit(imovelForm)\">\r\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"imovel.id\"/>\r\n\r\n          <app-alert></app-alert>\r\n\r\n          <div class=\"box-body\">\r\n            <h4>Dados Básicos</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-6\">\r\n                <label for=\"nome\">Nome</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"nome\"\r\n                       name=\"nome\"\r\n                       [(ngModel)]=\"imovel.nome\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Nome\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"tipo_imovel\">Tipo</label>\r\n                <select class=\"form-control\"\r\n                        id=\"tipo_imovel\"\r\n                        [(ngModel)]=\"imovel.id_tipo_imovel\"\r\n                        [required]=\"true\"\r\n                        name=\"id_tipo_imovel\">\r\n                  <option [value]=\"1\">Kitnet</option>\r\n                  <option [value]=\"2\">Casa</option>\r\n                  <option [value]=\"3\">Apartamento</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"transacao_imovel\">Transação</label>\r\n                <select class=\"form-control\"\r\n                        id=\"transacao_imovel\"\r\n                        [(ngModel)]=\"imovel.id_transacao_imovel\"\r\n                        [required]=\"true\"\r\n                        name=\"id_transacao_imovel\">\r\n                  <option [value]=\"1\">Aluguel</option>\r\n                  <option [value]=\"2\">Temporada</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"status\">Status</label>\r\n                <select class=\"form-control\"\r\n                        id=\"status\"\r\n                        [(ngModel)]=\"imovel.id_status\"\r\n                        [required]=\"true\"\r\n                        name=\"id_status\">\r\n                  <option [value]=\"7\">Disponível</option>\r\n                  <option [value]=\"8\">Reservado</option>\r\n                  <option [value]=\"9\">Alugado</option>\r\n                  <option [value]=\"10\">Suspenso</option>\r\n                </select>\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <h4>Endereço</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"cep\">CEP</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"cep\"\r\n                       name=\"cep\"\r\n                       (blur)=\"getCEP($event.target.value)\"\r\n                       [(ngModel)]=\"imovel.cep\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"CEP\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"logradouro\">Logradouro</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"logradouro\"\r\n                       name=\"logradouro\"\r\n                       [(ngModel)]=\"imovel.logradouro\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Logradouro\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"bairro\">Bairro</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"bairro\"\r\n                       name=\"bairro\"\r\n                       [(ngModel)]=\"imovel.bairro\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Bairro\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"cidade\">Cidade</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"cidade\"\r\n                       name=\"cidade\"\r\n                       [(ngModel)]=\"imovel.cidade\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Cidade\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-2\">\r\n                <label for=\"estado\">Estado</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"estado\"\r\n                       name=\"estado\"\r\n                       [(ngModel)]=\"imovel.estado\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Estado\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"complemento\">Complemento</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"complemento\"\r\n                       name=\"complemento\"\r\n                       [(ngModel)]=\"imovel.complemento\"\r\n                       [required]=\"false\"\r\n                       placeholder=\"Complemento\"/>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Valores</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"valor_iptu\">Valor de IPTU:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"valor_iptu\"\r\n                       name=\"valor_iptu\"\r\n                       [(ngModel)]=\"imovel.valor_iptu\"\r\n                       [required]=\"true\"\r\n                       [disabled]=\"imovel.id_transacao_imovel == 2\"\r\n                       placeholder=\"IPTU\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"valor_condominio\">Valor de Condomínio:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"valor_condominio\"\r\n                       name=\"valor_condominio\"\r\n                       [(ngModel)]=\"imovel.valor_condominio\"\r\n                       [disabled]=\"imovel.id_transacao_imovel == 2 || imovel.id_tipo_imovel != 3\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Valor de Condomínio\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"valor_imovel\">Valor do Imóvel:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"valor_imovel\"\r\n                       name=\"valor_imovel\"\r\n                       [(ngModel)]=\"imovel.valor_imovel\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Valor de Imóvel\"/>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Dados Adicionais</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"latitude\">Latitude</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"latitude\"\r\n                       name=\"latitude\"\r\n                       [(ngModel)]=\"imovel.latitude\"\r\n                       [required]=\"false\"\r\n                       placeholder=\"Latitude\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"longitude\">Longitude</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"longitude\"\r\n                       name=\"longitude\"\r\n                       [(ngModel)]=\"imovel.longitude\"\r\n                       [required]=\"false\"\r\n                       placeholder=\"Longitude\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"condominio\">Condomínio</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"condominio\"\r\n                       name=\"condominio\"\r\n                       [(ngModel)]=\"imovel.condominio\"\r\n                       [required]=\"false\"\r\n                       [disabled]=\"imovel.id_tipo_imovel != 3\"\r\n                       placeholder=\"Condomínio\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"apartamento\">Apartamento</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"apartamento\"\r\n                       name=\"apartamento\"\r\n                       [(ngModel)]=\"imovel.apartamento\"\r\n                       [required]=\"false\"\r\n                       [disabled]=\"imovel.id_tipo_imovel != 3\"\r\n                       placeholder=\"Apartamento\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"bloco\">Bloco</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"bloco\"\r\n                       name=\"bloco\"\r\n                       [(ngModel)]=\"imovel.bloco\"\r\n                       [required]=\"false\"\r\n                       [disabled]=\"imovel.id_tipo_imovel != 3\"\r\n                       placeholder=\"Bloco\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"bloco\">Número</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"numero\"\r\n                       name=\"numero\"\r\n                       [(ngModel)]=\"imovel.numero\"\r\n                       [required]=\"false\"\r\n                       [disabled]=\"imovel.id_tipo_imovel == 3\"\r\n                       placeholder=\"Número\"/>\r\n              </div>\r\n\r\n            </div>\r\n          </div>\r\n          <!-- /.box-body -->\r\n          <div class=\"box-footer text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!imovelForm.valid\">Salvar</button>\r\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-imovel']\">Voltar</button>\r\n          </div>\r\n\r\n        </form>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -447,6 +447,70 @@ function __importDefault(mod) {
 
 /***/ }),
 
+/***/ "./src/app/_guards/imovel-resolver.guard.ts":
+/*!**************************************************!*\
+  !*** ./src/app/_guards/imovel-resolver.guard.ts ***!
+  \**************************************************/
+/*! exports provided: ImovelResolverGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImovelResolverGuard", function() { return ImovelResolverGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_imovel_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/imovel.service */ "./src/app/_services/imovel.service.ts");
+
+
+
+
+let ImovelResolverGuard = class ImovelResolverGuard {
+    constructor(service) {
+        this.service = service;
+    }
+    resolve(route, state) {
+        if (route.params && route.params.id) {
+            return this.service.getById(route.params.id);
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({
+            id: null,
+            id_tipo_imovel: null,
+            id_status: null,
+            id_transacao_imovel: null,
+            nome: null,
+            logradouro: null,
+            condominio: null,
+            apartamento: null,
+            latitude: null,
+            longitude: null,
+            ponto_referencia: null,
+            bloco: null,
+            valor_iptu: null,
+            valor_condominio: null,
+            valor_imovel: null,
+            numero: null,
+            cep: null,
+            complemento: null,
+            bairro: null,
+            cidade: null,
+            estado: null,
+        });
+    }
+};
+ImovelResolverGuard.ctorParameters = () => [
+    { type: _services_imovel_service__WEBPACK_IMPORTED_MODULE_3__["ImovelService"] }
+];
+ImovelResolverGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ImovelResolverGuard);
+
+
+
+/***/ }),
+
 /***/ "./src/app/_guards/pessoa-resolver.guard.ts":
 /*!**************************************************!*\
   !*** ./src/app/_guards/pessoa-resolver.guard.ts ***!
@@ -604,6 +668,49 @@ AlertService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], AlertService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/_services/cep.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/_services/cep.service.ts ***!
+  \******************************************/
+/*! exports provided: CepService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CepService", function() { return CepService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let CepService = class CepService {
+    constructor(http) {
+        this.http = http;
+        this.API = 'https://viacep.com.br/ws/';
+    }
+    buscaCEP(cep) {
+        return this.http.get(`${this.API}/${cep}/json`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(response => {
+            return response;
+        }));
+    }
+};
+CepService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+CepService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], CepService);
 
 
 
@@ -851,6 +958,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pessoa_new_pessoa_new_pessoa_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pessoa/new-pessoa/new-pessoa.component */ "./src/app/pessoa/new-pessoa/new-pessoa.component.ts");
 /* harmony import */ var _guards_pessoa_resolver_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./_guards/pessoa-resolver.guard */ "./src/app/_guards/pessoa-resolver.guard.ts");
 /* harmony import */ var _imovel_new_imovel_new_imovel_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./imovel/new-imovel/new-imovel.component */ "./src/app/imovel/new-imovel/new-imovel.component.ts");
+/* harmony import */ var _guards_imovel_resolver_guard__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./_guards/imovel-resolver.guard */ "./src/app/_guards/imovel-resolver.guard.ts");
+
 
 
 
@@ -902,11 +1011,17 @@ const routes = [
             },
             {
                 path: 'new-imovel',
-                component: _imovel_new_imovel_new_imovel_component__WEBPACK_IMPORTED_MODULE_13__["NewImovelComponent"]
+                component: _imovel_new_imovel_new_imovel_component__WEBPACK_IMPORTED_MODULE_13__["NewImovelComponent"],
+                resolve: {
+                    imovel: _guards_imovel_resolver_guard__WEBPACK_IMPORTED_MODULE_14__["ImovelResolverGuard"]
+                }
             },
             {
                 path: 'update-imovel/:id',
-                component: _imovel_new_imovel_new_imovel_component__WEBPACK_IMPORTED_MODULE_13__["NewImovelComponent"]
+                component: _imovel_new_imovel_new_imovel_component__WEBPACK_IMPORTED_MODULE_13__["NewImovelComponent"],
+                resolve: {
+                    imovel: _guards_imovel_resolver_guard__WEBPACK_IMPORTED_MODULE_14__["ImovelResolverGuard"]
+                }
             },
             {
                 path: 'list-conta',
@@ -1337,18 +1452,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_imovel_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_models/imovel.model */ "./src/app/_models/imovel.model.ts");
 /* harmony import */ var _services_imovel_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_services/imovel.service */ "./src/app/_services/imovel.service.ts");
 /* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_services/alert.service */ "./src/app/_services/alert.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_cep_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../_services/cep.service */ "./src/app/_services/cep.service.ts");
+
+
 
 
 
 
 
 let NewImovelComponent = class NewImovelComponent {
-    constructor(imovelService, alertService) {
+    constructor(imovelService, alertService, actRoute, cepService) {
         this.imovelService = imovelService;
         this.alertService = alertService;
+        this.actRoute = actRoute;
+        this.cepService = cepService;
     }
     ngOnInit() {
         this.imovel = new _models_imovel_model__WEBPACK_IMPORTED_MODULE_2__["Imovel"]();
+        this.actRoute.data.subscribe(data => {
+            this.imovel = data.imovel;
+        });
     }
     onSubmit(form) {
         this.imovelService.save(form.value)
@@ -1360,10 +1484,24 @@ let NewImovelComponent = class NewImovelComponent {
             this.alertService.error(message);
         });
     }
+    getCEP(cep) {
+        this.cepService.buscaCEP(cep)
+            .subscribe(success => {
+            let dados = success;
+            this.imovel.logradouro = dados.logradouro;
+            this.imovel.bairro = dados.bairro;
+            this.imovel.cidade = dados.localidade;
+            this.imovel.estado = dados.uf;
+        }, error => {
+            console.log(error);
+        });
+    }
 };
 NewImovelComponent.ctorParameters = () => [
     { type: _services_imovel_service__WEBPACK_IMPORTED_MODULE_3__["ImovelService"] },
-    { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] }
+    { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] },
+    { type: _services_cep_service__WEBPACK_IMPORTED_MODULE_6__["CepService"] }
 ];
 NewImovelComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

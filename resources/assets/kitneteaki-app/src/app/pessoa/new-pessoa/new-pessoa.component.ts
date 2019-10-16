@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Pessoa} from "../../_models/pessoa.model";
-import {NgForm} from "@angular/forms";
-import {PessoaService} from "../../_services/pessoa.service";
-import {AlertService} from "../../_services/alert.service";
-import {ActivatedRoute, Resolve} from "@angular/router";
+import {Pessoa} from '../../_models/pessoa.model';
+import {NgForm} from '@angular/forms';
+import {PessoaService} from '../../_services/pessoa.service';
+import {AlertService} from '../../_services/alert.service';
+import {ActivatedRoute, Resolve} from '@angular/router';
 
 @Component({
   selector: 'app-new-pessoa',
@@ -22,7 +22,6 @@ export class NewPessoaComponent implements OnInit {
     this.actRoute.data.subscribe(data => {
         this.pessoa = data.pessoa;
       });
-
   }
 
   onSubmit(form: NgForm) {

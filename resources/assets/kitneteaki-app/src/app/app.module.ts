@@ -19,11 +19,11 @@ import { ListContaComponent } from './conta/list-conta/list-conta.component';
 import { ListImovelComponent } from './imovel/list-imovel/list-imovel.component';
 import { ListContratoComponent } from './contrato/list-contrato/list-contrato.component';
 import { LoginComponent } from './auth/login/login.component';
-import {NewPessoaComponent} from "./pessoa/new-pessoa/new-pessoa.component";
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {NewPessoaComponent} from './pessoa/new-pessoa/new-pessoa.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { AlertComponent } from './alert/alert.component';
-import {NewImovelComponent} from "./imovel/new-imovel/new-imovel.component";
+import {NewImovelComponent} from './imovel/new-imovel/new-imovel.component';
 
 @NgModule({
   declarations: [

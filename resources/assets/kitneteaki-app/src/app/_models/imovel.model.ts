@@ -2,7 +2,7 @@ export class Imovel {
   id: number;
   id_tipo_imovel: number;
   id_status: number;
-  id_transacao_imovel;
+  id_transacao_imovel: number;
   nome: string;
   logradouro: string;
   condominio: string;

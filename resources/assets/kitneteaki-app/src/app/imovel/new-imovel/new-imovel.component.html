@@ -20,7 +20,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form #imovelForm="ngForm" name="pessoaForm" role="form" (ngSubmit)="onSubmit(imovelForm)">
+        <form #imovelForm="ngForm" name="imovelForm" role="form" (ngSubmit)="onSubmit(imovelForm)">
           <input type="hidden" name="id" value="id" [(ngModel)]="imovel.id"/>
 
           <app-alert></app-alert>
@@ -90,6 +90,7 @@
                        class="form-control"
                        id="cep"
                        name="cep"
+                       (blur)="getCEP($event.target.value)"
                        [(ngModel)]="imovel.cep"
                        [required]="true"
                        placeholder="CEP"/>
