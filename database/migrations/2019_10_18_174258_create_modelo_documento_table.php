@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+//https://stackoverflow.com/questions/11076975/insert-text-into-textarea-at-cursor-position-javascript
+//https://codepen.io/erikpukinskis/pen/EjaaMY?editors=101
+//insert text in textarea at cursor position
 class CreateModeloDocumentoTable extends Migration
 {
     /**
