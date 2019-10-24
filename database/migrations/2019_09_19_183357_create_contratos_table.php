@@ -28,16 +28,15 @@ class CreateContratosTable extends Migration
             $table->integer("id_tipo_contrato")->unsigned();
             $table->foreign("id_tipo_contrato")->references("id")->on("tipo_contrato");
             $table->decimal("valor");
-            $table->decimal("decimal");
             $table->date("primeiro_vencimento");
             $table->char("dia_vencimento",2);
             $table->date("data_inicio");
             $table->date("data_fim");
             $table->integer("vigencia");
-            $table->string("referencia");
-            $table->longText("observacoes");
+            $table->string("referencia")->nullable();
+            $table->longText("observacoes")->nullable();
             $table->boolean("renovou");
-            $table->string("chave");
+            $table->string("chave")->nullable();
             $table->timestamps();
         });
     }

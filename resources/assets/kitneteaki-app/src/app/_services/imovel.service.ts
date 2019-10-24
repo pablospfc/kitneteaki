@@ -3,7 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError, BehaviorSubject} from 'rxjs';
 import {map, filter, catchError, mergeMap, retry, tap, take} from 'rxjs/operators';
-import {Imovel} from "../_models/imovel.model";
+import {Imovel} from '../_models/imovel.model';
 @Injectable({
   providedIn: 'root'
 })

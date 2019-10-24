@@ -84,7 +84,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Home\r\n    <small>Contratos</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li class=\"active\">Contratos</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"box box-primary\">\r\n    <div class=\"box-header\">\r\n      <i class=\"ion ion-clipboard\"></i>\r\n\r\n      <h3 class=\"box-title\">Gestão de Contratos</h3>\r\n\r\n      <div class=\"box-tools pull-right\">\r\n        <!-- BOTÕES DE ADICIONAR-->\r\n        <button type=\"button\" class=\"btn btn-success pull-right\"><i class=\"fa fa-plus\"></i> Adicionar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.box-header -->\r\n    <div class=\"box-body\">\r\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\r\n      <table id=\"example1\" class=\"table table-bordered table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Rendering engine</th>\r\n          <th>Browser</th>\r\n          <th>Platform(s)</th>\r\n          <th>Engine version</th>\r\n          <th>CSS grade</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 4.0\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td> 4</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 5.0\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td>5</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 5.5\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td>5.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 6\r\n          </td>\r\n          <td>Win 98+</td>\r\n          <td>6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet Explorer 7</td>\r\n          <td>Win XP SP2+</td>\r\n          <td>7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>AOL browser (AOL desktop)</td>\r\n          <td>Win XP</td>\r\n          <td>6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 1.0</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 1.5</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 2.0</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 3.0</td>\r\n          <td>Win 2k+ / OSX.3+</td>\r\n          <td>1.9</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Camino 1.0</td>\r\n          <td>OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Camino 1.5</td>\r\n          <td>OSX.3+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape 7.2</td>\r\n          <td>Win 95+ / Mac OS 8.6-9.2</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape Browser 8</td>\r\n          <td>Win 98SE+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape Navigator 9</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.0</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.1</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.2</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.2</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.3</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.4</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.4</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.5</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.6</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.7</td>\r\n          <td>Win 98+ / OSX.1+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.8</td>\r\n          <td>Win 98+ / OSX.1+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Seamonkey 1.1</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Epiphany 2.20</td>\r\n          <td>Gnome</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 1.2</td>\r\n          <td>OSX.3</td>\r\n          <td>125.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 1.3</td>\r\n          <td>OSX.3</td>\r\n          <td>312.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 2.0</td>\r\n          <td>OSX.4+</td>\r\n          <td>419.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 3.0</td>\r\n          <td>OSX.4+</td>\r\n          <td>522.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>OmniWeb 5.5</td>\r\n          <td>OSX.4+</td>\r\n          <td>420</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>iPod Touch / iPhone</td>\r\n          <td>iPod</td>\r\n          <td>420.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>S60</td>\r\n          <td>S60</td>\r\n          <td>413</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 7.0</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 7.5</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 8.0</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 8.5</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.0</td>\r\n          <td>Win 95+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.2</td>\r\n          <td>Win 88+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.5</td>\r\n          <td>Win 88+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera for Wii</td>\r\n          <td>Wii</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Nokia N800</td>\r\n          <td>N800</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Nintendo DS browser</td>\r\n          <td>Nintendo DS</td>\r\n          <td>8.5</td>\r\n          <td>C/A<sup>1</sup></td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.1</td>\r\n          <td>KDE 3.1</td>\r\n          <td>3.1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.3</td>\r\n          <td>KDE 3.3</td>\r\n          <td>3.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.5</td>\r\n          <td>KDE 3.5</td>\r\n          <td>3.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 4.5</td>\r\n          <td>Mac OS 8-9</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 5.1</td>\r\n          <td>Mac OS 7.6-9</td>\r\n          <td>1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 5.2</td>\r\n          <td>Mac OS 8-X</td>\r\n          <td>1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>NetFront 3.1</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>NetFront 3.4</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Dillo 0.8</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Links</td>\r\n          <td>Text only</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Lynx</td>\r\n          <td>Text only</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>IE Mobile</td>\r\n          <td>Windows Mobile 6</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>PSP browser</td>\r\n          <td>PSP</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Other browsers</td>\r\n          <td>All others</td>\r\n          <td>-</td>\r\n          <td>-</td>\r\n          <td>U</td>\r\n        </tr>\r\n        </tbody>\r\n        <tfoot>\r\n        <tr>\r\n          <th>Rendering engine</th>\r\n          <th>Browser</th>\r\n          <th>Platform(s)</th>\r\n          <th>Engine version</th>\r\n          <th>CSS grade</th>\r\n        </tr>\r\n        </tfoot>\r\n      </table>\r\n    </div>\r\n    <!-- /.box-body -->\r\n\r\n  </div>\r\n</section>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Home\r\n    <small>Contratos</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li class=\"active\">Contratos</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"box box-primary\">\r\n    <div class=\"box-header\">\r\n      <i class=\"ion ion-clipboard\"></i>\r\n\r\n      <h3 class=\"box-title\">Gestão de Contratos</h3>\r\n\r\n      <div class=\"box-tools pull-right\">\r\n        <!-- BOTÕES DE ADICIONAR-->\r\n        <button type=\"button\" class=\"btn btn-success pull-right\" [routerLink]=\"['/new-contrato']\"><i class=\"fa fa-plus\"></i> Adicionar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.box-header -->\r\n    <div class=\"box-body\">\r\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\r\n      <table id=\"example1\" class=\"table table-bordered table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Rendering engine</th>\r\n          <th>Browser</th>\r\n          <th>Platform(s)</th>\r\n          <th>Engine version</th>\r\n          <th>CSS grade</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 4.0\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td> 4</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 5.0\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td>5</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 5.5\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td>5.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 6\r\n          </td>\r\n          <td>Win 98+</td>\r\n          <td>6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet Explorer 7</td>\r\n          <td>Win XP SP2+</td>\r\n          <td>7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>AOL browser (AOL desktop)</td>\r\n          <td>Win XP</td>\r\n          <td>6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 1.0</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 1.5</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 2.0</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 3.0</td>\r\n          <td>Win 2k+ / OSX.3+</td>\r\n          <td>1.9</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Camino 1.0</td>\r\n          <td>OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Camino 1.5</td>\r\n          <td>OSX.3+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape 7.2</td>\r\n          <td>Win 95+ / Mac OS 8.6-9.2</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape Browser 8</td>\r\n          <td>Win 98SE+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape Navigator 9</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.0</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.1</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.2</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.2</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.3</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.4</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.4</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.5</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.6</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.7</td>\r\n          <td>Win 98+ / OSX.1+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.8</td>\r\n          <td>Win 98+ / OSX.1+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Seamonkey 1.1</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Epiphany 2.20</td>\r\n          <td>Gnome</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 1.2</td>\r\n          <td>OSX.3</td>\r\n          <td>125.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 1.3</td>\r\n          <td>OSX.3</td>\r\n          <td>312.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 2.0</td>\r\n          <td>OSX.4+</td>\r\n          <td>419.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 3.0</td>\r\n          <td>OSX.4+</td>\r\n          <td>522.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>OmniWeb 5.5</td>\r\n          <td>OSX.4+</td>\r\n          <td>420</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>iPod Touch / iPhone</td>\r\n          <td>iPod</td>\r\n          <td>420.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>S60</td>\r\n          <td>S60</td>\r\n          <td>413</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 7.0</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 7.5</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 8.0</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 8.5</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.0</td>\r\n          <td>Win 95+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.2</td>\r\n          <td>Win 88+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.5</td>\r\n          <td>Win 88+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera for Wii</td>\r\n          <td>Wii</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Nokia N800</td>\r\n          <td>N800</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Nintendo DS browser</td>\r\n          <td>Nintendo DS</td>\r\n          <td>8.5</td>\r\n          <td>C/A<sup>1</sup></td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.1</td>\r\n          <td>KDE 3.1</td>\r\n          <td>3.1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.3</td>\r\n          <td>KDE 3.3</td>\r\n          <td>3.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.5</td>\r\n          <td>KDE 3.5</td>\r\n          <td>3.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 4.5</td>\r\n          <td>Mac OS 8-9</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 5.1</td>\r\n          <td>Mac OS 7.6-9</td>\r\n          <td>1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 5.2</td>\r\n          <td>Mac OS 8-X</td>\r\n          <td>1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>NetFront 3.1</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>NetFront 3.4</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Dillo 0.8</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Links</td>\r\n          <td>Text only</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Lynx</td>\r\n          <td>Text only</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>IE Mobile</td>\r\n          <td>Windows Mobile 6</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>PSP browser</td>\r\n          <td>PSP</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Other browsers</td>\r\n          <td>All others</td>\r\n          <td>-</td>\r\n          <td>-</td>\r\n          <td>U</td>\r\n        </tr>\r\n        </tbody>\r\n        <tfoot>\r\n        <tr>\r\n          <th>Rendering engine</th>\r\n          <th>Browser</th>\r\n          <th>Platform(s)</th>\r\n          <th>Engine version</th>\r\n          <th>CSS grade</th>\r\n        </tr>\r\n        </tfoot>\r\n      </table>\r\n    </div>\r\n    <!-- /.box-body -->\r\n\r\n  </div>\r\n</section>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/contrato/new-contrato/new-contrato.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/contrato/new-contrato/new-contrato.component.html ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Contratos\n    <small>{{contrato.id ? 'Atualizar' : 'Adicionar'}}</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Contrato</a></li>\n    <li class=\"active\">{{contrato.id ? 'Atualizar' : 'Adicionar'}}</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">{{contrato.id ? 'Atualizar' : 'Adicionar'}} Contrato</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"contrato.id\"/>\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <h4>Dados Básicos</h4>\n            <hr>\n            <div class=\"row\">\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"referencia\">Referência</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"referencia\"\n                       name=\"referencia\"\n                       [(ngModel)]=\"contrato.referencia\"\n                       [required]=\"true\"\n                       placeholder=\"Referência\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"tipo_contrato\">Tipo de Contrato</label>\n                <select class=\"form-control\"\n                        id=\"tipo_contrato\"\n                        [(ngModel)]=\"contrato.id_tipo_contrato\"\n                        [required]=\"true\"\n                        name=\"id_estado_civil\">\n                  <option [value]=\"1\">Aluguel</option>\n                  <option [value]=\"2\">Temporada</option>\n                </select>\n              </div>\n\n              <div class=\"form-group col-md-4\">\n                <label for=\"imovel\">Imóvel</label>\n                <select class=\"form-control\"\n                        id=\"imovel\"\n                        [(ngModel)]=\"contrato.id_imovel\"\n                        [required]=\"true\"\n                        name=\"id_imovel\">\n                </select>\n              </div>\n\n              <div class=\"form-group col-md-4\">\n                <label for=\"locatario\">Inquilino</label>\n                <select class=\"form-control\"\n                        id=\"locatario\"\n                        [(ngModel)]=\"contrato.id_locatario\"\n                        [required]=\"true\"\n                        name=\"id_locatario\">\n                </select>\n              </div>\n            </div>\n\n            <h4>Data e Recorrência do Contrato</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-3\">\n                <label for=\"data_inicio\">Início do Contrato</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"data_inicio\"\n                       name=\"data_inicio\"\n                       [(ngModel)]=\"contrato.data_inicio\"\n                       [required]=\"true\"\n                       placeholder=\"Data de Início\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"vigencia\">Vigência</label>\n                <input type=\"number\"\n                       class=\"form-control\"\n                       id=\"vigencia\"\n                       name=\"vigencia\"\n                       [(ngModel)]=\"contrato.vigencia\"\n                       [required]=\"true\"\n                       placeholder=\"Vigência\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"data_inicio\">Fim do Contrato</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"data_fim\"\n                       name=\"data_fim\"\n                       [(ngModel)]=\"contrato.data_fim\"\n                       [required]=\"true\"\n                       [disabled]=\"true\"\n                       placeholder=\"Data Fim\"/>\n              </div>\n\n            </div>\n\n            <h4>Valores do Contrato</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-3\">\n                <label for=\"valor\">Valor:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"valor\"\n                       name=\"valor\"\n                       [(ngModel)]=\"contrato.valor\"\n                       [required]=\"true\"\n                       placeholder=\"Valor\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"primeiro_vencimento\">Primeiro Vencimento:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"primeiro_vencimento\"\n                       name=\"primeiro_vencimento\"\n                       [(ngModel)]=\"contrato.primeiro_vencimento\"\n                       [required]=\"true\"\n                       placeholder=\"Primeiro Vencimento\"/>\n              </div>\n            </div>\n\n            <h4>Dados Adicionais</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-12\">\n                <label for=\"profissao\">Observações:</label>\n                <textarea class=\"form-control\"\n                          id=\"profissao\"\n                          name=\"profissao\"\n                          [(ngModel)]=\"contrato.observacoes\"\n                          [required]=\"true\"\n                          placeholder=\"Observações\"></textarea>\n              </div>\n            </div>\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar e Continuar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n");
 
 /***/ }),
 
@@ -162,7 +175,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<aside class=\"main-sidebar\">\r\n    <!-- sidebar: style can be found in sidebar.less -->\r\n    <section class=\"sidebar\">\r\n      <!-- Sidebar user panel -->\r\n      <div class=\"user-panel\">\r\n        <div class=\"pull-left image\">\r\n          <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n        </div>\r\n        <div class=\"pull-left info\">\r\n          <p>Alexander Pierce</p>\r\n          <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>\r\n        </div>\r\n      </div>\r\n      <!-- search form -->\r\n      <form action=\"#\" method=\"get\" class=\"sidebar-form\">\r\n        <div class=\"input-group\">\r\n          <input type=\"text\" name=\"q\" class=\"form-control\" placeholder=\"Search...\">\r\n          <span class=\"input-group-btn\">\r\n                <button type=\"submit\" name=\"search\" id=\"search-btn\" class=\"btn btn-flat\"><i class=\"fa fa-search\"></i>\r\n                </button>\r\n              </span>\r\n        </div>\r\n      </form>\r\n      <!-- /.search form -->\r\n      <!-- sidebar menu: : style can be found in sidebar.less -->\r\n      <ul class=\"sidebar-menu\" data-widget=\"tree\">\r\n        <li class=\"header\">MENÚ PRINCIPAL</li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/']\" >\r\n            <i class=\"fa fa-dashboard\"></i> <span>Home</span>\r\n          </a>\r\n        </li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/list-pessoa']\" >\r\n            <i class=\"fa fa-group\"></i> <span>Pessoas</span>\r\n          </a>\r\n        </li>\r\n        <li>\r\n        <a href=\"#\" [routerLink]=\"['/list-imovel']\" >\r\n          <i class=\"fa fa-home\"></i> <span>Imóveis</span>\r\n        </a>\r\n      </li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/list-contrato']\" >\r\n            <i class=\"fa fa-handshake-o\"></i> <span>Contrato</span>\r\n          </a>\r\n        </li>\r\n        <li class=\"treeview\">\r\n          <a href=\"#\">\r\n            <i class=\"fa fa-files-o\"></i>\r\n            <span>Financeiro</span>\r\n            <span class=\"pull-right-container\">\r\n              <i class=\"fa fa-angle-left pull-right\"></i>\r\n            </span>\r\n          </a>\r\n          <ul class=\"treeview-menu\">\r\n            <li><a href=\"pages/layout/top-nav.html\"><i class=\"fa fa-circle-o\"></i> Pagamentos</a></li>\r\n            <li><a href=\"pages/layout/boxed.html\"><i class=\"fa fa-circle-o\"></i> Recibos</a></li>\r\n            <li><a href=\"pages/layout/fixed.html\"><i class=\"fa fa-circle-o\"></i> Receitas</a></li>\r\n            <li><a href=\"pages/layout/collapsed-sidebar.html\"><i class=\"fa fa-circle-o\"></i> Despesas</a></li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n    </section>\r\n    <!-- /.sidebar -->\r\n  </aside>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<aside class=\"main-sidebar\">\r\n    <!-- sidebar: style can be found in sidebar.less -->\r\n    <section class=\"sidebar\">\r\n      <!-- Sidebar user panel -->\r\n      <div class=\"user-panel\">\r\n        <div class=\"pull-left image\">\r\n          <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n        </div>\r\n        <div class=\"pull-left info\">\r\n          <p>Alexander Pierce</p>\r\n          <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>\r\n        </div>\r\n      </div>\r\n      <!-- search form -->\r\n      <form action=\"#\" method=\"get\" class=\"sidebar-form\">\r\n        <div class=\"input-group\">\r\n          <input type=\"text\" name=\"q\" class=\"form-control\" placeholder=\"Search...\">\r\n          <span class=\"input-group-btn\">\r\n                <button type=\"submit\" name=\"search\" id=\"search-btn\" class=\"btn btn-flat\"><i class=\"fa fa-search\"></i>\r\n                </button>\r\n              </span>\r\n        </div>\r\n      </form>\r\n      <!-- /.search form -->\r\n      <!-- sidebar menu: : style can be found in sidebar.less -->\r\n      <ul class=\"sidebar-menu\" data-widget=\"tree\">\r\n        <li class=\"header\">MENÚ PRINCIPAL</li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/']\" >\r\n            <i class=\"fa fa-dashboard\"></i> <span>Home</span>\r\n          </a>\r\n        </li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/list-pessoa']\" >\r\n            <i class=\"fa fa-group\"></i> <span>Pessoas</span>\r\n          </a>\r\n        </li>\r\n        <li>\r\n        <a href=\"#\" [routerLink]=\"['/list-imovel']\" >\r\n          <i class=\"fa fa-home\"></i> <span>Imóveis</span>\r\n        </a>\r\n      </li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/list-contrato']\" >\r\n            <i class=\"fa fa-handshake-o\"></i> <span>Contrato</span>\r\n          </a>\r\n        </li>\r\n        <li class=\"treeview\">\r\n          <a href=\"#\">\r\n            <i class=\"fa fa-files-o\"></i>\r\n            <span>Financeiro</span>\r\n            <span class=\"pull-right-container\">\r\n              <i class=\"fa fa-angle-left pull-right\"></i>\r\n            </span>\r\n          </a>\r\n          <ul class=\"treeview-menu\">\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Pagamentos</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Recibos</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Receitas</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Despesas</a></li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"treeview\">\r\n          <a href=\"#\">\r\n            <i class=\"fa fa-files-o\"></i>\r\n            <span>Cadastros</span>\r\n            <span class=\"pull-right-container\">\r\n              <i class=\"fa fa-angle-left pull-right\"></i>\r\n            </span>\r\n          </a>\r\n          <ul class=\"treeview-menu\">\r\n            <li><a href=\"#\" [routerLink]=\"['/list-modelo-documento']\"><i class=\"fa fa-circle-o\"></i> Modelo de Documento</a></li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n    </section>\r\n    <!-- /.sidebar -->\r\n  </aside>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.html":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.html ***!
+  \***********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Modelos de Documentos\n    <small>Listar</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li class=\"active\">Modelos de Documentos</li>\n    <li class=\"active\">Listar Modelos de Documentos</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"box box-primary\">\n    <div class=\"box-header\">\n      <i class=\"ion ion-clipboard\"></i>\n\n      <h3 class=\"box-title\">Gestão de Modelos de Documentos</h3>\n\n      <div class=\"box-tools pull-right\">\n        <!-- BOTÕES DE ADICIONAR-->\n        <button type=\"button\" class=\"btn btn-success pull-right\" [routerLink]=\"['/new-modelo-documento']\"><i class=\"fa fa-plus\"></i> Adicionar</button>\n      </div>\n    </div>\n    <!-- /.box-header -->\n    <div class=\"box-body\">\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\n      <table id=\"tblPessoa\" class=\"table table-bordered table-striped\">\n        <thead>\n        <tr>\n          <th>Nome</th>\n          <th>Tipo</th>\n          <th>Ação</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let modelo of modelos\">\n          <td>{{modelo.nome}}</td>\n          <td>{{modelo.tipo}}</td>\n          <td>\n            <button type=\"button\"\n                    [routerLink]=\"['/update-modelo-documento/'+modelo.id]\"\n                    class=\"btn btn-default btn-xs\">\n              <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\n            </button>\n            <button type=\"button\"\n                    class=\"btn btn-default btn-xs\">\n              <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\n            </button>\n          </td>\n        </tr>\n        </tbody>\n        <tfoot>\n        <tr>\n          <th>Nome</th>\n          <th>Tipo</th>\n          <th>Ação</th>\n        </tr>\n        </tfoot>\n      </table>\n    </div>\n    <!-- /.box-body -->\n\n  </div>\n</section>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.html":
+/*!*********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.html ***!
+  \*********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Modelos de Documentos\n    <small>{{modelo.id ? 'Atualizar' : 'Adicionar'}}</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Modelos de Documentos</a></li>\n    <li class=\"active\">{{modelo.id ? 'Atualizar' : 'Adicionar'}}</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">{{modelo.id ? 'Atualizar' : 'Adicionar'}} Pessoa</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #modeloForm=\"ngForm\" name=\"modeloForm\" role=\"form\" (ngSubmit)=\"onSubmit(modeloForm)\">\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"modelo.id\"/>\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <div class=\"row\">\n              <div class=\"form-group col-md-6\">\n                <label for=\"nome\">Nome: </label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"nome\"\n                       name=\"nome\"\n                       [(ngModel)]=\"modelo.nome\"\n                       [required]=\"true\"\n                       placeholder=\"Nome\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"tipo_modelo_documento\">Tipo de Modelo De Documento: </label>\n                <select class=\"form-control\"\n                        id=\"tipo_modelo_documento\"\n                        [(ngModel)]=\"modelo.id_tipo_modelo_documento\"\n                        [required]=\"true\"\n                        name=\"id_tipo_modelo_documento\">\n                  <option [value]=\"1\">Contrato de Locação</option>\n                  <option [value]=\"2\">Contrato de Temporada</option>\n                  <option [value]=\"3\">Recibo de Pagamento</option>\n                </select>\n              </div>\n\n            </div>\n\n            <div class=\"row\">\n              <button >Adicionar</button>\n              <div class=\"box-body pad\">\n                <label for=\"tipo_modelo_documento\">Conteúdo: </label>\n                <ckeditor (blur)=\"ckEditorOnBlur($event)\" [editor]=\"Editor\" data=\"<p>Hello, world!</p>\"></ckeditor>\n              </div>\n            </div>\n\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!modeloForm.valid\">Salvar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-modelo-documento']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n");
 
 /***/ }),
 
@@ -571,6 +610,24 @@ PessoaResolverGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/_models/contrato.model.ts":
+/*!*******************************************!*\
+  !*** ./src/app/_models/contrato.model.ts ***!
+  \*******************************************/
+/*! exports provided: Contrato */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Contrato", function() { return Contrato; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class Contrato {
+}
+
+
+/***/ }),
+
 /***/ "./src/app/_models/imovel.model.ts":
 /*!*****************************************!*\
   !*** ./src/app/_models/imovel.model.ts ***!
@@ -584,6 +641,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 class Imovel {
+}
+
+
+/***/ }),
+
+/***/ "./src/app/_models/modelo-documento.model.ts":
+/*!***************************************************!*\
+  !*** ./src/app/_models/modelo-documento.model.ts ***!
+  \***************************************************/
+/*! exports provided: ModeloDocumentoModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModeloDocumentoModel", function() { return ModeloDocumentoModel; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class ModeloDocumentoModel {
 }
 
 
@@ -711,6 +786,66 @@ CepService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], CepService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/_services/contrato.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/_services/contrato.service.ts ***!
+  \***********************************************/
+/*! exports provided: ContratoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContratoService", function() { return ContratoService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+
+
+let ContratoService = class ContratoService {
+    constructor(http) {
+        this.http = http;
+        this.API = `${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"]}contrato`;
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+            })
+        };
+    }
+    list() {
+        return this.http.get(`${this.API}/listar`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
+        }));
+    }
+    getById(id) {
+    }
+    create(contrato) {
+        return this.http.post(`${this.API}/cadastrar`, contrato, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
+        }));
+    }
+};
+ContratoService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
+ContratoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ContratoService);
 
 
 
@@ -959,6 +1094,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _guards_pessoa_resolver_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./_guards/pessoa-resolver.guard */ "./src/app/_guards/pessoa-resolver.guard.ts");
 /* harmony import */ var _imovel_new_imovel_new_imovel_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./imovel/new-imovel/new-imovel.component */ "./src/app/imovel/new-imovel/new-imovel.component.ts");
 /* harmony import */ var _guards_imovel_resolver_guard__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./_guards/imovel-resolver.guard */ "./src/app/_guards/imovel-resolver.guard.ts");
+/* harmony import */ var _modelo_documento_list_modelo_documento_list_modelo_documento_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modelo-documento/list-modelo-documento/list-modelo-documento.component */ "./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.ts");
+/* harmony import */ var _modelo_documento_new_modelo_documento_new_modelo_documento_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modelo-documento/new-modelo-documento/new-modelo-documento.component */ "./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.ts");
+/* harmony import */ var _contrato_new_contrato_new_contrato_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./contrato/new-contrato/new-contrato.component */ "./src/app/contrato/new-contrato/new-contrato.component.ts");
+
+
+
 
 
 
@@ -1006,6 +1147,10 @@ const routes = [
                 component: _contrato_list_contrato_list_contrato_component__WEBPACK_IMPORTED_MODULE_5__["ListContratoComponent"]
             },
             {
+                path: 'new-contrato',
+                component: _contrato_new_contrato_new_contrato_component__WEBPACK_IMPORTED_MODULE_17__["NewContratoComponent"],
+            },
+            {
                 path: 'list-imovel',
                 component: _imovel_list_imovel_list_imovel_component__WEBPACK_IMPORTED_MODULE_6__["ListImovelComponent"]
             },
@@ -1026,6 +1171,14 @@ const routes = [
             {
                 path: 'list-conta',
                 component: _conta_list_conta_list_conta_component__WEBPACK_IMPORTED_MODULE_8__["ListContaComponent"]
+            },
+            {
+                path: 'list-modelo-documento',
+                component: _modelo_documento_list_modelo_documento_list_modelo_documento_component__WEBPACK_IMPORTED_MODULE_15__["ListModeloDocumentoComponent"]
+            },
+            {
+                path: 'new-modelo-documento',
+                component: _modelo_documento_new_modelo_documento_new_modelo_documento_component__WEBPACK_IMPORTED_MODULE_16__["NewModeloDocumentoComponent"]
             }
         ]
     },
@@ -1129,6 +1282,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./alert/alert.component */ "./src/app/alert/alert.component.ts");
 /* harmony import */ var _imovel_new_imovel_new_imovel_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./imovel/new-imovel/new-imovel.component */ "./src/app/imovel/new-imovel/new-imovel.component.ts");
+/* harmony import */ var _modelo_documento_new_modelo_documento_new_modelo_documento_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./modelo-documento/new-modelo-documento/new-modelo-documento.component */ "./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.ts");
+/* harmony import */ var _modelo_documento_list_modelo_documento_list_modelo_documento_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./modelo-documento/list-modelo-documento/list-modelo-documento.component */ "./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.ts");
+/* harmony import */ var _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ckeditor/ckeditor5-angular */ "./node_modules/@ckeditor/ckeditor5-angular/fesm2015/ckeditor-ckeditor5-angular.js");
+/* harmony import */ var _contrato_new_contrato_new_contrato_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./contrato/new-contrato/new-contrato.component */ "./src/app/contrato/new-contrato/new-contrato.component.ts");
+
+
+
+
 
 
 
@@ -1169,13 +1330,17 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _layout_menu_menu_component__WEBPACK_IMPORTED_MODULE_6__["MenuComponent"],
             _templates_dashboard_template_dashboard_template_component__WEBPACK_IMPORTED_MODULE_8__["DashboardTemplateComponent"],
             _templates_login_template_login_template_component__WEBPACK_IMPORTED_MODULE_9__["LoginTemplateComponent"],
+            _modelo_documento_new_modelo_documento_new_modelo_documento_component__WEBPACK_IMPORTED_MODULE_21__["NewModeloDocumentoComponent"],
+            _modelo_documento_list_modelo_documento_list_modelo_documento_component__WEBPACK_IMPORTED_MODULE_22__["ListModeloDocumentoComponent"],
+            _contrato_new_contrato_new_contrato_component__WEBPACK_IMPORTED_MODULE_24__["NewContratoComponent"],
             _alert_alert_component__WEBPACK_IMPORTED_MODULE_19__["AlertComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormsModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HttpClientModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+            _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_23__["CKEditorModule"]
         ],
         providers: [],
         exports: [
@@ -1316,6 +1481,79 @@ ListContratoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./list-contrato.component.scss */ "./src/app/contrato/list-contrato/list-contrato.component.scss")).default]
     })
 ], ListContratoComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/contrato/new-contrato/new-contrato.component.scss":
+/*!*******************************************************************!*\
+  !*** ./src/app/contrato/new-contrato/new-contrato.component.scss ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbnRyYXRvL25ldy1jb250cmF0by9uZXctY29udHJhdG8uY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/contrato/new-contrato/new-contrato.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/contrato/new-contrato/new-contrato.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: NewContratoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewContratoComponent", function() { return NewContratoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_contrato_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_models/contrato.model */ "./src/app/_models/contrato.model.ts");
+/* harmony import */ var _services_contrato_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_services/contrato.service */ "./src/app/_services/contrato.service.ts");
+/* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_services/alert.service */ "./src/app/_services/alert.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+
+
+let NewContratoComponent = class NewContratoComponent {
+    constructor(contratoService, alertService, router) {
+        this.contratoService = contratoService;
+        this.alertService = alertService;
+        this.router = router;
+    }
+    ngOnInit() {
+        this.contrato = new _models_contrato_model__WEBPACK_IMPORTED_MODULE_2__["Contrato"]();
+    }
+    onSubmit(form) {
+        return this.contratoService.save(form.value)
+            .subscribe(success => {
+            const message = success.message;
+            this.alertService.success(message, true);
+            //this.router.navigate(['new-ocupantes-imovel']);
+        }, error => {
+            const message = error.message;
+            this.alertService.error(message);
+        });
+    }
+};
+NewContratoComponent.ctorParameters = () => [
+    { type: _services_contrato_service__WEBPACK_IMPORTED_MODULE_3__["ContratoService"] },
+    { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+];
+NewContratoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-new-contrato',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./new-contrato.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/contrato/new-contrato/new-contrato.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./new-contrato.component.scss */ "./src/app/contrato/new-contrato/new-contrato.component.scss")).default]
+    })
+], NewContratoComponent);
 
 
 
@@ -1642,6 +1880,122 @@ MenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./menu.component.scss */ "./src/app/layout/menu/menu.component.scss")).default]
     })
 ], MenuComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.scss":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.scss ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZGVsby1kb2N1bWVudG8vbGlzdC1tb2RlbG8tZG9jdW1lbnRvL2xpc3QtbW9kZWxvLWRvY3VtZW50by5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: ListModeloDocumentoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListModeloDocumentoComponent", function() { return ListModeloDocumentoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let ListModeloDocumentoComponent = class ListModeloDocumentoComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+ListModeloDocumentoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-list-modelo-documento',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./list-modelo-documento.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./list-modelo-documento.component.scss */ "./src/app/modelo-documento/list-modelo-documento/list-modelo-documento.component.scss")).default]
+    })
+], ListModeloDocumentoComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.scss":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.scss ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (":host ::ng-deep .ck-editor__editable {\n  min-height: 300px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kZWxvLWRvY3VtZW50by9uZXctbW9kZWxvLWRvY3VtZW50by9DOlxca2l0bmV0ZWFraVxccmVzb3VyY2VzXFxhc3NldHNcXGtpdG5ldGVha2ktYXBwL3NyY1xcYXBwXFxtb2RlbG8tZG9jdW1lbnRvXFxuZXctbW9kZWxvLWRvY3VtZW50b1xcbmV3LW1vZGVsby1kb2N1bWVudG8uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0QkFBNEIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21vZGVsby1kb2N1bWVudG8vbmV3LW1vZGVsby1kb2N1bWVudG8vbmV3LW1vZGVsby1kb2N1bWVudG8uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCA6Om5nLWRlZXAgLmNrLWVkaXRvcl9fZWRpdGFibGUge1xyXG4gIG1pbi1oZWlnaHQ6IDMwMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.ts":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.ts ***!
+  \*****************************************************************************************/
+/*! exports provided: NewModeloDocumentoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewModeloDocumentoComponent", function() { return NewModeloDocumentoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_modelo_documento_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_models/modelo-documento.model */ "./src/app/_models/modelo-documento.model.ts");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+let NewModeloDocumentoComponent = class NewModeloDocumentoComponent {
+    constructor() {
+        this.Editor = _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_3__;
+    }
+    ngOnInit() {
+        this.modelo = new _models_modelo_documento_model__WEBPACK_IMPORTED_MODULE_2__["ModeloDocumentoModel"]();
+    }
+    onSubmit(form) {
+    }
+    ckEditorOnBlur(event) {
+        var selection = event.editor.getSelection();
+        var ranges = selection.getRanges();
+        var range = ranges[0];
+        // Create a new range from the editor object
+        var newRange = event.editor.createRange();
+        // assign the newRange to move to the end of the current selection
+        // using the range.endContainer element.
+        var moveToEnd = true;
+        newRange.moveToElementEditablePosition(range.endContainer, moveToEnd);
+        // change selection
+        var newRanges = [newRange];
+        selection.selectRanges(newRanges);
+        // now I can insert html without erasing the previously selected text.
+        // event.editor.insertHtml("<span>Hello World!</span>");
+        this.ckEditorBlurEle = event;
+        this.ckEditorBlurEle.editor.insertHtml('Hello World...!');
+    }
+};
+NewModeloDocumentoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-new-modelo-documento',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./new-modelo-documento.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./new-modelo-documento.component.scss */ "./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.scss")).default]
+    })
+], NewModeloDocumentoComponent);
 
 
 

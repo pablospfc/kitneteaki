@@ -26,218 +26,46 @@
           <app-alert></app-alert>
 
           <div class="box-body">
-            <h4>Dados Pessoais</h4>
-            <hr>
             <div class="row">
               <div class="form-group col-md-6">
-                <label for="nome">Nome</label>
+                <label for="nome">Nome: </label>
                 <input type="text"
                        class="form-control"
                        id="nome"
                        name="nome"
-                       [(ngModel)]="pessoa.nome"
+                       [(ngModel)]="modelo.nome"
                        [required]="true"
                        placeholder="Nome"/>
               </div>
 
               <div class="form-group col-md-3">
-                <label for="data_nascimento">Data de Nascimento</label>
-                <input type="date"
-                       class="form-control"
-                       id="data_nascimento"
-                       name="data_nascimento"
-                       [(ngModel)]="pessoa.data_nascimento"
-                       [required]="true"
-                       placeholder="Data Nascimento"/>
-              </div>
-
-              <div class="form-group col-md-3">
-                <label for="genero">Gênero</label>
+                <label for="tipo_modelo_documento">Tipo de Modelo De Documento: </label>
                 <select class="form-control"
-                        id="genero"
-                        [(ngModel)]="pessoa.id_genero"
+                        id="tipo_modelo_documento"
+                        [(ngModel)]="modelo.id_tipo_modelo_documento"
                         [required]="true"
-                        name="id_genero">
-                  <option [value]="1">Masculino</option>
-                  <option [value]="2">Feminino</option>
-                  <option [value]="3">Outro</option>
+                        name="id_tipo_modelo_documento">
+                  <option [value]="1">Contrato de Locação</option>
+                  <option [value]="2">Contrato de Temporada</option>
+                  <option [value]="3">Recibo de Pagamento</option>
                 </select>
               </div>
 
-              <div class="form-group col-md-4">
-                <label for="estado_civil">Estado Civil</label>
-                <select class="form-control"
-                        id="estado_civil"
-                        [(ngModel)]="pessoa.id_estado_civil"
-                        [required]="true"
-                        name="id_estado_civil">
-                  <option [value]="1">Solteiro(a)</option>
-                  <option [value]="2">Casado(a)</option>
-                  <option [value]="3">Separado(a)</option>
-                  <option [value]="4">Divorciado(a)</option>
-                  <option [value]="5">Viúvo(a)</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-4">
-                <label for="categoria_pessoa">Categoria</label>
-                <select class="form-control"
-                        id="categoria_pessoa"
-                        [(ngModel)]="pessoa.id_categoria_pessoa"
-                        [required]="true"
-                        name="id_categoria_pessoa">
-                  <option [value]="1">Proprietário</option>
-                  <option [value]="2">Inquilino</option>
-                </select>
-              </div>
             </div>
 
-            <h4>Documentos de Identificação</h4>
-            <hr>
             <div class="row">
-              <div class="form-group col-md-4">
-                <label for="nacionalidade">Nacionalidade</label>
-                <select class="form-control"
-                        id="nacionalidade"
-                        [(ngModel)]="pessoa.id_nacionalidade"
-                        [required]="true"
-                        name="id_nacionalidade">
-                  <option [value]="1">Brasileiro</option>
-                  <option [value]="2">Estrangeiro</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-4">
-                <label for="tipo_pessoa">Tipo de Pessoa</label>
-                <select class="form-control"
-                        id="tipo_pessoa"
-                        [(ngModel)]="pessoa.id_tipo_pessoa"
-                        [disabled]="pessoa.id_nacionalidade == 2"
-                        [required]="pessoa.id_nacionalidade == 1"
-                        name="id_tipo_pessoa">
-                  <option [value]="1">Pessoa Física</option>
-                  <option [value]="2">Pessoa Jurídica</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-3">
-                <label for="cpf">CPF/CNPJ:</label>
-                <input type="text"
-                       [(ngModel)]="pessoa.cpf_cnpj"
-                       [disabled]="pessoa.id_nacionalidade == 2"
-                       [required]="pessoa.id_nacionalidade == 1"
-                       name="cpf_cnpj"
-                       class="form-control"
-                       id="cpf"
-                       placeholder="12"
-                />
-              </div>
-
-              <div class="form-group col-md-3">
-                <label for="rg">RG:</label>
-                <input type="text"
-                       name="rg"
-                       [(ngModel)]="pessoa.rg"
-                       [disabled]="pessoa.id_nacionalidade == 2"
-                       [required]="pessoa.id_nacionalidade == 1"
-                       class="form-control"
-                       id="rg"
-                       placeholder="RG"/>
-              </div>
-
-              <div class="form-group col-md-3">
-                <label for="orgaoExpedidor">Órgão Emissor:</label>
-                <input type="text"
-                       name="orgao_expedidor"
-                       [(ngModel)]="pessoa.orgao_expedidor"
-                       [disabled]="pessoa.id_nacionalidade == 2"
-                       [required]="pessoa.id_nacionalidade == 1"
-                       class="form-control"
-                       id="orgaoExpedidor"
-                       placeholder="Órgão Expedidor"/>
-              </div>
-
-              <div class="form-group col-md-3">
-                <label for="passaporte">Passaporte:</label>
-                <input type="text"
-                       name="passaporte"
-                       [(ngModel)]="pessoa.passaporte"
-                       [disabled]="pessoa.id_nacionalidade == 1"
-                       [required]="pessoa.id_nacionalidade == 2"
-                       class="form-control"
-                       id="passaporte"
-                       placeholder="Passaporte"/>
-              </div>
-
-              <div class="form-group col-md-3">
-                <label for="dataEmissao">Data de Emissão:</label>
-                <input type="date"
-                       name="data_emissao"
-                       [(ngModel)]="pessoa.data_emissao"
-                       [disabled]="pessoa.id_nacionalidade == 2"
-                       [required]="pessoa.id_nacionalidade == 1"
-                       class="form-control"
-                       id="dataEmissao"
-                       placeholder="Data de Emissão"/>
+              <button >Adicionar</button>
+              <div class="box-body pad">
+                <label for="tipo_modelo_documento">Conteúdo: </label>
+                <ckeditor (blur)="ckEditorOnBlur($event)" [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
               </div>
             </div>
 
-            <h4>Contato</h4>
-            <hr>
-            <div class="row">
-              <div class="form-group col-md-3">
-                <label for="telefone_celular">Telefone Celular:</label>
-                <input type="text"
-                       class="form-control"
-                       id="telefone_celular"
-                       name="telefone_celular"
-                       [(ngModel)]="pessoa.telefone_celular"
-                       [required]="true"
-                       placeholder="Telefone Celular"/>
-              </div>
-
-              <div class="form-group col-md-3">
-                <label for="whatsapp">WhatsApp:</label>
-                <input type="text"
-                       class="form-control"
-                       id="whatsapp"
-                       name="whatsapp"
-                       [(ngModel)]="pessoa.whatsapp"
-                       [required]="true"
-                       placeholder="WhatsApp"/>
-              </div>
-
-              <div class="form-group col-md-4">
-                <label for="telefone_celular">E-mail:</label>
-                <input type="text"
-                       class="form-control"
-                       id="email"
-                       name="email"
-                       [(ngModel)]="pessoa.email"
-                       [required]="true"
-                       placeholder="E-mail"/>
-              </div>
-            </div>
-
-            <h4>Dados Adicionais</h4>
-            <hr>
-            <div class="row">
-              <div class="form-group col-md-3">
-                <label for="profissao">Profissão:</label>
-                <input type="text"
-                       class="form-control"
-                       id="profissao"
-                       name="profissao"
-                       [(ngModel)]="pessoa.profissao"
-                       [required]="true"
-                       placeholder="Profissão"/>
-              </div>
-            </div>
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-primary" [disabled]="!pessoaForm.valid">Salvar</button>
-            <button type="button" class="btn btn-success" [routerLink]="['/list-pessoa']">Voltar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!modeloForm.valid">Salvar</button>
+            <button type="button" class="btn btn-success" [routerLink]="['/list-modelo-documento']">Voltar</button>
           </div>
 
         </form>

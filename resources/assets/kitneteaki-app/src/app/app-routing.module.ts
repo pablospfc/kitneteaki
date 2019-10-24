@@ -12,6 +12,9 @@ import {NewPessoaComponent} from './pessoa/new-pessoa/new-pessoa.component';
 import {PessoaResolverGuard} from './_guards/pessoa-resolver.guard';
 import {NewImovelComponent} from './imovel/new-imovel/new-imovel.component';
 import {ImovelResolverGuard} from './_guards/imovel-resolver.guard';
+import {ListModeloDocumentoComponent} from './modelo-documento/list-modelo-documento/list-modelo-documento.component';
+import {NewModeloDocumentoComponent} from './modelo-documento/new-modelo-documento/new-modelo-documento.component';
+import {NewContratoComponent} from "./contrato/new-contrato/new-contrato.component";
 
 
 const routes: Routes = [
@@ -46,6 +49,10 @@ const routes: Routes = [
         component: ListContratoComponent
       },
       {
+        path: 'new-contrato',
+        component: NewContratoComponent,
+      },
+      {
         path: 'list-imovel',
         component: ListImovelComponent
       },
@@ -66,6 +73,14 @@ const routes: Routes = [
       {
         path: 'list-conta',
         component: ListContaComponent
+      },
+      {
+        path: 'list-modelo-documento',
+        component: ListModeloDocumentoComponent
+      },
+      {
+        path: 'new-modelo-documento',
+        component: NewModeloDocumentoComponent
       }
     ]
   },

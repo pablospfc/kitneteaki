@@ -24,7 +24,10 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AlertComponent } from './alert/alert.component';
 import {NewImovelComponent} from './imovel/new-imovel/new-imovel.component';
-
+import {NewModeloDocumentoComponent} from './modelo-documento/new-modelo-documento/new-modelo-documento.component';
+import {ListModeloDocumentoComponent} from './modelo-documento/list-modelo-documento/list-modelo-documento.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {NewContratoComponent} from "./contrato/new-contrato/new-contrato.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,13 +44,17 @@ import {NewImovelComponent} from './imovel/new-imovel/new-imovel.component';
     MenuComponent,
     DashboardTemplateComponent,
     LoginTemplateComponent,
+    NewModeloDocumentoComponent,
+    ListModeloDocumentoComponent,
+    NewContratoComponent,
     AlertComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CKEditorModule
   ],
   providers: [],
   exports: [
