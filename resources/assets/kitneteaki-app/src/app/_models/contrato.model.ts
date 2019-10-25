@@ -12,6 +12,9 @@ export class Contrato {
   data_inicio: Date;
   data_fim: Date;
   vigencia: number;
+  taxa_servico: number;
+  total: number;
+  sinal: number;
   referencia: string;
   observacoes: string;
   renovou: boolean;

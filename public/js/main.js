@@ -830,12 +830,28 @@ let ContratoService = class ContratoService {
         }));
     }
     getById(id) {
+        return this.http.get(`${this.API}/buscar/${id}`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
+        }));
     }
     create(contrato) {
         return this.http.post(`${this.API}/cadastrar`, contrato, this.httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
         }));
+    }
+    update(contrato) {
+        return this.http.put(`${this.API}/atualizar/${contrato.id}`, contrato)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
+        }));
+    }
+    save(contrato) {
+        if (contrato.id) {
+            return this.update(contrato);
+        }
+        return this.create(contrato);
     }
 };
 ContratoService.ctorParameters = () => [

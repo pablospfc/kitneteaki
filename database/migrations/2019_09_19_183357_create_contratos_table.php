@@ -33,6 +33,9 @@ class CreateContratosTable extends Migration
             $table->date("data_inicio");
             $table->date("data_fim");
             $table->integer("vigencia");
+            $table->decimal("taxa_servico");
+            $table->decimal("total");
+            $table->decimal("sinal");
             $table->string("referencia")->nullable();
             $table->longText("observacoes")->nullable();
             $table->boolean("renovou");
