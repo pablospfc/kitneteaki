@@ -32,10 +32,12 @@ class CreateContratosTable extends Migration
             $table->char("dia_vencimento",2);
             $table->date("data_inicio");
             $table->date("data_fim");
+            $table->date("inicio_estadia");
+            $table->date("fim_estadia");
             $table->integer("vigencia");
-            $table->decimal("taxa_servico");
-            $table->decimal("total");
-            $table->decimal("sinal");
+            $table->decimal("taxa_servico")->nullable();
+            $table->decimal("total")->nullable();
+            $table->decimal("sinal")->nullable();
             $table->string("referencia")->nullable();
             $table->longText("observacoes")->nullable();
             $table->boolean("renovou");

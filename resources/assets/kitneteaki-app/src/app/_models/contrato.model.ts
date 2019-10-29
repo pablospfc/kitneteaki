@@ -11,8 +11,11 @@ export class Contrato {
   dia_vencimento: string;
   data_inicio: Date;
   data_fim: Date;
+  inicio_estadia: Date;
+  fim_estadia: Date;
   vigencia: number;
   taxa_servico: number;
+  dias: number;
   total: number;
   sinal: number;
   referencia: string;
