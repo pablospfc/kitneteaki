@@ -27,7 +27,8 @@ import {NewImovelComponent} from './imovel/new-imovel/new-imovel.component';
 import {NewModeloDocumentoComponent} from './modelo-documento/new-modelo-documento/new-modelo-documento.component';
 import {ListModeloDocumentoComponent} from './modelo-documento/list-modelo-documento/list-modelo-documento.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
-import {NewContratoComponent} from "./contrato/new-contrato/new-contrato.component";
+import {NewContratoComponent} from './contrato/new-contrato/new-contrato.component';
+import {DatePipe} from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,7 @@ import {NewContratoComponent} from "./contrato/new-contrato/new-contrato.compone
     AppRoutingModule,
     CKEditorModule
   ],
-  providers: [],
+  providers: [DatePipe],
   exports: [
     AlertComponent
   ],

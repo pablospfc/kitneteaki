@@ -122,6 +122,7 @@
                        [(ngModel)]="contrato.vigencia"
                        [required]="true"
                        [disabled]="contrato.id_tipo_contrato != 1"
+                       (blur)="calcularFimContrato(contrato.data_inicio, contrato.vigencia)"
                        placeholder="Vigência"/>
               </div>
 
@@ -134,6 +135,7 @@
                        [(ngModel)]="contrato.data_fim"
                        [required]="true"
                        [disabled]="contrato.id_tipo_contrato != 1"
+                       [readonly]="true"
                        placeholder="Data Fim"/>
               </div>
 
