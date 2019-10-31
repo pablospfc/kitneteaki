@@ -21,6 +21,7 @@ Route::post("pessoa/cadastrar","PessoaController@store");
 Route::put("pessoa/atualizar/{id}","PessoaController@update");
 Route::get("pessoa/listar","PessoaController@index");
 Route::get("pessoa/buscar/{id}","PessoaController@show");
+Route::get("pessoa/getPessoas/{idCategoriaPessoa}","PessoaController@getPessoas");
 
 Route::post("imovel/cadastrar","ImovelController@store");
 Route::put("imovel/atualizar/{id}","ImovelController@update");

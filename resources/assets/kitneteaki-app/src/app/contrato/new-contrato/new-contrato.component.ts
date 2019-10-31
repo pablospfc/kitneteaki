@@ -5,6 +5,10 @@ import {ContratoService} from '../../_services/contrato.service';
 import {AlertService} from '../../_services/alert.service';
 import {Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
+import * as moment from 'moment';
+import {ImovelService} from "../../_services/imovel.service";
+import {Imovel} from "../../_models/imovel.model";
+import {PessoaService} from "../../_services/pessoa.service";
 @Component({
   selector: 'app-new-contrato',
   templateUrl: './new-contrato.component.html',
@@ -14,13 +18,19 @@ import { DatePipe } from '@angular/common';
 export class NewContratoComponent implements OnInit {
 
   contrato: Contrato;
+  public imoveis = [];
+  public locatarios = [];
   constructor(private contratoService: ContratoService,
               private alertService: AlertService,
+              private imovelService: ImovelService,
+              private pessoaService: PessoaService,
               private router: Router,
               private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.contrato = new Contrato();
+    this.getImoveis();
+    this.getLocatarios();
   }
 
   onSubmit(form: NgForm) {
@@ -35,17 +45,34 @@ export class NewContratoComponent implements OnInit {
       });
   }
 
-  calcularFimContrato(data: Date, vigencia: number): Date {
+  calcularFimContrato(data: Date, vigencia: number) {
+    /*
     const date = new Date(data);
-    let dataStr: string;
+    console.log('Inicio de Contrato: ' + date);
+    let dataFim: Date;
     date.setMonth(date.getMonth() + vigencia);
-    dataStr = this.datePipe.transform(date, 'yyyy-MM-dd');
-    console.log('Data: ' + dataStr);
-    this.contrato.data_fim = date;
-    return date;
+    const DateTmp: string = this.datePipe.transform(date, 'yyyy-MM-dd');
+    console.log('Data Final: ' + dataFim);
+    this.contrato.data_fim = dataFim;
+    */
+    let dataInicial = moment(data);
+    let dataFinal = moment(dataInicial).add(vigencia, 'M');
+    console.log(dataFinal.format('YYYY-MM-DD'));
+    this.contrato.data_fim = dataFinal.format('YYYY-MM-DD');
   }
 
-  transformDate(date) {
-    return this.datePipe.transform(date, 'yyyy-MM-dd');
+  getImoveis() {
+    return this.imovelService.list()
+      .subscribe(success => {
+        this.imoveis = success;
+      });
   }
+
+  getLocatarios() {
+    return this.pessoaService.getInquilinos()
+      .subscribe(success => {
+        this.locatarios = success;
+      });
+  }
+
 }

@@ -23,6 +23,292 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
+/*!**************************************************!*\
+  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": "./node_modules/moment/locale/af.js",
+	"./af.js": "./node_modules/moment/locale/af.js",
+	"./ar": "./node_modules/moment/locale/ar.js",
+	"./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+	"./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+	"./ar.js": "./node_modules/moment/locale/ar.js",
+	"./az": "./node_modules/moment/locale/az.js",
+	"./az.js": "./node_modules/moment/locale/az.js",
+	"./be": "./node_modules/moment/locale/be.js",
+	"./be.js": "./node_modules/moment/locale/be.js",
+	"./bg": "./node_modules/moment/locale/bg.js",
+	"./bg.js": "./node_modules/moment/locale/bg.js",
+	"./bm": "./node_modules/moment/locale/bm.js",
+	"./bm.js": "./node_modules/moment/locale/bm.js",
+	"./bn": "./node_modules/moment/locale/bn.js",
+	"./bn.js": "./node_modules/moment/locale/bn.js",
+	"./bo": "./node_modules/moment/locale/bo.js",
+	"./bo.js": "./node_modules/moment/locale/bo.js",
+	"./br": "./node_modules/moment/locale/br.js",
+	"./br.js": "./node_modules/moment/locale/br.js",
+	"./bs": "./node_modules/moment/locale/bs.js",
+	"./bs.js": "./node_modules/moment/locale/bs.js",
+	"./ca": "./node_modules/moment/locale/ca.js",
+	"./ca.js": "./node_modules/moment/locale/ca.js",
+	"./cs": "./node_modules/moment/locale/cs.js",
+	"./cs.js": "./node_modules/moment/locale/cs.js",
+	"./cv": "./node_modules/moment/locale/cv.js",
+	"./cv.js": "./node_modules/moment/locale/cv.js",
+	"./cy": "./node_modules/moment/locale/cy.js",
+	"./cy.js": "./node_modules/moment/locale/cy.js",
+	"./da": "./node_modules/moment/locale/da.js",
+	"./da.js": "./node_modules/moment/locale/da.js",
+	"./de": "./node_modules/moment/locale/de.js",
+	"./de-at": "./node_modules/moment/locale/de-at.js",
+	"./de-at.js": "./node_modules/moment/locale/de-at.js",
+	"./de-ch": "./node_modules/moment/locale/de-ch.js",
+	"./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+	"./de.js": "./node_modules/moment/locale/de.js",
+	"./dv": "./node_modules/moment/locale/dv.js",
+	"./dv.js": "./node_modules/moment/locale/dv.js",
+	"./el": "./node_modules/moment/locale/el.js",
+	"./el.js": "./node_modules/moment/locale/el.js",
+	"./en-SG": "./node_modules/moment/locale/en-SG.js",
+	"./en-SG.js": "./node_modules/moment/locale/en-SG.js",
+	"./en-au": "./node_modules/moment/locale/en-au.js",
+	"./en-au.js": "./node_modules/moment/locale/en-au.js",
+	"./en-ca": "./node_modules/moment/locale/en-ca.js",
+	"./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+	"./en-gb": "./node_modules/moment/locale/en-gb.js",
+	"./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+	"./en-ie": "./node_modules/moment/locale/en-ie.js",
+	"./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+	"./en-il": "./node_modules/moment/locale/en-il.js",
+	"./en-il.js": "./node_modules/moment/locale/en-il.js",
+	"./en-nz": "./node_modules/moment/locale/en-nz.js",
+	"./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+	"./eo": "./node_modules/moment/locale/eo.js",
+	"./eo.js": "./node_modules/moment/locale/eo.js",
+	"./es": "./node_modules/moment/locale/es.js",
+	"./es-do": "./node_modules/moment/locale/es-do.js",
+	"./es-do.js": "./node_modules/moment/locale/es-do.js",
+	"./es-us": "./node_modules/moment/locale/es-us.js",
+	"./es-us.js": "./node_modules/moment/locale/es-us.js",
+	"./es.js": "./node_modules/moment/locale/es.js",
+	"./et": "./node_modules/moment/locale/et.js",
+	"./et.js": "./node_modules/moment/locale/et.js",
+	"./eu": "./node_modules/moment/locale/eu.js",
+	"./eu.js": "./node_modules/moment/locale/eu.js",
+	"./fa": "./node_modules/moment/locale/fa.js",
+	"./fa.js": "./node_modules/moment/locale/fa.js",
+	"./fi": "./node_modules/moment/locale/fi.js",
+	"./fi.js": "./node_modules/moment/locale/fi.js",
+	"./fo": "./node_modules/moment/locale/fo.js",
+	"./fo.js": "./node_modules/moment/locale/fo.js",
+	"./fr": "./node_modules/moment/locale/fr.js",
+	"./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+	"./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+	"./fr.js": "./node_modules/moment/locale/fr.js",
+	"./fy": "./node_modules/moment/locale/fy.js",
+	"./fy.js": "./node_modules/moment/locale/fy.js",
+	"./ga": "./node_modules/moment/locale/ga.js",
+	"./ga.js": "./node_modules/moment/locale/ga.js",
+	"./gd": "./node_modules/moment/locale/gd.js",
+	"./gd.js": "./node_modules/moment/locale/gd.js",
+	"./gl": "./node_modules/moment/locale/gl.js",
+	"./gl.js": "./node_modules/moment/locale/gl.js",
+	"./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+	"./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+	"./gu": "./node_modules/moment/locale/gu.js",
+	"./gu.js": "./node_modules/moment/locale/gu.js",
+	"./he": "./node_modules/moment/locale/he.js",
+	"./he.js": "./node_modules/moment/locale/he.js",
+	"./hi": "./node_modules/moment/locale/hi.js",
+	"./hi.js": "./node_modules/moment/locale/hi.js",
+	"./hr": "./node_modules/moment/locale/hr.js",
+	"./hr.js": "./node_modules/moment/locale/hr.js",
+	"./hu": "./node_modules/moment/locale/hu.js",
+	"./hu.js": "./node_modules/moment/locale/hu.js",
+	"./hy-am": "./node_modules/moment/locale/hy-am.js",
+	"./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+	"./id": "./node_modules/moment/locale/id.js",
+	"./id.js": "./node_modules/moment/locale/id.js",
+	"./is": "./node_modules/moment/locale/is.js",
+	"./is.js": "./node_modules/moment/locale/is.js",
+	"./it": "./node_modules/moment/locale/it.js",
+	"./it-ch": "./node_modules/moment/locale/it-ch.js",
+	"./it-ch.js": "./node_modules/moment/locale/it-ch.js",
+	"./it.js": "./node_modules/moment/locale/it.js",
+	"./ja": "./node_modules/moment/locale/ja.js",
+	"./ja.js": "./node_modules/moment/locale/ja.js",
+	"./jv": "./node_modules/moment/locale/jv.js",
+	"./jv.js": "./node_modules/moment/locale/jv.js",
+	"./ka": "./node_modules/moment/locale/ka.js",
+	"./ka.js": "./node_modules/moment/locale/ka.js",
+	"./kk": "./node_modules/moment/locale/kk.js",
+	"./kk.js": "./node_modules/moment/locale/kk.js",
+	"./km": "./node_modules/moment/locale/km.js",
+	"./km.js": "./node_modules/moment/locale/km.js",
+	"./kn": "./node_modules/moment/locale/kn.js",
+	"./kn.js": "./node_modules/moment/locale/kn.js",
+	"./ko": "./node_modules/moment/locale/ko.js",
+	"./ko.js": "./node_modules/moment/locale/ko.js",
+	"./ku": "./node_modules/moment/locale/ku.js",
+	"./ku.js": "./node_modules/moment/locale/ku.js",
+	"./ky": "./node_modules/moment/locale/ky.js",
+	"./ky.js": "./node_modules/moment/locale/ky.js",
+	"./lb": "./node_modules/moment/locale/lb.js",
+	"./lb.js": "./node_modules/moment/locale/lb.js",
+	"./lo": "./node_modules/moment/locale/lo.js",
+	"./lo.js": "./node_modules/moment/locale/lo.js",
+	"./lt": "./node_modules/moment/locale/lt.js",
+	"./lt.js": "./node_modules/moment/locale/lt.js",
+	"./lv": "./node_modules/moment/locale/lv.js",
+	"./lv.js": "./node_modules/moment/locale/lv.js",
+	"./me": "./node_modules/moment/locale/me.js",
+	"./me.js": "./node_modules/moment/locale/me.js",
+	"./mi": "./node_modules/moment/locale/mi.js",
+	"./mi.js": "./node_modules/moment/locale/mi.js",
+	"./mk": "./node_modules/moment/locale/mk.js",
+	"./mk.js": "./node_modules/moment/locale/mk.js",
+	"./ml": "./node_modules/moment/locale/ml.js",
+	"./ml.js": "./node_modules/moment/locale/ml.js",
+	"./mn": "./node_modules/moment/locale/mn.js",
+	"./mn.js": "./node_modules/moment/locale/mn.js",
+	"./mr": "./node_modules/moment/locale/mr.js",
+	"./mr.js": "./node_modules/moment/locale/mr.js",
+	"./ms": "./node_modules/moment/locale/ms.js",
+	"./ms-my": "./node_modules/moment/locale/ms-my.js",
+	"./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+	"./ms.js": "./node_modules/moment/locale/ms.js",
+	"./mt": "./node_modules/moment/locale/mt.js",
+	"./mt.js": "./node_modules/moment/locale/mt.js",
+	"./my": "./node_modules/moment/locale/my.js",
+	"./my.js": "./node_modules/moment/locale/my.js",
+	"./nb": "./node_modules/moment/locale/nb.js",
+	"./nb.js": "./node_modules/moment/locale/nb.js",
+	"./ne": "./node_modules/moment/locale/ne.js",
+	"./ne.js": "./node_modules/moment/locale/ne.js",
+	"./nl": "./node_modules/moment/locale/nl.js",
+	"./nl-be": "./node_modules/moment/locale/nl-be.js",
+	"./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+	"./nl.js": "./node_modules/moment/locale/nl.js",
+	"./nn": "./node_modules/moment/locale/nn.js",
+	"./nn.js": "./node_modules/moment/locale/nn.js",
+	"./pa-in": "./node_modules/moment/locale/pa-in.js",
+	"./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+	"./pl": "./node_modules/moment/locale/pl.js",
+	"./pl.js": "./node_modules/moment/locale/pl.js",
+	"./pt": "./node_modules/moment/locale/pt.js",
+	"./pt-br": "./node_modules/moment/locale/pt-br.js",
+	"./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+	"./pt.js": "./node_modules/moment/locale/pt.js",
+	"./ro": "./node_modules/moment/locale/ro.js",
+	"./ro.js": "./node_modules/moment/locale/ro.js",
+	"./ru": "./node_modules/moment/locale/ru.js",
+	"./ru.js": "./node_modules/moment/locale/ru.js",
+	"./sd": "./node_modules/moment/locale/sd.js",
+	"./sd.js": "./node_modules/moment/locale/sd.js",
+	"./se": "./node_modules/moment/locale/se.js",
+	"./se.js": "./node_modules/moment/locale/se.js",
+	"./si": "./node_modules/moment/locale/si.js",
+	"./si.js": "./node_modules/moment/locale/si.js",
+	"./sk": "./node_modules/moment/locale/sk.js",
+	"./sk.js": "./node_modules/moment/locale/sk.js",
+	"./sl": "./node_modules/moment/locale/sl.js",
+	"./sl.js": "./node_modules/moment/locale/sl.js",
+	"./sq": "./node_modules/moment/locale/sq.js",
+	"./sq.js": "./node_modules/moment/locale/sq.js",
+	"./sr": "./node_modules/moment/locale/sr.js",
+	"./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr.js": "./node_modules/moment/locale/sr.js",
+	"./ss": "./node_modules/moment/locale/ss.js",
+	"./ss.js": "./node_modules/moment/locale/ss.js",
+	"./sv": "./node_modules/moment/locale/sv.js",
+	"./sv.js": "./node_modules/moment/locale/sv.js",
+	"./sw": "./node_modules/moment/locale/sw.js",
+	"./sw.js": "./node_modules/moment/locale/sw.js",
+	"./ta": "./node_modules/moment/locale/ta.js",
+	"./ta.js": "./node_modules/moment/locale/ta.js",
+	"./te": "./node_modules/moment/locale/te.js",
+	"./te.js": "./node_modules/moment/locale/te.js",
+	"./tet": "./node_modules/moment/locale/tet.js",
+	"./tet.js": "./node_modules/moment/locale/tet.js",
+	"./tg": "./node_modules/moment/locale/tg.js",
+	"./tg.js": "./node_modules/moment/locale/tg.js",
+	"./th": "./node_modules/moment/locale/th.js",
+	"./th.js": "./node_modules/moment/locale/th.js",
+	"./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+	"./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+	"./tlh": "./node_modules/moment/locale/tlh.js",
+	"./tlh.js": "./node_modules/moment/locale/tlh.js",
+	"./tr": "./node_modules/moment/locale/tr.js",
+	"./tr.js": "./node_modules/moment/locale/tr.js",
+	"./tzl": "./node_modules/moment/locale/tzl.js",
+	"./tzl.js": "./node_modules/moment/locale/tzl.js",
+	"./tzm": "./node_modules/moment/locale/tzm.js",
+	"./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm.js": "./node_modules/moment/locale/tzm.js",
+	"./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+	"./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+	"./uk": "./node_modules/moment/locale/uk.js",
+	"./uk.js": "./node_modules/moment/locale/uk.js",
+	"./ur": "./node_modules/moment/locale/ur.js",
+	"./ur.js": "./node_modules/moment/locale/ur.js",
+	"./uz": "./node_modules/moment/locale/uz.js",
+	"./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+	"./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+	"./uz.js": "./node_modules/moment/locale/uz.js",
+	"./vi": "./node_modules/moment/locale/vi.js",
+	"./vi.js": "./node_modules/moment/locale/vi.js",
+	"./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+	"./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+	"./yo": "./node_modules/moment/locale/yo.js",
+	"./yo.js": "./node_modules/moment/locale/yo.js",
+	"./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+	"./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/alert/alert.component.html":
 /*!**********************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/alert/alert.component.html ***!
@@ -97,7 +383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Contratos\n    <small>{{contrato.id ? 'Atualizar' : 'Adicionar'}}</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Contrato</a></li>\n    <li class=\"active\">{{contrato.id ? 'Atualizar' : 'Adicionar'}}</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">{{contrato.id ? 'Atualizar' : 'Adicionar'}} Contrato</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"contrato.id\"/>\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <h4>Dados Básicos</h4>\n            <hr>\n            <div class=\"row\">\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"referencia\">Referência</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"referencia\"\n                       name=\"referencia\"\n                       [(ngModel)]=\"contrato.referencia\"\n                       [required]=\"true\"\n                       placeholder=\"Referência\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"tipo_contrato\">Tipo de Contrato</label>\n                <select class=\"form-control\"\n                        id=\"tipo_contrato\"\n                        [(ngModel)]=\"contrato.id_tipo_contrato\"\n                        [required]=\"true\"\n                        name=\"id_estado_civil\">\n                  <option [value]=\"1\">Aluguel</option>\n                  <option [value]=\"2\">Temporada</option>\n                </select>\n              </div>\n\n              <div class=\"form-group col-md-4\">\n                <label for=\"imovel\">Imóvel</label>\n                <select class=\"form-control\"\n                        id=\"imovel\"\n                        [(ngModel)]=\"contrato.id_imovel\"\n                        [required]=\"true\"\n                        name=\"id_imovel\">\n                </select>\n              </div>\n\n              <div class=\"form-group col-md-4\">\n                <label for=\"locatario\">Inquilino</label>\n                <select class=\"form-control\"\n                        id=\"locatario\"\n                        [(ngModel)]=\"contrato.id_locatario\"\n                        [required]=\"true\"\n                        name=\"id_locatario\">\n                </select>\n              </div>\n            </div>\n\n            <h4>Data e Recorrência do Contrato</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-3\">\n                <label for=\"inicio_estadia\">Início da Estadia</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"inicio_estadia\"\n                       name=\"inicio_estadia\"\n                       [(ngModel)]=\"contrato.inicio_estadia\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 2\"\n                       placeholder=\"Início da Estadia\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"fim_estadia\">Fim da Estadia</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"fim_estadia\"\n                       name=\"fim_estadia\"\n                       [(ngModel)]=\"contrato.fim_estadia\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 2\"\n                       placeholder=\"Fim da Estadia\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"data_inicio\">Início do Contrato</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"data_inicio\"\n                       name=\"data_inicio\"\n                       [(ngModel)]=\"contrato.data_inicio\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 1\"\n                       placeholder=\"Data de Início\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"vigencia\">Vigência</label>\n                <input type=\"number\"\n                       class=\"form-control\"\n                       id=\"vigencia\"\n                       name=\"vigencia\"\n                       [(ngModel)]=\"contrato.vigencia\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 1\"\n                       (blur)=\"calcularFimContrato(contrato.data_inicio, contrato.vigencia)\"\n                       placeholder=\"Vigência\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"data_inicio\">Fim do Contrato</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"data_fim\"\n                       name=\"data_fim\"\n                       [(ngModel)]=\"contrato.data_fim\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 1\"\n                       [readonly]=\"true\"\n                       placeholder=\"Data Fim\"/>\n              </div>\n\n            </div>\n\n            <h4>Valores do Contrato</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-3\">\n                <label for=\"valor\">Valor:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"valor\"\n                       name=\"valor\"\n                       [(ngModel)]=\"contrato.valor\"\n                       [required]=\"true\"\n                       placeholder=\"Valor\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"dias\">Dias:</label>\n                <input type=\"number\"\n                       class=\"form-control\"\n                       id=\"dias\"\n                       name=\"dias\"\n                       [(ngModel)]=\"contrato.dias\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 2\"\n                       placeholder=\"Dias\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"taxa_servico\">Taxa de Serviço:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"taxa_servico\"\n                       name=\"taxa_servico\"\n                       [(ngModel)]=\"contrato.taxa_servico\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 2\"\n                       placeholder=\"Taxa de Serviço\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"primeiro_vencimento\">Primeiro Vencimento:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"primeiro_vencimento\"\n                       name=\"primeiro_vencimento\"\n                       [(ngModel)]=\"contrato.primeiro_vencimento\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 1\"\n                       placeholder=\"Primeiro Vencimento\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"sinal\">Sinal:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"sinal\"\n                       name=\"sinal\"\n                       [(ngModel)]=\"contrato.sinal\"\n                       [required]=\"true\"\n                       [disabled]=\"contrato.id_tipo_contrato != 2\"\n                       placeholder=\"Sinal\"/>\n              </div>\n\n            </div>\n\n            <h4>Dados Adicionais</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-12\">\n                <label for=\"profissao\">Observações:</label>\n                <textarea class=\"form-control\"\n                          id=\"profissao\"\n                          name=\"profissao\"\n                          [(ngModel)]=\"contrato.observacoes\"\n                          [required]=\"true\"\n                          placeholder=\"Observações\"></textarea>\n              </div>\n            </div>\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar e Continuar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Contratos\n    <small>{{contrato.id ? 'Atualizar' : 'Adicionar'}}</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Contrato</a></li>\n    <li class=\"active\">{{contrato.id ? 'Atualizar' : 'Adicionar'}}</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">{{contrato.id ? 'Atualizar' : 'Adicionar'}} Contrato</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"contrato.id\"/>\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <h4>Dados Básicos</h4>\n            <hr>\n            <div class=\"row\">\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"referencia\">Referência</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"referencia\"\n                       name=\"referencia\"\n                       [(ngModel)]=\"contrato.referencia\"\n                       [required]=\"false\"\n                       placeholder=\"Referência\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"tipo_contrato\">Tipo de Contrato</label>\n                <select class=\"form-control\"\n                        id=\"tipo_contrato\"\n                        [(ngModel)]=\"contrato.id_tipo_contrato\"\n                        [required]=\"true\"\n                        name=\"id_estado_civil\">\n                  <option [value]=\"1\">Aluguel</option>\n                  <option [value]=\"2\">Temporada</option>\n                </select>\n              </div>\n\n              <div class=\"form-group col-md-4\">\n                <label for=\"imovel\">Imóvel</label>\n                <select class=\"form-control\"\n                        id=\"imovel\"\n                        [(ngModel)]=\"contrato.id_imovel\"\n                        [required]=\"true\"\n                        name=\"id_imovel\">\n                  <option *ngFor=\"let imovel of imoveis\" [value]=\"contrato.id_imovel\" [disabled]=\"imovel.status != 'Disponível'\">{{imovel.nome + ' - ' + imovel.status}}</option>\n                </select>\n              </div>\n\n              <div class=\"form-group col-md-4\">\n                <label for=\"locatario\">Inquilino</label>\n                <select class=\"form-control\"\n                        id=\"locatario\"\n                        [(ngModel)]=\"contrato.id_locatario\"\n                        [required]=\"true\"\n                        name=\"id_locatario\">\n                  <option *ngFor=\"let locatario of locatarios\" [value]=\"locatario.id\">{{locatario.nome}}</option>\n                </select>\n              </div>\n            </div>\n\n            <h4>Data e Recorrência do Contrato</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"inicio_estadia\">Início da Estadia</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"inicio_estadia\"\n                       name=\"inicio_estadia\"\n                       [(ngModel)]=\"contrato.inicio_estadia\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       placeholder=\"Início da Estadia\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"fim_estadia\">Fim da Estadia</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"fim_estadia\"\n                       name=\"fim_estadia\"\n                       [(ngModel)]=\"contrato.fim_estadia\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       placeholder=\"Fim da Estadia\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\n                <label for=\"data_inicio\">Início do Contrato</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"data_inicio\"\n                       name=\"data_inicio\"\n                       [(ngModel)]=\"contrato.data_inicio\"\n                       [required]=\"contrato.id_tipo_contrato == 1\"\n                       (blur)=\"calcularFimContrato(contrato.data_inicio, contrato.vigencia)\"\n                       placeholder=\"Data de Início\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\n                <label for=\"vigencia\">Vigência</label>\n                <input type=\"number\"\n                       class=\"form-control\"\n                       id=\"vigencia\"\n                       name=\"vigencia\"\n                       [(ngModel)]=\"contrato.vigencia\"\n                       [required]=\"contrato.id_tipo_contrato == 1\"\n                       (blur)=\"calcularFimContrato(contrato.data_inicio, contrato.vigencia)\"\n                       placeholder=\"Vigência\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\n                <label for=\"data_inicio\">Fim do Contrato</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"data_fim\"\n                       name=\"data_fim\"\n                       [(ngModel)]=\"contrato.data_fim\"\n                       [readonly]=\"true\"\n                       [required]=\"contrato.id_tipo_contrato == 1\"\n                       placeholder=\"Data Fim\"/>\n              </div>\n\n            </div>\n\n            <h4>Valores do Contrato</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-3\">\n                <label for=\"valor\">Valor:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"valor\"\n                       name=\"valor\"\n                       [(ngModel)]=\"contrato.valor\"\n                       [required]=\"true\"\n                       placeholder=\"Valor\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"dias\">Dias:</label>\n                <input type=\"number\"\n                       class=\"form-control\"\n                       id=\"dias\"\n                       name=\"dias\"\n                       [(ngModel)]=\"contrato.dias\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       [disabled]=\"contrato.id_tipo_contrato != 2\"\n                       placeholder=\"Dias\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"taxa_servico\">Taxa de Serviço:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"taxa_servico\"\n                       name=\"taxa_servico\"\n                       [(ngModel)]=\"contrato.taxa_servico\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       placeholder=\"Taxa de Serviço\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\n                <label for=\"primeiro_vencimento\">Primeiro Vencimento:</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"primeiro_vencimento\"\n                       name=\"primeiro_vencimento\"\n                       [(ngModel)]=\"contrato.primeiro_vencimento\"\n                       [required]=\"contrato.id_tipo_contrato == 1\"\n                       />\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"sinal\">Sinal:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"sinal\"\n                       name=\"sinal\"\n                       [(ngModel)]=\"contrato.sinal\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       placeholder=\"Sinal\"/>\n              </div>\n\n            </div>\n\n            <h4>Dados Adicionais</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-12\">\n                <label for=\"profissao\">Observações:</label>\n                <textarea class=\"form-control\"\n                          id=\"profissao\"\n                          name=\"profissao\"\n                          [(ngModel)]=\"contrato.observacoes\"\n                          [required]=\"false\"\n                          placeholder=\"Observações\"></textarea>\n              </div>\n            </div>\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar e Continuar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n");
 
 /***/ }),
 
@@ -981,6 +1267,12 @@ let PessoaService = class PessoaService {
             return res;
         }));
     }
+    getInquilinos() {
+        return this.http.get(`${this.API}/getPessoas/2`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(res => {
+            return res;
+        }));
+    }
     getById(id) {
         return this.http.get(this.API + '/buscar/' + id)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(res => {
@@ -1534,6 +1826,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_services/alert.service */ "./src/app/_services/alert.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _services_imovel_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../_services/imovel.service */ "./src/app/_services/imovel.service.ts");
+/* harmony import */ var _services_pessoa_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../_services/pessoa.service */ "./src/app/_services/pessoa.service.ts");
+
+
+
 
 
 
@@ -1542,14 +1841,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NewContratoComponent = class NewContratoComponent {
-    constructor(contratoService, alertService, router, datePipe) {
+    constructor(contratoService, alertService, imovelService, pessoaService, router, datePipe) {
         this.contratoService = contratoService;
         this.alertService = alertService;
+        this.imovelService = imovelService;
+        this.pessoaService = pessoaService;
         this.router = router;
         this.datePipe = datePipe;
+        this.imoveis = [];
+        this.locatarios = [];
     }
     ngOnInit() {
         this.contrato = new _models_contrato_model__WEBPACK_IMPORTED_MODULE_2__["Contrato"]();
+        this.getImoveis();
+        this.getLocatarios();
     }
     onSubmit(form) {
         return this.contratoService.save(form.value)
@@ -1563,21 +1868,38 @@ let NewContratoComponent = class NewContratoComponent {
         });
     }
     calcularFimContrato(data, vigencia) {
+        /*
         const date = new Date(data);
-        let dataStr;
+        console.log('Inicio de Contrato: ' + date);
+        let dataFim: Date;
         date.setMonth(date.getMonth() + vigencia);
-        dataStr = this.datePipe.transform(date, 'yyyy-MM-dd');
-        console.log('Data: ' + dataStr);
-        this.contrato.data_fim = date;
-        return date;
+        const DateTmp: string = this.datePipe.transform(date, 'yyyy-MM-dd');
+        console.log('Data Final: ' + dataFim);
+        this.contrato.data_fim = dataFim;
+        */
+        let dataInicial = moment__WEBPACK_IMPORTED_MODULE_7__(data);
+        let dataFinal = moment__WEBPACK_IMPORTED_MODULE_7__(dataInicial).add(vigencia, 'M');
+        console.log(dataFinal.format('YYYY-MM-DD'));
+        this.contrato.data_fim = dataFinal.format('YYYY-MM-DD');
     }
-    transformDate(date) {
-        return this.datePipe.transform(date, 'yyyy-MM-dd');
+    getImoveis() {
+        return this.imovelService.list()
+            .subscribe(success => {
+            this.imoveis = success;
+        });
+    }
+    getLocatarios() {
+        return this.pessoaService.getInquilinos()
+            .subscribe(success => {
+            this.locatarios = success;
+        });
     }
 };
 NewContratoComponent.ctorParameters = () => [
     { type: _services_contrato_service__WEBPACK_IMPORTED_MODULE_3__["ContratoService"] },
     { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_4__["AlertService"] },
+    { type: _services_imovel_service__WEBPACK_IMPORTED_MODULE_8__["ImovelService"] },
+    { type: _services_pessoa_service__WEBPACK_IMPORTED_MODULE_9__["PessoaService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
     { type: _angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"] }
 ];

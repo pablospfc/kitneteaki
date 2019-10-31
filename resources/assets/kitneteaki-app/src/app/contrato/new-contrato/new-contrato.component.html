@@ -37,7 +37,7 @@
                        id="referencia"
                        name="referencia"
                        [(ngModel)]="contrato.referencia"
-                       [required]="true"
+                       [required]="false"
                        placeholder="Referência"/>
               </div>
 
@@ -60,6 +60,7 @@
                         [(ngModel)]="contrato.id_imovel"
                         [required]="true"
                         name="id_imovel">
+                  <option *ngFor="let imovel of imoveis" [value]="contrato.id_imovel" [disabled]="imovel.status != 'Disponível'">{{imovel.nome + ' - ' + imovel.status}}</option>
                 </select>
               </div>
 
@@ -70,6 +71,7 @@
                         [(ngModel)]="contrato.id_locatario"
                         [required]="true"
                         name="id_locatario">
+                  <option *ngFor="let locatario of locatarios" [value]="locatario.id">{{locatario.nome}}</option>
                 </select>
               </div>
             </div>
@@ -77,65 +79,61 @@
             <h4>Data e Recorrência do Contrato</h4>
             <hr>
             <div class="row">
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 2">
                 <label for="inicio_estadia">Início da Estadia</label>
                 <input type="date"
                        class="form-control"
                        id="inicio_estadia"
                        name="inicio_estadia"
                        [(ngModel)]="contrato.inicio_estadia"
-                       [required]="true"
-                       [disabled]="contrato.id_tipo_contrato != 2"
+                       [required]="contrato.id_tipo_contrato == 2"
                        placeholder="Início da Estadia"/>
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 2">
                 <label for="fim_estadia">Fim da Estadia</label>
                 <input type="date"
                        class="form-control"
                        id="fim_estadia"
                        name="fim_estadia"
                        [(ngModel)]="contrato.fim_estadia"
-                       [required]="true"
-                       [disabled]="contrato.id_tipo_contrato != 2"
+                       [required]="contrato.id_tipo_contrato == 2"
                        placeholder="Fim da Estadia"/>
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 1">
                 <label for="data_inicio">Início do Contrato</label>
                 <input type="date"
                        class="form-control"
                        id="data_inicio"
                        name="data_inicio"
                        [(ngModel)]="contrato.data_inicio"
-                       [required]="true"
-                       [disabled]="contrato.id_tipo_contrato != 1"
+                       [required]="contrato.id_tipo_contrato == 1"
+                       (blur)="calcularFimContrato(contrato.data_inicio, contrato.vigencia)"
                        placeholder="Data de Início"/>
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 1">
                 <label for="vigencia">Vigência</label>
                 <input type="number"
                        class="form-control"
                        id="vigencia"
                        name="vigencia"
                        [(ngModel)]="contrato.vigencia"
-                       [required]="true"
-                       [disabled]="contrato.id_tipo_contrato != 1"
+                       [required]="contrato.id_tipo_contrato == 1"
                        (blur)="calcularFimContrato(contrato.data_inicio, contrato.vigencia)"
                        placeholder="Vigência"/>
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 1">
                 <label for="data_inicio">Fim do Contrato</label>
                 <input type="date"
                        class="form-control"
                        id="data_fim"
                        name="data_fim"
                        [(ngModel)]="contrato.data_fim"
-                       [required]="true"
-                       [disabled]="contrato.id_tipo_contrato != 1"
                        [readonly]="true"
+                       [required]="contrato.id_tipo_contrato == 1"
                        placeholder="Data Fim"/>
               </div>
 
@@ -155,51 +153,48 @@
                        placeholder="Valor"/>
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 2">
                 <label for="dias">Dias:</label>
                 <input type="number"
                        class="form-control"
                        id="dias"
                        name="dias"
                        [(ngModel)]="contrato.dias"
-                       [required]="true"
+                       [required]="contrato.id_tipo_contrato == 2"
                        [disabled]="contrato.id_tipo_contrato != 2"
                        placeholder="Dias"/>
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 2">
                 <label for="taxa_servico">Taxa de Serviço:</label>
                 <input type="text"
                        class="form-control"
                        id="taxa_servico"
                        name="taxa_servico"
                        [(ngModel)]="contrato.taxa_servico"
-                       [required]="true"
-                       [disabled]="contrato.id_tipo_contrato != 2"
+                       [required]="contrato.id_tipo_contrato == 2"
                        placeholder="Taxa de Serviço"/>
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 1">
                 <label for="primeiro_vencimento">Primeiro Vencimento:</label>
-                <input type="text"
+                <input type="date"
                        class="form-control"
                        id="primeiro_vencimento"
                        name="primeiro_vencimento"
                        [(ngModel)]="contrato.primeiro_vencimento"
-                       [required]="true"
-                       [disabled]="contrato.id_tipo_contrato != 1"
-                       placeholder="Primeiro Vencimento"/>
+                       [required]="contrato.id_tipo_contrato == 1"
+                       />
               </div>
 
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 2">
                 <label for="sinal">Sinal:</label>
                 <input type="text"
                        class="form-control"
                        id="sinal"
                        name="sinal"
                        [(ngModel)]="contrato.sinal"
-                       [required]="true"
-                       [disabled]="contrato.id_tipo_contrato != 2"
+                       [required]="contrato.id_tipo_contrato == 2"
                        placeholder="Sinal"/>
               </div>
 
@@ -214,7 +209,7 @@
                           id="profissao"
                           name="profissao"
                           [(ngModel)]="contrato.observacoes"
-                          [required]="true"
+                          [required]="false"
                           placeholder="Observações"></textarea>
               </div>
             </div>

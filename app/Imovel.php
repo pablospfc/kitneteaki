@@ -45,6 +45,7 @@ class Imovel extends Model
             ->join("tipo_imovel as tip","imo.id_tipo_imovel","=","tip.id")
             ->join("transacao_imovel as tra","imo.id_transacao_imovel", "=", "tra.id")
             ->join("status as sta", "imo.id_status", "=", "sta.id")
+            ->orderBy("imo.nome")
             ->get()
             ->toArray();
     }

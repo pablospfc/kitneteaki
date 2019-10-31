@@ -30,6 +30,15 @@ export class PessoaService {
       );
   }
 
+  public getInquilinos() {
+    return this.http.get<Pessoa[]>(`${this.API}/getPessoas/2`)
+      .pipe(
+        map(res => {
+          return res;
+        })
+      );
+  }
+
   public getById(id: number): Observable<any> {
     return this.http.get(this.API + '/buscar/' + id)
       .pipe(

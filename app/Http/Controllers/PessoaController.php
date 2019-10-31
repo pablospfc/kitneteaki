@@ -30,6 +30,16 @@ class PessoaController extends Controller
         }
     }
 
+    public function getPessoas($idCategoriaPessoa){
+        try{
+            $data = \App\Pessoa::where("id_categoria_pessoa", $idCategoriaPessoa)
+                ->get();
+            return response()->json($data, 200);
+        } catch(\Exception $e) {
+            return response()->json(['message' => 'Ocorreu um problema ao listar dados'],500);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
