@@ -29,7 +29,6 @@ export class NewContratoComponent implements OnInit {
 
   ngOnInit() {
     this.contrato = new Contrato();
-    this.getImoveis();
     this.getLocatarios();
   }
 
@@ -61,11 +60,31 @@ export class NewContratoComponent implements OnInit {
     this.contrato.data_fim = dataFinal.format('YYYY-MM-DD');
   }
 
-  getImoveis() {
-    return this.imovelService.list()
+  getValorImovel(idImovel: number) {
+    return this.imovelService.getById(idImovel)
+      .subscribe(response => {
+        console.log(response.valor_imovel);
+        this.contrato.valor = response.valor_imovel;
+      });
+  }
+
+  getImoveis(idTransacao: number) {
+    return this.imovelService.getByTransacao(idTransacao)
       .subscribe(success => {
         this.imoveis = success;
       });
+  }
+
+  verificaDisponibilidade(inicio: Date, fim: Date) {
+    const inicioEstadia = moment(inicio);
+    const fimEstadia = moment(fim);
+    console.log(inicioEstadia);
+    console.log(fimEstadia);
+    if (inicioEstadia != null  && fimEstadia != null) {
+      const duration = moment.duration(fimEstadia.diff(inicioEstadia));
+      const dias = duration.asDays();
+      this.contrato.dias = dias;
+    }
   }
 
   getLocatarios() {

@@ -27,6 +27,7 @@ Route::post("imovel/cadastrar","ImovelController@store");
 Route::put("imovel/atualizar/{id}","ImovelController@update");
 Route::get("imovel/listar","ImovelController@index");
 Route::get("imovel/buscar/{id}","ImovelController@show");
+Route::get("imovel/getByTransacao/{id}","ImovelController@getByTransacao");
 
 Route::post("conta/cadastrar","ContaController@store");
 Route::put("conta/atualizar/{id}","ContaController@update");

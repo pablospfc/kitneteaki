@@ -49,4 +49,9 @@ class Imovel extends Model
             ->get()
             ->toArray();
     }
+
+    public function getByTransacao($id) {
+        return self::where("id_transacao_imovel",$id)
+            ->get();
+    }
 }

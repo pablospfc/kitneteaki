@@ -10,7 +10,7 @@ export class Contrato {
   primeiro_vencimento: Date;
   dia_vencimento: string;
   data_inicio: Date;
-  data_fim: Date;
+  data_fim: string;
   inicio_estadia: Date;
   fim_estadia: Date;
   vigencia: number;

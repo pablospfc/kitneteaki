@@ -46,8 +46,9 @@
                 <select class="form-control"
                         id="tipo_contrato"
                         [(ngModel)]="contrato.id_tipo_contrato"
+                        (blur)="getImoveis($event.target.value)"
                         [required]="true"
-                        name="id_estado_civil">
+                        name="id_tipo_contrato">
                   <option [value]="1">Aluguel</option>
                   <option [value]="2">Temporada</option>
                 </select>
@@ -59,8 +60,9 @@
                         id="imovel"
                         [(ngModel)]="contrato.id_imovel"
                         [required]="true"
+                        (change)="getValorImovel($event.target.value)"
                         name="id_imovel">
-                  <option *ngFor="let imovel of imoveis" [value]="contrato.id_imovel" [disabled]="imovel.status != 'Disponível'">{{imovel.nome + ' - ' + imovel.status}}</option>
+                  <option *ngFor="let imovel of imoveis" [value]="imovel.id" [disabled]="imovel.status != 'Disponível'">{{imovel.nome + ' - ' + imovel.status}}</option>
                 </select>
               </div>
 
@@ -86,6 +88,7 @@
                        id="inicio_estadia"
                        name="inicio_estadia"
                        [(ngModel)]="contrato.inicio_estadia"
+                       (blur)="verificaDisponibilidade(contrato.inicio_estadia, contrato.fim_estadia) && contrato.inicio_estadia"
                        [required]="contrato.id_tipo_contrato == 2"
                        placeholder="Início da Estadia"/>
               </div>
@@ -97,6 +100,7 @@
                        id="fim_estadia"
                        name="fim_estadia"
                        [(ngModel)]="contrato.fim_estadia"
+                       (blur)="verificaDisponibilidade(contrato.inicio_estadia, contrato.fim_estadia)"
                        [required]="contrato.id_tipo_contrato == 2"
                        placeholder="Fim da Estadia"/>
               </div>
@@ -119,6 +123,8 @@
                        class="form-control"
                        id="vigencia"
                        name="vigencia"
+                       [min]="1"
+                       [max]="12"
                        [(ngModel)]="contrato.vigencia"
                        [required]="contrato.id_tipo_contrato == 1"
                        (blur)="calcularFimContrato(contrato.data_inicio, contrato.vigencia)"
@@ -161,7 +167,7 @@
                        name="dias"
                        [(ngModel)]="contrato.dias"
                        [required]="contrato.id_tipo_contrato == 2"
-                       [disabled]="contrato.id_tipo_contrato != 2"
+                       [readOnly]="true"
                        placeholder="Dias"/>
               </div>
 

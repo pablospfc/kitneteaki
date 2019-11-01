@@ -25,8 +25,18 @@ class ImovelController extends Controller
             $data = $this->imovel->getAll();
             return response()->json($data, 200);
         } catch (\Exception $e) {
-            Log::create(['message' => $e->getMessage()], 500);
+            Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um problema ao listar dados.'],500);
+        }
+    }
+
+    public function getByTransacao($id) {
+        try {
+            $data = $this->imovel->getByTransacao($id);
+            return response()->json($data, 200);
+        }catch(\Exception $e) {
+            Log::create(['message'=> $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao buscar dados.'],500);
         }
     }
 

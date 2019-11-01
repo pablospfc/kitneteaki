@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError, BehaviorSubject} from 'rxjs';
 import {map, filter, catchError, mergeMap, retry, tap, take} from 'rxjs/operators';
 import {Imovel} from '../_models/imovel.model';
+import {Pessoa} from "../_models/pessoa.model";
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +26,15 @@ export class ImovelService {
         return response;
        })
      );
+  }
+
+  public getByTransacao(idTransacao: number) {
+    return this.http.get<Imovel[]>(`${this.API}/getByTransacao/${idTransacao}`)
+      .pipe(
+        map(response => {
+          return response;
+        })
+      );
   }
 
   public save(imovel) {
