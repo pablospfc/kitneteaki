@@ -14,7 +14,8 @@ import {NewImovelComponent} from './imovel/new-imovel/new-imovel.component';
 import {ImovelResolverGuard} from './_guards/imovel-resolver.guard';
 import {ListModeloDocumentoComponent} from './modelo-documento/list-modelo-documento/list-modelo-documento.component';
 import {NewModeloDocumentoComponent} from './modelo-documento/new-modelo-documento/new-modelo-documento.component';
-import {NewContratoComponent} from "./contrato/new-contrato/new-contrato.component";
+import {NewContratoComponent} from './contrato/new-contrato/new-contrato.component';
+import {NewGarantiasContratoComponent} from './contrato/new-garantias-contrato/new-garantias-contrato.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,10 @@ const routes: Routes = [
       {
         path: 'new-contrato',
         component: NewContratoComponent,
+      },
+      {
+        path: 'new-garantias-contrato',
+        component: NewGarantiasContratoComponent
       },
       {
         path: 'list-imovel',

@@ -29,6 +29,8 @@ import {ListModeloDocumentoComponent} from './modelo-documento/list-modelo-docum
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {NewContratoComponent} from './contrato/new-contrato/new-contrato.component';
 import {DatePipe} from '@angular/common';
+import {NewGarantiasContratoComponent} from './contrato/new-garantias-contrato/new-garantias-contrato.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,7 @@ import {DatePipe} from '@angular/common';
     NewModeloDocumentoComponent,
     ListModeloDocumentoComponent,
     NewContratoComponent,
+    NewGarantiasContratoComponent,
     AlertComponent
   ],
   imports: [
@@ -55,7 +58,8 @@ import {DatePipe} from '@angular/common';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    CKEditorModule
+    CKEditorModule,
+    ModalModule.forRoot()
   ],
   providers: [DatePipe],
   exports: [

@@ -33,15 +33,18 @@ export class NewContratoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    console.log(form.value);
+    /*
     return this.contratoService.save(form.value)
       .subscribe(success => {
         const message = (success as any).message;
         this.alertService.success(message, true);
-        //this.router.navigate(['new-ocupantes-imovel']);
       }, error => {
         const message = (error as any).message;
         this.alertService.error(message);
       });
+      */
+    this.router.navigate(['new-garantias-contrato']);
   }
 
   calcularFimContrato(data: Date, vigencia: number) {

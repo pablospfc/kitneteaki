@@ -51,7 +51,21 @@ class Imovel extends Model
     }
 
     public function getByTransacao($id) {
-        return self::where("id_transacao_imovel",$id)
-            ->get();
+        return self::select(
+            "imo.id as id",
+            "imo.nome as nome",
+            "sta.nome as status",
+            "tip.nome as tipo_imovel",
+            "tra.nome as transacao_imovel",
+            "imo.valor_imovel as valor_imovel"
+        )
+            ->from("imovel as imo")
+            ->join("tipo_imovel as tip","imo.id_tipo_imovel","=","tip.id")
+            ->join("transacao_imovel as tra","imo.id_transacao_imovel", "=", "tra.id")
+            ->join("status as sta", "imo.id_status", "=", "sta.id")
+            ->where("imo.id_transacao_imovel",$id)
+            ->orderBy("imo.nome")
+            ->get()
+            ->toArray();
     }
 }
