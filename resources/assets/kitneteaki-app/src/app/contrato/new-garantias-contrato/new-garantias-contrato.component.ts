@@ -9,7 +9,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 })
 export class NewGarantiasContratoComponent implements OnInit {
 
-  ocupantes: OcupanteImovel;
+  ocupantes: OcupanteImovel[];
   modalRef: BsModalRef;
   constructor(private modalService: BsModalService) { }
 
@@ -17,7 +17,7 @@ export class NewGarantiasContratoComponent implements OnInit {
   }
 
   addOcupante(ocupante) {
-   this.ocupantes = ocupante;
+   this.ocupantes.push(ocupante);
   }
 
   openModalOcupantes(template: TemplateRef<any>) {
