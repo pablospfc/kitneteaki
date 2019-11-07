@@ -3,7 +3,7 @@ export class OcupanteImovel {
   id_tipo_pessoa: number;
   id_contrato: number;
   nome: number;
-  cpf: string;
+  cpf_cnpj: string;
   descricao: string;
 
 }

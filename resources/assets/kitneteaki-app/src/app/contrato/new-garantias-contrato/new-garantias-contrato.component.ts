@@ -1,6 +1,7 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {OcupanteImovel} from '../../_models/ocupante_imovel.model';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-new-garantias-contrato',
@@ -10,14 +11,18 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 export class NewGarantiasContratoComponent implements OnInit {
 
   ocupantes: OcupanteImovel[];
+  ocupante: OcupanteImovel;
   modalRef: BsModalRef;
   constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
+    this.ocupante = new OcupanteImovel();
+    this.ocupantes = [];
   }
 
-  addOcupante(ocupante) {
+  addOcupante(ocupante: OcupanteImovel) {
    this.ocupantes.push(ocupante);
+   this.ocupante = new OcupanteImovel();
   }
 
   openModalOcupantes(template: TemplateRef<any>) {

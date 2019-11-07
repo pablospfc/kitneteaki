@@ -80,9 +80,52 @@
     </button>
   </div>
   <div class="modal-body">
-    This is a modal.
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text"
+             class="form-control"
+             id="nome"
+             name="nome"
+             [(ngModel)]="ocupante.nome"
+             [required]="false"
+             placeholder="Nome"/>
+    </div>
+
+    <div class="form-group">
+      <label for="id_tipo_pessoa">Tipo de Pessoa</label>
+      <select class="form-control"
+              id="id_tipo_pessoa"
+              [(ngModel)]="ocupante.id_tipo_pessoa"
+              [required]="true"
+              name="id_tipo_pessoa">
+        <option [value]="1">Pessoa Física</option>
+        <option [value]="2">Pessoa Jurídica</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cpf_cnpj">CPF/CNPJ</label>
+      <input type="text"
+             class="form-control"
+             id="cpf_cnpj"
+             name="cpf_cnpj"
+             [(ngModel)]="ocupante.cpf_cnpj"
+             [required]="false"
+             placeholder="CPF/CNPJ"/>
+    </div>
+
+    <div class="form-group">
+      <label for="descricao">Descrição</label>
+      <input type="text"
+             class="form-control"
+             id="descricao"
+             name="descricao"
+             [(ngModel)]="ocupante.descricao"
+             [required]="false"
+             placeholder="Descrição"/>
+    </div>
   </div>
   <div class="modal-footer">
-    rodapé
+    <button type="button" (click)="addOcupante(ocupante)" class="btn btn-primary">Adicionar</button>
   </div>
 </ng-template>
