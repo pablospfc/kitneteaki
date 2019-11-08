@@ -33,7 +33,6 @@
               <tr>
                 <th>Nome</th>
                 <th>CPF/CNPJ</th>
-                <th>Tipo</th>
                 <th>Descrição</th>
                 <th>Ação</th>
               </tr>
@@ -42,7 +41,6 @@
               <tr *ngFor="let ocupante of ocupantes">
                 <td>{{ocupante.nome}}</td>
                 <td>{{ocupante.cpf_cnpj}}</td>
-                <td>{{ocupante.tipo}}</td>
                 <td>{{ocupante.descricao}}</td>
                 <td>
                   <button type="button"
@@ -79,6 +77,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <form #ocupanteForm="ngForm" name="ocupanteForm" role="form" (ngSubmit)="addOcupante(ocupanteForm)">
   <div class="modal-body">
     <div class="form-group">
       <label for="nome">Nome</label>
@@ -126,6 +125,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" (click)="addOcupante(ocupante)" class="btn btn-primary">Adicionar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!ocupanteForm.valid">Adicionar</button>
   </div>
+  </form>
 </ng-template>

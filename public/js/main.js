@@ -396,7 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Garantias de Contrato\n    <small>Adicionar</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Garantias de Contrato</a></li>\n    <li class=\"active\">Adicionar</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">Adicionar Garantia de Contrato</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <h4>Ocupantes do Imóvel</h4>\n            <hr>\n            <button type=\"button\" (click)=\"openModalOcupantes(template)\" class=\"btn-sm btn-success\">Adicionar Ocupante</button>\n            <table id=\"tblPessoa\" class=\"table table-bordered table-striped\">\n              <thead>\n              <tr>\n                <th>Nome</th>\n                <th>CPF/CNPJ</th>\n                <th>Tipo</th>\n                <th>Descrição</th>\n                <th>Ação</th>\n              </tr>\n              </thead>\n              <tbody>\n              <tr *ngFor=\"let ocupante of ocupantes\">\n                <td>{{ocupante.nome}}</td>\n                <td>{{ocupante.cpf_cnpj}}</td>\n                <td>{{ocupante.tipo}}</td>\n                <td>{{ocupante.descricao}}</td>\n                <td>\n                  <button type=\"button\"\n                          [routerLink]=\"['/update-pessoa/'+ocupante.id]\"\n                          class=\"btn btn-default btn-xs\">\n                    <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\n                  </button>\n                  <button type=\"button\"\n                          class=\"btn btn-default btn-xs\">\n                    <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\n                  </button>\n                </td>\n              </tr>\n              </tbody>\n            </table>\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n\n<ng-template #template>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Modal</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div class=\"form-group\">\n      <label for=\"nome\">Nome</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"nome\"\n             name=\"nome\"\n             [(ngModel)]=\"ocupante.nome\"\n             [required]=\"false\"\n             placeholder=\"Nome\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"id_tipo_pessoa\">Tipo de Pessoa</label>\n      <select class=\"form-control\"\n              id=\"id_tipo_pessoa\"\n              [(ngModel)]=\"ocupante.id_tipo_pessoa\"\n              [required]=\"true\"\n              name=\"id_tipo_pessoa\">\n        <option [value]=\"1\">Pessoa Física</option>\n        <option [value]=\"2\">Pessoa Jurídica</option>\n      </select>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"cpf_cnpj\">CPF/CNPJ</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"cpf_cnpj\"\n             name=\"cpf_cnpj\"\n             [(ngModel)]=\"ocupante.cpf_cnpj\"\n             [required]=\"false\"\n             placeholder=\"CPF/CNPJ\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"descricao\">Descrição</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"descricao\"\n             name=\"descricao\"\n             [(ngModel)]=\"ocupante.descricao\"\n             [required]=\"false\"\n             placeholder=\"Descrição\"/>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" (click)=\"addOcupante(ocupante)\" class=\"btn btn-primary\">Adicionar</button>\n  </div>\n</ng-template>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Garantias de Contrato\n    <small>Adicionar</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Garantias de Contrato</a></li>\n    <li class=\"active\">Adicionar</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">Adicionar Garantia de Contrato</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <h4>Ocupantes do Imóvel</h4>\n            <hr>\n            <button type=\"button\" (click)=\"openModalOcupantes(template)\" class=\"btn-sm btn-success\">Adicionar Ocupante</button>\n            <table id=\"tblPessoa\" class=\"table table-bordered table-striped\">\n              <thead>\n              <tr>\n                <th>Nome</th>\n                <th>CPF/CNPJ</th>\n                <th>Descrição</th>\n                <th>Ação</th>\n              </tr>\n              </thead>\n              <tbody>\n              <tr *ngFor=\"let ocupante of ocupantes\">\n                <td>{{ocupante.nome}}</td>\n                <td>{{ocupante.cpf_cnpj}}</td>\n                <td>{{ocupante.descricao}}</td>\n                <td>\n                  <button type=\"button\"\n                          [routerLink]=\"['/update-pessoa/'+ocupante.id]\"\n                          class=\"btn btn-default btn-xs\">\n                    <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\n                  </button>\n                  <button type=\"button\"\n                          class=\"btn btn-default btn-xs\">\n                    <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\n                  </button>\n                </td>\n              </tr>\n              </tbody>\n            </table>\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n\n<ng-template #template>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Modal</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <form #ocupanteForm=\"ngForm\" name=\"ocupanteForm\" role=\"form\" (ngSubmit)=\"addOcupante(ocupanteForm)\">\n  <div class=\"modal-body\">\n    <div class=\"form-group\">\n      <label for=\"nome\">Nome</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"nome\"\n             name=\"nome\"\n             [(ngModel)]=\"ocupante.nome\"\n             [required]=\"false\"\n             placeholder=\"Nome\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"id_tipo_pessoa\">Tipo de Pessoa</label>\n      <select class=\"form-control\"\n              id=\"id_tipo_pessoa\"\n              [(ngModel)]=\"ocupante.id_tipo_pessoa\"\n              [required]=\"true\"\n              name=\"id_tipo_pessoa\">\n        <option [value]=\"1\">Pessoa Física</option>\n        <option [value]=\"2\">Pessoa Jurídica</option>\n      </select>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"cpf_cnpj\">CPF/CNPJ</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"cpf_cnpj\"\n             name=\"cpf_cnpj\"\n             [(ngModel)]=\"ocupante.cpf_cnpj\"\n             [required]=\"false\"\n             placeholder=\"CPF/CNPJ\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"descricao\">Descrição</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"descricao\"\n             name=\"descricao\"\n             [(ngModel)]=\"ocupante.descricao\"\n             [required]=\"false\"\n             placeholder=\"Descrição\"/>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!ocupanteForm.valid\">Adicionar</button>\n  </div>\n  </form>\n</ng-template>\n");
 
 /***/ }),
 
@@ -1266,6 +1266,33 @@ ImovelService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/_services/ocupante-imovel.service.ts":
+/*!******************************************************!*\
+  !*** ./src/app/_services/ocupante-imovel.service.ts ***!
+  \******************************************************/
+/*! exports provided: OcupanteImovelService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OcupanteImovelService", function() { return OcupanteImovelService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let OcupanteImovelService = class OcupanteImovelService {
+    constructor() { }
+};
+OcupanteImovelService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], OcupanteImovelService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/_services/pessoa.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/_services/pessoa.service.ts ***!
@@ -2012,28 +2039,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _models_ocupante_imovel_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_models/ocupante_imovel.model */ "./src/app/_models/ocupante_imovel.model.ts");
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
+/* harmony import */ var _services_ocupante_imovel_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_services/ocupante-imovel.service */ "./src/app/_services/ocupante-imovel.service.ts");
+/* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../_services/alert.service */ "./src/app/_services/alert.service.ts");
+
+
 
 
 
 
 let NewGarantiasContratoComponent = class NewGarantiasContratoComponent {
-    constructor(modalService) {
+    constructor(modalService, alertService, ocupanteService) {
         this.modalService = modalService;
+        this.alertService = alertService;
+        this.ocupanteService = ocupanteService;
     }
     ngOnInit() {
         this.ocupante = new _models_ocupante_imovel_model__WEBPACK_IMPORTED_MODULE_2__["OcupanteImovel"]();
         this.ocupantes = [];
     }
-    addOcupante(ocupante) {
-        this.ocupantes.push(ocupante);
-        this.ocupante = new _models_ocupante_imovel_model__WEBPACK_IMPORTED_MODULE_2__["OcupanteImovel"]();
+    addOcupante(form) {
+        console.log(form.value);
+        console.log('chegou aqui');
+        /*this.ocupanteService.save(form.value)
+         .subscribe(success => {
+           const message = (success as any).message;
+           this.alertService.success(message, true);
+         },
+           error => {
+             const message = (error as any).message;
+             this.alertService.error(message);
+           }
+         );
+         */
     }
     openModalOcupantes(template) {
         this.modalRef = this.modalService.show(template);
     }
 };
 NewGarantiasContratoComponent.ctorParameters = () => [
-    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"] }
+    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"] },
+    { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"] },
+    { type: _services_ocupante_imovel_service__WEBPACK_IMPORTED_MODULE_4__["OcupanteImovelService"] }
 ];
 NewGarantiasContratoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2426,7 +2472,7 @@ ListModeloDocumentoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"](
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (":host ::ng-deep .ck-editor__editable {\n  min-height: 300px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kZWxvLWRvY3VtZW50by9uZXctbW9kZWxvLWRvY3VtZW50by9jOlxca2l0bmV0ZWFraVxccmVzb3VyY2VzXFxhc3NldHNcXGtpdG5ldGVha2ktYXBwL3NyY1xcYXBwXFxtb2RlbG8tZG9jdW1lbnRvXFxuZXctbW9kZWxvLWRvY3VtZW50b1xcbmV3LW1vZGVsby1kb2N1bWVudG8uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0QkFBNEIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21vZGVsby1kb2N1bWVudG8vbmV3LW1vZGVsby1kb2N1bWVudG8vbmV3LW1vZGVsby1kb2N1bWVudG8uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCA6Om5nLWRlZXAgLmNrLWVkaXRvcl9fZWRpdGFibGUge1xyXG4gIG1pbi1oZWlnaHQ6IDMwMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (":host ::ng-deep .ck-editor__editable {\n  min-height: 300px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kZWxvLWRvY3VtZW50by9uZXctbW9kZWxvLWRvY3VtZW50by9DOlxca2l0bmV0ZWFraVxccmVzb3VyY2VzXFxhc3NldHNcXGtpdG5ldGVha2ktYXBwL3NyY1xcYXBwXFxtb2RlbG8tZG9jdW1lbnRvXFxuZXctbW9kZWxvLWRvY3VtZW50b1xcbmV3LW1vZGVsby1kb2N1bWVudG8uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0QkFBNEIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21vZGVsby1kb2N1bWVudG8vbmV3LW1vZGVsby1kb2N1bWVudG8vbmV3LW1vZGVsby1kb2N1bWVudG8uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCA6Om5nLWRlZXAgLmNrLWVkaXRvcl9fZWRpdGFibGUge1xyXG4gIG1pbi1oZWlnaHQ6IDMwMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -2791,7 +2837,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\kitneteaki\resources\assets\kitneteaki-app\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\kitneteaki\resources\assets\kitneteaki-app\src\main.ts */"./src/main.ts");
 
 
 /***/ })
