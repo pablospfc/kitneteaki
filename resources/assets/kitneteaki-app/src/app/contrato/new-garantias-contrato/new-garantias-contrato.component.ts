@@ -4,6 +4,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {NgForm} from '@angular/forms';
 import {OcupanteImovelService} from '../../_services/ocupante-imovel.service';
 import {AlertService} from '../../_services/alert.service';
+import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 
 @Component({
   selector: 'app-new-garantias-contrato',
@@ -15,9 +16,16 @@ export class NewGarantiasContratoComponent implements OnInit {
   ocupantes: OcupanteImovel[];
   ocupante: OcupanteImovel;
   modalRef: BsModalRef;
+  private idContrato;
   constructor(private modalService: BsModalService,
               private alertService: AlertService,
-              private ocupanteService: OcupanteImovelService) { }
+              private ocupanteService: OcupanteImovelService,
+              private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.idContrato = params.id;
+      console.log(params.id);
+    });
+  }
 
   ngOnInit() {
     this.ocupante = new OcupanteImovel();
@@ -25,8 +33,7 @@ export class NewGarantiasContratoComponent implements OnInit {
   }
 
   addOcupante(form: NgForm) {
-    console.log(form.value);
-    console.log('chegou aqui');
+    form.value.id_contrato = this.idContrato;
     this.ocupanteService.save(form.value)
      .subscribe(success => {
        const message = (success as any).message;

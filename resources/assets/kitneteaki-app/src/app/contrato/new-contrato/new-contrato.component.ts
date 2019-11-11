@@ -3,12 +3,12 @@ import {Contrato} from '../../_models/contrato.model';
 import {NgForm} from '@angular/forms';
 import {ContratoService} from '../../_services/contrato.service';
 import {AlertService} from '../../_services/alert.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
 import * as moment from 'moment';
-import {ImovelService} from "../../_services/imovel.service";
-import {Imovel} from "../../_models/imovel.model";
-import {PessoaService} from "../../_services/pessoa.service";
+import {ImovelService} from '../../_services/imovel.service';
+import {Imovel} from '../../_models/imovel.model';
+import {PessoaService} from '../../_services/pessoa.service';
 @Component({
   selector: 'app-new-contrato',
   templateUrl: './new-contrato.component.html',
@@ -25,7 +25,8 @@ export class NewContratoComponent implements OnInit {
               private imovelService: ImovelService,
               private pessoaService: PessoaService,
               private router: Router,
-              private datePipe: DatePipe) { }
+              private datePipe: DatePipe,
+              private actRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.contrato = new Contrato();
@@ -33,18 +34,16 @@ export class NewContratoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
-    /*
     return this.contratoService.save(form.value)
       .subscribe(success => {
         const message = (success as any).message;
+        const id = (success as any).id;
         this.alertService.success(message, true);
+        this.router.navigate(['new-garantias-contrato', id]);
       }, error => {
         const message = (error as any).message;
         this.alertService.error(message);
       });
-      */
-    this.router.navigate(['new-garantias-contrato']);
   }
 
   calcularFimContrato(data: Date, vigencia: number) {
@@ -59,14 +58,12 @@ export class NewContratoComponent implements OnInit {
     */
     let dataInicial = moment(data);
     let dataFinal = moment(dataInicial).add(vigencia, 'M');
-    console.log(dataFinal.format('YYYY-MM-DD'));
     this.contrato.data_fim = dataFinal.format('YYYY-MM-DD');
   }
 
   getValorImovel(idImovel: number) {
     return this.imovelService.getById(idImovel)
       .subscribe(response => {
-        console.log(response.valor_imovel);
         this.contrato.valor = response.valor_imovel;
       });
   }

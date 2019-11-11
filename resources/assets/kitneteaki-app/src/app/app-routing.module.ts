@@ -54,7 +54,7 @@ const routes: Routes = [
         component: NewContratoComponent,
       },
       {
-        path: 'new-garantias-contrato',
+        path: 'new-garantias-contrato/:id',
         component: NewGarantiasContratoComponent
       },
       {

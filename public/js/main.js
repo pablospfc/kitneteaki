@@ -1133,7 +1133,7 @@ __webpack_require__.r(__webpack_exports__);
 let ContratoService = class ContratoService {
     constructor(http) {
         this.http = http;
-        this.API = `${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"]}contrato`;
+        this.API = `${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API}contrato`;
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
                 'Content-Type': 'application/json',
@@ -1278,11 +1278,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OcupanteImovelService", function() { return OcupanteImovelService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
 
 
 let OcupanteImovelService = class OcupanteImovelService {
-    constructor() { }
+    constructor(http) {
+        this.http = http;
+        this.API = `${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API}ocupante`;
+    }
+    listar(idContrato) {
+        return this.http.get(`${this.API}/listByContrato/${idContrato}`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
+            return response;
+        }));
+    }
+    create(ocupante) {
+        return this.http.post(`${this.API}/cadastrar`, ocupante)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
+        }));
+    }
+    update(ocupante) {
+        return this.http.put(`${this.API}/atualizar/${ocupante.id}`, ocupante)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
+        }));
+    }
+    save(ocupante) {
+        if (ocupante.id) {
+            return this.update(ocupante);
+        }
+        else {
+            return this.create(ocupante);
+        }
+    }
 };
+OcupanteImovelService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
 OcupanteImovelService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
@@ -1525,7 +1565,7 @@ const routes = [
                 component: _contrato_new_contrato_new_contrato_component__WEBPACK_IMPORTED_MODULE_17__["NewContratoComponent"],
             },
             {
-                path: 'new-garantias-contrato',
+                path: 'new-garantias-contrato/:id',
                 component: _contrato_new_garantias_contrato_new_garantias_contrato_component__WEBPACK_IMPORTED_MODULE_18__["NewGarantiasContratoComponent"]
             },
             {
@@ -1917,13 +1957,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NewContratoComponent = class NewContratoComponent {
-    constructor(contratoService, alertService, imovelService, pessoaService, router, datePipe) {
+    constructor(contratoService, alertService, imovelService, pessoaService, router, datePipe, actRoute) {
         this.contratoService = contratoService;
         this.alertService = alertService;
         this.imovelService = imovelService;
         this.pessoaService = pessoaService;
         this.router = router;
         this.datePipe = datePipe;
+        this.actRoute = actRoute;
         this.imoveis = [];
         this.locatarios = [];
     }
@@ -1932,18 +1973,16 @@ let NewContratoComponent = class NewContratoComponent {
         this.getLocatarios();
     }
     onSubmit(form) {
-        console.log(form.value);
-        /*
         return this.contratoService.save(form.value)
-          .subscribe(success => {
-            const message = (success as any).message;
+            .subscribe(success => {
+            const message = success.message;
+            const id = success.id;
             this.alertService.success(message, true);
-          }, error => {
-            const message = (error as any).message;
+            this.router.navigate(['new-garantias-contrato', id]);
+        }, error => {
+            const message = error.message;
             this.alertService.error(message);
-          });
-          */
-        this.router.navigate(['new-garantias-contrato']);
+        });
     }
     calcularFimContrato(data, vigencia) {
         /*
@@ -1957,13 +1996,11 @@ let NewContratoComponent = class NewContratoComponent {
         */
         let dataInicial = moment__WEBPACK_IMPORTED_MODULE_7__(data);
         let dataFinal = moment__WEBPACK_IMPORTED_MODULE_7__(dataInicial).add(vigencia, 'M');
-        console.log(dataFinal.format('YYYY-MM-DD'));
         this.contrato.data_fim = dataFinal.format('YYYY-MM-DD');
     }
     getValorImovel(idImovel) {
         return this.imovelService.getById(idImovel)
             .subscribe(response => {
-            console.log(response.valor_imovel);
             this.contrato.valor = response.valor_imovel;
         });
     }
@@ -1997,7 +2034,8 @@ NewContratoComponent.ctorParameters = () => [
     { type: _services_imovel_service__WEBPACK_IMPORTED_MODULE_8__["ImovelService"] },
     { type: _services_pessoa_service__WEBPACK_IMPORTED_MODULE_9__["PessoaService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
-    { type: _angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"] }
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }
 ];
 NewContratoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2041,6 +2079,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
 /* harmony import */ var _services_ocupante_imovel_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_services/ocupante-imovel.service */ "./src/app/_services/ocupante-imovel.service.ts");
 /* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../_services/alert.service */ "./src/app/_services/alert.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
@@ -2048,29 +2088,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NewGarantiasContratoComponent = class NewGarantiasContratoComponent {
-    constructor(modalService, alertService, ocupanteService) {
+    constructor(modalService, alertService, ocupanteService, route) {
         this.modalService = modalService;
         this.alertService = alertService;
         this.ocupanteService = ocupanteService;
+        this.route = route;
+        this.route.queryParams.subscribe(params => {
+            this.idContrato = params.id;
+            console.log(params.id);
+        });
     }
     ngOnInit() {
         this.ocupante = new _models_ocupante_imovel_model__WEBPACK_IMPORTED_MODULE_2__["OcupanteImovel"]();
         this.ocupantes = [];
     }
     addOcupante(form) {
-        console.log(form.value);
-        console.log('chegou aqui');
-        /*this.ocupanteService.save(form.value)
-         .subscribe(success => {
-           const message = (success as any).message;
-           this.alertService.success(message, true);
-         },
-           error => {
-             const message = (error as any).message;
-             this.alertService.error(message);
-           }
-         );
-         */
+        form.value.id_contrato = this.idContrato;
+        this.ocupanteService.save(form.value)
+            .subscribe(success => {
+            const message = success.message;
+            this.alertService.success(message, true);
+        }, error => {
+            const message = error.message;
+            this.alertService.error(message);
+        });
     }
     openModalOcupantes(template) {
         this.modalRef = this.modalService.show(template);
@@ -2079,7 +2120,8 @@ let NewGarantiasContratoComponent = class NewGarantiasContratoComponent {
 NewGarantiasContratoComponent.ctorParameters = () => [
     { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"] },
     { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"] },
-    { type: _services_ocupante_imovel_service__WEBPACK_IMPORTED_MODULE_4__["OcupanteImovelService"] }
+    { type: _services_ocupante_imovel_service__WEBPACK_IMPORTED_MODULE_4__["OcupanteImovelService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }
 ];
 NewGarantiasContratoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
