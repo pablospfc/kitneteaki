@@ -33,4 +33,8 @@ class Contrato extends Model
         "chave"
     ];
     //
+
+    public function getAll() {
+
+    }
 }

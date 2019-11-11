@@ -27,7 +27,7 @@ export class NewGarantiasContratoComponent implements OnInit {
   addOcupante(form: NgForm) {
     console.log(form.value);
     console.log('chegou aqui');
-    /*this.ocupanteService.save(form.value)
+    this.ocupanteService.save(form.value)
      .subscribe(success => {
        const message = (success as any).message;
        this.alertService.success(message, true);
@@ -37,7 +37,7 @@ export class NewGarantiasContratoComponent implements OnInit {
          this.alertService.error(message);
        }
      );
-     */
+
   }
 
   openModalOcupantes(template: TemplateRef<any>) {

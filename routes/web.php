@@ -29,6 +29,12 @@ Route::get("imovel/listar","ImovelController@index");
 Route::get("imovel/buscar/{id}","ImovelController@show");
 Route::get("imovel/getByTransacao/{id}","ImovelController@getByTransacao");
 
+
+Route::post("ocupante/cadastrar","OcupanteImovelController@store");
+Route::put("ocupante/atualizar/{id}","OcupanteImovelController@update");
+Route::get("ocupante/listar","OcupanteImovelController@index");
+Route::get("ocupante/buscar/{id}","OcupanteImovelController@show");
+
 Route::post("conta/cadastrar","ContaController@store");
 Route::put("conta/atualizar/{id}","ContaController@update");
 Route::get("conta/listar","ContaController@index");
