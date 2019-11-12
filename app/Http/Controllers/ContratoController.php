@@ -23,7 +23,13 @@ class ContratoController extends Controller
      */
     public function index()
     {
-
+       try{
+           $dados = $this->contrato->getAll();
+           return response()->json($dados,200);
+       }catch(\Exception $e) {
+           \App\Log::create(['message'=>$e->getMessage()]);
+           return response()->json(['message'=> 'Ocorreu um problema ao listar dados'],500 );
+       }
     }
 
     /**

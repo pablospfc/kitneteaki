@@ -50,6 +50,26 @@ class Contrato extends Model
     }
 
     public function getAll() {
-
+        return self::select(
+            "imo.nome as imovel",
+            "loc.nome as locatario",
+            "con.dia_vencimento as dia_vencimento",
+            "con.data_inicio",
+            "con.data_fim",
+            "sta.nome as status",
+            "tco.nome as tipo_contrato",
+            "con.valor as valor",
+            "con.vigencia",
+            "con.taxa_servico",
+            "con.total",
+            "con"
+        )
+            ->from("imovel as imo")
+            ->join("tipo_imovel as tip","imo.id_tipo_imovel","=","tip.id")
+            ->join("transacao_imovel as tra","imo.id_transacao_imovel", "=", "tra.id")
+            ->join("status as sta", "imo.id_status", "=", "sta.id")
+            ->orderBy("imo.nome")
+            ->get()
+            ->toArray();
     }
 }
