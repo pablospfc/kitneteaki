@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ImovelService} from "../../_services/imovel.service";
 
 @Component({
@@ -9,7 +9,9 @@ import {ImovelService} from "../../_services/imovel.service";
 export class ListImovelComponent implements OnInit {
 
   public imoveis = [];
-  constructor(private imovelService: ImovelService) { }
+
+  constructor(private imovelService: ImovelService) {
+  }
 
   ngOnInit() {
     this.list();
@@ -17,7 +19,7 @@ export class ListImovelComponent implements OnInit {
 
   list() {
     return this.imovelService.list()
-      .subscribe( response => {
+      .subscribe(response => {
         this.imoveis = response;
       });
   }

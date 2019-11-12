@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Self_;
 
 class Contrato extends Model
@@ -33,42 +34,54 @@ class Contrato extends Model
         "renovou",
         "chave"
     ];
+
     //
 
-    public function salvar($data) {
-        $day = $this->extractDayFromDate($data);
-        $data['dia_vencimento'] = $day;
-        $id = self::create($data)->id;
-        error_log($id);
-        return $id;
+    public function salvar($data)
+    {
+        try{
+            DB::beginTransaction();
+            $day = $this->extractDayFromDate($data);
+            $data['dia_vencimento'] = $day;
+            $id = self::create($data)->id;
+            Imovel::setOcupado($data['id_imovel'],$data['id_tipo_contrato']);
+            return $id;
+            DB::commit();
+        }catch(\Exception $e){
+            DB::rollback();
+        }
+
     }
 
-    private function extractDayFromDate($data) {
+    private function extractDayFromDate($data)
+    {
         $timestamp = strtotime($data['primeiro_vencimento']);
         $day = date('d', $timestamp);
         return $day;
     }
 
-    public function getAll() {
+    public function getAll()
+    {
         return self::select(
             "imo.nome as imovel",
             "loc.nome as locatario",
             "con.dia_vencimento as dia_vencimento",
-            "con.data_inicio",
-            "con.data_fim",
+            "con.data_inicio as periodo_inicial",
+            "con.data_fim as periodo_final",
             "sta.nome as status",
             "tco.nome as tipo_contrato",
             "con.valor as valor",
             "con.vigencia",
             "con.taxa_servico",
             "con.total",
-            "con"
+            "con.primeiro_vencimento"
         )
-            ->from("imovel as imo")
-            ->join("tipo_imovel as tip","imo.id_tipo_imovel","=","tip.id")
-            ->join("transacao_imovel as tra","imo.id_transacao_imovel", "=", "tra.id")
-            ->join("status as sta", "imo.id_status", "=", "sta.id")
-            ->orderBy("imo.nome")
+            ->from("contrato as con")
+            ->join("status as sta", "con.id_status", "=", "sta.id")
+            ->join("pessoa as loc", "con.id_locatario", "=", "loc.id")
+            ->join("imovel as imo", "con.id_imovel", "=", "imo.id")
+            ->join("tipo_contrato as tco", "con.id_tipo_contrato", "=", "tco.id")
+            ->orderBy("loc.nome")
             ->get()
             ->toArray();
     }

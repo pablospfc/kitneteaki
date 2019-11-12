@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Contrato} from '../_models/contrato.model';
-import {catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 
 @Injectable({
@@ -10,31 +10,32 @@ import {throwError} from 'rxjs';
 })
 export class ContratoService {
 
- private readonly API = `${environment.API}contrato`;
+  private readonly API = `${environment.API}contrato`;
   private httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
+      'Content-Type': 'application/json',
     })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   public list() {
     return this.http.get<Contrato[]>(`${this.API}/listar`)
       .pipe(
-        catchError( error => {
-          return throwError(error.error);
+        map(response => {
+          return response;
         })
       );
   }
 
   public getById(id: number) {
-   return this.http.get(`${this.API}/buscar/${id}`)
-     .pipe(
-       catchError(error => {
-         return throwError(error.error);
-       })
-     );
+    return this.http.get(`${this.API}/buscar/${id}`)
+      .pipe(
+        catchError(error => {
+          return throwError(error.error);
+        })
+      );
   }
 
   private create(contrato) {

@@ -23,13 +23,13 @@ class ContratoController extends Controller
      */
     public function index()
     {
-       try{
-           $dados = $this->contrato->getAll();
-           return response()->json($dados,200);
-       }catch(\Exception $e) {
-           \App\Log::create(['message'=>$e->getMessage()]);
-           return response()->json(['message'=> 'Ocorreu um problema ao listar dados'],500 );
-       }
+        try {
+            $dados = $this->contrato->getAll();
+            return response()->json($dados, 200);
+        } catch (\Exception $e) {
+            \App\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao listar dados'], 500);
+        }
     }
 
     /**
@@ -45,15 +45,14 @@ class ContratoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-
         try {
             $id = $this->contrato->salvar($request->all());
-            return response()->json(['message' => 'Dados cadastrados com sucesso.','id' => $id], 200);
+            return response()->json(['message' => 'Dados cadastrados com sucesso.', 'id' => $id], 200);
         } catch (\Exception $e) {
             \App\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 500);
@@ -63,7 +62,7 @@ class ContratoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -74,7 +73,7 @@ class ContratoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -85,8 +84,8 @@ class ContratoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -97,7 +96,7 @@ class ContratoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

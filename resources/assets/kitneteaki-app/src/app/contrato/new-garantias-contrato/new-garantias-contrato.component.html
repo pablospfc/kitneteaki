@@ -91,14 +91,15 @@
     </div>
 
     <div class="form-group">
-      <label for="id_tipo_pessoa">Tipo de Pessoa</label>
+      <label for="id_categoria_pessoa">Categoria de Pessoa</label>
       <select class="form-control"
-              id="id_tipo_pessoa"
-              [(ngModel)]="ocupante.id_tipo_pessoa"
+              id="id_categoria_pessoa"
+              [(ngModel)]="ocupante.id_categoria_pessoa"
               [required]="true"
-              name="id_tipo_pessoa">
-        <option [value]="1">Pessoa Física</option>
-        <option [value]="2">Pessoa Jurídica</option>
+              name="id_categoria_pessoa">
+        <option [value]="2">Inquilino</option>
+        <option [value]="3">Fiador</option>
+        <option [value]="4">Responsável pelo Pagamento</option>
       </select>
     </div>
 

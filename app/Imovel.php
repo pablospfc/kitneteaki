@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Imovel extends Model
 {
@@ -67,5 +68,19 @@ class Imovel extends Model
             ->orderBy("imo.nome")
             ->get()
             ->toArray();
+    }
+
+    public static function setOcupado($idImovel, $idTipoContrato) {
+        if ($idTipoContrato == 1)
+            $idStatus = 9;
+        else
+            $idStatus = 8;
+        return self::where('id', $idImovel)
+            ->update(['id_status' => $idStatus]);
+    }
+
+    public static function setDisponivel($idImovel) {
+        return self::where('id', $idImovel)
+            ->update(['id_status' => 7]);
     }
 }
