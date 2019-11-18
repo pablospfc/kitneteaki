@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {NgForm} from '@angular/forms';
+import {AuthService} from '../../_services/auth.service';
+import {Login} from '../../_models/login.model';
+import {Router} from "@angular/router";
+import {AlertService} from "../../_services/alert.service";
 
 @Component({
   selector: 'app-login',
@@ -8,14 +12,24 @@ import {NgForm} from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  login: Login;
+  constructor(private authService: AuthService,
+              private router: Router,
+              private alertService: AlertService,
+              ) { }
 
   ngOnInit() {
-
+   this.login = new Login();
   }
 
-  onSubmit() {
-
+  onSubmit(form: NgForm) {
+   return this.authService.login(form.value)
+     .subscribe((resp) => {
+       this.router.navigate(['home']);
+     }, (error) => {
+       const message = (error as any).error;
+       this.alertService.error(message);
+     });
   }
 
 }

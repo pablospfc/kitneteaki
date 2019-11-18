@@ -16,16 +16,24 @@ import {ListModeloDocumentoComponent} from './modelo-documento/list-modelo-docum
 import {NewModeloDocumentoComponent} from './modelo-documento/new-modelo-documento/new-modelo-documento.component';
 import {NewContratoComponent} from './contrato/new-contrato/new-contrato.component';
 import {NewGarantiasContratoComponent} from './contrato/new-garantias-contrato/new-garantias-contrato.component';
+import {AuthGuard} from './_guards/auth.guard';
+import {PerfilComponent} from "./auth/perfil/perfil.component";
 
 
 const routes: Routes = [
   {
   path: '',
     component: DashboardTemplateComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'perfil',
+        component: PerfilComponent
       },
       {
         path: 'list-pessoa',

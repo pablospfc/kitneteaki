@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +21,7 @@ import { ListContratoComponent } from './contrato/list-contrato/list-contrato.co
 import { LoginComponent } from './auth/login/login.component';
 import {NewPessoaComponent} from './pessoa/new-pessoa/new-pessoa.component';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AlertComponent } from './alert/alert.component';
 import {NewImovelComponent} from './imovel/new-imovel/new-imovel.component';
 import {NewModeloDocumentoComponent} from './modelo-documento/new-modelo-documento/new-modelo-documento.component';
@@ -31,6 +31,11 @@ import {NewContratoComponent} from './contrato/new-contrato/new-contrato.compone
 import {DatePipe} from '@angular/common';
 import {NewGarantiasContratoComponent} from './contrato/new-garantias-contrato/new-garantias-contrato.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {AuthGuard} from './_guards/auth.guard';
+import {TokenInterceptor} from './_interceptors/token.interceptor';
+import {PerfilComponent} from './auth/perfil/perfil.component';
+import {RefreshTokenInterceptor} from "./_interceptors/refresh-token.interceptor";
+import {AplicationErrorHandle} from "./app.error-handle";
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +56,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ListModeloDocumentoComponent,
     NewContratoComponent,
     NewGarantiasContratoComponent,
+    PerfilComponent,
     AlertComponent
   ],
   imports: [
@@ -61,7 +67,17 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     CKEditorModule,
     ModalModule.forRoot()
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true
+    },
+    {
+      provide: ErrorHandler, useClass: AplicationErrorHandle
+    }
+    ],
   exports: [
     AlertComponent
   ],

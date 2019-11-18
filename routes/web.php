@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 Route::post('auth/login','AuthController@login');
 Route::post('auth/refresh','AuthController@refresh');
-Route::post('auth/logout','AuthController@logout');
+Route::get('auth/logout','AuthController@logout');
 //Route::resource('pessoa', 'PessoaController');
 
 //Route::group(['middleware' => 'jwt.auth'], function() {

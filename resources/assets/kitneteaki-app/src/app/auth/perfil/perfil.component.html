@@ -1,0 +1,27 @@
+<div class="content-wrapper">
+
+  <section class="content-header">
+    <h1>Profile</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a [routerLink]="['/home']">
+          <i class="fa fa-dashboard"></i> Dashboard</a>
+      </li>
+      <li class="active">Profile</li>
+    </ol>
+  </section>
+
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul>
+          <li>
+            <strong>Nome: </strong>{{login?.name}}</li>
+          <li>
+            <strong>E-mail: </strong>{{login?.login}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
