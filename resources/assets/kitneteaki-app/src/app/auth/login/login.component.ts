@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit {
      .subscribe((resp) => {
        this.router.navigate(['home']);
      }, (error) => {
-       const message = (error as any).error;
-       this.alertService.error(message);
+       this.alertService.error(error);
      });
   }
 

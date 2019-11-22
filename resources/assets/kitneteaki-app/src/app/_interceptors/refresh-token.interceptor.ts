@@ -3,7 +3,7 @@ import {
   HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse, HttpClient
 } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {catchError, flatMap, map} from 'rxjs/operators';
 
@@ -32,7 +32,7 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
                  })
               );
           }
-          return catchError(errorResponse.error);
+          return throwError(errorResponse.error);
         })
       );
 
