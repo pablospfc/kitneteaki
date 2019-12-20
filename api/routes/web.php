@@ -21,6 +21,7 @@ Route::get('auth/logout','AuthController@logout');
 //Route::resource('pessoa', 'PessoaController');
 
 //Route::group(['middleware' => 'jwt.auth'], function() {
+Route::group(['middleware' => 'cors'], function() {
     Route::post("pessoa/cadastrar","PessoaController@store");
     Route::put("pessoa/atualizar/{id}","PessoaController@update");
     Route::get("pessoa/listar","PessoaController@index");
@@ -67,4 +68,4 @@ Route::get('auth/logout','AuthController@logout');
     Route::get("status/listar","StatusController@index");
     Route::get("mes/listar","MesController@index");
     Route::get("estadocivil/listar","EstadoCivilController@index");
-//});
+});
