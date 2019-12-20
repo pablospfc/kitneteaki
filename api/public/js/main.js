@@ -318,7 +318,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"message\" [ngClass]=\"message.cssClass\">{{message.text}}</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"message\" [ngClass]=\"message.cssClass\">{{message.text}}</div>\r\n");
 
 /***/ }),
 
@@ -331,7 +331,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\r\n    ");
+/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\n    ");
 
 /***/ }),
 
@@ -344,7 +344,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>login works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"login-box\">\r\n  <div class=\"login-logo\">\r\n    <a href=\"../../index2.html\"><b>Admin</b>LTE</a>\r\n  </div>\r\n  <!-- /.login-logo -->\r\n  <div class=\"login-box-body\">\r\n    <p class=\"login-box-msg\">Sign in to start your session</p>\r\n\r\n    <app-alert></app-alert>\r\n\r\n    <form #loginForm=\"ngForm\" name=\"loginForm\" role=\"form\" (submit)=\"onSubmit(loginForm)\">\r\n      <div class=\"form-group has-feedback\">\r\n        <input type=\"text\"\r\n               class=\"form-control\"\r\n               [(ngModel)]=\"login.login\"\r\n               name=\"login\"\r\n               placeholder=\"Login\">\r\n        <span class=\"glyphicon glyphicon-user form-control-feedback\"></span>\r\n      </div>\r\n      <div class=\"form-group has-feedback\">\r\n        <input type=\"password\"\r\n               class=\"form-control\"\r\n               [(ngModel)]=\"login.password\"\r\n               name=\"password\"\r\n               placeholder=\"Senha\">\r\n        <span class=\"glyphicon glyphicon-lock form-control-feedback\"></span>\r\n      </div>\r\n      <div class=\"row\">\r\n        <!-- /.col -->\r\n        <div class=\"col-xs-4\">\r\n          <button type=\"submit\" class=\"btn btn-primary btn-block btn-flat\">Entrar</button>\r\n        </div>\r\n        <!-- /.col -->\r\n      </div>\r\n    </form>\r\n    <!-- /.social-auth-links -->\r\n\r\n    <a href=\"#\">I forgot my password</a><br>\r\n    <a href=\"register.html\" class=\"text-center\">Register a new membership</a>\r\n\r\n  </div>\r\n  <!-- /.login-box-body -->\r\n</div>\r\n<!-- /.login-box -->\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/perfil/perfil.component.html":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/perfil/perfil.component.html ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content-wrapper\">\r\n\r\n  <section class=\"content-header\">\r\n    <h1>Profile</h1>\r\n    <ol class=\"breadcrumb\">\r\n      <li>\r\n        <a [routerLink]=\"['/home']\">\r\n          <i class=\"fa fa-dashboard\"></i> Dashboard</a>\r\n      </li>\r\n      <li class=\"active\">Profile</li>\r\n    </ol>\r\n  </section>\r\n\r\n  <section class=\"content\">\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12\">\r\n        <ul>\r\n          <li>\r\n            <strong>Nome: </strong>{{login?.name}}</li>\r\n          <li>\r\n            <strong>E-mail: </strong>{{login?.login}}</li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </section>\r\n\r\n</div>\r\n");
 
 /***/ }),
 
@@ -357,7 +370,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>list-conta works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>list-conta works!</p>\n");
 
 /***/ }),
 
@@ -370,7 +383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Home\r\n    <small>Contratos</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li class=\"active\">Contratos</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"box box-primary\">\r\n    <div class=\"box-header\">\r\n      <i class=\"ion ion-clipboard\"></i>\r\n\r\n      <h3 class=\"box-title\">Gestão de Contratos</h3>\r\n\r\n      <div class=\"box-tools pull-right\">\r\n        <!-- BOTÕES DE ADICIONAR-->\r\n        <button type=\"button\" class=\"btn btn-success pull-right\" [routerLink]=\"['/new-contrato']\"><i class=\"fa fa-plus\"></i> Adicionar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.box-header -->\r\n    <div class=\"box-body\">\r\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\r\n      <table id=\"example1\" class=\"table table-bordered table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Rendering engine</th>\r\n          <th>Browser</th>\r\n          <th>Platform(s)</th>\r\n          <th>Engine version</th>\r\n          <th>CSS grade</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 4.0\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td> 4</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 5.0\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td>5</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 5.5\r\n          </td>\r\n          <td>Win 95+</td>\r\n          <td>5.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet\r\n            Explorer 6\r\n          </td>\r\n          <td>Win 98+</td>\r\n          <td>6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>Internet Explorer 7</td>\r\n          <td>Win XP SP2+</td>\r\n          <td>7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Trident</td>\r\n          <td>AOL browser (AOL desktop)</td>\r\n          <td>Win XP</td>\r\n          <td>6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 1.0</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 1.5</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 2.0</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Firefox 3.0</td>\r\n          <td>Win 2k+ / OSX.3+</td>\r\n          <td>1.9</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Camino 1.0</td>\r\n          <td>OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Camino 1.5</td>\r\n          <td>OSX.3+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape 7.2</td>\r\n          <td>Win 95+ / Mac OS 8.6-9.2</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape Browser 8</td>\r\n          <td>Win 98SE+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Netscape Navigator 9</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.0</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.1</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.2</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.2</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.3</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.4</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.4</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.5</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.6</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>1.6</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.7</td>\r\n          <td>Win 98+ / OSX.1+</td>\r\n          <td>1.7</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Mozilla 1.8</td>\r\n          <td>Win 98+ / OSX.1+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Seamonkey 1.1</td>\r\n          <td>Win 98+ / OSX.2+</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Gecko</td>\r\n          <td>Epiphany 2.20</td>\r\n          <td>Gnome</td>\r\n          <td>1.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 1.2</td>\r\n          <td>OSX.3</td>\r\n          <td>125.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 1.3</td>\r\n          <td>OSX.3</td>\r\n          <td>312.8</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 2.0</td>\r\n          <td>OSX.4+</td>\r\n          <td>419.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>Safari 3.0</td>\r\n          <td>OSX.4+</td>\r\n          <td>522.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>OmniWeb 5.5</td>\r\n          <td>OSX.4+</td>\r\n          <td>420</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>iPod Touch / iPhone</td>\r\n          <td>iPod</td>\r\n          <td>420.1</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Webkit</td>\r\n          <td>S60</td>\r\n          <td>S60</td>\r\n          <td>413</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 7.0</td>\r\n          <td>Win 95+ / OSX.1+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 7.5</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 8.0</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 8.5</td>\r\n          <td>Win 95+ / OSX.2+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.0</td>\r\n          <td>Win 95+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.2</td>\r\n          <td>Win 88+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera 9.5</td>\r\n          <td>Win 88+ / OSX.3+</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Opera for Wii</td>\r\n          <td>Wii</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Nokia N800</td>\r\n          <td>N800</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Presto</td>\r\n          <td>Nintendo DS browser</td>\r\n          <td>Nintendo DS</td>\r\n          <td>8.5</td>\r\n          <td>C/A<sup>1</sup></td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.1</td>\r\n          <td>KDE 3.1</td>\r\n          <td>3.1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.3</td>\r\n          <td>KDE 3.3</td>\r\n          <td>3.3</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>KHTML</td>\r\n          <td>Konqureror 3.5</td>\r\n          <td>KDE 3.5</td>\r\n          <td>3.5</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 4.5</td>\r\n          <td>Mac OS 8-9</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 5.1</td>\r\n          <td>Mac OS 7.6-9</td>\r\n          <td>1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Tasman</td>\r\n          <td>Internet Explorer 5.2</td>\r\n          <td>Mac OS 8-X</td>\r\n          <td>1</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>NetFront 3.1</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>NetFront 3.4</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>A</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Dillo 0.8</td>\r\n          <td>Embedded devices</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Links</td>\r\n          <td>Text only</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>Lynx</td>\r\n          <td>Text only</td>\r\n          <td>-</td>\r\n          <td>X</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>IE Mobile</td>\r\n          <td>Windows Mobile 6</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Misc</td>\r\n          <td>PSP browser</td>\r\n          <td>PSP</td>\r\n          <td>-</td>\r\n          <td>C</td>\r\n        </tr>\r\n        <tr>\r\n          <td>Other browsers</td>\r\n          <td>All others</td>\r\n          <td>-</td>\r\n          <td>-</td>\r\n          <td>U</td>\r\n        </tr>\r\n        </tbody>\r\n        <tfoot>\r\n        <tr>\r\n          <th>Rendering engine</th>\r\n          <th>Browser</th>\r\n          <th>Platform(s)</th>\r\n          <th>Engine version</th>\r\n          <th>CSS grade</th>\r\n        </tr>\r\n        </tfoot>\r\n      </table>\r\n    </div>\r\n    <!-- /.box-body -->\r\n\r\n  </div>\r\n</section>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Home\r\n    <small>Contratos</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li class=\"active\">Contratos</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"box box-primary\">\r\n    <div class=\"box-header\">\r\n      <i class=\"ion ion-clipboard\"></i>\r\n\r\n      <h3 class=\"box-title\">Gestão de Contratos</h3>\r\n\r\n      <div class=\"box-tools pull-right\">\r\n        <!-- BOTÕES DE ADICIONAR-->\r\n        <button type=\"button\" class=\"btn btn-success pull-right\" [routerLink]=\"['/new-contrato']\"><i class=\"fa fa-plus\"></i> Adicionar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.box-header -->\r\n    <div class=\"box-body\">\r\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\r\n      <table id=\"example1\" class=\"table table-bordered table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Status</th>\r\n          <th>Tipo de Contrato</th>\r\n          <th>Período Inicial</th>\r\n          <th>Período Final</th>\r\n          <th>Valor</th>\r\n          <th>Inquilino</th>\r\n          <th>Imóvel</th>\r\n          <th>Ação</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr *ngFor=\"let contrato of contratos\">\r\n          <td><span class=\"label label-success\">{{contrato.status}}</span></td>\r\n          <td>{{contrato.tipo_contrato}}</td>\r\n          <td>{{contrato.periodo_inicial}}</td>\r\n          <td>{{contrato.periodo_final}}</td>\r\n          <td>{{contrato.valor}}</td>\r\n          <td>{{contrato.locatario}}</td>\r\n          <td>{{contrato.imovel}}</td>\r\n          <td>\r\n            <button type=\"button\"\r\n                    [routerLink]=\"['/update-contrato/'+contrato.id]\"\r\n                    class=\"btn btn-default btn-xs\">\r\n              <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\r\n            </button>\r\n\r\n            <button type=\"button\"\r\n                    class=\"btn btn-default btn-xs\">\r\n              <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\r\n            </button>\r\n          </td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n    <!-- /.box-body -->\r\n\r\n  </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -383,7 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Contratos\n    <small>{{contrato.id ? 'Atualizar' : 'Adicionar'}}</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Contrato</a></li>\n    <li class=\"active\">{{contrato.id ? 'Atualizar' : 'Adicionar'}}</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">{{contrato.id ? 'Atualizar' : 'Adicionar'}} Contrato</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"contrato.id\"/>\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <h4>Dados Básicos</h4>\n            <hr>\n            <div class=\"row\">\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"referencia\">Referência</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"referencia\"\n                       name=\"referencia\"\n                       [(ngModel)]=\"contrato.referencia\"\n                       [required]=\"false\"\n                       placeholder=\"Referência\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"tipo_contrato\">Tipo de Contrato</label>\n                <select class=\"form-control\"\n                        id=\"tipo_contrato\"\n                        [(ngModel)]=\"contrato.id_tipo_contrato\"\n                        (blur)=\"getImoveis($event.target.value)\"\n                        [required]=\"true\"\n                        name=\"id_tipo_contrato\">\n                  <option [value]=\"1\">Aluguel</option>\n                  <option [value]=\"2\">Temporada</option>\n                </select>\n              </div>\n\n              <div class=\"form-group col-md-4\">\n                <label for=\"imovel\">Imóvel</label>\n                <select class=\"form-control\"\n                        id=\"imovel\"\n                        [(ngModel)]=\"contrato.id_imovel\"\n                        [required]=\"true\"\n                        (change)=\"getValorImovel($event.target.value)\"\n                        name=\"id_imovel\">\n                  <option *ngFor=\"let imovel of imoveis\" [value]=\"imovel.id\" [disabled]=\"imovel.status != 'Disponível'\">{{imovel.nome + ' - ' + imovel.status}}</option>\n                </select>\n              </div>\n\n              <div class=\"form-group col-md-4\">\n                <label for=\"locatario\">Inquilino</label>\n                <select class=\"form-control\"\n                        id=\"locatario\"\n                        [(ngModel)]=\"contrato.id_locatario\"\n                        [required]=\"true\"\n                        name=\"id_locatario\">\n                  <option *ngFor=\"let locatario of locatarios\" [value]=\"locatario.id\">{{locatario.nome}}</option>\n                </select>\n              </div>\n            </div>\n\n            <h4>Data e Recorrência do Contrato</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"inicio_estadia\">Início da Estadia</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"inicio_estadia\"\n                       name=\"inicio_estadia\"\n                       [(ngModel)]=\"contrato.inicio_estadia\"\n                       (blur)=\"verificaDisponibilidade(contrato.inicio_estadia, contrato.fim_estadia) && contrato.inicio_estadia\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       placeholder=\"Início da Estadia\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"fim_estadia\">Fim da Estadia</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"fim_estadia\"\n                       name=\"fim_estadia\"\n                       [(ngModel)]=\"contrato.fim_estadia\"\n                       (blur)=\"verificaDisponibilidade(contrato.inicio_estadia, contrato.fim_estadia)\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       placeholder=\"Fim da Estadia\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\n                <label for=\"data_inicio\">Início do Contrato</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"data_inicio\"\n                       name=\"data_inicio\"\n                       [(ngModel)]=\"contrato.data_inicio\"\n                       [required]=\"contrato.id_tipo_contrato == 1\"\n                       (blur)=\"calcularFimContrato(contrato.data_inicio, contrato.vigencia)\"\n                       placeholder=\"Data de Início\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\n                <label for=\"vigencia\">Vigência</label>\n                <input type=\"number\"\n                       class=\"form-control\"\n                       id=\"vigencia\"\n                       name=\"vigencia\"\n                       [min]=\"1\"\n                       [max]=\"12\"\n                       [(ngModel)]=\"contrato.vigencia\"\n                       [required]=\"contrato.id_tipo_contrato == 1\"\n                       (blur)=\"calcularFimContrato(contrato.data_inicio, contrato.vigencia)\"\n                       placeholder=\"Vigência\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\n                <label for=\"data_inicio\">Fim do Contrato</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"data_fim\"\n                       name=\"data_fim\"\n                       [(ngModel)]=\"contrato.data_fim\"\n                       [readonly]=\"true\"\n                       [required]=\"contrato.id_tipo_contrato == 1\"\n                       placeholder=\"Data Fim\"/>\n              </div>\n\n            </div>\n\n            <h4>Valores do Contrato</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-3\">\n                <label for=\"valor\">Valor:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"valor\"\n                       name=\"valor\"\n                       [(ngModel)]=\"contrato.valor\"\n                       [required]=\"true\"\n                       placeholder=\"Valor\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"dias\">Dias:</label>\n                <input type=\"number\"\n                       class=\"form-control\"\n                       id=\"dias\"\n                       name=\"dias\"\n                       [(ngModel)]=\"contrato.dias\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       [readOnly]=\"true\"\n                       placeholder=\"Dias\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"taxa_servico\">Taxa de Serviço:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"taxa_servico\"\n                       name=\"taxa_servico\"\n                       [(ngModel)]=\"contrato.taxa_servico\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       placeholder=\"Taxa de Serviço\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\n                <label for=\"primeiro_vencimento\">Primeiro Vencimento:</label>\n                <input type=\"date\"\n                       class=\"form-control\"\n                       id=\"primeiro_vencimento\"\n                       name=\"primeiro_vencimento\"\n                       [(ngModel)]=\"contrato.primeiro_vencimento\"\n                       [required]=\"contrato.id_tipo_contrato == 1\"\n                       />\n              </div>\n\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\n                <label for=\"sinal\">Sinal:</label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"sinal\"\n                       name=\"sinal\"\n                       [(ngModel)]=\"contrato.sinal\"\n                       [required]=\"contrato.id_tipo_contrato == 2\"\n                       placeholder=\"Sinal\"/>\n              </div>\n\n            </div>\n\n            <h4>Dados Adicionais</h4>\n            <hr>\n            <div class=\"row\">\n              <div class=\"form-group col-md-12\">\n                <label for=\"observacoes\">Observações:</label>\n                <textarea class=\"form-control\"\n                          id=\"observacoes\"\n                          name=\"observacoes\"\n                          [(ngModel)]=\"contrato.observacoes\"\n                          [required]=\"false\"\n                          placeholder=\"Observações\"></textarea>\n              </div>\n            </div>\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar e Continuar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Contratos\r\n    <small>{{contrato.id ? 'Atualizar' : 'Adicionar'}}</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li><a href=\"#\">Contrato</a></li>\r\n    <li class=\"active\">{{contrato.id ? 'Atualizar' : 'Adicionar'}}</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"row\">\r\n    <!-- left column -->\r\n    <div class=\"col-md-12\">\r\n      <div class=\"box box-primary\">\r\n        <div class=\"box-header with-border\">\r\n          <h3 class=\"box-title\">{{contrato.id ? 'Atualizar' : 'Adicionar'}} Contrato</h3>\r\n        </div>\r\n        <!-- /.box-header -->\r\n        <!-- form start -->\r\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\r\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"contrato.id\"/>\r\n\r\n          <app-alert></app-alert>\r\n\r\n          <div class=\"box-body\">\r\n            <h4>Dados Básicos</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"referencia\">Referência</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"referencia\"\r\n                       name=\"referencia\"\r\n                       [(ngModel)]=\"contrato.referencia\"\r\n                       [required]=\"false\"\r\n                       placeholder=\"Referência\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"tipo_contrato\">Tipo de Contrato</label>\r\n                <select class=\"form-control\"\r\n                        id=\"tipo_contrato\"\r\n                        [(ngModel)]=\"contrato.id_tipo_contrato\"\r\n                        (blur)=\"getImoveis($event.target.value)\"\r\n                        [required]=\"true\"\r\n                        name=\"id_tipo_contrato\">\r\n                  <option [value]=\"1\">Aluguel</option>\r\n                  <option [value]=\"2\">Temporada</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"imovel\">Imóvel</label>\r\n                <select class=\"form-control\"\r\n                        id=\"imovel\"\r\n                        [(ngModel)]=\"contrato.id_imovel\"\r\n                        [required]=\"true\"\r\n                        (change)=\"getValorImovel($event.target.value)\"\r\n                        name=\"id_imovel\">\r\n                  <option *ngFor=\"let imovel of imoveis\" [value]=\"imovel.id\" [disabled]=\"imovel.status != 'Disponível'\">{{imovel.nome + ' - ' + imovel.status}}</option>\r\n                </select>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-4\">\r\n                <label for=\"locatario\">Inquilino</label>\r\n                <select class=\"form-control\"\r\n                        id=\"locatario\"\r\n                        [(ngModel)]=\"contrato.id_locatario\"\r\n                        [required]=\"true\"\r\n                        name=\"id_locatario\">\r\n                  <option *ngFor=\"let locatario of locatarios\" [value]=\"locatario.id\">{{locatario.nome}}</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n\r\n            <h4>Data e Recorrência do Contrato</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\r\n                <label for=\"inicio_estadia\">Início da Estadia</label>\r\n                <input type=\"date\"\r\n                       class=\"form-control\"\r\n                       id=\"inicio_estadia\"\r\n                       name=\"inicio_estadia\"\r\n                       [(ngModel)]=\"contrato.inicio_estadia\"\r\n                       (blur)=\"verificaDisponibilidade(contrato.inicio_estadia, contrato.fim_estadia) && contrato.inicio_estadia\"\r\n                       [required]=\"contrato.id_tipo_contrato == 2\"\r\n                       placeholder=\"Início da Estadia\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\r\n                <label for=\"fim_estadia\">Fim da Estadia</label>\r\n                <input type=\"date\"\r\n                       class=\"form-control\"\r\n                       id=\"fim_estadia\"\r\n                       name=\"fim_estadia\"\r\n                       [(ngModel)]=\"contrato.fim_estadia\"\r\n                       (blur)=\"verificaDisponibilidade(contrato.inicio_estadia, contrato.fim_estadia)\"\r\n                       [required]=\"contrato.id_tipo_contrato == 2\"\r\n                       placeholder=\"Fim da Estadia\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\r\n                <label for=\"data_inicio\">Início do Contrato</label>\r\n                <input type=\"date\"\r\n                       class=\"form-control\"\r\n                       id=\"data_inicio\"\r\n                       name=\"data_inicio\"\r\n                       [(ngModel)]=\"contrato.data_inicio\"\r\n                       [required]=\"contrato.id_tipo_contrato == 1\"\r\n                       (blur)=\"calcularFimContrato(contrato.data_inicio, contrato.vigencia)\"\r\n                       placeholder=\"Data de Início\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\r\n                <label for=\"vigencia\">Vigência</label>\r\n                <input type=\"number\"\r\n                       class=\"form-control\"\r\n                       id=\"vigencia\"\r\n                       name=\"vigencia\"\r\n                       [min]=\"1\"\r\n                       [max]=\"12\"\r\n                       [(ngModel)]=\"contrato.vigencia\"\r\n                       [required]=\"contrato.id_tipo_contrato == 1\"\r\n                       (blur)=\"calcularFimContrato(contrato.data_inicio, contrato.vigencia)\"\r\n                       placeholder=\"Vigência\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\r\n                <label for=\"data_inicio\">Fim do Contrato</label>\r\n                <input type=\"date\"\r\n                       class=\"form-control\"\r\n                       id=\"data_fim\"\r\n                       name=\"data_fim\"\r\n                       [(ngModel)]=\"contrato.data_fim\"\r\n                       [readonly]=\"true\"\r\n                       [required]=\"contrato.id_tipo_contrato == 1\"\r\n                       placeholder=\"Data Fim\"/>\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <h4>Valores do Contrato</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"valor\">Valor:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"valor\"\r\n                       name=\"valor\"\r\n                       [(ngModel)]=\"contrato.valor\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Valor\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\r\n                <label for=\"dias\">Dias:</label>\r\n                <input type=\"number\"\r\n                       class=\"form-control\"\r\n                       id=\"dias\"\r\n                       name=\"dias\"\r\n                       [(ngModel)]=\"contrato.dias\"\r\n                       [required]=\"contrato.id_tipo_contrato == 2\"\r\n                       [readOnly]=\"true\"\r\n                       placeholder=\"Dias\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\r\n                <label for=\"taxa_servico\">Taxa de Serviço:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"taxa_servico\"\r\n                       name=\"taxa_servico\"\r\n                       [(ngModel)]=\"contrato.taxa_servico\"\r\n                       [required]=\"contrato.id_tipo_contrato == 2\"\r\n                       placeholder=\"Taxa de Serviço\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 1\">\r\n                <label for=\"primeiro_vencimento\">Primeiro Vencimento:</label>\r\n                <input type=\"date\"\r\n                       class=\"form-control\"\r\n                       id=\"primeiro_vencimento\"\r\n                       name=\"primeiro_vencimento\"\r\n                       [(ngModel)]=\"contrato.primeiro_vencimento\"\r\n                       [required]=\"contrato.id_tipo_contrato == 1\"\r\n                       />\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\" *ngIf=\"contrato.id_tipo_contrato == 2\">\r\n                <label for=\"sinal\">Sinal:</label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"sinal\"\r\n                       name=\"sinal\"\r\n                       [(ngModel)]=\"contrato.sinal\"\r\n                       [required]=\"contrato.id_tipo_contrato == 2\"\r\n                       placeholder=\"Sinal\"/>\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <h4>Dados Adicionais</h4>\r\n            <hr>\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-12\">\r\n                <label for=\"observacoes\">Observações:</label>\r\n                <textarea class=\"form-control\"\r\n                          id=\"observacoes\"\r\n                          name=\"observacoes\"\r\n                          [(ngModel)]=\"contrato.observacoes\"\r\n                          [required]=\"false\"\r\n                          placeholder=\"Observações\"></textarea>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <!-- /.box-body -->\r\n          <div class=\"box-footer text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar e Continuar</button>\r\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\r\n          </div>\r\n\r\n        </form>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -396,7 +409,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Garantias de Contrato\n    <small>Adicionar</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Garantias de Contrato</a></li>\n    <li class=\"active\">Adicionar</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">Adicionar Garantia de Contrato</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <h4>Ocupantes do Imóvel</h4>\n            <hr>\n            <button type=\"button\" (click)=\"openModalOcupantes(template)\" class=\"btn-sm btn-success\">Adicionar Ocupante</button>\n            <table id=\"tblPessoa\" class=\"table table-bordered table-striped\">\n              <thead>\n              <tr>\n                <th>Nome</th>\n                <th>CPF/CNPJ</th>\n                <th>Descrição</th>\n                <th>Ação</th>\n              </tr>\n              </thead>\n              <tbody>\n              <tr *ngFor=\"let ocupante of ocupantes\">\n                <td>{{ocupante.nome}}</td>\n                <td>{{ocupante.cpf_cnpj}}</td>\n                <td>{{ocupante.descricao}}</td>\n                <td>\n                  <button type=\"button\"\n                          [routerLink]=\"['/update-pessoa/'+ocupante.id]\"\n                          class=\"btn btn-default btn-xs\">\n                    <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\n                  </button>\n                  <button type=\"button\"\n                          class=\"btn btn-default btn-xs\">\n                    <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\n                  </button>\n                </td>\n              </tr>\n              </tbody>\n            </table>\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n\n<ng-template #template>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Modal</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <form #ocupanteForm=\"ngForm\" name=\"ocupanteForm\" role=\"form\" (ngSubmit)=\"addOcupante(ocupanteForm)\">\n  <div class=\"modal-body\">\n    <div class=\"form-group\">\n      <label for=\"nome\">Nome</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"nome\"\n             name=\"nome\"\n             [(ngModel)]=\"ocupante.nome\"\n             [required]=\"false\"\n             placeholder=\"Nome\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"id_tipo_pessoa\">Tipo de Pessoa</label>\n      <select class=\"form-control\"\n              id=\"id_tipo_pessoa\"\n              [(ngModel)]=\"ocupante.id_tipo_pessoa\"\n              [required]=\"true\"\n              name=\"id_tipo_pessoa\">\n        <option [value]=\"1\">Pessoa Física</option>\n        <option [value]=\"2\">Pessoa Jurídica</option>\n      </select>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"cpf_cnpj\">CPF/CNPJ</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"cpf_cnpj\"\n             name=\"cpf_cnpj\"\n             [(ngModel)]=\"ocupante.cpf_cnpj\"\n             [required]=\"false\"\n             placeholder=\"CPF/CNPJ\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"descricao\">Descrição</label>\n      <input type=\"text\"\n             class=\"form-control\"\n             id=\"descricao\"\n             name=\"descricao\"\n             [(ngModel)]=\"ocupante.descricao\"\n             [required]=\"false\"\n             placeholder=\"Descrição\"/>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!ocupanteForm.valid\">Adicionar</button>\n  </div>\n  </form>\n</ng-template>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Garantias de Contrato\r\n    <small>Adicionar</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li><a href=\"#\">Garantias de Contrato</a></li>\r\n    <li class=\"active\">Adicionar</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"row\">\r\n    <!-- left column -->\r\n    <div class=\"col-md-12\">\r\n      <div class=\"box box-primary\">\r\n        <div class=\"box-header with-border\">\r\n          <h3 class=\"box-title\">Adicionar Garantia de Contrato</h3>\r\n        </div>\r\n        <!-- /.box-header -->\r\n        <!-- form start -->\r\n        <form #contratoForm=\"ngForm\" name=\"contratoForm\" role=\"form\" (ngSubmit)=\"onSubmit(contratoForm)\">\r\n\r\n          <app-alert></app-alert>\r\n\r\n          <div class=\"box-body\">\r\n            <h4>Ocupantes do Imóvel</h4>\r\n            <hr>\r\n            <button type=\"button\" (click)=\"openModalOcupantes(template)\" class=\"btn-sm btn-success\">Adicionar Ocupante</button>\r\n            <table id=\"tblPessoa\" class=\"table table-bordered table-striped\">\r\n              <thead>\r\n              <tr>\r\n                <th>Nome</th>\r\n                <th>CPF/CNPJ</th>\r\n                <th>Descrição</th>\r\n                <th>Ação</th>\r\n              </tr>\r\n              </thead>\r\n              <tbody>\r\n              <tr *ngFor=\"let ocupante of ocupantes\">\r\n                <td>{{ocupante.nome}}</td>\r\n                <td>{{ocupante.cpf_cnpj}}</td>\r\n                <td>{{ocupante.descricao}}</td>\r\n                <td>\r\n                  <button type=\"button\"\r\n                          [routerLink]=\"['/update-pessoa/'+ocupante.id]\"\r\n                          class=\"btn btn-default btn-xs\">\r\n                    <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\r\n                  </button>\r\n                  <button type=\"button\"\r\n                          class=\"btn btn-default btn-xs\">\r\n                    <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\r\n                  </button>\r\n                </td>\r\n              </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n          <!-- /.box-body -->\r\n          <div class=\"box-footer text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!contratoForm.valid\">Salvar</button>\r\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-contrato']\">Voltar</button>\r\n          </div>\r\n\r\n        </form>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n\r\n<ng-template #template>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title pull-left\">Modal</h4>\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <form #ocupanteForm=\"ngForm\" name=\"ocupanteForm\" role=\"form\" (ngSubmit)=\"addOcupante(ocupanteForm)\">\r\n  <div class=\"modal-body\">\r\n    <div class=\"form-group\">\r\n      <label for=\"nome\">Nome</label>\r\n      <input type=\"text\"\r\n             class=\"form-control\"\r\n             id=\"nome\"\r\n             name=\"nome\"\r\n             [(ngModel)]=\"ocupante.nome\"\r\n             [required]=\"false\"\r\n             placeholder=\"Nome\"/>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"id_categoria_pessoa\">Categoria de Pessoa</label>\r\n      <select class=\"form-control\"\r\n              id=\"id_categoria_pessoa\"\r\n              [(ngModel)]=\"ocupante.id_categoria_pessoa\"\r\n              [required]=\"true\"\r\n              name=\"id_categoria_pessoa\">\r\n        <option [value]=\"2\">Inquilino</option>\r\n        <option [value]=\"3\">Fiador</option>\r\n        <option [value]=\"4\">Responsável pelo Pagamento</option>\r\n      </select>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"cpf_cnpj\">CPF/CNPJ</label>\r\n      <input type=\"text\"\r\n             class=\"form-control\"\r\n             id=\"cpf_cnpj\"\r\n             name=\"cpf_cnpj\"\r\n             [(ngModel)]=\"ocupante.cpf_cnpj\"\r\n             [required]=\"false\"\r\n             placeholder=\"CPF/CNPJ\"/>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"descricao\">Descrição</label>\r\n      <input type=\"text\"\r\n             class=\"form-control\"\r\n             id=\"descricao\"\r\n             name=\"descricao\"\r\n             [(ngModel)]=\"ocupante.descricao\"\r\n             [required]=\"false\"\r\n             placeholder=\"Descrição\"/>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!ocupanteForm.valid\">Adicionar</button>\r\n  </div>\r\n  </form>\r\n</ng-template>\r\n");
 
 /***/ }),
 
@@ -409,7 +422,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>home works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>home works!</p>\n");
 
 /***/ }),
 
@@ -448,7 +461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\"main-footer\">\r\n    <div class=\"pull-right hidden-xs\">\r\n      <b>Version</b> 2.4.18\r\n    </div>\r\n    <strong>Copyright &copy; 2014-2019 <a href=\"https://adminlte.io\">AdminLTE</a>.</strong> All rights\r\n    reserved.\r\n  </footer>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\"main-footer\">\n    <div class=\"pull-right hidden-xs\">\n      <b>Version</b> 2.4.18\n    </div>\n    <strong>Copyright &copy; 2014-2019 <a href=\"https://adminlte.io\">AdminLTE</a>.</strong> All rights\n    reserved.\n  </footer>\n");
 
 /***/ }),
 
@@ -461,7 +474,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<header class=\"main-header\">\r\n    <!-- Logo -->\r\n    <a href=\"index2.html\" class=\"logo\">\r\n      <!-- mini logo for sidebar mini 50x50 pixels -->\r\n      <span class=\"logo-mini\"><b>A</b>LT</span>\r\n      <!-- logo for regular state and mobile devices -->\r\n      <span class=\"logo-lg\"><b>Kitnete</b>Aki</span>\r\n    </a>\r\n    <!-- Header Navbar: style can be found in header.less -->\r\n    <nav class=\"navbar navbar-static-top\">\r\n      <!-- Sidebar toggle button-->\r\n      <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n      </a>\r\n\r\n      <div class=\"navbar-custom-menu\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <!-- Messages: style can be found in dropdown.less-->\r\n          <li class=\"dropdown messages-menu\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n              <i class=\"fa fa-envelope-o\"></i>\r\n              <span class=\"label label-success\">4</span>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <li class=\"header\">You have 4 messages</li>\r\n              <li>\r\n                <!-- inner menu: contains the actual data -->\r\n                <ul class=\"menu\">\r\n                  <li><!-- start message -->\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        Support Team\r\n                        <small><i class=\"fa fa-clock-o\"></i> 5 mins</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end message -->\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user3-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        AdminLTE Design Team\r\n                        <small><i class=\"fa fa-clock-o\"></i> 2 hours</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user4-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        Developers\r\n                        <small><i class=\"fa fa-clock-o\"></i> Today</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user3-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        Sales Department\r\n                        <small><i class=\"fa fa-clock-o\"></i> Yesterday</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user4-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        Reviewers\r\n                        <small><i class=\"fa fa-clock-o\"></i> 2 days</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                </ul>\r\n              </li>\r\n              <li class=\"footer\"><a href=\"#\">See All Messages</a></li>\r\n            </ul>\r\n          </li>\r\n          <!-- Notifications: style can be found in dropdown.less -->\r\n          <li class=\"dropdown notifications-menu\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n              <i class=\"fa fa-bell-o\"></i>\r\n              <span class=\"label label-warning\">10</span>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <li class=\"header\">You have 10 notifications</li>\r\n              <li>\r\n                <!-- inner menu: contains the actual data -->\r\n                <ul class=\"menu\">\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-users text-aqua\"></i> 5 new members joined today\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-warning text-yellow\"></i> Very long description here that may not fit into the\r\n                      page and may cause design problems\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-users text-red\"></i> 5 new members joined\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-shopping-cart text-green\"></i> 25 sales made\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-user text-red\"></i> You changed your username\r\n                    </a>\r\n                  </li>\r\n                </ul>\r\n              </li>\r\n              <li class=\"footer\"><a href=\"#\">View all</a></li>\r\n            </ul>\r\n          </li>\r\n          <!-- Tasks: style can be found in dropdown.less -->\r\n          <li class=\"dropdown tasks-menu\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n              <i class=\"fa fa-flag-o\"></i>\r\n              <span class=\"label label-danger\">9</span>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <li class=\"header\">You have 9 tasks</li>\r\n              <li>\r\n                <!-- inner menu: contains the actual data -->\r\n                <ul class=\"menu\">\r\n                  <li><!-- Task item -->\r\n                    <a href=\"#\">\r\n                      <h3>\r\n                        Design some buttons\r\n                        <small class=\"pull-right\">20%</small>\r\n                      </h3>\r\n                      <div class=\"progress xs\">\r\n                        <div class=\"progress-bar progress-bar-aqua\" style=\"width: 20%\" role=\"progressbar\"\r\n                             aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\r\n                          <span class=\"sr-only\">20% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end task item -->\r\n                  <li><!-- Task item -->\r\n                    <a href=\"#\">\r\n                      <h3>\r\n                        Create a nice theme\r\n                        <small class=\"pull-right\">40%</small>\r\n                      </h3>\r\n                      <div class=\"progress xs\">\r\n                        <div class=\"progress-bar progress-bar-green\" style=\"width: 40%\" role=\"progressbar\"\r\n                             aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\r\n                          <span class=\"sr-only\">40% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end task item -->\r\n                  <li><!-- Task item -->\r\n                    <a href=\"#\">\r\n                      <h3>\r\n                        Some task I need to do\r\n                        <small class=\"pull-right\">60%</small>\r\n                      </h3>\r\n                      <div class=\"progress xs\">\r\n                        <div class=\"progress-bar progress-bar-red\" style=\"width: 60%\" role=\"progressbar\"\r\n                             aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\r\n                          <span class=\"sr-only\">60% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end task item -->\r\n                  <li><!-- Task item -->\r\n                    <a href=\"#\">\r\n                      <h3>\r\n                        Make beautiful transitions\r\n                        <small class=\"pull-right\">80%</small>\r\n                      </h3>\r\n                      <div class=\"progress xs\">\r\n                        <div class=\"progress-bar progress-bar-yellow\" style=\"width: 80%\" role=\"progressbar\"\r\n                             aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\r\n                          <span class=\"sr-only\">80% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end task item -->\r\n                </ul>\r\n              </li>\r\n              <li class=\"footer\">\r\n                <a href=\"#\">View all tasks</a>\r\n              </li>\r\n            </ul>\r\n          </li>\r\n          <!-- User Account: style can be found in dropdown.less -->\r\n          <li class=\"dropdown user user-menu\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n              <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"user-image\" alt=\"User Image\">\r\n              <span class=\"hidden-xs\">Alexander Pierce</span>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <!-- User image -->\r\n              <li class=\"user-header\">\r\n                <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n\r\n                <p>\r\n                  Alexander Pierce - Web Developer\r\n                  <small>Member since Nov. 2012</small>\r\n                </p>\r\n              </li>\r\n              <!-- Menu Body -->\r\n              <li class=\"user-body\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-xs-4 text-center\">\r\n                    <a href=\"#\">Followers</a>\r\n                  </div>\r\n                  <div class=\"col-xs-4 text-center\">\r\n                    <a href=\"#\">Sales</a>\r\n                  </div>\r\n                  <div class=\"col-xs-4 text-center\">\r\n                    <a href=\"#\">Friends</a>\r\n                  </div>\r\n                </div>\r\n                <!-- /.row -->\r\n              </li>\r\n              <!-- Menu Footer-->\r\n              <li class=\"user-footer\">\r\n                <div class=\"pull-left\">\r\n                  <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>\r\n                </div>\r\n                <div class=\"pull-right\">\r\n                  <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>\r\n                </div>\r\n              </li>\r\n            </ul>\r\n          </li>\r\n          <!-- Control Sidebar Toggle Button -->\r\n          <li>\r\n            <a href=\"#\" data-toggle=\"control-sidebar\"><i class=\"fa fa-gears\"></i></a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </nav>\r\n  </header>\r\n  <!-- Left side column. contains the logo and sidebar -->\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<header class=\"main-header\">\r\n    <!-- Logo -->\r\n    <a href=\"index2.html\" class=\"logo\">\r\n      <!-- mini logo for sidebar mini 50x50 pixels -->\r\n      <span class=\"logo-mini\"><b>A</b>LT</span>\r\n      <!-- logo for regular state and mobile devices -->\r\n      <span class=\"logo-lg\"><b>Kitnete</b>Aki</span>\r\n    </a>\r\n    <!-- Header Navbar: style can be found in header.less -->\r\n    <nav class=\"navbar navbar-static-top\">\r\n      <!-- Sidebar toggle button-->\r\n      <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n      </a>\r\n\r\n      <div class=\"navbar-custom-menu\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <!-- Messages: style can be found in dropdown.less-->\r\n          <li class=\"dropdown messages-menu\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n              <i class=\"fa fa-envelope-o\"></i>\r\n              <span class=\"label label-success\">4</span>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <li class=\"header\">You have 4 messages</li>\r\n              <li>\r\n                <!-- inner menu: contains the actual data -->\r\n                <ul class=\"menu\">\r\n                  <li><!-- start message -->\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        Support Team\r\n                        <small><i class=\"fa fa-clock-o\"></i> 5 mins</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end message -->\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user3-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        AdminLTE Design Team\r\n                        <small><i class=\"fa fa-clock-o\"></i> 2 hours</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user4-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        Developers\r\n                        <small><i class=\"fa fa-clock-o\"></i> Today</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user3-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        Sales Department\r\n                        <small><i class=\"fa fa-clock-o\"></i> Yesterday</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <div class=\"pull-left\">\r\n                        <img src=\"../assets/dist/img/user4-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n                      </div>\r\n                      <h4>\r\n                        Reviewers\r\n                        <small><i class=\"fa fa-clock-o\"></i> 2 days</small>\r\n                      </h4>\r\n                      <p>Why not buy a new awesome theme?</p>\r\n                    </a>\r\n                  </li>\r\n                </ul>\r\n              </li>\r\n              <li class=\"footer\"><a href=\"#\">See All Messages</a></li>\r\n            </ul>\r\n          </li>\r\n          <!-- Notifications: style can be found in dropdown.less -->\r\n          <li class=\"dropdown notifications-menu\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n              <i class=\"fa fa-bell-o\"></i>\r\n              <span class=\"label label-warning\">10</span>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <li class=\"header\">You have 10 notifications</li>\r\n              <li>\r\n                <!-- inner menu: contains the actual data -->\r\n                <ul class=\"menu\">\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-users text-aqua\"></i> 5 new members joined today\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-warning text-yellow\"></i> Very long description here that may not fit into the\r\n                      page and may cause design problems\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-users text-red\"></i> 5 new members joined\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-shopping-cart text-green\"></i> 25 sales made\r\n                    </a>\r\n                  </li>\r\n                  <li>\r\n                    <a href=\"#\">\r\n                      <i class=\"fa fa-user text-red\"></i> You changed your username\r\n                    </a>\r\n                  </li>\r\n                </ul>\r\n              </li>\r\n              <li class=\"footer\"><a href=\"#\">View all</a></li>\r\n            </ul>\r\n          </li>\r\n          <!-- Tasks: style can be found in dropdown.less -->\r\n          <li class=\"dropdown tasks-menu\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n              <i class=\"fa fa-flag-o\"></i>\r\n              <span class=\"label label-danger\">9</span>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <li class=\"header\">You have 9 tasks</li>\r\n              <li>\r\n                <!-- inner menu: contains the actual data -->\r\n                <ul class=\"menu\">\r\n                  <li><!-- Task item -->\r\n                    <a href=\"#\">\r\n                      <h3>\r\n                        Design some buttons\r\n                        <small class=\"pull-right\">20%</small>\r\n                      </h3>\r\n                      <div class=\"progress xs\">\r\n                        <div class=\"progress-bar progress-bar-aqua\" style=\"width: 20%\" role=\"progressbar\"\r\n                             aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\r\n                          <span class=\"sr-only\">20% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end task item -->\r\n                  <li><!-- Task item -->\r\n                    <a href=\"#\">\r\n                      <h3>\r\n                        Create a nice theme\r\n                        <small class=\"pull-right\">40%</small>\r\n                      </h3>\r\n                      <div class=\"progress xs\">\r\n                        <div class=\"progress-bar progress-bar-green\" style=\"width: 40%\" role=\"progressbar\"\r\n                             aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\r\n                          <span class=\"sr-only\">40% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end task item -->\r\n                  <li><!-- Task item -->\r\n                    <a href=\"#\">\r\n                      <h3>\r\n                        Some task I need to do\r\n                        <small class=\"pull-right\">60%</small>\r\n                      </h3>\r\n                      <div class=\"progress xs\">\r\n                        <div class=\"progress-bar progress-bar-red\" style=\"width: 60%\" role=\"progressbar\"\r\n                             aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\r\n                          <span class=\"sr-only\">60% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end task item -->\r\n                  <li><!-- Task item -->\r\n                    <a href=\"#\">\r\n                      <h3>\r\n                        Make beautiful transitions\r\n                        <small class=\"pull-right\">80%</small>\r\n                      </h3>\r\n                      <div class=\"progress xs\">\r\n                        <div class=\"progress-bar progress-bar-yellow\" style=\"width: 80%\" role=\"progressbar\"\r\n                             aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\r\n                          <span class=\"sr-only\">80% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </a>\r\n                  </li>\r\n                  <!-- end task item -->\r\n                </ul>\r\n              </li>\r\n              <li class=\"footer\">\r\n                <a href=\"#\">View all tasks</a>\r\n              </li>\r\n            </ul>\r\n          </li>\r\n          <!-- User Account: style can be found in dropdown.less -->\r\n          <li class=\"dropdown user user-menu\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\r\n              <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"user-image\" alt=\"User Image\">\r\n              <span class=\"hidden-xs\">{{auth.getUser().name}}</span>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <!-- User image -->\r\n              <li class=\"user-header\">\r\n                <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n\r\n                <p>\r\n                  {{auth.getUser().name}}\r\n                  <small>Member since Nov. 2012</small>\r\n                </p>\r\n              </li>\r\n              <!-- Menu Body -->\r\n              <li class=\"user-body\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-xs-4 text-center\">\r\n                    <a href=\"#\">Followers</a>\r\n                  </div>\r\n                  <div class=\"col-xs-4 text-center\">\r\n                    <a href=\"#\">Sales</a>\r\n                  </div>\r\n                  <div class=\"col-xs-4 text-center\">\r\n                    <a href=\"#\">Friends</a>\r\n                  </div>\r\n                </div>\r\n                <!-- /.row -->\r\n              </li>\r\n              <!-- Menu Footer-->\r\n              <li class=\"user-footer\">\r\n                <div class=\"pull-left\">\r\n                  <a href=\"#\" [routerLink]=\"['/perfil']\" class=\"btn btn-default btn-flat\">Profile</a>\r\n                </div>\r\n                <div class=\"pull-right\">\r\n                  <a href=\"#\" (click)=\"logout($event)\" class=\"btn btn-default btn-flat\">Sair</a>\r\n                </div>\r\n              </li>\r\n            </ul>\r\n          </li>\r\n          <!-- Control Sidebar Toggle Button -->\r\n          <li>\r\n            <a href=\"#\" data-toggle=\"control-sidebar\"><i class=\"fa fa-gears\"></i></a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </nav>\r\n  </header>\r\n  <!-- Left side column. contains the logo and sidebar -->\r\n");
 
 /***/ }),
 
@@ -474,7 +487,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<aside class=\"main-sidebar\">\r\n    <!-- sidebar: style can be found in sidebar.less -->\r\n    <section class=\"sidebar\">\r\n      <!-- Sidebar user panel -->\r\n      <div class=\"user-panel\">\r\n        <div class=\"pull-left image\">\r\n          <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n        </div>\r\n        <div class=\"pull-left info\">\r\n          <p>Alexander Pierce</p>\r\n          <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>\r\n        </div>\r\n      </div>\r\n      <!-- search form -->\r\n      <form action=\"#\" method=\"get\" class=\"sidebar-form\">\r\n        <div class=\"input-group\">\r\n          <input type=\"text\" name=\"q\" class=\"form-control\" placeholder=\"Search...\">\r\n          <span class=\"input-group-btn\">\r\n                <button type=\"submit\" name=\"search\" id=\"search-btn\" class=\"btn btn-flat\"><i class=\"fa fa-search\"></i>\r\n                </button>\r\n              </span>\r\n        </div>\r\n      </form>\r\n      <!-- /.search form -->\r\n      <!-- sidebar menu: : style can be found in sidebar.less -->\r\n      <ul class=\"sidebar-menu\" data-widget=\"tree\">\r\n        <li class=\"header\">MENÚ PRINCIPAL</li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/']\" >\r\n            <i class=\"fa fa-dashboard\"></i> <span>Home</span>\r\n          </a>\r\n        </li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/list-pessoa']\" >\r\n            <i class=\"fa fa-group\"></i> <span>Pessoas</span>\r\n          </a>\r\n        </li>\r\n        <li>\r\n        <a href=\"#\" [routerLink]=\"['/list-imovel']\" >\r\n          <i class=\"fa fa-home\"></i> <span>Imóveis</span>\r\n        </a>\r\n      </li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/list-contrato']\" >\r\n            <i class=\"fa fa-handshake-o\"></i> <span>Contrato</span>\r\n          </a>\r\n        </li>\r\n        <li class=\"treeview\">\r\n          <a href=\"#\">\r\n            <i class=\"fa fa-files-o\"></i>\r\n            <span>Financeiro</span>\r\n            <span class=\"pull-right-container\">\r\n              <i class=\"fa fa-angle-left pull-right\"></i>\r\n            </span>\r\n          </a>\r\n          <ul class=\"treeview-menu\">\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Pagamentos</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Recibos</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Receitas</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Despesas</a></li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"treeview\">\r\n          <a href=\"#\">\r\n            <i class=\"fa fa-files-o\"></i>\r\n            <span>Cadastros</span>\r\n            <span class=\"pull-right-container\">\r\n              <i class=\"fa fa-angle-left pull-right\"></i>\r\n            </span>\r\n          </a>\r\n          <ul class=\"treeview-menu\">\r\n            <li><a href=\"#\" [routerLink]=\"['/list-modelo-documento']\"><i class=\"fa fa-circle-o\"></i> Modelo de Documento</a></li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n    </section>\r\n    <!-- /.sidebar -->\r\n  </aside>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<aside class=\"main-sidebar\">\r\n    <!-- sidebar: style can be found in sidebar.less -->\r\n    <section class=\"sidebar\">\r\n      <!-- Sidebar user panel -->\r\n      <div class=\"user-panel\">\r\n        <div class=\"pull-left image\">\r\n          <img src=\"../assets/dist/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\r\n        </div>\r\n        <div class=\"pull-left info\">\r\n          <p>{{auth.getUser().name}}</p>\r\n          <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>\r\n        </div>\r\n      </div>\r\n      <!-- search form -->\r\n      <form action=\"#\" method=\"get\" class=\"sidebar-form\">\r\n        <div class=\"input-group\">\r\n          <input type=\"text\" name=\"q\" class=\"form-control\" placeholder=\"Search...\">\r\n          <span class=\"input-group-btn\">\r\n                <button type=\"submit\" name=\"search\" id=\"search-btn\" class=\"btn btn-flat\"><i class=\"fa fa-search\"></i>\r\n                </button>\r\n              </span>\r\n        </div>\r\n      </form>\r\n      <!-- /.search form -->\r\n      <!-- sidebar menu: : style can be found in sidebar.less -->\r\n      <ul class=\"sidebar-menu\" data-widget=\"tree\">\r\n        <li class=\"header\">MENÚ PRINCIPAL</li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/']\" >\r\n            <i class=\"fa fa-dashboard\"></i> <span>Home</span>\r\n          </a>\r\n        </li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/list-pessoa']\" >\r\n            <i class=\"fa fa-group\"></i> <span>Pessoas</span>\r\n          </a>\r\n        </li>\r\n        <li>\r\n        <a href=\"#\" [routerLink]=\"['/list-imovel']\" >\r\n          <i class=\"fa fa-home\"></i> <span>Imóveis</span>\r\n        </a>\r\n      </li>\r\n        <li>\r\n          <a href=\"#\" [routerLink]=\"['/list-contrato']\" >\r\n            <i class=\"fa fa-handshake-o\"></i> <span>Contrato</span>\r\n          </a>\r\n        </li>\r\n        <li class=\"treeview\">\r\n          <a href=\"#\">\r\n            <i class=\"fa fa-files-o\"></i>\r\n            <span>Financeiro</span>\r\n            <span class=\"pull-right-container\">\r\n              <i class=\"fa fa-angle-left pull-right\"></i>\r\n            </span>\r\n          </a>\r\n          <ul class=\"treeview-menu\">\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Pagamentos</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Recibos</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Receitas</a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-circle-o\"></i> Despesas</a></li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"treeview\">\r\n          <a href=\"#\">\r\n            <i class=\"fa fa-files-o\"></i>\r\n            <span>Cadastros</span>\r\n            <span class=\"pull-right-container\">\r\n              <i class=\"fa fa-angle-left pull-right\"></i>\r\n            </span>\r\n          </a>\r\n          <ul class=\"treeview-menu\">\r\n            <li><a href=\"#\" [routerLink]=\"['/list-modelo-documento']\"><i class=\"fa fa-circle-o\"></i> Modelo de Documento</a></li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n    </section>\r\n    <!-- /.sidebar -->\r\n  </aside>\r\n");
 
 /***/ }),
 
@@ -487,7 +500,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Modelos de Documentos\n    <small>Listar</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li class=\"active\">Modelos de Documentos</li>\n    <li class=\"active\">Listar Modelos de Documentos</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"box box-primary\">\n    <div class=\"box-header\">\n      <i class=\"ion ion-clipboard\"></i>\n\n      <h3 class=\"box-title\">Gestão de Modelos de Documentos</h3>\n\n      <div class=\"box-tools pull-right\">\n        <!-- BOTÕES DE ADICIONAR-->\n        <button type=\"button\" class=\"btn btn-success pull-right\" [routerLink]=\"['/new-modelo-documento']\"><i class=\"fa fa-plus\"></i> Adicionar</button>\n      </div>\n    </div>\n    <!-- /.box-header -->\n    <div class=\"box-body\">\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\n      <table id=\"tblPessoa\" class=\"table table-bordered table-striped\">\n        <thead>\n        <tr>\n          <th>Nome</th>\n          <th>Tipo</th>\n          <th>Ação</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let modelo of modelos\">\n          <td>{{modelo.nome}}</td>\n          <td>{{modelo.tipo}}</td>\n          <td>\n            <button type=\"button\"\n                    [routerLink]=\"['/update-modelo-documento/'+modelo.id]\"\n                    class=\"btn btn-default btn-xs\">\n              <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\n            </button>\n            <button type=\"button\"\n                    class=\"btn btn-default btn-xs\">\n              <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\n            </button>\n          </td>\n        </tr>\n        </tbody>\n        <tfoot>\n        <tr>\n          <th>Nome</th>\n          <th>Tipo</th>\n          <th>Ação</th>\n        </tr>\n        </tfoot>\n      </table>\n    </div>\n    <!-- /.box-body -->\n\n  </div>\n</section>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Modelos de Documentos\r\n    <small>Listar</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li class=\"active\">Modelos de Documentos</li>\r\n    <li class=\"active\">Listar Modelos de Documentos</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"box box-primary\">\r\n    <div class=\"box-header\">\r\n      <i class=\"ion ion-clipboard\"></i>\r\n\r\n      <h3 class=\"box-title\">Gestão de Modelos de Documentos</h3>\r\n\r\n      <div class=\"box-tools pull-right\">\r\n        <!-- BOTÕES DE ADICIONAR-->\r\n        <button type=\"button\" class=\"btn btn-success pull-right\" [routerLink]=\"['/new-modelo-documento']\"><i class=\"fa fa-plus\"></i> Adicionar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.box-header -->\r\n    <div class=\"box-body\">\r\n      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->\r\n      <table id=\"tblPessoa\" class=\"table table-bordered table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>Tipo</th>\r\n          <th>Ação</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr *ngFor=\"let modelo of modelos\">\r\n          <td>{{modelo.nome}}</td>\r\n          <td>{{modelo.tipo}}</td>\r\n          <td>\r\n            <button type=\"button\"\r\n                    [routerLink]=\"['/update-modelo-documento/'+modelo.id]\"\r\n                    class=\"btn btn-default btn-xs\">\r\n              <i class=\"fa fa-edit\" aria-hidden=\"true\"></i>\r\n            </button>\r\n            <button type=\"button\"\r\n                    class=\"btn btn-default btn-xs\">\r\n              <i class=\"fa fa-remove\" aria-hidden=\"true\"></i>\r\n            </button>\r\n          </td>\r\n        </tr>\r\n        </tbody>\r\n        <tfoot>\r\n        <tr>\r\n          <th>Nome</th>\r\n          <th>Tipo</th>\r\n          <th>Ação</th>\r\n        </tr>\r\n        </tfoot>\r\n      </table>\r\n    </div>\r\n    <!-- /.box-body -->\r\n\r\n  </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -500,7 +513,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\n  <h1>\n    Modelos de Documentos\n    <small>{{modelo.id ? 'Atualizar' : 'Adicionar'}}</small>\n  </h1>\n  <ol class=\"breadcrumb\">\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n    <li><a href=\"#\">Modelos de Documentos</a></li>\n    <li class=\"active\">{{modelo.id ? 'Atualizar' : 'Adicionar'}}</li>\n  </ol>\n</section>\n\n<section class=\"content\">\n  <div class=\"row\">\n    <!-- left column -->\n    <div class=\"col-md-12\">\n      <div class=\"box box-primary\">\n        <div class=\"box-header with-border\">\n          <h3 class=\"box-title\">{{modelo.id ? 'Atualizar' : 'Adicionar'}} Pessoa</h3>\n        </div>\n        <!-- /.box-header -->\n        <!-- form start -->\n        <form #modeloForm=\"ngForm\" name=\"modeloForm\" role=\"form\" (ngSubmit)=\"onSubmit(modeloForm)\">\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"modelo.id\"/>\n\n          <app-alert></app-alert>\n\n          <div class=\"box-body\">\n            <div class=\"row\">\n              <div class=\"form-group col-md-6\">\n                <label for=\"nome\">Nome: </label>\n                <input type=\"text\"\n                       class=\"form-control\"\n                       id=\"nome\"\n                       name=\"nome\"\n                       [(ngModel)]=\"modelo.nome\"\n                       [required]=\"true\"\n                       placeholder=\"Nome\"/>\n              </div>\n\n              <div class=\"form-group col-md-3\">\n                <label for=\"tipo_modelo_documento\">Tipo de Modelo De Documento: </label>\n                <select class=\"form-control\"\n                        id=\"tipo_modelo_documento\"\n                        [(ngModel)]=\"modelo.id_tipo_modelo_documento\"\n                        [required]=\"true\"\n                        name=\"id_tipo_modelo_documento\">\n                  <option [value]=\"1\">Contrato de Locação</option>\n                  <option [value]=\"2\">Contrato de Temporada</option>\n                  <option [value]=\"3\">Recibo de Pagamento</option>\n                </select>\n              </div>\n\n            </div>\n\n            <div class=\"row\">\n              <button >Adicionar</button>\n              <div class=\"box-body pad\">\n                <label for=\"tipo_modelo_documento\">Conteúdo: </label>\n                <ckeditor (blur)=\"ckEditorOnBlur($event)\" [editor]=\"Editor\" data=\"<p>Hello, world!</p>\"></ckeditor>\n              </div>\n            </div>\n\n          </div>\n          <!-- /.box-body -->\n          <div class=\"box-footer text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!modeloForm.valid\">Salvar</button>\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-modelo-documento']\">Voltar</button>\n          </div>\n\n        </form>\n\n      </div>\n    </div>\n  </div>\n</section>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section class=\"content-header\">\r\n  <h1>\r\n    Modelos de Documentos\r\n    <small>{{modelo.id ? 'Atualizar' : 'Adicionar'}}</small>\r\n  </h1>\r\n  <ol class=\"breadcrumb\">\r\n    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\r\n    <li><a href=\"#\">Modelos de Documentos</a></li>\r\n    <li class=\"active\">{{modelo.id ? 'Atualizar' : 'Adicionar'}}</li>\r\n  </ol>\r\n</section>\r\n\r\n<section class=\"content\">\r\n  <div class=\"row\">\r\n    <!-- left column -->\r\n    <div class=\"col-md-12\">\r\n      <div class=\"box box-primary\">\r\n        <div class=\"box-header with-border\">\r\n          <h3 class=\"box-title\">{{modelo.id ? 'Atualizar' : 'Adicionar'}} Pessoa</h3>\r\n        </div>\r\n        <!-- /.box-header -->\r\n        <!-- form start -->\r\n        <form #modeloForm=\"ngForm\" name=\"modeloForm\" role=\"form\" (ngSubmit)=\"onSubmit(modeloForm)\">\r\n          <input type=\"hidden\" name=\"id\" value=\"id\" [(ngModel)]=\"modelo.id\"/>\r\n\r\n          <app-alert></app-alert>\r\n\r\n          <div class=\"box-body\">\r\n            <div class=\"row\">\r\n              <div class=\"form-group col-md-6\">\r\n                <label for=\"nome\">Nome: </label>\r\n                <input type=\"text\"\r\n                       class=\"form-control\"\r\n                       id=\"nome\"\r\n                       name=\"nome\"\r\n                       [(ngModel)]=\"modelo.nome\"\r\n                       [required]=\"true\"\r\n                       placeholder=\"Nome\"/>\r\n              </div>\r\n\r\n              <div class=\"form-group col-md-3\">\r\n                <label for=\"tipo_modelo_documento\">Tipo de Modelo De Documento: </label>\r\n                <select class=\"form-control\"\r\n                        id=\"tipo_modelo_documento\"\r\n                        [(ngModel)]=\"modelo.id_tipo_modelo_documento\"\r\n                        [required]=\"true\"\r\n                        name=\"id_tipo_modelo_documento\">\r\n                  <option [value]=\"1\">Contrato de Locação</option>\r\n                  <option [value]=\"2\">Contrato de Temporada</option>\r\n                  <option [value]=\"3\">Recibo de Pagamento</option>\r\n                </select>\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n              <button >Adicionar</button>\r\n              <div class=\"box-body pad\">\r\n                <label for=\"tipo_modelo_documento\">Conteúdo: </label>\r\n                <ckeditor (blur)=\"ckEditorOnBlur($event)\" [editor]=\"Editor\" data=\"<p>Hello, world!</p>\"></ckeditor>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n          <!-- /.box-body -->\r\n          <div class=\"box-footer text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!modeloForm.valid\">Salvar</button>\r\n            <button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/list-modelo-documento']\">Voltar</button>\r\n          </div>\r\n\r\n        </form>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n");
 
 /***/ }),
 
@@ -539,7 +552,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<body class=\"hold-transition skin-blue sidebar-mini\">\r\n        <div class=\"wrapper\">\r\n          <app-header></app-header>\r\n          <app-menu></app-menu>\r\n          <div class=\"content-wrapper\">\r\n           <router-outlet></router-outlet>\r\n          </div>\r\n          <app-footer></app-footer>\r\n        </div>\r\n        </body>\r\n        ");
+/* harmony default export */ __webpack_exports__["default"] = ("<body class=\"hold-transition skin-blue sidebar-mini\">\r\n        <div class=\"wrapper\">\r\n          <app-header></app-header>\r\n          <app-menu></app-menu>\r\n          <div class=\"content-wrapper\">\r\n           <router-outlet></router-outlet>\r\n          </div>\r\n          <app-footer></app-footer>\r\n        </div>\r\n</body>\r\n");
 
 /***/ }),
 
@@ -552,7 +565,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>login-template works!</p>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<body class=\"hold-transition login-page\">\r\n<router-outlet></router-outlet>\r\n</body>\r\n");
 
 /***/ }),
 
@@ -785,6 +798,58 @@ function __importDefault(mod) {
 
 /***/ }),
 
+/***/ "./src/app/_guards/auth.guard.ts":
+/*!***************************************!*\
+  !*** ./src/app/_guards/auth.guard.ts ***!
+  \***************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_services/auth.service */ "./src/app/_services/auth.service.ts");
+
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(auth, router) {
+        this.auth = auth;
+        this.router = router;
+    }
+    canActivate(next, state) {
+        if (this.auth.check()) {
+            return true;
+        }
+        this.router.navigate(['login']);
+        return false;
+    }
+    canActivateChild(next, state) {
+        if (this.auth.check()) {
+            return true;
+        }
+        this.router.navigate(['login']);
+        return false;
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthGuard);
+
+
+
+/***/ }),
+
 /***/ "./src/app/_guards/imovel-resolver.guard.ts":
 /*!**************************************************!*\
   !*** ./src/app/_guards/imovel-resolver.guard.ts ***!
@@ -909,6 +974,112 @@ PessoaResolverGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/_interceptors/refresh-token.interceptor.ts":
+/*!************************************************************!*\
+  !*** ./src/app/_interceptors/refresh-token.interceptor.ts ***!
+  \************************************************************/
+/*! exports provided: RefreshTokenInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RefreshTokenInterceptor", function() { return RefreshTokenInterceptor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+/** Pass untouched request through to the next request handler. */
+let RefreshTokenInterceptor = class RefreshTokenInterceptor {
+    constructor(injector) {
+        this.injector = injector;
+    }
+    intercept(request, next) {
+        return next.handle(request)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])((errorResponse) => {
+            const error = (typeof errorResponse.error !== 'object') ? JSON.parse(errorResponse.error) : errorResponse;
+            if (errorResponse.status === 401 && error.error === 'token_expired') {
+                const http = this.injector.get(_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]);
+                return http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API}/auth/refresh`, {})
+                    .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["flatMap"])(data => {
+                    localStorage.setItem('token', data.token);
+                    const cloneRequest = request.clone({ setHeaders: { 'Authorization': `Bearer ${data.token}` } });
+                    return next.handle(cloneRequest);
+                }));
+            }
+            return Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(errorResponse.error);
+        }));
+    }
+};
+RefreshTokenInterceptor.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
+];
+RefreshTokenInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], RefreshTokenInterceptor);
+
+/*
+if (errorResponse.status === 401 && error.error === 'token_expired') {
+  const http = this.injector.get(HttpClient);
+  return http.post(`${environment.API}/auth/refresh`, {})
+    .flatMap(data => {
+      localStorage.setItem('token', data.token);
+      const cloneRequest = request.clone({setHeaders: {'Authorization': `Bearer ${data.token}`}});
+
+      return next.handle(cloneRequest);
+    });
+
+}
+
+*/
+
+
+/***/ }),
+
+/***/ "./src/app/_interceptors/token.interceptor.ts":
+/*!****************************************************!*\
+  !*** ./src/app/_interceptors/token.interceptor.ts ***!
+  \****************************************************/
+/*! exports provided: TokenInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenInterceptor", function() { return TokenInterceptor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
+
+
+/** Pass untouched request through to the next request handler. */
+let TokenInterceptor = class TokenInterceptor {
+    intercept(request, next) {
+        const requestUrl = request.url.split('/');
+        const apiUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API.split('/');
+        const token = localStorage.getItem('token');
+        if (token && (requestUrl[2] === apiUrl[2])) {
+            const newRequest = request.clone({ setHeaders: { 'Authorization': `Bearer ${token}` } });
+            return next.handle(newRequest);
+        }
+        else {
+            return next.handle(request);
+        }
+    }
+};
+TokenInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], TokenInterceptor);
+
+
+
+/***/ }),
+
 /***/ "./src/app/_models/contrato.model.ts":
 /*!*******************************************!*\
   !*** ./src/app/_models/contrato.model.ts ***!
@@ -940,6 +1111,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 class Imovel {
+}
+
+
+/***/ }),
+
+/***/ "./src/app/_models/login.model.ts":
+/*!****************************************!*\
+  !*** ./src/app/_models/login.model.ts ***!
+  \****************************************/
+/*! exports provided: Login */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Login", function() { return Login; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class Login {
 }
 
 
@@ -1065,6 +1254,85 @@ AlertService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/_services/auth.service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/_services/auth.service.ts ***!
+  \*******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+
+
+
+let AuthService = class AuthService {
+    constructor(http, router) {
+        this.http = http;
+        this.router = router;
+        this.API = `${_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API}auth`;
+    }
+    login(credentials) {
+        return this.http.post(`${this.API}/login`, credentials)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(data => {
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', btoa(JSON.stringify(data.user)));
+            return data;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
+        }));
+    }
+    check() {
+        return localStorage.getItem('user') ? true : false;
+    }
+    logout() {
+        return this.http.get(`${this.API}/logout`)
+            .subscribe(resp => {
+            localStorage.clear();
+            this.router.navigate(['/login']);
+        });
+    }
+    getUser() {
+        return localStorage.getItem('user') ? JSON.parse(atob(localStorage.getItem('user'))) : null;
+    }
+    setUser() {
+        return this.http.get(`${this.API}/me`)
+            .toPromise()
+            .then(data => {
+            if (data) {
+                localStorage.setItem('user', btoa(JSON.stringify(data.user)));
+                return true;
+            }
+            return false;
+        });
+    }
+};
+AuthService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }
+];
+AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/_services/cep.service.ts":
 /*!******************************************!*\
   !*** ./src/app/_services/cep.service.ts ***!
@@ -1142,8 +1410,8 @@ let ContratoService = class ContratoService {
     }
     list() {
         return this.http.get(`${this.API}/listar`)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(error.error);
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(response => {
+            return response;
         }));
     }
     getById(id) {
@@ -1510,6 +1778,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modelo_documento_new_modelo_documento_new_modelo_documento_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modelo-documento/new-modelo-documento/new-modelo-documento.component */ "./src/app/modelo-documento/new-modelo-documento/new-modelo-documento.component.ts");
 /* harmony import */ var _contrato_new_contrato_new_contrato_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./contrato/new-contrato/new-contrato.component */ "./src/app/contrato/new-contrato/new-contrato.component.ts");
 /* harmony import */ var _contrato_new_garantias_contrato_new_garantias_contrato_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./contrato/new-garantias-contrato/new-garantias-contrato.component */ "./src/app/contrato/new-garantias-contrato/new-garantias-contrato.component.ts");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./_guards/auth.guard */ "./src/app/_guards/auth.guard.ts");
+/* harmony import */ var _auth_perfil_perfil_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./auth/perfil/perfil.component */ "./src/app/auth/perfil/perfil.component.ts");
+
+
 
 
 
@@ -1533,10 +1805,16 @@ const routes = [
     {
         path: '',
         component: _templates_dashboard_template_dashboard_template_component__WEBPACK_IMPORTED_MODULE_7__["DashboardTemplateComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_19__["AuthGuard"]],
+        canActivateChild: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_19__["AuthGuard"]],
         children: [
             {
                 path: '',
                 component: _home_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"]
+            },
+            {
+                path: 'perfil',
+                component: _auth_perfil_perfil_component__WEBPACK_IMPORTED_MODULE_20__["PerfilComponent"]
             },
             {
                 path: 'list-pessoa',
@@ -1669,6 +1947,59 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/app.error-handle.ts":
+/*!*************************************!*\
+  !*** ./src/app/app.error-handle.ts ***!
+  \*************************************/
+/*! exports provided: AplicationErrorHandle */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AplicationErrorHandle", function() { return AplicationErrorHandle; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+
+
+let AplicationErrorHandle = class AplicationErrorHandle extends _angular_core__WEBPACK_IMPORTED_MODULE_3__["ErrorHandler"] {
+    constructor(injector) {
+        super();
+        this.injector = injector;
+    }
+    handleError(errorResponse) {
+        if (errorResponse instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpErrorResponse"]) {
+            const error = (typeof errorResponse.error !== 'object') ? JSON.parse(errorResponse.error) : errorResponse.error;
+            if (errorResponse.status === 400 &&
+                (error.error === 'token_expired' || error.error === 'token_invalid' ||
+                    error.error === 'A token is required' || error.error === 'token_not_provided')) {
+                this.goToLogin();
+            }
+            if (errorResponse.status === 401 && error.error === 'token_has_been_blacklisted') {
+                this.goToLogin();
+            }
+        }
+        super.handleError(errorResponse);
+    }
+    goToLogin() {
+        const router = this.injector.get(_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]);
+        router.navigate(['/login']);
+    }
+};
+AplicationErrorHandle.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Injector"] }
+];
+AplicationErrorHandle = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])()
+], AplicationErrorHandle);
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.module.ts":
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
@@ -1707,6 +2038,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _contrato_new_garantias_contrato_new_garantias_contrato_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./contrato/new-garantias-contrato/new-garantias-contrato.component */ "./src/app/contrato/new-garantias-contrato/new-garantias-contrato.component.ts");
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./_guards/auth.guard */ "./src/app/_guards/auth.guard.ts");
+/* harmony import */ var _interceptors_token_interceptor__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./_interceptors/token.interceptor */ "./src/app/_interceptors/token.interceptor.ts");
+/* harmony import */ var _auth_perfil_perfil_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./auth/perfil/perfil.component */ "./src/app/auth/perfil/perfil.component.ts");
+/* harmony import */ var _interceptors_refresh_token_interceptor__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./_interceptors/refresh-token.interceptor */ "./src/app/_interceptors/refresh-token.interceptor.ts");
+/* harmony import */ var _app_error_handle__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./app.error-handle */ "./src/app/app.error-handle.ts");
+
+
+
+
+
 
 
 
@@ -1758,6 +2099,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _modelo_documento_list_modelo_documento_list_modelo_documento_component__WEBPACK_IMPORTED_MODULE_22__["ListModeloDocumentoComponent"],
             _contrato_new_contrato_new_contrato_component__WEBPACK_IMPORTED_MODULE_24__["NewContratoComponent"],
             _contrato_new_garantias_contrato_new_garantias_contrato_component__WEBPACK_IMPORTED_MODULE_26__["NewGarantiasContratoComponent"],
+            _auth_perfil_perfil_component__WEBPACK_IMPORTED_MODULE_30__["PerfilComponent"],
             _alert_alert_component__WEBPACK_IMPORTED_MODULE_19__["AlertComponent"]
         ],
         imports: [
@@ -1768,7 +2110,17 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_23__["CKEditorModule"],
             ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_27__["ModalModule"].forRoot()
         ],
-        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_25__["DatePipe"]],
+        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_25__["DatePipe"], _guards_auth_guard__WEBPACK_IMPORTED_MODULE_28__["AuthGuard"],
+            {
+                provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HTTP_INTERCEPTORS"], useClass: _interceptors_token_interceptor__WEBPACK_IMPORTED_MODULE_29__["TokenInterceptor"], multi: true
+            },
+            {
+                provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HTTP_INTERCEPTORS"], useClass: _interceptors_refresh_token_interceptor__WEBPACK_IMPORTED_MODULE_31__["RefreshTokenInterceptor"], multi: true
+            },
+            {
+                provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ErrorHandler"], useClass: _app_error_handle__WEBPACK_IMPORTED_MODULE_32__["AplicationErrorHandle"]
+            }
+        ],
         exports: [
             _alert_alert_component__WEBPACK_IMPORTED_MODULE_19__["AlertComponent"]
         ],
@@ -1789,7 +2141,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".app-login .row {\n  margin-top: 20vh; }\n\n.app-login .panel-body {\n  box-shadow: 0px 0px 10px 3px #ccc; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXV0aC9sb2dpbi9DOlxca2l0bmV0ZWFraVxccmVzb3VyY2VzXFxhc3NldHNcXGtpdG5ldGVha2ktYXBwL3NyY1xcYXBwXFxhdXRoXFxsb2dpblxcbG9naW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBZ0IsZ0JBQWdCLEVBQUE7O0FBQ2hDO0VBQXVCLGlDQUFpQyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hcHAtbG9naW4gLnJvd3ttYXJnaW4tdG9wOiAyMHZoO31cclxuLmFwcC1sb2dpbiAucGFuZWwtYm9keXtib3gtc2hhZG93OiAwcHggMHB4IDEwcHggM3B4ICNjY2N9XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -1805,13 +2157,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/auth.service */ "./src/app/_services/auth.service.ts");
+/* harmony import */ var _models_login_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_models/login.model */ "./src/app/_models/login.model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../_services/alert.service */ "./src/app/_services/alert.service.ts");
+
+
+
+
 
 
 let LoginComponent = class LoginComponent {
-    constructor() { }
+    constructor(authService, router, alertService) {
+        this.authService = authService;
+        this.router = router;
+        this.alertService = alertService;
+    }
     ngOnInit() {
+        this.login = new _models_login_model__WEBPACK_IMPORTED_MODULE_3__["Login"]();
+    }
+    onSubmit(form) {
+        return this.authService.login(form.value)
+            .subscribe((resp) => {
+            this.router.navigate(['home']);
+        }, (error) => {
+            const message = error.error;
+            this.alertService.error(message);
+        });
     }
 };
+LoginComponent.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _services_alert_service__WEBPACK_IMPORTED_MODULE_5__["AlertService"] }
+];
 LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-login',
@@ -1819,6 +2198,62 @@ LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login.component.scss */ "./src/app/auth/login/login.component.scss")).default]
     })
 ], LoginComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth/perfil/perfil.component.scss":
+/*!***************************************************!*\
+  !*** ./src/app/auth/perfil/perfil.component.scss ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvcGVyZmlsL3BlcmZpbC5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/auth/perfil/perfil.component.ts":
+/*!*************************************************!*\
+  !*** ./src/app/auth/perfil/perfil.component.ts ***!
+  \*************************************************/
+/*! exports provided: PerfilComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerfilComponent", function() { return PerfilComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+
+let PerfilComponent = class PerfilComponent {
+    constructor(http) {
+        this.http = http;
+    }
+    ngOnInit() {
+        this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API}/auth/me`).subscribe(data => {
+            this.login = data.user;
+        });
+    }
+};
+PerfilComponent.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
+PerfilComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-perfil',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./perfil.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/perfil/perfil.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./perfil.component.scss */ "./src/app/auth/perfil/perfil.component.scss")).default]
+    })
+], PerfilComponent);
 
 
 
@@ -1893,13 +2328,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListContratoComponent", function() { return ListContratoComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_contrato_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/contrato.service */ "./src/app/_services/contrato.service.ts");
+
 
 
 let ListContratoComponent = class ListContratoComponent {
-    constructor() { }
+    constructor(contratoService) {
+        this.contratoService = contratoService;
+        this.contratos = [];
+    }
     ngOnInit() {
+        this.getAll();
+    }
+    getAll() {
+        return this.contratoService.list()
+            .subscribe(success => {
+            this.contratos = success;
+        });
     }
 };
+ListContratoComponent.ctorParameters = () => [
+    { type: _services_contrato_service__WEBPACK_IMPORTED_MODULE_2__["ContratoService"] }
+];
 ListContratoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-list-contrato',
@@ -2093,9 +2543,8 @@ let NewGarantiasContratoComponent = class NewGarantiasContratoComponent {
         this.alertService = alertService;
         this.ocupanteService = ocupanteService;
         this.route = route;
-        this.route.queryParams.subscribe(params => {
+        this.route.params.subscribe((params) => {
             this.idContrato = params.id;
-            console.log(params.id);
         });
     }
     ngOnInit() {
@@ -2398,13 +2847,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/auth.service */ "./src/app/_services/auth.service.ts");
+
 
 
 let HeaderComponent = class HeaderComponent {
-    constructor() { }
+    constructor(auth) {
+        this.auth = auth;
+    }
     ngOnInit() {
     }
+    logout(e) {
+        e.preventDefault(0);
+        this.auth.logout();
+    }
 };
+HeaderComponent.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+];
 HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-header',
@@ -2442,13 +2902,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuComponent", function() { return MenuComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/auth.service */ "./src/app/_services/auth.service.ts");
+
 
 
 let MenuComponent = class MenuComponent {
-    constructor() { }
+    constructor(auth) {
+        this.auth = auth;
+    }
     ngOnInit() {
     }
 };
+MenuComponent.ctorParameters = () => [
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+];
 MenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-menu',
