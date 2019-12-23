@@ -9,7 +9,7 @@ import {throwError} from 'rxjs';
 })
 export class OcupanteImovelService {
 
-  private readonly API = `${environment.API}ocupante`;
+  private readonly API = `${environment.API}/ocupante`;
 
   constructor(private http: HttpClient) {
   }

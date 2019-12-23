@@ -32,7 +32,7 @@ class AuthController extends Controller
         $token = $this->jwtAuth->getToken();
         $token = $this->jwtAuth->refresh($token);
 
-        return $this->response()->json(compact('token'));
+        return response()->json(compact('token'));
     }
 
     public function logout() {

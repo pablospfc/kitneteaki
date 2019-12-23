@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Contrato;
+use App\Model\Contrato;
 use http\Exception;
 use Illuminate\Http\Request;
 
@@ -27,7 +27,7 @@ class ContratoController extends Controller
             $dados = $this->contrato->getAll();
             return response()->json($dados, 200);
         } catch (\Exception $e) {
-            \App\Log::create(['message' => $e->getMessage()]);
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um problema ao listar dados'], 500);
         }
     }
@@ -54,7 +54,7 @@ class ContratoController extends Controller
             $id = $this->contrato->salvar($request->all());
             return response()->json(['message' => 'Dados cadastrados com sucesso.', 'id' => $id], 200);
         } catch (\Exception $e) {
-            \App\Log::create(['message' => $e->getMessage()]);
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 500);
         }
     }

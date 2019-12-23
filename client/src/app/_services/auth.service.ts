@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  private readonly API = `${environment.API}auth`;
+  private readonly API = `${environment.API}/auth`;
 
   public login(credentials: { login: string, password: string }) {
     return this.http.post<any>(`${this.API}/login`, credentials)
@@ -25,6 +25,7 @@ export class AuthService {
           return data;
         }),
         catchError(error => {
+          console.log(error);
           return throwError(error.error);
         })
       );

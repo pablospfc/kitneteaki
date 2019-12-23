@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ImovelService} from "../../_services/imovel.service";
+import {ImovelService} from '../../_services/imovel.service';
 
 @Component({
   selector: 'app-list-imovel',
@@ -9,7 +9,9 @@ import {ImovelService} from "../../_services/imovel.service";
 export class ListImovelComponent implements OnInit {
 
   public imoveis = [];
-
+  public page = 1;
+  public totalRec;
+  public loading = false;
   constructor(private imovelService: ImovelService) {
   }
 
@@ -18,9 +20,12 @@ export class ListImovelComponent implements OnInit {
   }
 
   list() {
+    this.loading = true;
     return this.imovelService.list()
       .subscribe(response => {
         this.imoveis = response;
+        this.totalRec = this.imoveis.length;
+        this.loading = false;
       });
   }
 

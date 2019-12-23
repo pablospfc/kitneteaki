@@ -10,7 +10,7 @@ import {map, filter, catchError, mergeMap, retry, tap, take} from 'rxjs/operator
 })
 export class PessoaService {
 
-  private readonly API = `${environment.API}pessoa`;
+  private readonly API = `${environment.API}/pessoa`;
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',

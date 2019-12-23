@@ -4,13 +4,12 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError, BehaviorSubject} from 'rxjs';
 import {map, filter, catchError, mergeMap, retry, tap, take} from 'rxjs/operators';
 import {Imovel} from '../_models/imovel.model';
-import {Pessoa} from "../_models/pessoa.model";
 @Injectable({
   providedIn: 'root'
 })
 export class ImovelService {
 
-  private readonly API = `${environment.API}imovel`;
+  private readonly API = `${environment.API}/imovel`;
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',

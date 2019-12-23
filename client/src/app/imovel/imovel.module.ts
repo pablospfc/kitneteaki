@@ -4,9 +4,9 @@ import { ListImovelComponent } from './list-imovel/list-imovel.component';
 import { NewImovelComponent } from './new-imovel/new-imovel.component';
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
-import {AppModule} from "../app.module";
-
-
+import {AuthModule} from "../auth/auth.module";
+import {NgxPaginationModule} from "ngx-pagination";
+import {NgxLoadingModule} from "ngx-loading";
 
 @NgModule({
   declarations: [ListImovelComponent, NewImovelComponent],
@@ -14,7 +14,9 @@ import {AppModule} from "../app.module";
     CommonModule,
     FormsModule,
     RouterModule,
-    AppModule
+    AuthModule,
+    NgxPaginationModule,
+    NgxLoadingModule
   ]
 })
 export class ImovelModule { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Contrato} from '../../_models/contrato.model';
 import {NgForm} from '@angular/forms';
 import {ContratoService} from '../../_services/contrato.service';
-import {AlertService} from '../../_services/alert.service';
+import {AlertMessageService} from '../../_services/alert-message.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
 import * as moment from 'moment';
@@ -21,7 +21,7 @@ export class NewContratoComponent implements OnInit {
   public imoveis = [];
   public locatarios = [];
   constructor(private contratoService: ContratoService,
-              private alertService: AlertService,
+              private alertService: AlertMessageService,
               private imovelService: ImovelService,
               private pessoaService: PessoaService,
               private router: Router,

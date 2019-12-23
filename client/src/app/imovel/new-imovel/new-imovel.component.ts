@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Imovel} from '../../_models/imovel.model';
 import {NgForm} from '@angular/forms';
 import {ImovelService} from '../../_services/imovel.service';
-import {AlertService} from '../../_services/alert.service';
+import {AlertMessageService} from '../../_services/alert-message.service';
 import {ActivatedRoute} from '@angular/router';
-import {CepService} from "../../_services/cep.service";
+import {CepService} from '../../_services/cep.service';
 
 @Component({
   selector: 'app-new-imovel',
@@ -14,8 +14,12 @@ import {CepService} from "../../_services/cep.service";
 export class NewImovelComponent implements OnInit {
 
   public imovel: Imovel;
+  public loading = false;
 
-  constructor(private imovelService: ImovelService, private alertService: AlertService, private actRoute: ActivatedRoute, private cepService: CepService) {
+  constructor(private imovelService: ImovelService,
+              private alertService: AlertMessageService,
+              private actRoute: ActivatedRoute,
+              private cepService: CepService) {
   }
 
   ngOnInit() {
@@ -26,27 +30,32 @@ export class NewImovelComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.loading = true;
     this.imovelService.save(form.value)
       .subscribe(success => {
         const message = (success as any).message;
         this.alertService.success(message, true);
+        this.loading = false;
       }, error => {
         const message = (error as any).message;
         this.alertService.error(message);
+        this.loading = false;
       });
   }
 
   getCEP(cep: string) {
+    this.loading = true;
     this.cepService.buscaCEP(cep)
       .subscribe(success => {
-          let dados = (success as any);
+          const dados = (success as any);
           this.imovel.logradouro = dados.logradouro;
           this.imovel.bairro = dados.bairro;
           this.imovel.cidade = dados.localidade;
           this.imovel.estado = dados.uf;
+          this.loading = false;
         },
         error => {
-          console.log(error);
+          this.loading = false;
         });
   }
 

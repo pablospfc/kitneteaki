@@ -3,8 +3,8 @@ import {OcupanteImovel} from '../../_models/ocupante_imovel.model';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {NgForm} from '@angular/forms';
 import {OcupanteImovelService} from '../../_services/ocupante-imovel.service';
-import {AlertService} from '../../_services/alert.service';
-import {ActivatedRoute, ActivatedRouteSnapshot, Params} from "@angular/router";
+import {AlertMessageService} from '../../_services/alert-message.service';
+import {ActivatedRoute, ActivatedRouteSnapshot, Params} from '@angular/router';
 
 @Component({
   selector: 'app-new-garantias-contrato',
@@ -18,7 +18,7 @@ export class NewGarantiasContratoComponent implements OnInit {
   modalRef: BsModalRef;
   private idContrato;
   constructor(private modalService: BsModalService,
-              private alertService: AlertService,
+              private alertService: AlertMessageService,
               private ocupanteService: OcupanteImovelService,
               private route: ActivatedRoute) {
     this.route.params.subscribe((params: Params) => {

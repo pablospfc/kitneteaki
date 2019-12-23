@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Imovel;
-use App\Log;
+use App\Model\Imovel;
+use App\Model\Log;
 use Illuminate\Http\Request;
 
 class ImovelController extends Controller
@@ -59,10 +59,10 @@ class ImovelController extends Controller
     public function store(Request $request)
     {
         try{
-            \App\Imovel::create($request->all());
+            \App\Model\Imovel::create($request->all());
             return response()->json(['message'=>"Dados inseridos com sucesso."],200);
         }catch(\Exception $e){
-            \App\Log::create(['message'=> $e->getMessage()] );
+            \App\Model\Log::create(['message'=> $e->getMessage()] );
             return response()->json(['message'=>"Ocorreu um erro ao cadastrar dados. Por favor tente novamente"],500);
         }
     }
@@ -75,7 +75,7 @@ class ImovelController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Imovel::find($id);
+        $data = \App\Model\Imovel::find($id);
 
         return response()->json($data, 200);
     }
@@ -101,7 +101,7 @@ class ImovelController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            \App\Imovel::where('id', $id)
+            \App\Model\Imovel::where('id', $id)
                 ->update($request->all());
             return response()->json(['message' => 'Dados atualizados com sucesso.'], 200);
         } catch (\Exception $e) {

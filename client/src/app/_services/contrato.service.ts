@@ -10,7 +10,7 @@ import {throwError} from 'rxjs';
 })
 export class ContratoService {
 
-  private readonly API = `${environment.API}contrato`;
+  private readonly API = `${environment.API}/contrato`;
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

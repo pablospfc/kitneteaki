@@ -14,12 +14,12 @@ export class AplicationErrorHandle extends ErrorHandler {
       const error = (typeof errorResponse.error !== 'object') ? JSON.parse(errorResponse.error) : errorResponse.error;
 
       if (errorResponse.status === 400 &&
-        (error.error === 'token_expired' || error.error === 'token_invalid' ||
-          error.error === 'A token is required' || error.error === 'token_not_provided')) {
+        (error.error[0] === 'token_expired' || error.error[0] === 'token_invalid' ||
+          error.error[0] === 'A token is required' || error.error[0] === 'token_not_provided')) {
         this.goToLogin();
       }
 
-      if (errorResponse.status === 401 && error.error === 'token_has_been_blacklisted') {
+      if (errorResponse.status === 401 && error.error[0] === 'token_has_been_blacklisted') {
         this.goToLogin();
       }
 

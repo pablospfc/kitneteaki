@@ -12,6 +12,9 @@ export class ListPessoaComponent implements OnInit {
 
    public pessoas = [];
    public pessoa = Pessoa;
+   public loading = false;
+   public page = 1;
+   public totalRec: number;
   constructor(private pessoaService: PessoaService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -19,10 +22,13 @@ export class ListPessoaComponent implements OnInit {
   }
 
   list() {
+    this.loading = true;
     this.pessoaService.list()
       .subscribe(response => {
        // console.log(response);
         this.pessoas = response;
+        this.loading = false;
+        this.totalRec = this.pessoas.length;
       });
   }
 

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Imovel;
-use App\OcupantesImovel;
+use App\Model\Imovel;
+use App\Model\OcupantesImovel;
 use Illuminate\Http\Request;
 
 class OcupanteImovelController extends Controller
@@ -48,10 +48,10 @@ class OcupanteImovelController extends Controller
     public function store(Request $request)
     {
         try{
-            \App\OcupantesImovel::create($request->all());
+            \App\Model\OcupantesImovel::create($request->all());
             return response()->json(['message'=> 'Dados cadastrados com sucesso!'],200);
         }catch (\Exception $e) {
-            \App\Log::create(['message' => $e->getMessage()]);
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 500);
         }
     }
@@ -88,11 +88,11 @@ class OcupanteImovelController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            \App\Pessoa::where('id', $id)
+            \App\Model\Pessoa::where('id', $id)
                 ->update($request->all());
             return response()->json(['message' => 'Dados atualizados com sucesso.'], 200);
         } catch (\Exception $e) {
-            \App\Log::create(['message' => $e->getMessage()]);
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao atualizar dados. Por favor tente novamente'], 200);
         }
     }
@@ -106,13 +106,13 @@ class OcupanteImovelController extends Controller
     public function destroy($id)
     {
         try {
-            $flight = \App\OcupantesImovel::find($id);
+            $flight = \App\Model\OcupantesImovel::find($id);
 
             $flight->delete();
 
             return $this->response()->json(['message' => 'Dado removido com sucesso'], 200);
         }catch(\Exception $e) {
-            \App\Log::create(['message' => $e->getMessage()]);
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao excluir dados. Por favor tente novamente'], 200);
         }
     }

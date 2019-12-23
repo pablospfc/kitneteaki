@@ -23,7 +23,7 @@
         <form #imovelForm="ngForm" name="imovelForm" role="form" (ngSubmit)="onSubmit(imovelForm)">
           <input type="hidden" name="id" value="id" [(ngModel)]="imovel.id"/>
 
-          <app-alert></app-alert>
+          <app-alert-message></app-alert-message>
 
           <div class="box-body">
             <h4>Dados Básicos</h4>
@@ -278,3 +278,5 @@
     </div>
   </div>
 </section>
+
+<ngx-loading [show]="loading"></ngx-loading>

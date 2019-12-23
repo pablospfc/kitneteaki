@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Pessoa;
+use App\Model\Pessoa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -32,7 +32,7 @@ class PessoaController extends Controller
 
     public function getPessoas($idCategoriaPessoa){
         try{
-            $data = \App\Pessoa::where("id_categoria_pessoa", $idCategoriaPessoa)
+            $data = \App\Model\Pessoa::where("id_categoria_pessoa", $idCategoriaPessoa)
                 ->get();
             return response()->json($data, 200);
         } catch(\Exception $e) {
@@ -59,10 +59,10 @@ class PessoaController extends Controller
     public function store(Request $request)
     {
         try {
-            $response = \App\Pessoa::create($request->all());
+            $response = \App\Model\Pessoa::create($request->all());
             return response()->json(['message' => 'Dados cadastrados com sucesso.'], 200);
         } catch (\Exception $e) {
-            \App\Log::create(['message' => $e->getMessage()]);
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 500);
         }
     }
@@ -76,7 +76,7 @@ class PessoaController extends Controller
     public function show($id)
     {
         try {
-            $data = \App\Pessoa::find($id);
+            $data = \App\Model\Pessoa::find($id);
             return response()->json($data, 200);
         } catch (\Exception $e) {
             throw new \Exception("Ocorreu um problema ao listar dados");
@@ -104,11 +104,11 @@ class PessoaController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            \App\Pessoa::where('id', $id)
+            \App\Model\Pessoa::where('id', $id)
                 ->update($request->all());
             return response()->json(['message' => 'Dados atualizados com sucesso.'], 200);
         } catch (\Exception $e) {
-            \App\Log::create(['message' => $e->getMessage()]);
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao atualizar dados. Por favor tente novamente'], 200);
         }
     }

@@ -38,7 +38,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let pessoa of pessoas">
+        <tr *ngFor="let pessoa of pessoas | paginate: { id: 'listing_pagination',
+                                                      itemsPerPage: 10,
+                                                      currentPage: page,
+                                                      totalItems: totalRec}">
           <td>{{pessoa.nome}}</td>
           <td>{{pessoa.cpf_cnpj ? pessoa.cpf_cnpj : pessoa.passaporte}}</td>
           <td>{{pessoa.categoria}}</td>
@@ -57,21 +60,22 @@
             </button>
           </td>
         </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-          <th>Nome</th>
-          <th>CPF/CNPJ/Passaporte</th>
-          <th>Categoria</th>
-          <th>Nacionalidade</th>
-          <th>WhatsApp</th>
-          <th>Tipo</th>
-          <th>Ação</th>
+        <tr class="animate-repeat" *ngIf="pessoas.length == 0">
+          <td colspan="8" class="text-center">
+            <em>
+              Nenhum resultado foi encontrado
+            </em>
+          </td>
         </tr>
-        </tfoot>
+        </tbody>
       </table>
+      <div>
+        <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+      </div>
     </div>
     <!-- /.box-body -->
 
   </div>
 </section>
+
+<ngx-loading [show]="loading"></ngx-loading>

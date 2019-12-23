@@ -15,13 +15,15 @@
 Route::get('/', function () {
     return view('app');
 });
-Route::post('auth/login','AuthController@login');
-Route::post('auth/refresh','AuthController@refresh');
-Route::get('auth/logout','AuthController@logout');
+
 //Route::resource('pessoa', 'PessoaController');
 
 //Route::group(['middleware' => 'jwt.auth'], function() {
 Route::group(['middleware' => 'cors'], function() {
+    Route::post('auth/login','AuthController@login');
+    Route::post('auth/refresh','AuthController@refresh');
+    Route::get('auth/logout','AuthController@logout');
+
     Route::post("pessoa/cadastrar","PessoaController@store");
     Route::put("pessoa/atualizar/{id}","PessoaController@update");
     Route::get("pessoa/listar","PessoaController@index");

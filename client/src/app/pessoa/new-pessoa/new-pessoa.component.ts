@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Pessoa} from '../../_models/pessoa.model';
 import {NgForm} from '@angular/forms';
 import {PessoaService} from '../../_services/pessoa.service';
-import {AlertService} from '../../_services/alert.service';
+import {AlertMessageService} from '../../_services/alert-message.service';
 import {ActivatedRoute, Resolve} from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class NewPessoaComponent implements OnInit {
 
   public pessoa: Pessoa;
   formValue: any;
-  constructor(private pessoaService: PessoaService, private alertService: AlertService, private actRoute: ActivatedRoute) {
+  constructor(private pessoaService: PessoaService, private alertService: AlertMessageService, private actRoute: ActivatedRoute) {
   }
 
   ngOnInit() {

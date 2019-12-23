@@ -37,7 +37,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let imovel of imoveis">
+        <tr *ngFor="let imovel of imoveis | paginate: { id: 'listing_pagination',
+                                                      itemsPerPage: 10,
+                                                      currentPage: page,
+                                                      totalItems: totalRec}">
           <td>{{imovel.nome}}</td>
           <td>{{imovel.tipo_imovel}}</td>
           <td>{{imovel.status}}</td>
@@ -55,20 +58,22 @@
             </button>
           </td>
         </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-          <th>Nome</th>
-          <th>Tipo</th>
-          <th>Status</th>
-          <th>Transação</th>
-          <th>Valor</th>
-          <th>Ação</th>
+        <tr class="animate-repeat" *ngIf="imoveis.length == 0">
+          <td colspan="8" class="text-center">
+            <em>
+              Nenhum resultado foi encontrado
+            </em>
+          </td>
         </tr>
-        </tfoot>
+        </tbody>
       </table>
+      <div>
+        <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+      </div>
     </div>
     <!-- /.box-body -->
 
   </div>
 </section>
+
+<ngx-loading [show]="loading"></ngx-loading>

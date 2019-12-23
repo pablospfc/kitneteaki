@@ -9,7 +9,9 @@ import {ContratoService} from '../../_services/contrato.service';
 export class ListContratoComponent implements OnInit {
 
   contratos = [];
-
+  public loading = false;
+  public totalRec;
+  public page = 1;
   constructor(private contratoService: ContratoService) {
   }
 
@@ -18,9 +20,12 @@ export class ListContratoComponent implements OnInit {
   }
 
   getAll() {
+    this.loading = true;
     return this.contratoService.list()
       .subscribe(success => {
         this.contratos = success;
+        this.loading = false;
+        this.totalRec = this.contratos.length;
       });
   }
 
