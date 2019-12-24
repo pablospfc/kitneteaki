@@ -43,7 +43,11 @@
                                                       totalItems: totalRec}">
           <td>{{imovel.nome}}</td>
           <td>{{imovel.tipo_imovel}}</td>
-          <td>{{imovel.status}}</td>
+          <td>
+            <span class="label" [ngClass]="{'label-warning': imovel.id_status == 10, 'label-success': imovel.id_status == 7, 'label-danger': imovel.id_status == 8 || imovel.id_status == 9}">
+            {{imovel.status}}
+          </span>
+          </td>
           <td>{{imovel.transacao_imovel}}</td>
           <td>{{imovel.valor_imovel}}</td>
           <td>

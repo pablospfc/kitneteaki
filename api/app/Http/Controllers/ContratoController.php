@@ -67,7 +67,13 @@ class ContratoController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $data = \App\Model\Contrato::find($id);
+                return response()->json($data);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao buscar dado.']);
+        }
     }
 
     /**

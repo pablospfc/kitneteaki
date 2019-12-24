@@ -42,7 +42,7 @@
                                                       itemsPerPage: 10,
                                                       currentPage: page,
                                                       totalItems: totalRec}">
-          <td><span class="label label-success">{{contrato.status}}</span></td>
+          <td><span class="label" [ngClass]="{'label-warning': contrato.id_status == 3, 'label-success': contrato.id_status == 1, 'label-danger': contrato.id_status == 2}">{{contrato.status}}</span></td>
           <td>{{contrato.tipo_contrato}}</td>
           <td>{{contrato.periodo_inicial}}</td>
           <td>{{contrato.periodo_final}}</td>

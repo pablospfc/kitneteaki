@@ -37,6 +37,7 @@ class Imovel extends Model
         return self::select(
           "imo.id as id",
           "imo.nome as nome",
+          "sta.id as id_status",
           "sta.nome as status",
           "tip.nome as tipo_imovel",
           "tra.nome as transacao_imovel",

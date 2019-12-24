@@ -17,7 +17,8 @@ import {NewModeloDocumentoComponent} from './modelo-documento/new-modelo-documen
 import {NewContratoComponent} from './contrato/new-contrato/new-contrato.component';
 import {NewGarantiasContratoComponent} from './contrato/new-garantias-contrato/new-garantias-contrato.component';
 import {AuthGuard} from './_guards/auth.guard';
-import {PerfilComponent} from "./auth/perfil/perfil.component";
+import {PerfilComponent} from './auth/perfil/perfil.component';
+import {ContratoResolverGuard} from './_guards/contrato-resolver.guard';
 
 
 const routes: Routes = [
@@ -60,6 +61,13 @@ const routes: Routes = [
       {
         path: 'new-contrato',
         component: NewContratoComponent,
+      },
+      {
+        path: 'update-contrato/:id',
+        component: NewContratoComponent,
+        resolve: {
+          contrato: ContratoResolverGuard
+        }
       },
       {
         path: 'new-garantias-contrato/:id',

@@ -3,7 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Contrato} from '../_models/contrato.model';
 import {catchError, map} from 'rxjs/operators';
-import {throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class ContratoService {
       );
   }
 
-  public getById(id: number) {
+  public getById(id: number): Observable <any> {
     return this.http.get(`${this.API}/buscar/${id}`)
       .pipe(
         catchError(error => {
