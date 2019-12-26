@@ -56,11 +56,14 @@
               </tr>
               </tbody>
             </table>
+            <h4>Testemunhas do Contrato</h4>
+            <hr>
+            <button type="button" (click)="openModalTestemunhas(template)" class="btn-sm btn-success">Adicionar Testemunha</button>
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
             <button type="submit" class="btn btn-primary" [disabled]="!contratoForm.valid">Salvar</button>
-            <button type="button" class="btn btn-success" [routerLink]="['/new-contrato/'+idContrato]">Voltar</button>
+            <button type="button" class="btn btn-success" [routerLink]="['/update-contrato/'+idContrato]">Voltar</button>
           </div>
 
         </form>
@@ -72,11 +75,12 @@
 
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close">
+    <h4 class="modal-title pull-left">Ocupantes do Imóvel</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <app-alert-message></app-alert-message>
   <form #ocupanteForm="ngForm" name="ocupanteForm" role="form" (ngSubmit)="addOcupante(ocupanteForm)">
   <div class="modal-body">
     <div class="form-group">
@@ -95,8 +99,8 @@
       <select class="form-control"
               id="id_categoria_pessoa"
               [(ngModel)]="ocupante.id_categoria_pessoa"
-              [required]="true"
-              name="id_categoria_pessoa">
+              name="id_categoria_pessoa"
+              [required]="true">
         <option [value]="2">Inquilino</option>
         <option [value]="3">Fiador</option>
         <option [value]="4">Responsável pelo Pagamento</option>
@@ -130,3 +134,5 @@
   </div>
   </form>
 </ng-template>
+
+<ngx-loading [show]="loading"></ngx-loading>

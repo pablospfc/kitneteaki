@@ -31,17 +31,20 @@ export class NewContratoComponent implements OnInit {
   ngOnInit() {
     this.contrato = new Contrato();
     this.getLocatarios();
+    this.actRoute.data.subscribe(data => {
+      this.contrato = data.contrato;
+    });
   }
 
   onSubmit(form: NgForm) {
     return this.contratoService.save(form.value)
       .subscribe(success => {
-        const message = (success as any).message;
-        const id = (success as any).id;
+        const message = success.message;
+        const id = success.id ? success.id : this.contrato.id;
         this.alertService.success(message, true);
         this.router.navigate(['new-garantias-contrato', id]);
       }, error => {
-        const message = (error as any).message;
+        const message = error.message;
         this.alertService.error(message);
       });
   }

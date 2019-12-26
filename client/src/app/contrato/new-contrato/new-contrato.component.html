@@ -46,7 +46,7 @@
                 <select class="form-control"
                         id="tipo_contrato"
                         [(ngModel)]="contrato.id_tipo_contrato"
-                        (blur)="getImoveis($event.target.value)"
+                        (change)="getImoveis($event.target.value)"
                         [required]="true"
                         name="id_tipo_contrato">
                   <option [value]="1">Aluguel</option>

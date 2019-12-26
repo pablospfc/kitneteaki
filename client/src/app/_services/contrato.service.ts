@@ -39,7 +39,7 @@ export class ContratoService {
   }
 
   private create(contrato) {
-    return this.http.post(`${this.API}/cadastrar`, contrato, this.httpOptions)
+    return this.http.post<any>(`${this.API}/cadastrar`, contrato, this.httpOptions)
       .pipe(
         catchError(error => {
           return throwError(error.error);
@@ -48,7 +48,7 @@ export class ContratoService {
   }
 
   private update(contrato) {
-    return this.http.put(`${this.API}/atualizar/${contrato.id}`, contrato)
+    return this.http.put<any>(`${this.API}/atualizar/${contrato.id}`, contrato)
       .pipe(
         catchError(error => {
           return throwError(error.error);

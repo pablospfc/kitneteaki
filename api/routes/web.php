@@ -41,6 +41,7 @@ Route::group(['middleware' => 'cors'], function() {
     Route::put("ocupante/atualizar/{id}","OcupanteImovelController@update");
     Route::get("ocupante/listar","OcupanteImovelController@index");
     Route::get("ocupante/buscar/{id}","OcupanteImovelController@show");
+    Route::get("ocupante/getByContrato/{id}","OcupanteImovelController@getByContrato");
 
     Route::post("conta/cadastrar","ContaController@store");
     Route::put("conta/atualizar/{id}","ContaController@update");
@@ -50,6 +51,7 @@ Route::group(['middleware' => 'cors'], function() {
     Route::put("contrato/atualizar/{id}","ContratoController@update");
     Route::get("contrato/buscar/{id}","ContratoController@show");
     Route::get("contrato/listar","ContratoController@index");
+
 
     Route::post("documento/cadastrar","DocumentoContratoController@store");
     Route::put("documento/atualizar/{id}","DocumentoContratoController@update");

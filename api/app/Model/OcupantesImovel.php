@@ -16,6 +16,7 @@ class OcupantesImovel extends Model
     protected $fillable = [
       "id",
       "id_contrato",
+      "id_categoria_pessoa",
       "nome",
       "cpf_cnpj",
       "descricao"

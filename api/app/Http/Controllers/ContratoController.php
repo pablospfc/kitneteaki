@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Contrato;
+use http\Env\Response;
 use http\Exception;
 use Illuminate\Http\Request;
 
@@ -96,7 +97,14 @@ class ContratoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            \App\Model\Contrato::where("id", $id)
+                ->update($request->all());
+            return response()->json(['message' => 'Atualizado com sucesso'], 200);
+        }catch (\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao atualizar dados. Por favor tente novamente.'], 200);
+        }
     }
 
     /**

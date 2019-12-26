@@ -5,6 +5,7 @@ import {NgForm} from '@angular/forms';
 import {OcupanteImovelService} from '../../_services/ocupante-imovel.service';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {ActivatedRoute, ActivatedRouteSnapshot, Params} from '@angular/router';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-new-garantias-contrato',
@@ -13,10 +14,11 @@ import {ActivatedRoute, ActivatedRouteSnapshot, Params} from '@angular/router';
 })
 export class NewGarantiasContratoComponent implements OnInit {
 
-  ocupantes: OcupanteImovel[];
+  public ocupantes = [];
   ocupante: OcupanteImovel;
   modalRef: BsModalRef;
-  private idContrato;
+  public idContrato;
+  public loading = false;
   constructor(private modalService: BsModalService,
               private alertService: AlertMessageService,
               private ocupanteService: OcupanteImovelService,
@@ -28,26 +30,44 @@ export class NewGarantiasContratoComponent implements OnInit {
 
   ngOnInit() {
     this.ocupante = new OcupanteImovel();
-    this.ocupantes = [];
+    this.getOcupantes();
   }
 
   addOcupante(form: NgForm) {
+    this.loading = true;
     form.value.id_contrato = this.idContrato;
     this.ocupanteService.save(form.value)
      .subscribe(success => {
-       const message = (success as any).message;
+       const message = success.message;
        this.alertService.success(message, true);
+       this.loading = false;
      },
        error => {
-         const message = (error as any).message;
+         const message = error.message;
          this.alertService.error(message);
+         this.loading = false;
        }
      );
 
   }
 
+  getOcupantes() {
+    this.loading = true;
+    this.ocupanteService.getByContrato(this.idContrato)
+      .subscribe(data => {
+        this.ocupantes = data;
+        this.loading = false;
+      }, error => {
+        this.loading = false;
+      });
+  }
+
   openModalOcupantes(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+
+    this.modalService.onHide.subscribe((reason: string) => {
+      this.getOcupantes();
+    });
   }
 
 }

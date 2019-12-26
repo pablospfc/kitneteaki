@@ -19,13 +19,26 @@ class OcupanteImovelController extends Controller
     {
         $this->ocupante = new OcupantesImovel();
     }
+
     public function index()
     {
         try {
             $data = $this->ocupante->getAll();
             return response()->json($data, 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Ocorreu um problema ao listar dados'],500);
+            return response()->json(['message' => 'Ocorreu um problema ao listar dados'], 500);
+        }
+    }
+
+    public function getByContrato($id)
+    {
+        try {
+            $data = \App\Model\OcupantesImovel::where('id_contrato', $id)
+                ->get();
+            return response()->json($data, 200);
+        } catch (\Exception $e) {
+           \App\Model\Log::create(['message' => $e->getMessage()]);
+           return response()->json(['message' => 'Ocorreu um problema ao listar dados. Por favor tente novamente'], 500);
         }
     }
 
@@ -42,15 +55,15 @@ class OcupanteImovelController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        try{
+        try {
             \App\Model\OcupantesImovel::create($request->all());
-            return response()->json(['message'=> 'Dados cadastrados com sucesso!'],200);
-        }catch (\Exception $e) {
+            return response()->json(['message' => 'Dados cadastrados com sucesso!'], 200);
+        } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 500);
         }
@@ -59,7 +72,7 @@ class OcupanteImovelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -70,7 +83,7 @@ class OcupanteImovelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -81,8 +94,8 @@ class OcupanteImovelController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -100,7 +113,7 @@ class OcupanteImovelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -111,7 +124,7 @@ class OcupanteImovelController extends Controller
             $flight->delete();
 
             return $this->response()->json(['message' => 'Dado removido com sucesso'], 200);
-        }catch(\Exception $e) {
+        } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um erro ao excluir dados. Por favor tente novamente'], 200);
         }

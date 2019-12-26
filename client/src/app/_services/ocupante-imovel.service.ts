@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {catchError, map} from 'rxjs/operators';
-import {throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
+import {OcupanteImovel} from "../_models/ocupante_imovel.model";
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,17 @@ export class OcupanteImovelService {
       );
   }
 
+  public getByContrato(idContrato) {
+    return this.http.get<any>(`${this.API}/getByContrato/${idContrato}`)
+      .pipe(
+        map(response => {
+          return response;
+        })
+      );
+  }
+
   public create(ocupante) {
-    return this.http.post(`${this.API}/cadastrar`, ocupante)
+    return this.http.post<any>(`${this.API}/cadastrar`, ocupante)
       .pipe(
         catchError(error => {
           return throwError(error.error);
@@ -33,7 +43,7 @@ export class OcupanteImovelService {
   }
 
   public update(ocupante) {
-    return this.http.put(`${this.API}/atualizar/${ocupante.id}`, ocupante)
+    return this.http.put<any>(`${this.API}/atualizar/${ocupante.id}`, ocupante)
       .pipe(
         catchError(error => {
           return throwError(error.error);
