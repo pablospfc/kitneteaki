@@ -1,4 +1,4 @@
-export class TestemunhaContratoModel {
+export class TestemunhaContrato {
   id: number;
   id_contrato: number;
   nome: string;

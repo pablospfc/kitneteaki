@@ -25,14 +25,20 @@
           <app-alert-message></app-alert-message>
 
           <div class="box-body">
-            <h4>Ocupantes do Imóvel</h4>
-            <hr>
-            <button type="button" (click)="openModalOcupantes(template)" class="btn-sm btn-success">Adicionar Ocupante</button>
-            <table id="tblPessoa" class="table table-bordered table-striped">
+            <div class="pull-left">
+              <h4>Ocupantes do Imóvel</h4>
+            </div>
+
+            <div class="pull-right">
+              <button type="button" (click)="openModalOcupantes(templateOcupante)" class="btn-sm btn-success">Adicionar
+                Ocupante
+              </button>
+            </div>
+            <table id="tblOcupante" class="table table-bordered table-striped">
               <thead>
               <tr>
                 <th>Nome</th>
-                <th>CPF/CNPJ</th>
+                <th>CPF</th>
                 <th>Descrição</th>
                 <th>Ação</th>
               </tr>
@@ -56,14 +62,52 @@
               </tr>
               </tbody>
             </table>
-            <h4>Testemunhas do Contrato</h4>
-            <hr>
-            <button type="button" (click)="openModalTestemunhas(template)" class="btn-sm btn-success">Adicionar Testemunha</button>
+            <br/>
+            <div class="pull-left">
+              <h4>Testemunhas do Contrato</h4>
+            </div>
+            <div class="pull-right">
+              <button type="button" (click)="openModalTestemunhas(templateTestemunha)"
+                      class="btn-sm btn-success pull-right">Adicionar Testemunha
+              </button>
+            </div>
+
+            <table id="tblTestemunha" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Ação</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let testemunha of testemunhas">
+                <td>{{testemunha.nome}}</td>
+                <td>{{testemunha.cpf}}</td>
+                <td>
+                  <button type="button"
+                          class="btn btn-default btn-xs">
+                    <i class="fa fa-remove" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <br/>
+            <div class="pull-left">
+              <h4>Fiadores do Contrato</h4>
+            </div>
+            <div class="pull-right">
+              <button type="button" (click)="openModalTestemunhas(templateFiador)"
+                      class="btn-sm btn-success pull-right">Adicionar Fiador
+              </button>
+            </div>
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-primary" [disabled]="!contratoForm.valid">Salvar</button>
-            <button type="button" class="btn btn-success" [routerLink]="['/update-contrato/'+idContrato]">Voltar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!contratoForm.valid">Continuar</button>
+            <button type="button" class="btn btn-success" [routerLink]="['/update-contrato/'+idContrato]">Voltar
+            </button>
           </div>
 
         </form>
@@ -73,7 +117,7 @@
   </div>
 </section>
 
-<ng-template #template>
+<ng-template #templateOcupante>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Ocupantes do Imóvel</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -82,56 +126,123 @@
   </div>
   <app-alert-message></app-alert-message>
   <form #ocupanteForm="ngForm" name="ocupanteForm" role="form" (ngSubmit)="addOcupante(ocupanteForm)">
-  <div class="modal-body">
-    <div class="form-group">
-      <label for="nome">Nome</label>
-      <input type="text"
-             class="form-control"
-             id="nome"
-             name="nome"
-             [(ngModel)]="ocupante.nome"
-             [required]="false"
-             placeholder="Nome"/>
-    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text"
+               class="form-control"
+               id="nome"
+               name="nome"
+               [(ngModel)]="ocupante.nome"
+               [required]="false"
+               placeholder="Nome"/>
+      </div>
 
-    <div class="form-group">
-      <label for="id_categoria_pessoa">Categoria de Pessoa</label>
-      <select class="form-control"
-              id="id_categoria_pessoa"
-              [(ngModel)]="ocupante.id_categoria_pessoa"
-              name="id_categoria_pessoa"
-              [required]="true">
-        <option [value]="2">Inquilino</option>
-        <option [value]="3">Fiador</option>
-        <option [value]="4">Responsável pelo Pagamento</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="id_categoria_pessoa">Categoria de Pessoa</label>
+        <select class="form-control"
+                id="id_categoria_pessoa"
+                [(ngModel)]="ocupante.id_categoria_pessoa"
+                name="id_categoria_pessoa"
+                [required]="true">
+          <option [value]="2">Inquilino</option>
+          <option [value]="3">Fiador</option>
+          <option [value]="4">Responsável pelo Pagamento</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="cpf_cnpj">CPF/CNPJ</label>
-      <input type="text"
-             class="form-control"
-             id="cpf_cnpj"
-             name="cpf_cnpj"
-             [(ngModel)]="ocupante.cpf_cnpj"
-             [required]="false"
-             placeholder="CPF/CNPJ"/>
-    </div>
+      <div class="form-group">
+        <label for="cpf_cnpj">CPF/CNPJ</label>
+        <input type="text"
+               class="form-control"
+               id="cpf_cnpj"
+               name="cpf_cnpj"
+               [(ngModel)]="ocupante.cpf_cnpj"
+               [required]="false"
+               placeholder="CPF/CNPJ"/>
+      </div>
 
-    <div class="form-group">
-      <label for="descricao">Descrição</label>
-      <input type="text"
-             class="form-control"
-             id="descricao"
-             name="descricao"
-             [(ngModel)]="ocupante.descricao"
-             [required]="false"
-             placeholder="Descrição"/>
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input type="text"
+               class="form-control"
+               id="descricao"
+               name="descricao"
+               [(ngModel)]="ocupante.descricao"
+               [required]="false"
+               placeholder="Descrição"/>
+      </div>
     </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!ocupanteForm.valid">Adicionar</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #templateTestemunha>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Testemunhas do Contrato</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-primary" [disabled]="!ocupanteForm.valid">Adicionar</button>
+  <app-alert-message></app-alert-message>
+  <form #testemunhaForm="ngForm" name="testemunhaForm" role="form" (ngSubmit)="addTestemunha(testemunhaForm)">
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="nome_testemunha">Nome</label>
+        <input type="text"
+               class="form-control"
+               id="nome_testemunha"
+               name="nome"
+               [(ngModel)]="testemunha.nome"
+               [required]="false"
+               placeholder="Nome"/>
+      </div>
+
+      <div class="form-group">
+        <label for="testemunha_cpf">CPF</label>
+        <input type="text"
+               class="form-control"
+               id="testemunha_cpf"
+               name="cpf"
+               [(ngModel)]="testemunha.cpf"
+               [required]="false"
+               placeholder="CPF/CNPJ"/>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!testemunhaForm.valid">Adicionar</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #templateFiador>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Fiadores do Contrato</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <app-alert-message></app-alert-message>
+  <form #fiadorForm="ngForm" name="fiadorForm" role="form" (ngSubmit)="addFiador(fiadorForm)">
+
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="id_pessoa">Fiador</label>
+        <select class="form-control"
+                id="id_pessoa"
+                [(ngModel)]="ocupante.id_pessoa"
+                name="id_pessoa"
+                [required]="true">
+        </select>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!fiadorForm.valid">Adicionar</button>
+    </div>
   </form>
 </ng-template>
 
