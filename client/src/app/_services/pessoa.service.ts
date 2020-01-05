@@ -40,7 +40,7 @@ export class PessoaService {
   }
 
   public getFiadores() {
-    return this.http.get<Pessoa[]>(`${this.API}/getPessoas/2`)
+    return this.http.get<Pessoa[]>(`${this.API}/getPessoas/3`)
       .pipe(
         map(res => {
           return res;

@@ -13,7 +13,7 @@ export class FiadorService {
   constructor(private http: HttpClient) { }
 
   public getByContrato(id: number) {
-    return this.http.get(`${this.API}/getByContrato`)
+    return this.http.get<any>(`${this.API}/getByContrato/${id}`)
       .pipe(
         map(response => {
           return response;

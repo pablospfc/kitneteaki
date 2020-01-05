@@ -42,6 +42,12 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("ocupante/buscar/{id}","OcupanteImovelController@show");
     Route::get("ocupante/getByContrato/{id}","OcupanteImovelController@getByContrato");
 
+    Route::post("itemcontrato/cadastrar","ItemContratoController@store");
+    Route::put("itemcontrato/atualizar/{id}","ItemContratoController@update");
+    Route::get("itemcontrato/listar","ItemContratoController@index");
+    Route::get("itemcontrato/buscar/{id}","ItemContratoController@show");
+    Route::get("itemcontrato/getByContrato/{id}","ItemContratoController@getByContrato");
+
     Route::post("testemunha/cadastrar","TestemunhaController@store");
     Route::put("testemunha/atualizar/{id}","TestemunhaController@update");
     Route::get("testemunha/listar","TestemunhaController@index");
@@ -81,6 +87,7 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("tipodocumentocontrato/listar","TipoDocumentoContratoController@index");
     Route::get("tipocontrato/listar","TipoContratoController@index");
     Route::get("tipoconta/listar","TipoContaController@index");
+    Route::get("item/listar","ItemController@index");
     Route::get("status/listar","StatusController@index");
     Route::get("mes/listar","MesController@index");
     Route::get("estadocivil/listar","EstadoCivilController@index");

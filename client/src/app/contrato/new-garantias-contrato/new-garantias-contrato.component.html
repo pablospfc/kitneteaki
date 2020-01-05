@@ -20,97 +20,144 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form #contratoForm="ngForm" name="contratoForm" role="form" (ngSubmit)="onSubmit(contratoForm)">
-
-          <app-alert-message></app-alert-message>
+        <app-alert-message></app-alert-message>
 
           <div class="box-body">
-            <div class="pull-left">
-              <h4>Ocupantes do Imóvel</h4>
-            </div>
 
-            <div class="pull-right">
-              <button type="button" (click)="openModalOcupantes(templateOcupante)" class="btn-sm btn-success">Adicionar
-                Ocupante
-              </button>
+            <div class="box-group" id="accordion">
+              <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+              <div class="panel box box-primary">
+                <div class="box-header with-border">
+                  <h4 class="box-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                      Ocupantes do Imóvel
+                    </a>
+                  </h4>
+                  <div class="pull-right">
+                    <button type="button" (click)="openModalOcupantes(templateOcupante)" class="btn-sm btn-success">
+                      Adicionar
+                    </button>
+                  </div>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="box-body">
+                    <table id="tblOcupante" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Descrição</th>
+                        <th>Ação</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let ocupante of ocupantes">
+                        <td>{{ocupante.nome}}</td>
+                        <td>{{ocupante.cpf_cnpj}}</td>
+                        <td>{{ocupante.descricao}}</td>
+                        <td>
+                          <button type="button"
+                                  [routerLink]="['/update-pessoa/'+ocupante.id]"
+                                  class="btn btn-default btn-xs">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                          </button>
+                          <button type="button"
+                                  class="btn btn-default btn-xs">
+                            <i class="fa fa-remove" aria-hidden="true"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="panel box box-danger">
+                <div class="box-header with-border">
+                  <h4 class="box-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                      Testemunhas do Contrato
+                    </a>
+                  </h4>
+                  <div class="pull-right">
+                    <button type="button" (click)="openModalTestemunhas(templateTestemunha)"
+                            class="btn-sm btn-success pull-right">Adicionar
+                    </button>
+                  </div>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="box-body">
+                    <table id="tblTestemunha" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Ação</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let testemunha of testemunhas">
+                        <td>{{testemunha.nome}}</td>
+                        <td>{{testemunha.cpf}}</td>
+                        <td>
+                          <button type="button"
+                                  class="btn btn-default btn-xs">
+                            <i class="fa fa-remove" aria-hidden="true"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="panel box box-success">
+                <div class="box-header with-border">
+                  <h4 class="box-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                      Fiadores do Contrato
+                    </a>
+                  </h4>
+                  <div class="pull-right">
+                    <button type="button" (click)="openModalTestemunhas(templateFiador)"
+                            class="btn-sm btn-success pull-right">Adicionar
+                    </button>
+                  </div>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="box-body">
+                    <table id="tblFiador" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Nome</th>
+                        <th>Ação</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let fiador of fiadores">
+                        <td>{{fiador.nome}}</td>
+                        <td>
+                          <button type="button"
+                                  class="btn btn-default btn-xs">
+                            <i class="fa fa-remove" aria-hidden="true"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
-            <table id="tblOcupante" class="table table-bordered table-striped">
-              <thead>
-              <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Descrição</th>
-                <th>Ação</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let ocupante of ocupantes">
-                <td>{{ocupante.nome}}</td>
-                <td>{{ocupante.cpf_cnpj}}</td>
-                <td>{{ocupante.descricao}}</td>
-                <td>
-                  <button type="button"
-                          [routerLink]="['/update-pessoa/'+ocupante.id]"
-                          class="btn btn-default btn-xs">
-                    <i class="fa fa-edit" aria-hidden="true"></i>
-                  </button>
-                  <button type="button"
-                          class="btn btn-default btn-xs">
-                    <i class="fa fa-remove" aria-hidden="true"></i>
-                  </button>
-                </td>
-              </tr>
-              </tbody>
-            </table>
             <br/>
-            <div class="pull-left">
-              <h4>Testemunhas do Contrato</h4>
-            </div>
-            <div class="pull-right">
-              <button type="button" (click)="openModalTestemunhas(templateTestemunha)"
-                      class="btn-sm btn-success pull-right">Adicionar Testemunha
-              </button>
-            </div>
 
-            <table id="tblTestemunha" class="table table-bordered table-striped">
-              <thead>
-              <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Ação</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let testemunha of testemunhas">
-                <td>{{testemunha.nome}}</td>
-                <td>{{testemunha.cpf}}</td>
-                <td>
-                  <button type="button"
-                          class="btn btn-default btn-xs">
-                    <i class="fa fa-remove" aria-hidden="true"></i>
-                  </button>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-            <br/>
-            <div class="pull-left">
-              <h4>Fiadores do Contrato</h4>
-            </div>
-            <div class="pull-right">
-              <button type="button" (click)="openModalTestemunhas(templateFiador)"
-                      class="btn-sm btn-success pull-right">Adicionar Fiador
-              </button>
-            </div>
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-primary" [disabled]="!contratoForm.valid">Continuar</button>
+            <button type="button" class="btn btn-primary" [routerLink]="['/finalizacao-contrato/'+idContrato]">Continuar</button>
             <button type="button" class="btn btn-success" [routerLink]="['/update-contrato/'+idContrato]">Voltar
             </button>
           </div>
-
-        </form>
 
       </div>
     </div>
@@ -230,12 +277,14 @@
 
     <div class="modal-body">
       <div class="form-group">
-        <label for="id_pessoa">Fiador</label>
+        <label for="id_fiador">Fiador</label>
         <select class="form-control"
-                id="id_pessoa"
-                [(ngModel)]="ocupante.id_pessoa"
-                name="id_pessoa"
+                id="id_fiador"
+                [(ngModel)]="fiador.id_fiador"
+                name="id_fiador"
                 [required]="true">
+          <option *ngFor="let fiador of fiadoresSelectBox" [value]="fiador.id">{{fiador.nome}}</option>
+
         </select>
       </div>
 

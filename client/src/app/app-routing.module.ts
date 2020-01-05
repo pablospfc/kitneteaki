@@ -19,6 +19,7 @@ import {NewGarantiasContratoComponent} from './contrato/new-garantias-contrato/n
 import {AuthGuard} from './_guards/auth.guard';
 import {PerfilComponent} from './auth/perfil/perfil.component';
 import {ContratoResolverGuard} from './_guards/contrato-resolver.guard';
+import {FinalizacaoContratoComponent} from "./contrato/finalizacao-contrato/finalizacao-contrato.component";
 
 
 const routes: Routes = [
@@ -72,6 +73,10 @@ const routes: Routes = [
       {
         path: 'new-garantias-contrato/:id',
         component: NewGarantiasContratoComponent
+      },
+      {
+        path: 'finalizacao-contrato/:id',
+        component: FinalizacaoContratoComponent
       },
       {
         path: 'list-imovel',

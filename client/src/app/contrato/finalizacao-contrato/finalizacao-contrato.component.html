@@ -1,0 +1,174 @@
+<section class="content-header">
+  <h1>
+    Finalização de Contrato
+    <small>Adicionar</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Finalização de Contrato</a></li>
+    <li class="active">Adicionar</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Finalização de Contrato</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+
+        <app-alert-message></app-alert-message>
+        <div class="box-body">
+          <div class="box-group" id="accordion">
+            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+            <div class="panel box box-primary">
+              <div class="box-header with-border">
+                <h4 class="box-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Itens de Contrato
+                  </a>
+                </h4>
+                <div class="pull-right">
+                  <button type="button"
+                          (click)="openModalItemContrato(templateItemContrato)"
+                          class="btn-sm btn-success">
+                    Adicionar
+                  </button>
+                </div>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="box-body">
+                  <table id="tblItensContrato" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Valor</th>
+                      <th>Ação</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of itensContrato">
+                      <td>{{item.item}}</td>
+                      <td>{{'R$ '+item.valor+',00'}}</td>
+                      <td>
+                        <button type="button"
+                                class="btn btn-default btn-xs">
+                          <i class="fa fa-edit" aria-hidden="true"></i>
+                        </button>
+                        <button type="button"
+                                class="btn btn-default btn-xs">
+                          <i class="fa fa-remove" aria-hidden="true"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="panel box box-danger">
+              <div class="box-header with-border">
+                <h4 class="box-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    Parcelas de Contrato
+                  </a>
+                </h4>
+                <div class="pull-right">
+                  <button type="button"
+                          (click)="gerarParcelas()"
+                          class="btn-sm btn-success pull-right">Gerar Parcelas
+                  </button>
+                </div>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="box-body">
+                  <table id="tblParcelasContrato" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>Parcela</th>
+                      <th>Descrição</th>
+                      <th>Valor</th>
+                      <th>Status</th>
+                      <th>Vencimento</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let parcela of parcelas">
+                      <td>{{parcela.parcela}}</td>
+                      <td>{{parcela.descricao}}</td>
+                      <td>{{parcela.valor}}</td>
+                      <td>{{parcela.status}}</td>
+                      <td>{{parcela.vencimento}}</td>
+                      <td>
+                        <button type="button"
+                                class="btn btn-default btn-xs">
+                          <i class="fa fa-remove" aria-hidden="true"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+          <!-- /.box-body -->
+          <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary" >Finalizar</button>
+            <button type="button" class="btn btn-success" [routerLink]="['/new-garantias-contrato/'+idContrato]">Voltar</button>
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #templateItemContrato>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Itens de Contrato</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <app-alert-message></app-alert-message>
+  <form #itemContratoForm="ngForm" name="itemContratoForm" role="form" (ngSubmit)="addItemContrato(itemContratoForm)">
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="id_item">Item</label>
+        <select class="form-control"
+                id="id_item"
+                [(ngModel)]="itemcontrato.id_item"
+                name="id_item"
+                [required]="true">
+          <option *ngFor="let item of itens" [value]="item.id">{{item.nome}}</option>
+
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="valor">Valor</label>
+        <input type="text"
+               class="form-control"
+               id="valor"
+               name="valor"
+               [(ngModel)]="itemcontrato.valor"
+               [required]="false"
+               placeholder="Valor"/>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!itemContratoForm.valid">Adicionar</button>
+    </div>
+  </form>
+</ng-template>
+
+<ngx-loading [show]="loading"></ngx-loading>

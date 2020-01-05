@@ -9,9 +9,10 @@ import { NewGarantiasContratoComponent } from './new-garantias-contrato/new-gara
 import {AuthModule} from "../auth/auth.module";
 import {NgxLoadingModule} from "ngx-loading";
 import {NgxPaginationModule} from "ngx-pagination";
+import { FinalizacaoContratoComponent } from './finalizacao-contrato/finalizacao-contrato.component';
 
 @NgModule({
-  declarations: [ListContratoComponent, NewContratoComponent, NewGarantiasContratoComponent],
+  declarations: [ListContratoComponent, NewContratoComponent, NewGarantiasContratoComponent, FinalizacaoContratoComponent],
   imports: [
     CommonModule,
     RouterModule,

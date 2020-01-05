@@ -2,35 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\FiadorContrato;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
-class FiadorController extends Controller
+class ItemController extends Controller
 {
-    private $fiador;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
-    {
-        $this->fiador = new FiadorContrato();
-    }
-
     public function index()
     {
-        //
-    }
-
-    public function getByContrato($id)
-    {
         try {
-            $data = $this->fiador->getByContrato($id);
+            $data = \App\Model\Item::all();
             return response()->json($data, 200);
-        } catch (\Exception $e) {
+        }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Não foi possível listar testemunhas']);
+            return response()->json(['message' => 'Ocorreu um problema ao listar dados.'], 200);
         }
     }
 
@@ -47,24 +36,18 @@ class FiadorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        try {
-            \App\Model\FiadorContrato::create($request->all());
-            return response()->json(['message' => 'Dados inseridos com sucesso'], 200);
-        } catch (\Exception $e) {
-            \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema ao inserir dados. Por favor tente novamente.'], 500);
-        }
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,7 +58,7 @@ class FiadorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -86,8 +69,8 @@ class FiadorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -98,7 +81,7 @@ class FiadorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

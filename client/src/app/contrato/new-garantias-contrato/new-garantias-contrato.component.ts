@@ -44,8 +44,11 @@ export class NewGarantiasContratoComponent implements OnInit {
   ngOnInit() {
     this.ocupante = new OcupanteImovel();
     this.testemunha = new TestemunhaContrato();
+    this.fiador = new FiadorContrato();
     this.getOcupantes();
     this.getTestemunhas();
+    this.getFiadoresSelectBox();
+    this.getFiadores();
   }
 
   addOcupante(form: NgForm) {
@@ -85,7 +88,7 @@ export class NewGarantiasContratoComponent implements OnInit {
   addFiador(form: NgForm) {
     this.loading = true;
     form.value.id_contrato = this.idContrato;
-    this.testemunhaService.save(form.value)
+    this.fiadorService.save(form.value)
       .subscribe(success => {
           const message = success.message;
           this.alertService.success(message, true);
@@ -112,9 +115,9 @@ export class NewGarantiasContratoComponent implements OnInit {
 
   getFiadores() {
     this.loading = true;
-    this.ocupanteService.getByContrato(this.idContrato)
+    this.fiadorService.getByContrato(this.idContrato)
       .subscribe(data => {
-        this.ocupantes = data;
+        this.fiadores = data;
         this.loading = false;
       }, error => {
         this.loading = false;

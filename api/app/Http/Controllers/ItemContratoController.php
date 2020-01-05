@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\FiadorContrato;
+use App\Model\ItemContrato;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
-class FiadorController extends Controller
+class ItemContratoController extends Controller
 {
-    private $fiador;
+    private $itemContrato;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,7 @@ class FiadorController extends Controller
      */
     function __construct()
     {
-        $this->fiador = new FiadorContrato();
+        $this->itemContrato = new ItemContrato();
     }
 
     public function index()
@@ -23,14 +24,13 @@ class FiadorController extends Controller
         //
     }
 
-    public function getByContrato($id)
-    {
+    public function getByContrato($id) {
         try {
-            $data = $this->fiador->getByContrato($id);
-            return response()->json($data, 200);
-        } catch (\Exception $e) {
+            $dado = $this->itemContrato->getByContrato($id);
+            return response()->json($dado,200);
+        }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Não foi possível listar testemunhas']);
+            return response()->json(['message' => 'Ocorreu um problema ao listar itens.'],500);
         }
     }
 
@@ -47,24 +47,24 @@ class FiadorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         try {
-            \App\Model\FiadorContrato::create($request->all());
-            return response()->json(['message' => 'Dados inseridos com sucesso'], 200);
-        } catch (\Exception $e) {
+            \App\Model\ItemContrato::create($request->all());
+            return response()->json(['message' => 'Dado inserido com sucesso'],200);
+        }catch(Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema ao inserir dados. Por favor tente novamente.'], 500);
+            return response()->json(['message' => 'Erro ao inserir dado'],500);
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,7 +75,7 @@ class FiadorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -86,8 +86,8 @@ class FiadorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -98,7 +98,7 @@ class FiadorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
