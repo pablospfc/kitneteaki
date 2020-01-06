@@ -49,23 +49,37 @@ class Contrato extends Model
         });
     }
 
-    public function gerarParcelas($id){
-        $parcelas = [];
-        $contrato = self::find($id);
-        $vencimentos = $this->gerarVencimentos($contrato['primeiro_venciento'],$contrato['vigencia']);
-        $valorTotal = $this->getValorTotal($contrato);
-        foreach($vencimentos as $vencimento) {
-            $parcelas = [
-              'id_status'       => 4,
-              'id_contrato'     => $id,
-              'data_vencimento' => $vencimento,
-            ];
-        }
+    public function showParcelas() {
 
     }
 
-    private function getValorTotal($contrato){
+    public function gerarParcelas($id)
+    {
+        $contrato = self::find($id);
+        $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
+        $valorTotal = $this->getValorTotal($id, $contrato['valor']);
+        foreach ($vencimentos as $vencimento) {
+            $periodos = $this->gerarVencimentos($vencimento, 2);
+            $parcelas[] = [
+                'id_status'       => 4,
+                'id_contrato'     => $id,
+                'data_vencimento' => $vencimento,
+                'valor'           => $valorTotal,
+                'periodo_inicial' => $periodos[0],
+                'periodo_final'   => $periodos[1],
+            ];
+        }
+        return Parcela::insert($parcelas);
+    }
 
+    private function getValorTotal($id, $valor)
+    {
+        $totalItens = DB::table('item_contrato')
+            ->where("id_contrato", $id)
+            ->sum('valor');
+
+        $total = $totalItens + $valor;
+        return $total;
     }
 
     private function extractDayFromDate($data)
