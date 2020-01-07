@@ -50,15 +50,6 @@ export class NewContratoComponent implements OnInit {
   }
 
   calcularFimContrato(data: Date, vigencia: number) {
-    /*
-    const date = new Date(data);
-    console.log('Inicio de Contrato: ' + date);
-    let dataFim: Date;
-    date.setMonth(date.getMonth() + vigencia);
-    const DateTmp: string = this.datePipe.transform(date, 'yyyy-MM-dd');
-    console.log('Data Final: ' + dataFim);
-    this.contrato.data_fim = dataFim;
-    */
     let dataInicial = moment(data);
     let dataFinal = moment(dataInicial).add(vigencia, 'M');
     this.contrato.data_fim = dataFinal.format('YYYY-MM-DD');

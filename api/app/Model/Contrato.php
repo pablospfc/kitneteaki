@@ -59,14 +59,13 @@ class Contrato extends Model
         $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
         $valorTotal = $this->getValorTotal($id, $contrato['valor']);
         foreach ($vencimentos as $vencimento) {
-            $periodos = $this->gerarVencimentos($vencimento, 2);
             $parcelas[] = [
                 'id_status'       => 4,
                 'id_contrato'     => $id,
                 'data_vencimento' => $vencimento,
                 'valor'           => $valorTotal,
-                'periodo_inicial' => $periodos[0],
-                'periodo_final'   => $periodos[1],
+                'periodo_inicial' => $vencimento,
+                'periodo_final'   => date('Y-m-d', strtotime($vencimento. ' +30 days')),
             ];
         }
         return Parcela::insert($parcelas);
