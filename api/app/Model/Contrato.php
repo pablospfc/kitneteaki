@@ -41,7 +41,7 @@ class Contrato extends Model
     public function salvar($data)
     {
         DB::transaction(function () use ($data) {
-            $day = $this->extractDayFromDate($data);
+            $day = $this->extractDayFromDate($data['primeiro_vencimento']);
             $data['dia_vencimento'] = $day;
             $id = self::create($data)->id;
             Imovel::setOcupado($data['id_imovel'], $data['id_tipo_contrato']);
@@ -59,13 +59,14 @@ class Contrato extends Model
         $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
         $valorTotal = $this->getValorTotal($id, $contrato['valor']);
         foreach ($vencimentos as $vencimento) {
+            $periodos = $this->gerarVencimentos($vencimento, 2);
             $parcelas[] = [
                 'id_status'       => 4,
                 'id_contrato'     => $id,
                 'data_vencimento' => $vencimento,
                 'valor'           => $valorTotal,
                 'periodo_inicial' => $vencimento,
-                'periodo_final'   => date('Y-m-d', strtotime($vencimento. ' +30 days')),
+                'periodo_final'   => date('Y-m-d', strtotime($periodos[1]. ' -1 days'))
             ];
         }
         return Parcela::insert($parcelas);
@@ -83,9 +84,23 @@ class Contrato extends Model
 
     private function extractDayFromDate($data)
     {
-        $timestamp = strtotime($data['primeiro_vencimento']);
+        $timestamp = strtotime($data);
         $day = date('d', $timestamp);
         return $day;
+    }
+
+    private function extractMonthFromDate($data)
+    {
+        $timestamp = strtotime($data);
+        $month = date('m', $timestamp);
+        return $month;
+    }
+
+    private function extractYearFromDate($data)
+    {
+        $timestamp = strtotime($data);
+        $year = date('Y', $timestamp);
+        return $year;
     }
 
     public function getAll()
