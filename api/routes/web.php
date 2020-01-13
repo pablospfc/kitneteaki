@@ -70,7 +70,7 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("contrato/listar","ContratoController@index");
     Route::get("contrato/gerarParcelas/{id}","ContratoController@gerarParcelas");
 
-    Route::get("parcela/getParcelas/{id}","ParcelaController@getParcelas");
+    Route::get("parcela/getByContrato/{id}","ParcelaController@getByContrato");
 
     Route::post("documento/cadastrar","DocumentoContratoController@store");
     Route::put("documento/atualizar/{id}","DocumentoContratoController@update");

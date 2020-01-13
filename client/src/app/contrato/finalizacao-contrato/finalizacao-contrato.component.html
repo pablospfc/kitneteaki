@@ -90,7 +90,7 @@
                     <thead>
                     <tr>
                       <th>Parcela</th>
-                      <th>Descrição</th>
+                      <th>Período</th>
                       <th>Valor</th>
                       <th>Status</th>
                       <th>Vencimento</th>
@@ -99,10 +99,10 @@
                     <tbody>
                     <tr *ngFor="let parcela of parcelas">
                       <td>{{parcela.parcela}}</td>
-                      <td>{{parcela.descricao}}</td>
+                      <td>{{parcela.periodo_inicial+' - '+parcela.periodo_final}}</td>
                       <td>{{parcela.valor}}</td>
                       <td>{{parcela.status}}</td>
-                      <td>{{parcela.vencimento}}</td>
+                      <td>{{parcela.data_vencimento}}</td>
                       <td>
                         <button type="button"
                                 class="btn btn-default btn-xs">

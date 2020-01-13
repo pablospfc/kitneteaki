@@ -6,6 +6,7 @@ import {ItemService} from "../../_services/item.service";
 import {ItemContrato} from "../../_models/item-contrato.model";
 import {ItemContratoService} from "../../_services/item-contrato.service";
 import {NgForm} from "@angular/forms";
+import {ParcelaService} from "../../_services/parcela.service";
 
 @Component({
   selector: 'app-finalizacao-contrato',
@@ -19,12 +20,14 @@ export class FinalizacaoContratoComponent implements OnInit {
   public itemcontrato: ItemContrato;
   public itensContrato = [];
   public loading = false;
+  public parcelas = [];
   modalRef: BsModalRef;
   constructor(private route: ActivatedRoute,
               private modalService: BsModalService,
               private alertService: AlertMessageService,
               private itemService: ItemService,
-              private itemContratoService: ItemContratoService) {
+              private itemContratoService: ItemContratoService,
+              private parcelaService: ParcelaService) {
     this.route.params.subscribe((params: Params) => {
       this.idContrato = params.id;
     });
@@ -34,6 +37,7 @@ export class FinalizacaoContratoComponent implements OnInit {
     this.itemcontrato = new ItemContrato();
     this.getItens();
     this.getItensContrato();
+    this.getParcelas();
   }
 
   openModalItemContrato(template: TemplateRef<any>) {
@@ -46,6 +50,13 @@ export class FinalizacaoContratoComponent implements OnInit {
 
   gerarParcelas() {
 
+  }
+
+  getParcelas() {
+     this.parcelaService.getByContrato(this.idContrato)
+      .subscribe(data => {
+        this.parcelas = data;
+      });
   }
 
   getItensContrato() {

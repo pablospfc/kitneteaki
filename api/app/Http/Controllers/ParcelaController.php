@@ -23,9 +23,9 @@ class ParcelaController extends Controller
         //
     }
 
-    public function getParcelas($id) {
+    public function getByContrato($id) {
         try {
-            $dados = $this->parcela->getParcelas($id);
+            $dados = $this->parcela->getByContrato($id);
             return response()->json($dados,200);
         }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);

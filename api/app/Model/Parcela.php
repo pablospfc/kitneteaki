@@ -23,7 +23,7 @@ class Parcela extends Model
         "periodo_final",
     ];
 
-    public function getParcelas($id) {
+    public function getByContrato($id) {
         return self::select(
             "pa.*",
             "st.nome as status"

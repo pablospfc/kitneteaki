@@ -55,9 +55,11 @@ class Contrato extends Model
 
     public function gerarParcelas($id)
     {
+        $parcela = 1;
         $contrato = self::find($id);
         $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
         $valorTotal = $this->getValorTotal($id, $contrato['valor']);
+        $totalParcelas = count($vencimentos);
         foreach ($vencimentos as $vencimento) {
             $periodos = $this->gerarVencimentos($vencimento, 2);
             $parcelas[] = [
@@ -65,9 +67,11 @@ class Contrato extends Model
                 'id_contrato'     => $id,
                 'data_vencimento' => $vencimento,
                 'valor'           => $valorTotal,
+                'parcela'         => $parcela.'/'.$totalParcelas,
                 'periodo_inicial' => $vencimento,
                 'periodo_final'   => date('Y-m-d', strtotime($periodos[1]. ' -1 days'))
             ];
+            $parcela++;
         }
         return Parcela::insert($parcelas);
     }
