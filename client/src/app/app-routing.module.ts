@@ -19,7 +19,12 @@ import {NewGarantiasContratoComponent} from './contrato/new-garantias-contrato/n
 import {AuthGuard} from './_guards/auth.guard';
 import {PerfilComponent} from './auth/perfil/perfil.component';
 import {ContratoResolverGuard} from './_guards/contrato-resolver.guard';
-import {FinalizacaoContratoComponent} from "./contrato/finalizacao-contrato/finalizacao-contrato.component";
+import {FinalizacaoContratoComponent} from './contrato/finalizacao-contrato/finalizacao-contrato.component';
+import {OcupantesImovelModalComponent} from './contrato/ocupantes-imovel-modal/ocupantes-imovel-modal.component';
+import {FiadoresContratoModalComponent} from "./contrato/fiadores-contrato-modal/fiadores-contrato-modal.component";
+import {ItensContratoModalComponent} from "./contrato/itens-contrato-modal/itens-contrato-modal.component";
+import {TestemunhasContratoModalComponent} from "./contrato/testemunhas-contrato-modal/testemunhas-contrato-modal.component";
+import {ParcelasContratoModalComponent} from "./contrato/parcelas-contrato-modal/parcelas-contrato-modal.component";
 
 
 const routes: Routes = [
@@ -77,6 +82,26 @@ const routes: Routes = [
       {
         path: 'finalizacao-contrato/:id',
         component: FinalizacaoContratoComponent
+      },
+      {
+        path: 'ocupantes-imovel-modal',
+        component: OcupantesImovelModalComponent
+      },
+      {
+        path: 'fiadores-contrato-modal',
+        component: FiadoresContratoModalComponent
+      },
+      {
+        path: 'itens-contrato-modal',
+        component: ItensContratoModalComponent
+      },
+      {
+        path: 'testemunhas-contrato-modal',
+        component: TestemunhasContratoModalComponent
+      },
+      {
+        path: 'parcelas-contrato-modal',
+        component: ParcelasContratoModalComponent
       },
       {
         path: 'list-imovel',

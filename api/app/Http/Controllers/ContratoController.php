@@ -126,6 +126,12 @@ class ContratoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            \App\Model\Contrato::destroy($id);
+            return response()->json(['message' => 'Dado excluído com sucesso'], 200);
+        } catch (\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um erro ao excluir dados. Por favor tente novamente'], 500);
+        }
     }
 }

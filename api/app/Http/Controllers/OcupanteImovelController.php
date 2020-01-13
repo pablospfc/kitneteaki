@@ -77,7 +77,13 @@ class OcupanteImovelController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $dado  =  \App\Model\OcupantesImovel::find($id);
+            return response()->json($dado,200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao carregar os dados.'], 500);
+        }
     }
 
     /**
@@ -119,14 +125,11 @@ class OcupanteImovelController extends Controller
     public function destroy($id)
     {
         try {
-            $flight = \App\Model\OcupantesImovel::find($id);
-
-            $flight->delete();
-
-            return $this->response()->json(['message' => 'Dado removido com sucesso'], 200);
+            \App\Model\OcupantesImovel::destroy($id);
+            return response()->json(['message' => 'Dado excluído com sucesso'], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um erro ao excluir dados. Por favor tente novamente'], 200);
+            return response()->json(['message' => 'Ocorreu um erro ao excluir dados. Por favor tente novamente'], 500);
         }
     }
 }

@@ -11,6 +11,7 @@ import {TestemunhaContrato} from '../../_models/testemunha-contrato';
 import {FiadorService} from "../../_services/fiador.service";
 import {FiadorContrato} from "../../_models/fiador-contrato.model";
 import {PessoaService} from "../../_services/pessoa.service";
+import {OcupantesImovelModalComponent} from "../ocupantes-imovel-modal/ocupantes-imovel-modal.component";
 
 @Component({
   selector: 'app-new-garantias-contrato',
@@ -23,12 +24,12 @@ export class NewGarantiasContratoComponent implements OnInit {
   public testemunhas = [];
   public fiadores = [];
   public fiadoresSelectBox = [];
-  ocupante: OcupanteImovel;
   testemunha: TestemunhaContrato;
   fiador: FiadorContrato;
   modalRef: BsModalRef;
   public idContrato;
   public loading = false;
+
   constructor(private modalService: BsModalService,
               private alertService: AlertMessageService,
               private ocupanteService: OcupanteImovelService,
@@ -42,7 +43,6 @@ export class NewGarantiasContratoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ocupante = new OcupanteImovel();
     this.testemunha = new TestemunhaContrato();
     this.fiador = new FiadorContrato();
     this.getOcupantes();
@@ -51,22 +51,6 @@ export class NewGarantiasContratoComponent implements OnInit {
     this.getFiadores();
   }
 
-  addOcupante(form: NgForm) {
-    this.loading = true;
-    form.value.id_contrato = this.idContrato;
-    this.ocupanteService.save(form.value)
-     .subscribe(success => {
-       const message = success.message;
-       this.alertService.success(message, true);
-       this.loading = false;
-     },
-       error => {
-         const message = error.message;
-         this.alertService.error(message);
-         this.loading = false;
-       }
-     );
-  }
 
   addTestemunha(form: NgForm) {
     this.loading = true;
@@ -143,8 +127,12 @@ export class NewGarantiasContratoComponent implements OnInit {
       });
   }
 
-  openModalOcupantes(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModalOcupantes(id: number = null) {
+    this.modalRef = this.modalService.show(OcupantesImovelModalComponent, {
+      initialState: {
+        id: id
+      }
+    });
 
     this.modalService.onHide.subscribe((reason: string) => {
       this.getOcupantes();
@@ -156,6 +144,14 @@ export class NewGarantiasContratoComponent implements OnInit {
 
     this.modalService.onHide.subscribe((reason: string) => {
       this.getTestemunhas();
+    });
+  }
+
+  openModalFiadores(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+
+    this.modalService.onHide.subscribe((reason: string) => {
+      this.getFiadores();
     });
   }
 

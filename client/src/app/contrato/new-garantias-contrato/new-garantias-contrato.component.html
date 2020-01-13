@@ -24,8 +24,7 @@
 
           <div class="box-body">
 
-            <div class="box-group" id="accordion">
-              <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+            <!--<div class="box-group" id="accordion">
               <div class="panel box box-primary">
                 <div class="box-header with-border">
                   <h4 class="box-title">
@@ -58,11 +57,11 @@
                         <td>
                           <button type="button"
                                   [routerLink]="['/update-pessoa/'+ocupante.id]"
-                                  class="btn btn-default btn-xs">
+                                  class="btn btn-info btn-sm">
                             <i class="fa fa-edit" aria-hidden="true"></i>
                           </button>
                           <button type="button"
-                                  class="btn btn-default btn-xs">
+                                  class="btn btn-danger btn-sm">
                             <i class="fa fa-remove" aria-hidden="true"></i>
                           </button>
                         </td>
@@ -101,7 +100,7 @@
                         <td>{{testemunha.cpf}}</td>
                         <td>
                           <button type="button"
-                                  class="btn btn-default btn-xs">
+                                  class="btn btn-danger btn-sm">
                             <i class="fa fa-remove" aria-hidden="true"></i>
                           </button>
                         </td>
@@ -138,7 +137,7 @@
                         <td>{{fiador.nome}}</td>
                         <td>
                           <button type="button"
-                                  class="btn btn-default btn-xs">
+                                  class="btn btn-danger btn-sm">
                             <i class="fa fa-remove" aria-hidden="true"></i>
                           </button>
                         </td>
@@ -149,10 +148,145 @@
                 </div>
               </div>
             </div>
+           -->
+            <div class="container">
+              <main>
+                <article class="panel-group bs-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                  <section class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Ocupantes do Imóvel
+                          <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        <div class="pull-right">
+                          <button type="button" (click)="openModalOcupantes()" class="btn-sm btn-success">
+                            Adicionar
+                          </button>
+                        </div>
+                        <br/><br/>
+                        <table id="tblOcupante" class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Descrição</th>
+                            <th>Ação</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let ocupante of ocupantes">
+                            <td>{{ocupante.nome}}</td>
+                            <td>{{ocupante.cpf_cnpj}}</td>
+                            <td>{{ocupante.descricao}}</td>
+                            <td>
+                              <button type="button"
+                                      (click)="openModalOcupantes(ocupante.id)"
+                                      class="btn btn-info btn-sm">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
+                              </button>
+                              <button type="button"
+                                      class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Testemunhas do Contrato
+                          <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                      <div class="panel-body">
+                        <div class="pull-right">
+                          <button type="button" (click)="openModalTestemunhas(templateTestemunha)"
+                                  class="btn-sm btn-success pull-right">Adicionar
+                          </button>
+                        </div>
+                        <br/><br/>
+                        <table id="tblTestemunha" class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Ação</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let testemunha of testemunhas">
+                            <td>{{testemunha.nome}}</td>
+                            <td>{{testemunha.cpf}}</td>
+                            <td>
+                              <button type="button"
+                                      class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Fiadores do Contrato
+                          <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                      <div class="panel-body">
+                        <div class="pull-right">
+                          <button type="button" (click)="openModalFiadores(templateFiador)"
+                                  class="btn-sm btn-success pull-right">Adicionar
+                          </button>
+                        </div>
+                        <br/><br/>
+                        <table id="tblFiador" class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                            <th>Nome</th>
+                            <th>Ação</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let fiador of fiadores">
+                            <td>{{fiador.nome}}</td>
+                            <td>
+                              <button type="button"
+                                      class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+              </main>
+            </div>
             <br/>
 
           </div>
-          <!-- /.box-body -->
+
           <div class="box-footer text-center">
             <button type="button" class="btn btn-primary" [routerLink]="['/finalizacao-contrato/'+idContrato]">Continuar</button>
             <button type="button" class="btn btn-success" [routerLink]="['/update-contrato/'+idContrato]">Voltar
@@ -164,67 +298,7 @@
   </div>
 </section>
 
-<ng-template #templateOcupante>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Ocupantes do Imóvel</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <app-alert-message></app-alert-message>
-  <form #ocupanteForm="ngForm" name="ocupanteForm" role="form" (ngSubmit)="addOcupante(ocupanteForm)">
-    <div class="modal-body">
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text"
-               class="form-control"
-               id="nome"
-               name="nome"
-               [(ngModel)]="ocupante.nome"
-               [required]="false"
-               placeholder="Nome"/>
-      </div>
 
-      <div class="form-group">
-        <label for="id_categoria_pessoa">Categoria de Pessoa</label>
-        <select class="form-control"
-                id="id_categoria_pessoa"
-                [(ngModel)]="ocupante.id_categoria_pessoa"
-                name="id_categoria_pessoa"
-                [required]="true">
-          <option [value]="2">Inquilino</option>
-          <option [value]="3">Fiador</option>
-          <option [value]="4">Responsável pelo Pagamento</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="cpf_cnpj">CPF/CNPJ</label>
-        <input type="text"
-               class="form-control"
-               id="cpf_cnpj"
-               name="cpf_cnpj"
-               [(ngModel)]="ocupante.cpf_cnpj"
-               [required]="false"
-               placeholder="CPF/CNPJ"/>
-      </div>
-
-      <div class="form-group">
-        <label for="descricao">Descrição</label>
-        <input type="text"
-               class="form-control"
-               id="descricao"
-               name="descricao"
-               [(ngModel)]="ocupante.descricao"
-               [required]="false"
-               placeholder="Descrição"/>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" [disabled]="!ocupanteForm.valid">Adicionar</button>
-    </div>
-  </form>
-</ng-template>
 
 <ng-template #templateTestemunha>
   <div class="modal-header">

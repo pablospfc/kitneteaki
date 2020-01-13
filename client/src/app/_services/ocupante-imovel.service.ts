@@ -33,6 +33,15 @@ export class OcupanteImovelService {
       );
   }
 
+  public getById(id) {
+    return this.http.get<any>(`${this.API}/getById/${id}`)
+      .pipe(
+        map(response => {
+          return response;
+        })
+      );
+  }
+
   public create(ocupante) {
     return this.http.post<any>(`${this.API}/cadastrar`, ocupante)
       .pipe(

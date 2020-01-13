@@ -25,6 +25,7 @@ import {ModeloDocumentoModule} from './modelo-documento/modelo-documento.module'
 import {RelatorioModule} from './relatorio/relatorio.module';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {AlertModule} from 'ngx-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     PessoaModule,
     RelatorioModule,
     NgxPaginationModule,
+    AlertModule.forRoot(),
     NgxLoadingModule.forRoot({animationType: ngxLoadingAnimationTypes.circle,
       backdropBorderRadius: '4px',
       primaryColour: '#00a65a',
