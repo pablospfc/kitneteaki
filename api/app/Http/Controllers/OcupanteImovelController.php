@@ -65,7 +65,7 @@ class OcupanteImovelController extends Controller
             return response()->json(['message' => 'Dados cadastrados com sucesso!'], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor, tente novamente'], 500);
+            return response()->json(['message' => 'Ocorreu um erro ao cadastrar dados. Por favor tente novamente'], 500);
         }
     }
 
@@ -107,12 +107,12 @@ class OcupanteImovelController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            \App\Model\Pessoa::where('id', $id)
+            \App\Model\OcupantesImovel::where('id', $id)
                 ->update($request->all());
             return response()->json(['message' => 'Dados atualizados com sucesso.'], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um erro ao atualizar dados. Por favor tente novamente'], 200);
+            return response()->json(['message' => 'Ocorreu um erro ao atualizar dados. Por favor tente novamente'], 500);
         }
     }
 

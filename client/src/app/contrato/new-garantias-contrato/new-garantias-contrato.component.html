@@ -190,6 +190,7 @@
                                 <i class="fa fa-edit" aria-hidden="true"></i>
                               </button>
                               <button type="button"
+                                      (click)="openModalConfirmRemove('ocupante', template, ocupante.id)"
                                       class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                               </button>
@@ -212,7 +213,7 @@
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                       <div class="panel-body">
                         <div class="pull-right">
-                          <button type="button" (click)="openModalTestemunhas(templateTestemunha)"
+                          <button type="button" (click)="openModalTestemunhas()"
                                   class="btn-sm btn-success pull-right">Adicionar
                           </button>
                         </div>
@@ -231,6 +232,13 @@
                             <td>{{testemunha.cpf}}</td>
                             <td>
                               <button type="button"
+                                      (click)="openModalTestemunhas(testemunha.id)"
+                                      class="btn btn-info btn-sm">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
+                              </button>
+
+                              <button type="button"
+                                      (click)="openModalConfirmRemove('testemunha', template, testemunha.id)"
                                       class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                               </button>
@@ -298,75 +306,22 @@
   </div>
 </section>
 
-
-
-<ng-template #templateTestemunha>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Testemunhas do Contrato</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <app-alert-message></app-alert-message>
-  <form #testemunhaForm="ngForm" name="testemunhaForm" role="form" (ngSubmit)="addTestemunha(testemunhaForm)">
+<ng-template #template>
+  <div class="alert-box">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirmação de exclusão</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="modal-body">
-      <div class="form-group">
-        <label for="nome_testemunha">Nome</label>
-        <input type="text"
-               class="form-control"
-               id="nome_testemunha"
-               name="nome"
-               [(ngModel)]="testemunha.nome"
-               [required]="false"
-               placeholder="Nome"/>
-      </div>
-
-      <div class="form-group">
-        <label for="testemunha_cpf">CPF</label>
-        <input type="text"
-               class="form-control"
-               id="testemunha_cpf"
-               name="cpf"
-               [(ngModel)]="testemunha.cpf"
-               [required]="false"
-               placeholder="CPF/CNPJ"/>
-      </div>
-
+      Confirma a exclusão deste registro?
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" [disabled]="!testemunhaForm.valid">Adicionar</button>
+      <button type="button" class="btn btn-primary" (click)="confirmRemove()">Sim</button>
+      <button type="button" class="btn btn-default" (click)="decline()">Não</button>
     </div>
-  </form>
-</ng-template>
-
-<ng-template #templateFiador>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Fiadores do Contrato</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
   </div>
-  <app-alert-message></app-alert-message>
-  <form #fiadorForm="ngForm" name="fiadorForm" role="form" (ngSubmit)="addFiador(fiadorForm)">
-
-    <div class="modal-body">
-      <div class="form-group">
-        <label for="id_fiador">Fiador</label>
-        <select class="form-control"
-                id="id_fiador"
-                [(ngModel)]="fiador.id_fiador"
-                name="id_fiador"
-                [required]="true">
-          <option *ngFor="let fiador of fiadoresSelectBox" [value]="fiador.id">{{fiador.nome}}</option>
-
-        </select>
-      </div>
-
-    </div>
-    <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" [disabled]="!fiadorForm.valid">Adicionar</button>
-    </div>
-  </form>
 </ng-template>
 
 <ngx-loading [show]="loading"></ngx-loading>

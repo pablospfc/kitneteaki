@@ -1,1 +1,27 @@
-<p>fiadores-contrato-modal works!</p>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Fiadores do Contrato</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <app-alert-message></app-alert-message>
+  <form #fiadorForm="ngForm" name="fiadorForm" role="form" (ngSubmit)="addFiador(fiadorForm)">
+
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="id_fiador">Fiador</label>
+        <select class="form-control"
+                id="id_fiador"
+                [(ngModel)]="fiador.id_fiador"
+                name="id_fiador"
+                [required]="true">
+          <option *ngFor="let fiador of fiadoresSelectBox" [value]="fiador.id">{{fiador.nome}}</option>
+
+        </select>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!fiadorForm.valid">Adicionar</button>
+    </div>
+  </form>

@@ -14,19 +14,13 @@ import {BsModalRef} from "ngx-bootstrap";
 export class OcupantesImovelModalComponent implements OnInit {
 
   @Input() id: number;
+  @Input() idContrato: number;
   ocupante: OcupanteImovel;
-  public idContrato;
   public loading = false;
 
   constructor(private ocupanteService: OcupanteImovelService,
               private alertService: AlertMessageService,
-              private modalRef: BsModalRef,
-              private route: ActivatedRoute) {
-    this.route.params.subscribe((params: Params) => {
-      this.idContrato = params.id;
-
-    });
-
+              private modalRef: BsModalRef) {
   }
 
   ngOnInit() {

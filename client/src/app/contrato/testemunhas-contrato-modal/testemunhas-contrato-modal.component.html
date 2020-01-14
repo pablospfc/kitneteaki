@@ -1,1 +1,38 @@
-<p>testemunhas-contrato-modal works!</p>
+
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Testemunhas do Contrato</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <app-alert-message></app-alert-message>
+  <form #testemunhaForm="ngForm" name="testemunhaForm" role="form" (ngSubmit)="addTestemunha(testemunhaForm)">
+    <input type="hidden" name="id" [(ngModel)]="testemunha.id"/>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="nome_testemunha">Nome</label>
+        <input type="text"
+               class="form-control"
+               id="nome_testemunha"
+               name="nome"
+               [(ngModel)]="testemunha.nome"
+               [required]="false"
+               placeholder="Nome"/>
+      </div>
+
+      <div class="form-group">
+        <label for="testemunha_cpf">CPF</label>
+        <input type="text"
+               class="form-control"
+               id="testemunha_cpf"
+               name="cpf"
+               [(ngModel)]="testemunha.cpf"
+               [required]="false"
+               placeholder="CPF/CNPJ"/>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!testemunhaForm.valid">Adicionar</button>
+    </div>
+  </form>

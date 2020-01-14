@@ -24,6 +24,15 @@ export class OcupanteImovelService {
       );
   }
 
+  public delete(id: number) {
+    return this.http.delete<any>(`${this.API}/excluir/${id}`)
+      .pipe(
+        catchError(error => {
+          return throwError(error.error);
+        })
+      );
+  }
+
   public getByContrato(idContrato) {
     return this.http.get<any>(`${this.API}/getByContrato/${idContrato}`)
       .pipe(

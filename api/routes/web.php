@@ -48,21 +48,21 @@ Route::group(['middleware' => 'cors'], function() {
     Route::post("itemcontrato/cadastrar","ItemContratoController@store");
     Route::put("itemcontrato/atualizar/{id}","ItemContratoController@update");
     Route::get("itemcontrato/listar","ItemContratoController@index");
-    Route::get("itemcontrato/buscar/{id}","ItemContratoController@show");
+    Route::get("itemcontrato/getById/{id}","ItemContratoController@show");
     Route::get("itemcontrato/getByContrato/{id}","ItemContratoController@getByContrato");
     Route::delete("itemcontrato/excluir/{id}","ItemContratoController@destroy");
 
     Route::post("testemunha/cadastrar","TestemunhaController@store");
     Route::put("testemunha/atualizar/{id}","TestemunhaController@update");
     Route::get("testemunha/listar","TestemunhaController@index");
-    Route::get("testemunha/buscar/{id}","TestemunhaController@show");
+    Route::get("testemunha/getById/{id}","TestemunhaController@show");
     Route::get("testemunha/getByContrato/{id}","TestemunhaController@getByContrato");
     Route::delete("testemunha/excluir/{id}","TestemunhaController@destroy");
 
     Route::post("fiador/cadastrar","FiadorController@store");
     Route::put("fiador/atualizar/{id}","FiadorController@update");
     Route::get("fiador/listar","FiadorController@index");
-    Route::get("fiador/buscar/{id}","FiadorController@show");
+    Route::get("fiador/getById/{id}","FiadorController@show");
     Route::get("fiador/getByContrato/{id}","FiadorController@getByContrato");
     Route::delete("fiador/excluir/{id}","FiadorController@destroy");
 
