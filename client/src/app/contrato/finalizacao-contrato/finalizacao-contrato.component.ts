@@ -1,12 +1,11 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
-import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
-import {AlertMessageService} from "../../_services/alert-message.service";
-import {ItemService} from "../../_services/item.service";
-import {ItemContrato} from "../../_models/item-contrato.model";
-import {ItemContratoService} from "../../_services/item-contrato.service";
-import {NgForm} from "@angular/forms";
-import {ParcelaService} from "../../_services/parcela.service";
+import {ActivatedRoute, Params} from '@angular/router';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {AlertMessageService} from '../../_services/alert-message.service';
+import {ItemService} from '../../_services/item.service';
+import {ItemContratoService} from '../../_services/item-contrato.service';
+import {ParcelaService} from '../../_services/parcela.service';
+import {ItensContratoModalComponent} from '../itens-contrato-modal/itens-contrato-modal.component';
 
 @Component({
   selector: 'app-finalizacao-contrato',
@@ -16,11 +15,11 @@ import {ParcelaService} from "../../_services/parcela.service";
 export class FinalizacaoContratoComponent implements OnInit {
 
   public idContrato;
-  public itens = [];
-  public itemcontrato: ItemContrato;
   public itensContrato = [];
   public loading = false;
   public parcelas = [];
+  public id: number;
+  public item: string;
   modalRef: BsModalRef;
   constructor(private route: ActivatedRoute,
               private modalService: BsModalService,
@@ -34,14 +33,49 @@ export class FinalizacaoContratoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.itemcontrato = new ItemContrato();
-    this.getItens();
     this.getItensContrato();
     this.getParcelas();
   }
 
-  openModalItemContrato(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModalConfirmRemove(item: string, template: TemplateRef<any>, id: number) {
+    this.id = id;
+    this.item = item;
+    this.modalRef = this.modalService.show(template, {
+      class: 'modal-sm',
+      initialState: {
+        id: id
+      }
+    });
+  }
+
+  confirmRemove() {
+    switch (this.item) {
+      case 'item-contrato': {
+        this.removeOcupante(this.id);
+        break;
+      }
+      case 'parcela': {
+        this.removeParcela(this.id);
+        break;
+      }
+    }
+  }
+
+  removeParcela(id) {
+
+  }
+
+  removeOcupante(id) {
+
+  }
+
+  openModalItemContrato(id: number = null) {
+    this.modalRef = this.modalService.show(ItensContratoModalComponent, {
+      initialState: {
+        id: id,
+        idContrato: this.idContrato
+      }
+    });
 
     this.modalService.onHide.subscribe((reason: string) => {
       this.getItensContrato();
@@ -70,28 +104,8 @@ export class FinalizacaoContratoComponent implements OnInit {
       });
   }
 
-  getItens() {
-    this.loading = true;
-    this.itemService.list()
-      .subscribe(data => {
-        this.itens = data;
-        this.loading = false;
-      }, error => {
-        this.loading = false;
-      });
-  }
-
-  addItemContrato(form: NgForm) {
-    this.loading = true;
-    form.value.id_contrato = this.idContrato;
-    this.itemContratoService.save(form.value)
-      .subscribe(success => {
-        this.alertService.success(success.message);
-        this.loading = false;
-      }, error => {
-        this.alertService.error(error.message);
-        this.loading = false;
-      });
+  decline(): void {
+    this.modalRef.hide();
   }
 
 

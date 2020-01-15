@@ -69,7 +69,13 @@ class FiadorController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $dado = \App\Model\FiadorContrato::find($id);
+            return response()->json($dado, 200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Nãpo foi possível carregar os dados.'], 500);
+        }
     }
 
     /**
@@ -92,7 +98,14 @@ class FiadorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            \App\Model\FiadorContrato::where('id', $id)
+                ->update($request->all());
+            return response()->json(['message' => 'Dados atualizados com sucesso'],200);
+        }catch(\Exception $e) {
+           \App\Model\Log::create(['message' => $e->getMessage()]);
+           return response()->json(['message' => 'Não foi possível excluir este registro. Por favor tente novamente.'],500);
+        }
     }
 
     /**

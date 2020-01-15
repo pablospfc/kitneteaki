@@ -20,7 +20,7 @@ class ItemContrato extends Model
 
     public function getByContrato($id) {
         return self::select(
-            "ic.id as id_item_contrato",
+            "ic.id as id",
             "it.id as id_item",
             "it.nome as item",
             "ic.valor as valor"

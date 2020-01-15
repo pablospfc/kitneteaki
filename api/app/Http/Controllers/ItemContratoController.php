@@ -69,7 +69,13 @@ class ItemContratoController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $dado = \App\Model\ItemContrato::find($id);
+            return response()->json($dado,200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao carregar dados.'],500);
+        }
     }
 
     /**
@@ -92,7 +98,14 @@ class ItemContratoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            \App\Model\ItemContrato::where('id', $id)
+                ->update($request->all());
+            return response()->json(['message' => 'Dado atualizado com sucesso.'],200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao atualizar dados.'], 500);
+        }
     }
 
     /**

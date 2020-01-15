@@ -1,1 +1,40 @@
-<p>itens-contrato-modal works!</p>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Itens de Contrato</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <app-alert-message></app-alert-message>
+  <form #itemContratoForm="ngForm" name="itemContratoForm" role="form" (ngSubmit)="addItemContrato(itemContratoForm)">
+    <input type="hidden" name="id" [(ngModel)]="itemContrato.id">
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="id_item">Item</label>
+        <select class="form-control"
+                id="id_item"
+                [(ngModel)]="itemContrato.id_item"
+                name="id_item"
+                [required]="true">
+          <option *ngFor="let item of itens" [value]="item.id">{{item.nome}}</option>
+
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="valor">Valor</label>
+        <input type="text"
+               class="form-control"
+               id="valor"
+               name="valor"
+               [(ngModel)]="itemContrato.valor"
+               [required]="false"
+               placeholder="Valor"/>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!itemContratoForm.valid">Adicionar</button>
+    </div>
+  </form>
+
+  <ngx-loading [show]="loading"></ngx-loading>

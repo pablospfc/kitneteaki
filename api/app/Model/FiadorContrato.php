@@ -19,8 +19,9 @@ class FiadorContrato extends Model
 
     public function getByContrato($id){
         return self::select(
-            "fi.id as id_fiador",
-            "pe.id as id_pessoa",
+            "fi.id as id",
+            "pe.id as id_fiador",
+            "co.id as id_contrato",
             "pe.nome as nome"
         )
             ->from("fiador_contrato as fi")

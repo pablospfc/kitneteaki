@@ -27,6 +27,10 @@ class TestemunhaController extends Controller
         }
     }
 
+    public function getCountTestemunhasByContrato($idContrato) {
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

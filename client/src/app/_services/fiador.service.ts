@@ -21,6 +21,24 @@ export class FiadorService {
       );
   }
 
+  public getById(id: number) {
+    return this.http.get<any>(`${this.API}/getById/${id}`)
+      .pipe(
+        map(response => {
+          return response;
+        })
+      );
+  }
+
+  public delete(id: number) {
+    return this.http.delete<any>(`${this.API}/excluir/${id}`)
+      .pipe(
+        catchError(error => {
+          return throwError(error.error);
+        })
+      );
+  }
+
   public save(fiador) {
     if (fiador.id) {
       return this.update(fiador);

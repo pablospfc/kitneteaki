@@ -23,6 +23,15 @@ export class TestemunhaContratoService {
       );
   }
 
+  public delete(id: number) {
+    return this.http.delete<any>(`${this.API}/excluir/${id}`)
+      .pipe(
+        catchError(error => {
+          return throwError(error.error);
+        })
+      );
+  }
+
   public getById(id: number) {
     return this.http.get<any>(`${this.API}/getById/${id}`)
       .pipe(
