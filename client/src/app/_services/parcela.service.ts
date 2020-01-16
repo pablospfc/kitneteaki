@@ -19,4 +19,13 @@ export class ParcelaService {
         })
       );
   }
+
+  public getParcelas(idContrato) {
+    return this.http.get<any>(`${this.API}/getParcelas/${idContrato}`)
+      .pipe(
+        map(response => {
+          return response;
+        })
+      );
+  }
 }

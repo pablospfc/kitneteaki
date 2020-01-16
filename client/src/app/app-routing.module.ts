@@ -25,6 +25,7 @@ import {FiadoresContratoModalComponent} from "./contrato/fiadores-contrato-modal
 import {ItensContratoModalComponent} from "./contrato/itens-contrato-modal/itens-contrato-modal.component";
 import {TestemunhasContratoModalComponent} from "./contrato/testemunhas-contrato-modal/testemunhas-contrato-modal.component";
 import {ParcelasContratoModalComponent} from "./contrato/parcelas-contrato-modal/parcelas-contrato-modal.component";
+import {GeracaoParcelasModalComponent} from "./contrato/geracao-parcelas-modal/geracao-parcelas-modal.component";
 
 
 const routes: Routes = [
@@ -102,6 +103,10 @@ const routes: Routes = [
       {
         path: 'parcelas-contrato-modal',
         component: ParcelasContratoModalComponent
+      },
+      {
+        path: 'geracao-parcelas-modal',
+        component: GeracaoParcelasModalComponent
       },
       {
         path: 'list-imovel',

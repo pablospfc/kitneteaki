@@ -6,6 +6,7 @@ import {ItemService} from '../../_services/item.service';
 import {ItemContratoService} from '../../_services/item-contrato.service';
 import {ParcelaService} from '../../_services/parcela.service';
 import {ItensContratoModalComponent} from '../itens-contrato-modal/itens-contrato-modal.component';
+import {GeracaoParcelasModalComponent} from "../geracao-parcelas-modal/geracao-parcelas-modal.component";
 
 @Component({
   selector: 'app-finalizacao-contrato',
@@ -66,7 +67,17 @@ export class FinalizacaoContratoComponent implements OnInit {
   }
 
   removeOcupante(id) {
-
+    this.loading = true;
+    this.itemContratoService.delete(id)
+     .subscribe(data => {
+       this.alertService.success(data.message);
+       this.loading = false;
+     }, error => {
+       this.alertService.error(error);
+       this.loading = false;
+     });
+    this.modalRef.hide();
+    this.getItensContrato();
   }
 
   openModalItemContrato(id: number = null) {
@@ -82,8 +93,21 @@ export class FinalizacaoContratoComponent implements OnInit {
     });
   }
 
-  gerarParcelas() {
+  openModalGeracaoParcelas() {
+    this.modalRef = this.modalService.show(GeracaoParcelasModalComponent, {
+      initialState: {
+        idContrato: this.idContrato
+      }
+    });
+  }
 
+  openModalParcela(id: number = null) {
+    this.modalRef = this.modalService.show(ItensContratoModalComponent, {
+      initialState: {
+        id: id,
+        idContrato: this.idContrato
+      }
+    });
   }
 
   getParcelas() {

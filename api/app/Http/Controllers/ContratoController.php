@@ -33,16 +33,6 @@ class ContratoController extends Controller
         }
     }
 
-    public function gerarParcelas($id) {
-        try {
-            $this->contrato->gerarParcelas($id);
-            return response()->json(['message' => 'A fatura foi gerada com sucesso'], 200);
-        } catch (\Exception $e) {
-            \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema ao gerar fatura.'], 500);
-        }
-    }
-
     /**
      * Show the form for creating a new resource.
      *

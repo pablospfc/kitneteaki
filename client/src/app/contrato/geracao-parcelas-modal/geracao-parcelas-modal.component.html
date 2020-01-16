@@ -1,0 +1,39 @@
+
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Confirmação de Geração de Fatura</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<app-alert-message></app-alert-message>
+
+  <div class="modal-body">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Parcela</th>
+        <th>Período</th>
+        <th>Vencimento</th>
+        <th>Valor</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let parcela of parcelas">
+      <tr>
+        <td>{{parcela.parcela}}</td>
+        <td>{{parcela.periodo_inicial+' - '+parcela.periodo_final}}</td>
+        <td>{{parcela.data_vencimento}}</td>
+        <td>{{parcela.valor}}</td>
+      </tr>
+      <tr *ngFor="let item of parcela.itens">
+        <td class="text-center" colspan="3">{{item.item}}</td>
+        <td>{{item.valor}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Gerar Fatura</button>
+  </div>
+
+<ngx-loading [show]="loading"></ngx-loading>

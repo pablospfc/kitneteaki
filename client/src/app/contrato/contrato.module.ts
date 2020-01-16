@@ -15,9 +15,10 @@ import { TestemunhasContratoModalComponent } from './testemunhas-contrato-modal/
 import { FiadoresContratoModalComponent } from './fiadores-contrato-modal/fiadores-contrato-modal.component';
 import { ItensContratoModalComponent } from './itens-contrato-modal/itens-contrato-modal.component';
 import { ParcelasContratoModalComponent } from './parcelas-contrato-modal/parcelas-contrato-modal.component';
+import { GeracaoParcelasModalComponent } from './geracao-parcelas-modal/geracao-parcelas-modal.component';
 
 @NgModule({
-  declarations: [ListContratoComponent, NewContratoComponent, NewGarantiasContratoComponent, FinalizacaoContratoComponent, OcupantesImovelModalComponent, TestemunhasContratoModalComponent, FiadoresContratoModalComponent, ItensContratoModalComponent, ParcelasContratoModalComponent],
+  declarations: [ListContratoComponent, NewContratoComponent, NewGarantiasContratoComponent, FinalizacaoContratoComponent, OcupantesImovelModalComponent, TestemunhasContratoModalComponent, FiadoresContratoModalComponent, ItensContratoModalComponent, ParcelasContratoModalComponent, GeracaoParcelasModalComponent],
   imports: [
     CommonModule,
     RouterModule,

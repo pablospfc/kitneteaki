@@ -33,6 +33,26 @@ class ParcelaController extends Controller
         }
     }
 
+    public function gerarParcelas($id) {
+        try {
+            $this->parcela->gerarParcelas($id);
+            return response()->json(['message' => 'A fatura foi gerada com sucesso'], 200);
+        } catch (\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao gerar fatura.'], 500);
+        }
+    }
+
+    public function getParcelas($idContrato) {
+        try {
+            $dados = $this->parcela->getParcelas($idContrato);
+            return response()->json($dados, 200);
+        } catch (\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao carregar dados da fatura.'], 500);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
