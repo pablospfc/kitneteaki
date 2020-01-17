@@ -1,12 +1,13 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {ItemService} from '../../_services/item.service';
 import {ItemContratoService} from '../../_services/item-contrato.service';
 import {ParcelaService} from '../../_services/parcela.service';
 import {ItensContratoModalComponent} from '../itens-contrato-modal/itens-contrato-modal.component';
-import {GeracaoParcelasModalComponent} from "../geracao-parcelas-modal/geracao-parcelas-modal.component";
+import {GeracaoParcelasModalComponent} from '../geracao-parcelas-modal/geracao-parcelas-modal.component';
+import {ContratoService} from "../../_services/contrato.service";
 
 @Component({
   selector: 'app-finalizacao-contrato',
@@ -27,6 +28,8 @@ export class FinalizacaoContratoComponent implements OnInit {
               private alertService: AlertMessageService,
               private itemService: ItemService,
               private itemContratoService: ItemContratoService,
+              private contratoService: ContratoService,
+              private router: Router,
               private parcelaService: ParcelaService) {
     this.route.params.subscribe((params: Params) => {
       this.idContrato = params.id;
@@ -36,6 +39,22 @@ export class FinalizacaoContratoComponent implements OnInit {
   ngOnInit() {
     this.getItensContrato();
     this.getParcelas();
+  }
+
+  concluirContrato() {
+    this.loading = true;
+    this.contratoService.concluirContrato(this.idContrato)
+     .subscribe(data => {
+       this.alertService.success(data.message);
+       this.loading = false;
+       setTimeout(() => {
+           this.router.navigate(['list-contrato']);
+         },
+         5000);
+     }, error => {
+       this.alertService.error(error.message);
+       this.loading = false;
+     });
   }
 
   openModalConfirmRemove(item: string, template: TemplateRef<any>, id: number) {
@@ -63,7 +82,15 @@ export class FinalizacaoContratoComponent implements OnInit {
   }
 
   removeParcela(id) {
-
+    this.loading = true;
+    this.parcelaService.delete(id)
+     .subscribe(data => {
+       this.alertService.success(data.message);
+       this.loading = false;
+     }, error => {
+       this.alertService.error(error.message);
+       this.loading = false;
+     });
   }
 
   removeOcupante(id) {
@@ -99,6 +126,10 @@ export class FinalizacaoContratoComponent implements OnInit {
         idContrato: this.idContrato
       }
     });
+
+    this.modalService.onHide.subscribe((reason: string) => {
+      this.getParcelas();
+    });
   }
 
   openModalParcela(id: number = null) {
@@ -111,9 +142,14 @@ export class FinalizacaoContratoComponent implements OnInit {
   }
 
   getParcelas() {
+    this.loading = true;
      this.parcelaService.getByContrato(this.idContrato)
       .subscribe(data => {
         this.parcelas = data;
+        this.loading = false;
+      }, error => {
+        this.alertService.error(error.message);
+        this.loading = false;
       });
   }
 
@@ -124,6 +160,7 @@ export class FinalizacaoContratoComponent implements OnInit {
         this.itensContrato = data;
         this.loading = false;
       }, error => {
+        this.alertService.error(error.message);
         this.loading = false;
       });
   }

@@ -29,6 +29,18 @@ export class ContratoService {
       );
   }
 
+  public concluirContrato(id) {
+    const data = {
+      id_status: 1
+    };
+    return this.http.put<any>(`${this.API}/concluir/${id}`, data)
+      .pipe(
+        catchError(error => {
+          return throwError(error.error);
+        })
+      );
+  }
+
   public getById(id: number): Observable <any> {
     return this.http.get(`${this.API}/buscar/${id}`)
       .pipe(

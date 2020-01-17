@@ -20,20 +20,24 @@
       <tbody *ngFor="let parcela of parcelas">
       <tr>
         <td>{{parcela.parcela}}</td>
-        <td>{{parcela.periodo_inicial+' - '+parcela.periodo_final}}</td>
-        <td>{{parcela.data_vencimento}}</td>
-        <td>{{parcela.valor}}</td>
+        <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} - {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
+        <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
+        <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
       </tr>
       <tr *ngFor="let item of parcela.itens">
         <td class="text-center" colspan="3">{{item.item}}</td>
-        <td>{{item.valor}}</td>
+        <td>{{item.valor | currency:"BRL":"symbol"}}</td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+        <td><b>{{parcela.valor_total | currency:"BRL":"symbol"}}</b></td>
       </tr>
       </tbody>
     </table>
 
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">Gerar Fatura</button>
+    <button type="button" class="btn btn-primary" (click)="gerarParcelas()">Gerar Fatura</button>
   </div>
 
 <ngx-loading [show]="loading"></ngx-loading>

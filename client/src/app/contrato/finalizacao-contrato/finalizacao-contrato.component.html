@@ -41,7 +41,7 @@
                       <div class="pull-right">
                         <button type="button"
                                 (click)="openModalItemContrato()"
-                                class="btn-sm btn-success">
+                                class="btn btn-success btn-sm">
                           Adicionar
                         </button>
                       </div>
@@ -57,7 +57,7 @@
                         <tbody>
                         <tr *ngFor="let item of itensContrato">
                           <td>{{item.item}}</td>
-                          <td>{{'R$ '+item.valor+',00'}}</td>
+                          <td>{{item.valor | currency:"BRL":"symbol"}}</td>
                           <td>
                             <button type="button"
                                     (click)="openModalItemContrato(item.id)"
@@ -90,11 +90,12 @@
                       <div class="pull-right">
                         <button type="button"
                                 (click)="openModalGeracaoParcelas()"
-                                class="btn-sm btn-success pull-right">Gerar Parcelas
+                                [disabled]="parcelas.length"
+                                class="btn btn-success btn-sm pull-right">Gerar Parcelas
                         </button>
                       </div>
                       <br/><br/>
-                      <table id="tblParcelasContrato" class="table table-bordered table-striped">
+                      <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
                           <th>Parcela</th>
@@ -102,20 +103,32 @@
                           <th>Valor</th>
                           <th>Status</th>
                           <th>Vencimento</th>
+                          <th>Ação</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr *ngFor="let parcela of parcelas">
                           <td>{{parcela.parcela}}</td>
-                          <td>{{parcela.periodo_inicial+' - '+parcela.periodo_final}}</td>
-                          <td>{{parcela.valor}}</td>
+                          <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} - {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
+                          <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
                           <td>{{parcela.status}}</td>
-                          <td>{{parcela.data_vencimento}}</td>
+                          <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
                           <td>
+                            <button type="button"
+                                    class="btn btn-info btn-sm">
+                              <i class="fa fa-edit" aria-hidden="true"></i>
+                            </button>
                             <button type="button"
                                     class="btn btn-danger btn-sm">
                               <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
+                          </td>
+                        </tr>
+                        <tr class="animate-repeat" *ngIf="parcelas.length == 0">
+                          <td colspan="8" class="text-center">
+                            <em>
+                              Até o momento, nenhuma parcela foi lançada para este contrato.
+                            </em>
                           </td>
                         </tr>
                         </tbody>
@@ -129,7 +142,7 @@
         </div>
 
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-primary" >Finalizar</button>
+            <button type="button" class="btn btn-primary" (click)="concluirContrato()" >Finalizar</button>
             <button type="button" class="btn btn-success" [routerLink]="['/new-garantias-contrato/'+idContrato]">Voltar</button>
           </div>
 

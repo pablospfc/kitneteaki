@@ -75,6 +75,7 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("contrato/buscar/{id}","ContratoController@show");
     Route::get("contrato/listar","ContratoController@index");
     Route::delete("contrato/excluir/{id}","ContratoController@destroy");
+    Route::put("contrato/concluir/{id}","ContratoController@concluir");
 
     Route::get("parcela/getByContrato/{id}","ParcelaController@getByContrato");
     Route::delete("parcela/excluir/{id}","ParcelaController@destroy");

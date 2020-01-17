@@ -49,8 +49,6 @@ class Contrato extends Model
         });
     }
 
-
-
     private function extractDayFromDate($data)
     {
         $timestamp = strtotime($data);

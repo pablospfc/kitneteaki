@@ -19,6 +19,8 @@ class Parcela extends Model
         "data_vencimento",
         "data_pagamento",
         "valor",
+        "parcela",
+        "competencia",
         "valor_pago",
         "periodo_inicial",
         "periodo_final",
@@ -70,6 +72,7 @@ class Parcela extends Model
         $parcela = 1;
         $contrato = Contrato::find($id);
         $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
+        $itens = (new ItemContrato())->getByContrato($id);
         $valorTotal = $this->getValorTotal($id, $contrato['valor']);
         $totalParcelas = count($vencimentos);
         foreach ($vencimentos as $vencimento) {
@@ -78,6 +81,7 @@ class Parcela extends Model
                 'id_status'       => 4,
                 'id_contrato'     => $id,
                 'data_vencimento' => $vencimento,
+                'competencia'     => $vencimento,
                 'valor'           => $valorTotal,
                 'parcela'         => $parcela.'/'.$totalParcelas,
                 'periodo_inicial' => $vencimento,
@@ -85,7 +89,22 @@ class Parcela extends Model
             ];
             $parcela++;
         }
-        return Parcela::insert($parcelas);
+        return $this->saveParcela($parcelas, $itens);
+    }
+
+    private function saveParcela($parcelas, $itens) {
+        foreach($parcelas as $parcela) {
+            $idParcela = self::create($parcela)->id;
+            foreach ($itens as $item) {
+                DB::transaction(function () use ($idParcela, $item) {
+                    ParcelaItem::create([
+                        'id_parcela' => $idParcela,
+                        'id_item' => $item['id_item'],
+                        'valor' => $item['valor']
+                    ]);
+                });
+            }
+        }
     }
 
     private function getValorTotal($id, $valor)

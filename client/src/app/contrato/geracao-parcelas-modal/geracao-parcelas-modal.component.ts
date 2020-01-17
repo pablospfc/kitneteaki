@@ -34,7 +34,15 @@ export class GeracaoParcelasModalComponent implements OnInit {
   }
 
   gerarParcelas() {
-
+   this.loading = true;
+   this.parcelaService.gerarParcelas(this.idContrato)
+     .subscribe(data => {
+      this.alertService.success(data.message);
+      this.loading = false;
+     }, error => {
+       this.alertService.error(error.message);
+       this.loading = false;
+     });
   }
 
 }

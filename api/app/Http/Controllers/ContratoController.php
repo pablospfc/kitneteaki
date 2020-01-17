@@ -107,6 +107,17 @@ class ContratoController extends Controller
         }
     }
 
+    public function concluir(Request $request, $id) {
+        try {
+            \App\Model\Contrato::where('id', $id)
+                ->update($request->all());
+            return response()->json(['message' => 'O contrato foi concluído com sucesso.'],200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao concluir cadastro de contrato.'],500);
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
