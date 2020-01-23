@@ -44,9 +44,9 @@
                                                       totalItems: totalRec}">
           <td><span class="label" [ngClass]="{'label-warning': contrato.id_status == 3 || contrato.id_status == 11, 'label-success': contrato.id_status == 1, 'label-danger': contrato.id_status == 2}">{{contrato.status}}</span></td>
           <td>{{contrato.tipo_contrato}}</td>
-          <td>{{contrato.periodo_inicial}}</td>
-          <td>{{contrato.periodo_final}}</td>
-          <td>{{contrato.valor}}</td>
+          <td>{{contrato.periodo_inicial | date: 'dd/MM/yyyy'}}</td>
+          <td>{{contrato.periodo_final | date: 'dd/MM/yyyy'}}</td>
+          <td>{{contrato.valor | currency:"BRL":"symbol"}}</td>
           <td>{{contrato.locatario}}</td>
           <td>{{contrato.imovel}}</td>
           <td>

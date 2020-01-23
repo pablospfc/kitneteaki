@@ -17,7 +17,7 @@ import {PessoaService} from '../../_services/pessoa.service';
 })
 export class NewContratoComponent implements OnInit {
 
-  contrato: Contrato;
+  public contrato: Contrato;
   public imoveis = [];
   public locatarios = [];
   constructor(private contratoService: ContratoService,

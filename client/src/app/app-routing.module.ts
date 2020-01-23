@@ -68,6 +68,9 @@ const routes: Routes = [
       {
         path: 'new-contrato',
         component: NewContratoComponent,
+        resolve: {
+          contrato: ContratoResolverGuard
+        }
       },
       {
         path: 'update-contrato/:id',
