@@ -23,8 +23,8 @@ export class ContratoService {
   public list() {
     return this.http.get<Contrato[]>(`${this.API}/listar`)
       .pipe(
-        map(response => {
-          return response;
+        catchError(error => {
+          return throwError(error);
         })
       );
   }
@@ -36,7 +36,7 @@ export class ContratoService {
     return this.http.put<any>(`${this.API}/concluir/${id}`, data)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -45,7 +45,7 @@ export class ContratoService {
     return this.http.get(`${this.API}/buscar/${id}`)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -54,7 +54,7 @@ export class ContratoService {
     return this.http.post<any>(`${this.API}/cadastrar`, contrato, this.httpOptions)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -63,7 +63,7 @@ export class ContratoService {
     return this.http.put<any>(`${this.API}/atualizar/${contrato.id}`, contrato)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }

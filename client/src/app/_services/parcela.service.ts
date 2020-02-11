@@ -12,6 +12,15 @@ export class ParcelaService {
   private readonly API = `${environment.API}/parcela`;
   constructor(private http: HttpClient) { }
 
+  public listParcelas() {
+   return this.http.get<any>(`${this.API}/listParcelas`)
+     .pipe(
+       catchError(error => {
+         return throwError(error);
+       })
+     );
+  }
+
   public getByContrato(id: number) {
     return this.http.get<any>(`${this.API}/getByContrato/${id}`)
       .pipe(
@@ -33,8 +42,8 @@ export class ParcelaService {
   public getParcelas(idContrato) {
     return this.http.get<any>(`${this.API}/getParcelas/${idContrato}`)
       .pipe(
-        map(response => {
-          return response;
+        catchError(error => {
+          return throwError(error);
         })
       );
   }

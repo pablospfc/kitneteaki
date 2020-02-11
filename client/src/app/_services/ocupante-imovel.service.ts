@@ -28,7 +28,7 @@ export class OcupanteImovelService {
     return this.http.delete<any>(`${this.API}/excluir/${id}`)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -55,7 +55,7 @@ export class OcupanteImovelService {
     return this.http.post<any>(`${this.API}/cadastrar`, ocupante)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -64,7 +64,7 @@ export class OcupanteImovelService {
     return this.http.put<any>(`${this.API}/atualizar/${ocupante.id}`, ocupante)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }

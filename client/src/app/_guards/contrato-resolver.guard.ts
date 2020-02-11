@@ -31,7 +31,7 @@ export class ContratoResolverGuard implements Resolve<Contrato> {
     vigencia: null,
     taxa_servico: null,
     dias: null,
-    total: null,
+    valor_total: null,
     sinal: null,
     referencia: null,
     observacoes: null,

@@ -54,10 +54,11 @@
             </div>
 
             <div class="row">
-              <button (click)="addText('<<valor>>')" >Adicionar</button>
+              <button (click)="addText()" >Adicionar</button>
               <div class="box-body pad">
                 <label for="tipo_modelo_documento">Conteúdo: </label>
-                <ckeditor id="editor" [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+                <ckeditor id="text" [editor]="Editor" data="<p>Hello, world!</p>" (ready)="onReady($event)"></ckeditor>
+                <!--<textarea id="text"></textarea>-->
               </div>
             </div>
 

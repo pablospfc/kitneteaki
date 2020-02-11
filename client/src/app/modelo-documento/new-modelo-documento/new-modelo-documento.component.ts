@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ModeloDocumentoModel} from '../../_models/modelo-documento.model';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import * as $ from 'jquery';
+import { insertAtCursor } from '../../../assets/scripts/textarea';
 import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-new-modelo-documento',
@@ -11,8 +12,8 @@ import {NgForm} from '@angular/forms';
 export class NewModeloDocumentoComponent implements OnInit {
 
   modelo: ModeloDocumentoModel;
-  public Editor = ClassicEditor;
-  private ckEditorBlurEle;
+  public Editor = DecoupledEditor;
+  public textArea = DecoupledEditor.create();
   constructor() { }
 
   ngOnInit() {
@@ -23,22 +24,20 @@ export class NewModeloDocumentoComponent implements OnInit {
 
   }
 
-   typeInTextarea(el, newText) {
-    var start = el.prop("selectionStart")
-    var end = el.prop("selectionEnd")
-    var text = el.val()
-    var before = text.substring(0, start)
-    var after  = text.substring(end, text.length)
-    el.val(before + newText + after)
-    el[0].selectionStart = el[0].selectionEnd = start + newText.length
-    el.focus()
-    return false;
+  public onReady(editor) {
+    editor.ui.view.editable.element.parentElement.insertBefore(
+      editor.ui.view.toolbar.element,
+      editor.ui.view.editable.element
+    );
   }
 
-  addText(value) {
-    this.typeInTextarea($('#editor'), value)
-    return false;
+  addText() {
+    //insertAtCursor(document.getElementById('text'), 'Hello');
+    this.textArea.model.change( writer => {
+      writer.insertText( 'foo', this.Editor.model.document.selection.getFirstPosition() );
+    } );
   }
+
 
 
 }

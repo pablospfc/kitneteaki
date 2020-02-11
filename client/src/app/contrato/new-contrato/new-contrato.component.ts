@@ -41,9 +41,11 @@ export class NewContratoComponent implements OnInit {
       .subscribe(success => {
         const message = success.message;
         const id = success.id ? success.id : this.contrato.id;
+        console.log(success.id);
         this.alertService.success(message, true);
         this.router.navigate(['new-garantias-contrato', id]);
       }, error => {
+        console.log(error);
         const message = error.message;
         this.alertService.error(message);
       });
@@ -55,10 +57,21 @@ export class NewContratoComponent implements OnInit {
     this.contrato.data_fim = dataFinal.format('YYYY-MM-DD');
   }
 
+  getValorTotal() {
+    this.contrato.dias = this.contrato.dias ? this.contrato.dias : 0;
+    this.contrato.valor = this.contrato.valor ? this.contrato.valor : 0;
+    if (this.contrato.id_tipo_contrato == 2) {
+      this.contrato.valor_total = ((Number.parseFloat(this.contrato.valor.toString()) * Number.parseFloat(this.contrato.dias.toString())));
+    } else {
+      this.contrato.valor_total = this.contrato.valor;
+    }
+  }
+
   getValorImovel(idImovel: number) {
     return this.imovelService.getById(idImovel)
       .subscribe(response => {
         this.contrato.valor = response.valor_imovel;
+        this.contrato.valor_total = response.valor_imovel;
       });
   }
 
@@ -72,8 +85,6 @@ export class NewContratoComponent implements OnInit {
   verificaDisponibilidade(inicio: Date, fim: Date) {
     const inicioEstadia = moment(inicio);
     const fimEstadia = moment(fim);
-    console.log(inicioEstadia);
-    console.log(fimEstadia);
     if (inicioEstadia != null  && fimEstadia != null) {
       const duration = moment.duration(fimEstadia.diff(inicioEstadia));
       const dias = duration.asDays();

@@ -26,6 +26,7 @@ import {ItensContratoModalComponent} from "./contrato/itens-contrato-modal/itens
 import {TestemunhasContratoModalComponent} from "./contrato/testemunhas-contrato-modal/testemunhas-contrato-modal.component";
 import {ParcelasContratoModalComponent} from "./contrato/parcelas-contrato-modal/parcelas-contrato-modal.component";
 import {GeracaoParcelasModalComponent} from "./contrato/geracao-parcelas-modal/geracao-parcelas-modal.component";
+import {ListFaturaComponent} from "./fatura/list-fatura/list-fatura.component";
 
 
 const routes: Routes = [
@@ -114,6 +115,10 @@ const routes: Routes = [
       {
         path: 'list-imovel',
         component: ListImovelComponent
+      },
+      {
+        path: 'list-fatura',
+        component: ListFaturaComponent
       },
       {
         path: 'new-imovel',

@@ -1,0 +1,136 @@
+<section class="content-header">
+  <h1>
+    Home
+    <small>Faturas</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Faturas</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header">
+      <i class="ion ion-clipboard"></i>
+
+      <h3 class="box-title">Gestão de Faturas</h3>
+
+    </div>
+    <!-- /.box-header -->
+    <app-alert-message></app-alert-message>
+    <div class="box-body">
+      <form>
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="id_pessoa">Inquilino</label>
+            <select class="form-control"
+                    id="id_pessoa"
+                    name="id_pessoa">
+              <option *ngFor="let inquilino of inquilinos" [value]="inquilino.id">{{inquilino.nome}}</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="id_imovel">Imóvel</label>
+            <select class="form-control"
+                    id="id_imovel"
+                    name="id_imovel">
+              <option *ngFor="let imovel of imoveis" [value]="imovel.id">{{imovel.nome}}</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="id_tipo_contrato">Tipo de Contrato</label>
+            <select class="form-control"
+                    id="id_tipo_contrato"
+                    name="id_tipo_contrato">
+              <option [value]="1">Aluguel</option>
+              <option [value]="2">Temporada</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="id_forma_pagamento">Forma de Pagamento</label>
+            <select class="form-control"
+                    id="id_forma_pagamento"
+                    name="id_forma_pagamento">
+              <option [value]="1">Dinheiro</option>
+              <option [value]="2">Boleto Bancário</option>
+              <option [value]="2">Cartão de Crédito</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="id_status">Status</label>
+            <select class="form-control"
+                    id="id_status"
+                    name="id_status">
+              <option [value]="4">Em Aberto</option>
+              <option [value]="5">Atrasado</option>
+              <option [value]="6">Liquidado</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" (click)="listParcelas()" class="btn btn-success">Buscar</button>
+      </form>
+      <hr>
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Inquilino</th>
+          <th>Status</th>
+          <th>Tipo de Pagamento</th>
+          <th>Período</th>
+          <th>Data de Vencimento</th>
+          <th>Valor Total</th>
+          <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let parcela of parcelas | paginate: { id: 'listing_pagination',
+                                                      itemsPerPage: 10,
+                                                      currentPage: page,
+                                                      totalItems: totalRec}">
+          <td>{{parcela.inquilino}}</td>
+          <td><span class="label"
+                    [ngClass]="{'label-info': parcela.id_status == 6, 'label-success': parcela.id_status == 4, 'label-danger': parcela.id_status == 5}">{{parcela.status}}</span>
+          </td>
+          <td>{{parcela.tipo_pagamento}}</td>
+          <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} ~ {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
+          <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
+          <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
+          <td>
+            <button type="button"
+                    [routerLink]="['/update-fatura/'+parcela.id]"
+                    class="btn btn-info btn-sm">
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            </button>
+
+            <button type="button"
+                    class="btn btn-danger btn-sm">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+        <tr class="animate-repeat" *ngIf="parcelas.length == 0">
+          <td colspan="8" class="text-center">
+            <em>
+              Nenhum resultado foi encontrado
+            </em>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+                             (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+    <!-- /.box-body -->
+
+  </div>
+</section>
+
+<ngx-loading [show]="loading"></ngx-loading>

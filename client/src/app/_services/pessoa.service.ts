@@ -61,7 +61,7 @@ export class PessoaService {
     return this.http.post(this.API + '/cadastrar', pessoa, this.httpOptions)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -70,7 +70,7 @@ export class PessoaService {
     return this.http.put(`${this.API}/atualizar/${pessoa.id}`, pessoa)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }

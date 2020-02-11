@@ -26,6 +26,7 @@ import {RelatorioModule} from './relatorio/relatorio.module';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AlertModule} from 'ngx-bootstrap';
+import {FaturaModule} from './fatura/fatura.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import {AlertModule} from 'ngx-bootstrap';
     ImovelModule,
     ModeloDocumentoModule,
     PessoaModule,
+    FaturaModule,
     RelatorioModule,
     NgxPaginationModule,
     AlertModule.forRoot(),

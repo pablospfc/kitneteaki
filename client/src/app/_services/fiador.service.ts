@@ -34,7 +34,7 @@ export class FiadorService {
     return this.http.delete<any>(`${this.API}/excluir/${id}`)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -51,7 +51,7 @@ export class FiadorService {
     return this.http.post<any>(`${this.API}/cadastrar`, fiador )
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -60,7 +60,7 @@ export class FiadorService {
     return this.http.put<any>(`${this.API}/atualizar/${fiador.id}`, fiador )
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }

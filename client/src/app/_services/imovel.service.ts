@@ -47,7 +47,7 @@ export class ImovelService {
     return this.http.post(`${this.API}/cadastrar`, imovel, this.httpOptions)
       .pipe(
         catchError(error => {
-          return throwError(error.error);
+          return throwError(error);
         })
       );
   }
@@ -56,7 +56,7 @@ export class ImovelService {
     return this.http.put(`${this.API}/atualizar/${imovel.id}`, imovel)
       .pipe(
         catchError(error => {
-         return throwError(error.error);
+         return throwError(error);
         })
       );
   }

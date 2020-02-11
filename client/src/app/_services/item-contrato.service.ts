@@ -27,7 +27,7 @@ export class ItemContratoService {
     return this.http.delete<any>(`${this.API}/excluir/${id}`)
       .pipe(
         catchError(error => {
-         return throwError(error.error);
+         return throwError(error);
         })
       );
   }
@@ -61,7 +61,7 @@ export class ItemContratoService {
 
   public save(itemContrato) {
     if (itemContrato.id) {
-      return this.update(itemContrato)
+      return this.update(itemContrato);
     }
 
     return this.create(itemContrato);

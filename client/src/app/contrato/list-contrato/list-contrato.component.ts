@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ContratoService} from '../../_services/contrato.service';
+import {AlertMessageService} from "../../_services/alert-message.service";
 
 @Component({
   selector: 'app-list-contrato',
@@ -12,7 +13,8 @@ export class ListContratoComponent implements OnInit {
   public loading = false;
   public totalRec;
   public page = 1;
-  constructor(private contratoService: ContratoService) {
+  constructor(private contratoService: ContratoService,
+              private alertMessageService: AlertMessageService) {
   }
 
   ngOnInit() {
@@ -26,6 +28,10 @@ export class ListContratoComponent implements OnInit {
         this.contratos = success;
         this.loading = false;
         this.totalRec = this.contratos.length;
+      }, error => {
+        console.log(error);
+        this.alertMessageService.error(error.message);
+        this.loading = false;
       });
   }
 

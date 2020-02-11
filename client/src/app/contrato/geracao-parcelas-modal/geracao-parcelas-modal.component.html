@@ -20,7 +20,7 @@
       <tbody *ngFor="let parcela of parcelas">
       <tr>
         <td>{{parcela.parcela}}</td>
-        <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} - {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
+        <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} ~ {{parcela.periodo_final | date: 'dd/MM/yyyy'}} {{parcela.dias ? '('+parcela.dias + ' dias)' : ''}}</td>
         <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
         <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
       </tr>

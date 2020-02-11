@@ -29,6 +29,7 @@ export class GeracaoParcelasModalComponent implements OnInit {
         this.parcelas = data;
         this.loading = false;
       }, error => {
+        this.alertService.error(error.message);
         this.loading = false;
       });
   }
