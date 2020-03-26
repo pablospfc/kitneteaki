@@ -20,7 +20,7 @@ class AuthController extends Controller
         $credentials = $request->only('login', 'password');
             // attempt to verify the credentials and create a token for the user
             if (! $token = $this->jwtAuth->attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+                return response()->json(['error' => 'Não foi possível entrar no sistema. Seus dados estão incorretos.'], 401);
             }
 
             $user = $this->jwtAuth->authenticate($token);

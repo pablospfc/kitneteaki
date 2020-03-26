@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../_services/auth.service';
 import {Login} from '../../_models/login.model';
@@ -13,22 +13,28 @@ import {AlertMessageService} from '../../_services/alert-message.service';
 export class LoginComponent implements OnInit {
 
   login: Login;
+  loading = false;
+
   constructor(private authService: AuthService,
               private router: Router,
               private alertService: AlertMessageService,
-              ) { }
+  ) {
+  }
 
   ngOnInit() {
-   this.login = new Login();
+    this.login = new Login();
   }
 
   onSubmit(form: NgForm) {
-   return this.authService.login(form.value)
-     .subscribe((resp) => {
-       this.router.navigate(['home']);
-     }, (error) => {
-       this.alertService.error(error);
-     });
+    this.loading = true;
+    return this.authService.login(form.value)
+      .subscribe((resp) => {
+        this.router.navigate(['home']);
+        this.loading = false;
+      }, (error) => {
+        this.alertService.error(error);
+        this.loading = false;
+      });
   }
 
 }

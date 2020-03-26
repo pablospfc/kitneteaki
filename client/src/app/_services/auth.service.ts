@@ -25,7 +25,7 @@ export class AuthService {
           return data;
         }),
         catchError(error => {
-          return throwError(error);
+          return throwError(error.error);
         })
       );
   }
@@ -36,7 +36,7 @@ export class AuthService {
 
   public logout() {
     return this.http.get(`${this.API}/logout`)
-      .subscribe( resp => {
+      .subscribe(resp => {
         localStorage.clear();
         this.router.navigate(['/login']);
       });

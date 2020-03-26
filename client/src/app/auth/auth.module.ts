@@ -6,14 +6,16 @@ import { PerfilComponent } from './perfil/perfil.component';
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {AlertMessageComponent} from "../alert-message/alert-message.component";
+import {NgxLoadingModule} from "ngx-loading";
 
 @NgModule({
   declarations: [LoginComponent, PerfilComponent, AlertMessageComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        NgxLoadingModule,
+    ],
   exports: [
     AlertMessageComponent
   ],

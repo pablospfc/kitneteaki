@@ -1,7 +1,7 @@
 export class Parcela {
   id: number;
   id_status: number;
-  id_tipo_pagamento: number;
+  id_forma_pagamento: number;
   id_contrato: number;
   data_vencimento: Date;
   data_pagamento: Date;

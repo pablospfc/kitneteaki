@@ -27,12 +27,14 @@ import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AlertModule} from 'ngx-bootstrap';
 import {FaturaModule} from './fatura/fatura.module';
+import { BoletoTemplateComponent } from './templates/boleto-template/boleto-template.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     DashboardTemplateComponent,
     LoginTemplateComponent,
-
+    BoletoTemplateComponent,
   ],
   imports: [
     BrowserModule,

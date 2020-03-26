@@ -26,10 +26,8 @@ class Contrato extends Model
         "inicio_estadia",
         "fim_estadia",
         "vigencia",
-        "taxa_servico",
         "dias",
-        "total",
-        "sinal",
+        "valor_total",
         "referencia",
         "observacoes",
         "renovou",
@@ -40,13 +38,21 @@ class Contrato extends Model
 
     public function salvar($data)
     {
-        DB::transaction(function () use ($data) {
+        $insertId = DB::transaction(function () use ($data) {
             $day = $this->extractDayFromDate($data['primeiro_vencimento']);
+            if ($data['id_tipo_contrato'] == 2) {
+                $data['data_inicio'] = $data['inicio_estadia'];
+                $data['data_fim'] = $data['fim_estadia'];
+                unset($data['inicio_estadia']);
+                unset($data['fim_estadia']);
+            }
             $data['dia_vencimento'] = $day;
             $id = self::create($data)->id;
             Imovel::setOcupado($data['id_imovel'], $data['id_tipo_contrato']);
             return $id;
         });
+
+        return $insertId;
     }
 
     private function extractDayFromDate($data)
@@ -82,10 +88,9 @@ class Contrato extends Model
             "sta.nome as status",
             "tco.nome as tipo_contrato",
             "con.id as id",
-            "con.valor as valor",
+            "con.valor",
             "con.vigencia",
-            "con.taxa_servico",
-            "con.total",
+            "con.valor_total",
             "con.primeiro_vencimento"
         )
             ->from("contrato as con")

@@ -77,10 +77,17 @@ Route::group(['middleware' => 'cors'], function() {
     Route::delete("contrato/excluir/{id}","ContratoController@destroy");
     Route::put("contrato/concluir/{id}","ContratoController@concluir");
 
+    Route::get("parcela/listParcelas/","ParcelaController@index");
     Route::get("parcela/getByContrato/{id}","ParcelaController@getByContrato");
+    Route::get("parcela/getById/{id}","ParcelaController@show");
     Route::delete("parcela/excluir/{id}","ParcelaController@destroy");
+    Route::put("parcela/atualizar/{id}","ParcelaController@update");
     Route::get("parcela/getParcelas/{id}","ParcelaController@getParcelas");
     Route::get("parcela/gerarParcelas/{id}","ParcelaController@gerarParcelas");
+    Route::get("parcela/gerarBoleto","ParcelaController@gerarBoleto");
+
+    Route::get("parcelaitem/getByParcela/{id}","ParcelaItemController@getByParcela");
+    Route::delete("parcelaitem/excluir/{id}","ParcelaItemController@destroy");
 
     Route::post("documento/cadastrar","DocumentoContratoController@store");
     Route::put("documento/atualizar/{id}","DocumentoContratoController@update");

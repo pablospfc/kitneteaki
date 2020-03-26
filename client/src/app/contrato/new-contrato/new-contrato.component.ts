@@ -41,11 +41,9 @@ export class NewContratoComponent implements OnInit {
       .subscribe(success => {
         const message = success.message;
         const id = success.id ? success.id : this.contrato.id;
-        console.log(success.id);
         this.alertService.success(message, true);
         this.router.navigate(['new-garantias-contrato', id]);
       }, error => {
-        console.log(error);
         const message = error.message;
         this.alertService.error(message);
       });

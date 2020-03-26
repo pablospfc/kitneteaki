@@ -6,11 +6,13 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {NgxLoadingModule} from 'ngx-loading';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from "@angular/forms";
+import { FaturaModalComponent } from './fatura-modal/fatura-modal.component';
+import { BoletoComponent } from './boleto/boleto.component';
 
 
 
 @NgModule({
-  declarations: [ListFaturaComponent],
+  declarations: [ListFaturaComponent, FaturaModalComponent, BoletoComponent],
   imports: [
     CommonModule,
     AuthModule,

@@ -6,6 +6,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Self_;
 
 class Parcela extends Model
 {
@@ -14,7 +15,7 @@ class Parcela extends Model
     public $timestamps = true;
     protected $fillable = [
         "id_status",
-        "id_tipo_pagamento",
+        "id_forma_pagamento",
         "id_contrato",
         "data_vencimento",
         "data_pagamento",
@@ -26,7 +27,66 @@ class Parcela extends Model
         "periodo_final",
     ];
 
-    public function getByContrato($id) {
+    public function listParcelas($params)
+    {
+        $imovel = false;
+        $locatario = false;
+        $tipoContrato = false;
+        $formaPagamento = false;
+        $status = false;
+        $periodos = false;
+
+        if (isset($params['id_imovel']))
+            $imovel = true;
+        if (isset($params['id_locatario']))
+            $locatario = true;
+        if (isset($params['id_tipo_contrato']))
+            $tipoContrato = true;
+        if (isset($params['id_forma_pagamento']))
+            $formaPagamento = true;
+        if (isset($params['id_status']))
+            $status = true;
+        if(isset($params['periodo_inicial']) && isset($params['periodo_final']))
+            $periodos = true;
+
+        return self::select(
+            "pa.*",
+            "pe.nome as inquilino",
+            "fp.nome as forma_pagamento",
+            "st.nome as status",
+            "im.nome as imovel"
+        )
+            ->from("parcela as pa")
+            ->join("contrato as co", "pa.id_contrato", "=", "co.id")
+            ->join("pessoa as pe", "co.id_locatario", "=", "pe.id")
+            ->join("status as st", "pa.id_status", "=", "st.id")
+            ->leftJoin("forma_pagamento as fp", "pa.id_forma_pagamento", "=", "fp.id")
+            ->join("imovel as im", "co.id_imovel", "=", "im.id")
+            ->when($imovel, function ($query) use ($params)  {
+                return $query->where('co.id_imovel', $params['id_imovel']);
+            })
+            ->when($locatario, function ($query) use ($params)  {
+                return $query->where('co.id_locatario', $params['id_locatario']);
+            })
+            ->when($tipoContrato, function ($query) use ($params)  {
+                return $query->where('co.id_tipo_contrato', $params['id_tipo_contrato']);
+            })
+            ->when($formaPagamento, function ($query) use ($params)  {
+                return $query->where('pa.id_forma_pagamento', $params['id_forma_pagamento']);
+            })
+            ->when($status, function ($query) use ($params) {
+                return $query->where('pa.id_status', $params['id_status']);
+            })
+            ->when($periodos, function ($query) use ($params) {
+                return $query->whereRaw("(pa.periodo_inicial >= ? AND pa.periodo_final <= ?)",
+                    [$params['periodo_inicial'], $params['periodo_final']]);
+            })
+            ->get()
+            ->toArray();
+    }
+
+    public function getByContrato($id)
+    {
         return self::select(
             "pa.*",
             "st.nome as status"
@@ -39,10 +99,15 @@ class Parcela extends Model
             ->toArray();
     }
 
-    public function getParcelas($idContrato) {
+    public function getParcelas($idContrato)
+    {
         $parcela = 1;
         $contrato = Contrato::find($idContrato);
-        $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
+        if ($contrato['id_tipo_contrato'] == 1) {
+            $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
+        } else {
+            $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], 1);
+        }
         $itens = (new ItemContrato())->getByContrato($idContrato);
         $valorTotal = $this->getValorTotal($idContrato, $contrato['valor']);
         $totalParcelas = count($vencimentos);
@@ -50,15 +115,16 @@ class Parcela extends Model
         foreach ($vencimentos as $vencimento) {
             $periodos = $this->gerarVencimentos($vencimento, 2);
             $parcelas[] = [
-                'id_status'       => 4,
-                'id_contrato'     => $idContrato,
+                'id_status' => 4,
+                'id_contrato' => $idContrato,
                 'data_vencimento' => $vencimento,
-                'valor'           => $contrato['valor'],
-                'valor_total'     => $valorTotal,
-                'parcela'         => $parcela.'/'.$totalParcelas,
+                'valor' => $contrato['valor'],
+                'valor_total' => $valorTotal,
+                'parcela' => $parcela . '/' . $totalParcelas,
                 'periodo_inicial' => $vencimento,
-                'periodo_final'   => date('Y-m-d', strtotime($periodos[1]. ' -1 days')),
-                'itens'           => $itens
+                'dias' => $contrato['dias'],
+                'periodo_final' => date('Y-m-d', strtotime($periodos[1] . ' -1 days')),
+                'itens' => $itens
             ];
 
             $parcela++;
@@ -71,29 +137,34 @@ class Parcela extends Model
     {
         $parcela = 1;
         $contrato = Contrato::find($id);
-        $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
+        if ($contrato['id_tipo_contrato'] == 1) {
+            $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], $contrato['vigencia']);
+        } else {
+            $vencimentos = $this->gerarVencimentos($contrato['primeiro_vencimento'], 1);
+        }
         $itens = (new ItemContrato())->getByContrato($id);
         $valorTotal = $this->getValorTotal($id, $contrato['valor']);
         $totalParcelas = count($vencimentos);
         foreach ($vencimentos as $vencimento) {
             $periodos = $this->gerarVencimentos($vencimento, 2);
             $parcelas[] = [
-                'id_status'       => 4,
-                'id_contrato'     => $id,
+                'id_status' => 4,
+                'id_contrato' => $id,
                 'data_vencimento' => $vencimento,
-                'competencia'     => $vencimento,
-                'valor'           => $valorTotal,
-                'parcela'         => $parcela.'/'.$totalParcelas,
+                'competencia' => $vencimento,
+                'valor' => $valorTotal,
+                'parcela' => $parcela . '/' . $totalParcelas,
                 'periodo_inicial' => $vencimento,
-                'periodo_final'   => date('Y-m-d', strtotime($periodos[1]. ' -1 days'))
+                'periodo_final' => date('Y-m-d', strtotime($periodos[1] . ' -1 days'))
             ];
             $parcela++;
         }
         return $this->saveParcela($parcelas, $itens);
     }
 
-    private function saveParcela($parcelas, $itens) {
-        foreach($parcelas as $parcela) {
+    private function saveParcela($parcelas, $itens)
+    {
+        foreach ($parcelas as $parcela) {
             $idParcela = self::create($parcela)->id;
             foreach ($itens as $item) {
                 DB::transaction(function () use ($idParcela, $item) {

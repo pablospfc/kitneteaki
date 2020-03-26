@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Boleto;
 use App\Model\Parcela;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
 class ParcelaController extends Controller
 {
     private $parcela;
+    private $boleto;
     /**
      * Display a listing of the resource.
      *
@@ -16,11 +19,18 @@ class ParcelaController extends Controller
     function __construct()
     {
         $this->parcela = new Parcela();
+        $this->boleto = new Boleto();
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        //
+        try {
+            $dados = $this->parcela->listParcelas($request->all());
+            return response()->json($dados,200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao listar dados'],500);
+        }
     }
 
     public function getByContrato($id) {
@@ -31,6 +41,11 @@ class ParcelaController extends Controller
             \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um problema ao listar fatura'],500);
         }
+    }
+
+    public function gerarBoleto()
+    {
+        return json_encode($this->boleto->gerarBoleto());
     }
 
     public function gerarParcelas($id) {
@@ -82,7 +97,13 @@ class ParcelaController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $dado = \App\Model\Parcela::find($id);
+            return response()->json($dado,200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao carregar dados'],500);
+        }
     }
 
     /**
@@ -105,7 +126,14 @@ class ParcelaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            \App\Model\Parcela::where('id', $id)
+                          ->update($request->all());
+            return response()->json(['message' => 'Dado atualizado com sucesso.'],200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao atualizar dados.'],500);
+        }
     }
 
     /**

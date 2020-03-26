@@ -21,12 +21,15 @@ import {PerfilComponent} from './auth/perfil/perfil.component';
 import {ContratoResolverGuard} from './_guards/contrato-resolver.guard';
 import {FinalizacaoContratoComponent} from './contrato/finalizacao-contrato/finalizacao-contrato.component';
 import {OcupantesImovelModalComponent} from './contrato/ocupantes-imovel-modal/ocupantes-imovel-modal.component';
-import {FiadoresContratoModalComponent} from "./contrato/fiadores-contrato-modal/fiadores-contrato-modal.component";
-import {ItensContratoModalComponent} from "./contrato/itens-contrato-modal/itens-contrato-modal.component";
-import {TestemunhasContratoModalComponent} from "./contrato/testemunhas-contrato-modal/testemunhas-contrato-modal.component";
-import {ParcelasContratoModalComponent} from "./contrato/parcelas-contrato-modal/parcelas-contrato-modal.component";
-import {GeracaoParcelasModalComponent} from "./contrato/geracao-parcelas-modal/geracao-parcelas-modal.component";
-import {ListFaturaComponent} from "./fatura/list-fatura/list-fatura.component";
+import {FiadoresContratoModalComponent} from './contrato/fiadores-contrato-modal/fiadores-contrato-modal.component';
+import {ItensContratoModalComponent} from './contrato/itens-contrato-modal/itens-contrato-modal.component';
+import {TestemunhasContratoModalComponent} from './contrato/testemunhas-contrato-modal/testemunhas-contrato-modal.component';
+import {ParcelasContratoModalComponent} from './contrato/parcelas-contrato-modal/parcelas-contrato-modal.component';
+import {GeracaoParcelasModalComponent} from './contrato/geracao-parcelas-modal/geracao-parcelas-modal.component';
+import {ListFaturaComponent} from './fatura/list-fatura/list-fatura.component';
+import {FaturaModalComponent} from './fatura/fatura-modal/fatura-modal.component';
+import {BoletoTemplateComponent} from "./templates/boleto-template/boleto-template.component";
+import {BoletoComponent} from "./fatura/boleto/boleto.component";
 
 
 const routes: Routes = [
@@ -113,6 +116,10 @@ const routes: Routes = [
         component: GeracaoParcelasModalComponent
       },
       {
+        path: 'fatura-modal',
+        component: FaturaModalComponent
+      },
+      {
         path: 'list-imovel',
         component: ListImovelComponent
       },
@@ -155,7 +162,17 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
-      }
+      },
+    ]
+  },
+  {
+    path: '',
+    component: BoletoTemplateComponent,
+    children: [
+      {
+        path: 'boleto/:id',
+        component: BoletoComponent
+      },
     ]
   },
   {path: '**', redirectTo: ''}

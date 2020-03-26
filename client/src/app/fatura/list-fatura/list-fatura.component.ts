@@ -3,6 +3,10 @@ import {ParcelaService} from "../../_services/parcela.service";
 import {ImovelService} from "../../_services/imovel.service";
 import {PessoaService} from "../../_services/pessoa.service";
 import {AlertMessageService} from "../../_services/alert-message.service";
+import {NgForm} from '@angular/forms';
+import {BsModalService} from "ngx-bootstrap/modal";
+import {FaturaModalComponent} from "../fatura-modal/fatura-modal.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-fatura',
@@ -11,21 +15,55 @@ import {AlertMessageService} from "../../_services/alert-message.service";
 })
 export class ListFaturaComponent implements OnInit {
 
-  public parcelas = [];
+  public parcelas: any[];
   public inquilinos = [];
   public imoveis = [];
   public page = 1;
   public totalRec: number;
   public loading = false;
+  public boleto;
+  public filtro = {
+    id_locatario: null,
+    id_imovel: null,
+    id_tipo_imovel: null,
+    id_status: null,
+    id_tipo_contrato: null,
+    id_forma_pagamento: null,
+    periodo_final: null,
+    periodo_inicial: null
+  };
   constructor(private parcelaService: ParcelaService,
               private imovelService: ImovelService,
               private pessoaService: PessoaService,
+              private modalService: BsModalService,
+              private router: Router,
               private alertService: AlertMessageService) { }
 
   ngOnInit() {
-    this.listParcelas();
+    //this.listParcelas(null);
     this.getImoveis();
     this.getInquilinos();
+  }
+
+  clear() {
+  this.filtro = {
+      id_locatario: null,
+      id_imovel: null,
+      id_tipo_imovel: null,
+      id_status: null,
+      id_tipo_contrato: null,
+      id_forma_pagamento: null,
+      periodo_final: null,
+      periodo_inicial: null
+    };
+  }
+
+  openModalParcela(id: number) {
+   this.modalService.show(FaturaModalComponent, {
+     initialState: {
+       id: id
+     }
+   });
   }
 
   getImoveis() {
@@ -35,6 +73,15 @@ export class ListFaturaComponent implements OnInit {
       }, error => {
 
       });
+  }
+
+  gerarBoleto(id: number) {
+    // with the window.open() function
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree([`boleto/${id}`])
+    );
+
+    window.open('#' + url, '_blank');
   }
 
   getInquilinos() {
@@ -48,14 +95,17 @@ export class ListFaturaComponent implements OnInit {
 
   listParcelas() {
     this.loading = true;
-    this.parcelaService.listParcelas()
+    this.parcelaService.listParcelas(this.filtro)
       .subscribe(response => {
         this.parcelas = response;
+        console.log(this.parcelas);
         this.totalRec = this.parcelas.length;
         this.loading = false;
       }, error => {
         this.loading = false;
       });
+
+
   }
 
 }

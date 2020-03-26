@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {catchError, map} from 'rxjs/operators';
-import {throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,11 @@ export class ParcelaService {
   private readonly API = `${environment.API}/parcela`;
   constructor(private http: HttpClient) { }
 
-  public listParcelas() {
-   return this.http.get<any>(`${this.API}/listParcelas`)
+  public listParcelas(dados): Observable<any> {
+    return this.http.get<any>(`${this.API}/listParcelas`, dados)
      .pipe(
-       catchError(error => {
-         return throwError(error);
+       map(response => {
+         return response;
        })
      );
   }
@@ -26,6 +26,24 @@ export class ParcelaService {
       .pipe(
         map(response => {
           return response;
+        })
+      );
+  }
+
+  public gerarBoleto() {
+    return this.http.get<any>(`${this.API}/gerarBoleto`)
+      .pipe(
+        map(response => {
+          return response;
+        })
+      );
+  }
+
+  public getById(id) {
+    return this.http.get<any>(`${this.API}/getById/${id}`)
+      .pipe(
+        map(data => {
+          return data;
         })
       );
   }

@@ -14,19 +14,20 @@
     <div class="box-header">
       <i class="ion ion-clipboard"></i>
 
-      <h3 class="box-title">Gestão de Faturas</h3>
+      <h3 class="box-title">Listagem de Faturas</h3>
 
     </div>
     <!-- /.box-header -->
     <app-alert-message></app-alert-message>
     <div class="box-body">
-      <form>
+      <form #formFiltro="ngForm" name="formFiltro" role="form">
         <div class="row">
           <div class="form-group col-md-3">
-            <label for="id_pessoa">Inquilino</label>
+            <label for="id_locatario">Inquilino</label>
             <select class="form-control"
-                    id="id_pessoa"
-                    name="id_pessoa">
+                    id="id_locatario"
+                    [(ngModel)]="filtro.id_locatario"
+                    name="id_locatario">
               <option *ngFor="let inquilino of inquilinos" [value]="inquilino.id">{{inquilino.nome}}</option>
             </select>
           </div>
@@ -35,6 +36,7 @@
             <label for="id_imovel">Imóvel</label>
             <select class="form-control"
                     id="id_imovel"
+                    [(ngModel)]="filtro.id_imovel"
                     name="id_imovel">
               <option *ngFor="let imovel of imoveis" [value]="imovel.id">{{imovel.nome}}</option>
             </select>
@@ -44,6 +46,7 @@
             <label for="id_tipo_contrato">Tipo de Contrato</label>
             <select class="form-control"
                     id="id_tipo_contrato"
+                    [(ngModel)]="filtro.id_tipo_contrato"
                     name="id_tipo_contrato">
               <option [value]="1">Aluguel</option>
               <option [value]="2">Temporada</option>
@@ -52,9 +55,29 @@
         </div>
         <div class="row">
           <div class="form-group col-md-3">
+            <label for="periodo_inicial">Período Inicial</label>
+            <input type="date"
+                   class="form-control"
+                   id="periodo_inicial"
+                   name="periodo_inicial"
+                   [(ngModel)]="filtro.periodo_inicial"
+                   [required]="false"/>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="periodo_final">Período Final</label>
+            <input type="date"
+                   class="form-control"
+                   id="periodo_final"
+                   name="periodo_final"
+                   [(ngModel)]="filtro.periodo_final"
+                   [required]="filtro.periodo_inicial"/>
+          </div>
+          <div class="form-group col-md-2">
             <label for="id_forma_pagamento">Forma de Pagamento</label>
             <select class="form-control"
                     id="id_forma_pagamento"
+                    [(ngModel)]="filtro.id_forma_pagamento"
                     name="id_forma_pagamento">
               <option [value]="1">Dinheiro</option>
               <option [value]="2">Boleto Bancário</option>
@@ -62,10 +85,11 @@
             </select>
           </div>
 
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-2">
             <label for="id_status">Status</label>
             <select class="form-control"
                     id="id_status"
+                    [(ngModel)]="filtro.id_status"
                     name="id_status">
               <option [value]="4">Em Aberto</option>
               <option [value]="5">Atrasado</option>
@@ -74,6 +98,7 @@
           </div>
         </div>
         <button type="button" (click)="listParcelas()" class="btn btn-success">Buscar</button>
+        <button type="button" (click)="clear()" class="btn btn-default">Limpar</button>
       </form>
       <hr>
       <table id="example1" class="table table-bordered table-striped">
@@ -81,7 +106,8 @@
         <tr>
           <th>Inquilino</th>
           <th>Status</th>
-          <th>Tipo de Pagamento</th>
+          <th>Forma de Pagamento</th>
+          <th>Parcela</th>
           <th>Período</th>
           <th>Data de Vencimento</th>
           <th>Valor Total</th>
@@ -97,13 +123,14 @@
           <td><span class="label"
                     [ngClass]="{'label-info': parcela.id_status == 6, 'label-success': parcela.id_status == 4, 'label-danger': parcela.id_status == 5}">{{parcela.status}}</span>
           </td>
-          <td>{{parcela.tipo_pagamento}}</td>
+          <td>{{parcela.forma_pagamento}}</td>
+          <td>{{parcela.parcela}}</td>
           <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} ~ {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
           <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
           <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
           <td>
             <button type="button"
-                    [routerLink]="['/update-fatura/'+parcela.id]"
+                    (click)="openModalParcela(parcela.id)"
                     class="btn btn-info btn-sm">
               <i class="fa fa-edit" aria-hidden="true"></i>
             </button>
@@ -111,6 +138,17 @@
             <button type="button"
                     class="btn btn-danger btn-sm">
               <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+
+            <button type="button"
+                    (click)="gerarBoleto(parcela.id)"
+                    class="btn btn-success btn-sm">
+              <i class="fa fa-registered" aria-hidden="true"></i>
+            </button>
+
+            <button type="button"
+                    class="btn btn-default btn-sm">
+              <i class="fa fa-check" aria-hidden="true"></i>
             </button>
           </td>
         </tr>
@@ -132,5 +170,7 @@
 
   </div>
 </section>
+
+<a class="left-header-images-link" [routerLink]="['/boleto']" [target]="'_blank'">Boleto</a>
 
 <ngx-loading [show]="loading"></ngx-loading>
