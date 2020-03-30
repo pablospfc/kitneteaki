@@ -30,6 +30,7 @@ import {ListFaturaComponent} from './fatura/list-fatura/list-fatura.component';
 import {FaturaModalComponent} from './fatura/fatura-modal/fatura-modal.component';
 import {BoletoTemplateComponent} from "./templates/boleto-template/boleto-template.component";
 import {BoletoComponent} from "./fatura/boleto/boleto.component";
+import {RenovacaoContratoComponent} from "./contrato/renovacao-contrato/renovacao-contrato.component";
 
 
 const routes: Routes = [
@@ -152,6 +153,13 @@ const routes: Routes = [
       {
         path: 'new-modelo-documento',
         component: NewModeloDocumentoComponent
+      },
+      {
+        path: 'renovacao-contrato/:id',
+        component: RenovacaoContratoComponent,
+        resolve: {
+          contrato: ContratoResolverGuard
+        }
       }
     ]
   },

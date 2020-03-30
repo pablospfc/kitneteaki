@@ -71,6 +71,7 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("conta/listar","ContaController@index");
 
     Route::post("contrato/cadastrar","ContratoController@store");
+    Route::post("contrato/renovar","ContratoController@renovar");
     Route::put("contrato/atualizar/{id}","ContratoController@update");
     Route::get("contrato/buscar/{id}","ContratoController@show");
     Route::get("contrato/listar","ContratoController@index");

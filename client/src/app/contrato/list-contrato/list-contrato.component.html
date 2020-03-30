@@ -52,6 +52,7 @@
           <td>{{contrato.imovel}}</td>
           <td>
             <button type="button"
+                    [disabled]="contrato.id_status != 1"
                     [routerLink]="['/update-contrato/'+contrato.id]"
                     class="btn btn-info btn-sm">
               <i class="fa fa-edit" aria-hidden="true"></i>
@@ -60,6 +61,13 @@
             <button type="button"
                     class="btn btn-danger btn-sm">
               <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+
+            <button type="button"
+                    [disabled]="contrato.id_status != 3"
+                    [routerLink]="['/renovacao-contrato/'+contrato.id]"
+                    class="btn btn-success btn-sm">
+              <i class="fa fa-file-text" aria-hidden="true"></i>
             </button>
           </td>
         </tr>

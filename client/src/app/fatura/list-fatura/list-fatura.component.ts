@@ -7,6 +7,7 @@ import {NgForm} from '@angular/forms';
 import {BsModalService} from "ngx-bootstrap/modal";
 import {FaturaModalComponent} from "../fatura-modal/fatura-modal.component";
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-list-fatura',
@@ -15,7 +16,7 @@ import {Router} from "@angular/router";
 })
 export class ListFaturaComponent implements OnInit {
 
-  public parcelas: any[];
+  public parcelas = [];
   public inquilinos = [];
   public imoveis = [];
   public page = 1;
@@ -40,7 +41,7 @@ export class ListFaturaComponent implements OnInit {
               private alertService: AlertMessageService) { }
 
   ngOnInit() {
-    //this.listParcelas(null);
+    this.listParcelas();
     this.getImoveis();
     this.getInquilinos();
   }
@@ -98,7 +99,6 @@ export class ListFaturaComponent implements OnInit {
     this.parcelaService.listParcelas(this.filtro)
       .subscribe(response => {
         this.parcelas = response;
-        console.log(this.parcelas);
         this.totalRec = this.parcelas.length;
         this.loading = false;
       }, error => {

@@ -55,6 +55,15 @@ class Contrato extends Model
         return $insertId;
     }
 
+    public function renovarContrato($dados) {
+        DB::transaction(function () use ($dados) {
+            self::where('id', $dados['id_contrato'])
+                ->update(['renovou' => true]);
+
+            self::create($dados);
+        });
+    }
+
     private function extractDayFromDate($data)
     {
         $timestamp = strtotime($data);

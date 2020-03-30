@@ -29,6 +29,7 @@ class Parcela extends Model
 
     public function listParcelas($params)
     {
+
         $imovel = false;
         $locatario = false;
         $tipoContrato = false;
@@ -48,6 +49,7 @@ class Parcela extends Model
             $status = true;
         if(isset($params['periodo_inicial']) && isset($params['periodo_final']))
             $periodos = true;
+
 
         return self::select(
             "pa.*",

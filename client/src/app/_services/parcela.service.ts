@@ -13,12 +13,32 @@ export class ParcelaService {
   constructor(private http: HttpClient) { }
 
   public listParcelas(dados): Observable<any> {
-    return this.http.get<any>(`${this.API}/listParcelas`, dados)
-     .pipe(
-       map(response => {
-         return response;
-       })
-     );
+    let params = new HttpParams();
+    if (dados.id_locatario) {
+      params = params.set('id_locatario', dados.id_locatario);
+    }
+    if (dados.id_imovel) {
+      params = params.set('id_imovel', dados.id_imovel);
+    }
+    if (dados.id_tipo_contrato) {
+      params = params.set('id_tipo_contrato', dados.id_tipo_contrato);
+    }
+    if (dados.id_forma_pagamento) {
+      params = params.set('id_forma_pagamento', dados.id_forma_pagamento);
+    }
+    if (dados.id_status) {
+      params = params.set('id_status', dados.id_status);
+    }
+    if (dados.periodo_inicial && dados.periodo_final) {
+      params = params.set('periodo_inicial', dados.periodo_inicial);
+      params = params.set('periodo_final', dados.periodo_final);
+    }
+    return this.http.get<any>(`${this.API}/listParcelas`, {params})
+      .pipe(
+        map(response => {
+          return response;
+        })
+      );
   }
 
   public getByContrato(id: number) {

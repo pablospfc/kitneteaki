@@ -59,6 +59,15 @@ export class ContratoService {
       );
   }
 
+  public renew(contrato) {
+    return this.http.post<any>(`${this.API}/renovar`, contrato)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
+
   private update(contrato) {
     return this.http.put<any>(`${this.API}/atualizar/${contrato.id}`, contrato)
       .pipe(

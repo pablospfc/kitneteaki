@@ -61,6 +61,16 @@ class ContratoController extends Controller
         }
     }
 
+    public function renovar(Request $request) {
+        try {
+            $this->contrato->renovarContrato($request->all());
+            return response()->json(['message' => 'Contrato prorrogado com sucesso.'],200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema na prorrogação de contrato.'],500);
+        }
+    }
+
     /**
      * Display the specified resource.
      *
