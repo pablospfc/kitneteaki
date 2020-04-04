@@ -47,6 +47,7 @@ export class FinalizacaoContratoComponent implements OnInit {
      .subscribe(data => {
        this.alertService.success(data.message);
        this.loading = false;
+       window.scroll(0,0);
        setTimeout(() => {
            this.router.navigate(['list-contrato']);
          },

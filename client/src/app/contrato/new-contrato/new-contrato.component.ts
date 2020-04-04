@@ -33,6 +33,7 @@ export class NewContratoComponent implements OnInit {
     this.getLocatarios();
     this.actRoute.data.subscribe(data => {
       this.contrato = data.contrato;
+      this.getImoveis(this.contrato.id_tipo_contrato);
     });
   }
 

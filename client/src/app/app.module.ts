@@ -28,6 +28,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {AlertModule} from 'ngx-bootstrap';
 import {FaturaModule} from './fatura/fatura.module';
 import { BoletoTemplateComponent } from './templates/boleto-template/boleto-template.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { BoletoTemplateComponent } from './templates/boleto-template/boleto-temp
       primaryColour: '#00a65a',
       secondaryColour: '#0e7fe1'
     }),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
   providers: [ AuthGuard,
     {
