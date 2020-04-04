@@ -33,6 +33,7 @@ export class RenovacaoContratoComponent implements OnInit {
     });
     this.getLocatarios();
     this.cleanContrato();
+    //teste
   }
 
   onSubmit(form: NgForm) {
