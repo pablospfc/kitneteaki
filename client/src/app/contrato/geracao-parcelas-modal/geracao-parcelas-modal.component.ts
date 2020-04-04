@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {ParcelaService} from '../../_services/parcela.service';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-geracao-parcelas-modal',
@@ -17,7 +16,6 @@ export class GeracaoParcelasModalComponent implements OnInit {
   constructor(private modalService: BsModalService,
               private parcelaService: ParcelaService,
               private alertService: AlertMessageService,
-              private router: Router,
               private modalRef: BsModalRef) { }
 
   ngOnInit() {
@@ -42,7 +40,6 @@ export class GeracaoParcelasModalComponent implements OnInit {
      .subscribe(data => {
       this.alertService.success(data.message);
       this.loading = false;
-      window.scroll(0,0);
      }, error => {
        this.alertService.error(error.message);
        this.loading = false;

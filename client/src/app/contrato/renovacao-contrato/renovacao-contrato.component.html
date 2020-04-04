@@ -47,6 +47,7 @@
                         id="tipo_contrato"
                         [(ngModel)]="contrato.id_tipo_contrato"
                         (change)="getImoveis($event.target.value)"
+                        [disabled]="true"
                         [required]="true"
                         name="id_tipo_contrato">
                   <option [value]="1">Aluguel</option>
@@ -71,6 +72,7 @@
                 <select class="form-control"
                         id="locatario"
                         [(ngModel)]="contrato.id_locatario"
+                        [disabled]="true"
                         [required]="true"
                         name="id_locatario">
                   <option *ngFor="let locatario of locatarios" [value]="locatario.id">{{locatario.nome}}</option>

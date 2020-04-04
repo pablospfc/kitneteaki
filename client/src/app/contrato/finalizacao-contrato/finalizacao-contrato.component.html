@@ -142,7 +142,7 @@
         </div>
 
           <div class="box-footer text-center">
-            <button type="button" class="btn btn-primary" [disabled]="!parcelas.length" (click)="concluirContrato()">Finalizar</button>
+            <button type="button" class="btn btn-primary" (click)="concluirContrato()" >Finalizar</button>
             <button type="button" class="btn btn-success" [routerLink]="['/new-garantias-contrato/'+idContrato]">Voltar</button>
           </div>
 

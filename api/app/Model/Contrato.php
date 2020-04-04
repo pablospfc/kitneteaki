@@ -56,18 +56,12 @@ class Contrato extends Model
     }
 
     public function renovarContrato($dados) {
-        $insertId =  DB::transaction(function () use ($dados) {
-            $day = $this->extractDayFromDate($dados['primeiro_vencimento']);
+        DB::transaction(function () use ($dados) {
             self::where('id', $dados['id_contrato'])
-                ->update(['renovou' => true, 'id_status' => 12]);
+                ->update(['renovou' => true]);
 
-            $dados['dia_vencimento'] = $day;
-            $id = self::create($dados)->id;
-
-            return $id;
+            self::create($dados);
         });
-
-        return $insertId;
     }
 
     private function extractDayFromDate($data)

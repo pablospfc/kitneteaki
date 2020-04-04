@@ -36,20 +36,16 @@ export class RenovacaoContratoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    form.value.id_contrato = this.contrato.id;
-
     return this.contratoService.renew(form.value)
       .subscribe(success => {
         const message = success.message;
-        const id = success.id ? success.id : null;
+        const id = success.id ? success.id : this.contrato.id;
         this.alertService.success(message, true);
         this.router.navigate(['new-garantias-contrato', id]);
       }, error => {
         const message = error.message;
         this.alertService.error(message);
       });
-
-
   }
 
   // filter the important data
@@ -59,9 +55,9 @@ export class RenovacaoContratoComponent implements OnInit {
     this.contrato.data_fim = null;
     this.contrato.primeiro_vencimento = null;
     this.contrato.observacoes = null;
-    const newFimContrato = moment(this.contrato.data_fim).add(1, 'days');
+    const newInicioContrato = moment(this.contrato.data_inicio).add(1, 'days');
     // @ts-ignore
-    this.contrato.data_inicio = newFimContrato.format('YYYY-MM-DD');
+    this.contrato.data_inicio = newInicioContrato.format('YYYY-MM-DD');
   }
 
   getLocatarios() {

@@ -3,7 +3,7 @@ import {Pessoa} from '../../_models/pessoa.model';
 import {NgForm} from '@angular/forms';
 import {PessoaService} from '../../_services/pessoa.service';
 import {AlertMessageService} from '../../_services/alert-message.service';
-import {ActivatedRoute, Resolve, Router} from '@angular/router';
+import {ActivatedRoute, Resolve} from '@angular/router';
 
 @Component({
   selector: 'app-new-pessoa',
@@ -14,10 +14,7 @@ export class NewPessoaComponent implements OnInit {
 
   public pessoa: Pessoa;
   formValue: any;
-  constructor(private pessoaService: PessoaService,
-              private alertService: AlertMessageService,
-              private actRoute: ActivatedRoute,
-              private router: Router) {
+  constructor(private pessoaService: PessoaService, private alertService: AlertMessageService, private actRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -33,11 +30,6 @@ export class NewPessoaComponent implements OnInit {
       .subscribe(success => {
           const message = (success as any).message;
           this.alertService.success(message, true);
-          window.scroll(0,0);
-          setTimeout(() => {
-              this.router.navigate(['list-pessoa']);
-            },
-            5000);
       },
         error => {
           const message = (error as any).message;

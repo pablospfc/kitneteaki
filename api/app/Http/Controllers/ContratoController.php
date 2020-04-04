@@ -53,6 +53,7 @@ class ContratoController extends Controller
     {
         try {
             $id = $this->contrato->salvar($request->all());
+            error_log($id);
             return response()->json(['message' => 'Dados cadastrados com sucesso.', 'id' => $id], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
@@ -62,9 +63,8 @@ class ContratoController extends Controller
 
     public function renovar(Request $request) {
         try {
-            $id = $this->contrato->renovarContrato($request->all());
-            error_log($id);
-            return response()->json(['message' => 'Contrato prorrogado com sucesso.', 'id' => $id],200);
+            $this->contrato->renovarContrato($request->all());
+            return response()->json(['message' => 'Contrato prorrogado com sucesso.'],200);
         }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um problema na prorrogação de contrato.'],500);
