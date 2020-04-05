@@ -44,17 +44,18 @@ export class FinalizacaoContratoComponent implements OnInit {
   concluirContrato() {
     this.loading = true;
     this.contratoService.concluirContrato(this.idContrato)
-     .subscribe(data => {
-       this.alertService.success(data.message);
-       this.loading = false;
-       setTimeout(() => {
-           this.router.navigate(['list-contrato']);
-         },
-         5000);
-     }, error => {
-       this.alertService.error(error.message);
-       this.loading = false;
-     });
+      .subscribe(data => {
+        this.alertService.success(data.message);
+        this.loading = false;
+        window.scroll(0,0);
+        setTimeout(() => {
+            this.router.navigate(['list-contrato']);
+          },
+          5000);
+      }, error => {
+        this.alertService.error(error.message);
+        this.loading = false;
+      });
   }
 
   openModalConfirmRemove(item: string, template: TemplateRef<any>, id: number) {

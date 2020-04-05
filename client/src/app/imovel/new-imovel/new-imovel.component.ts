@@ -3,7 +3,7 @@ import {Imovel} from '../../_models/imovel.model';
 import {NgForm} from '@angular/forms';
 import {ImovelService} from '../../_services/imovel.service';
 import {AlertMessageService} from '../../_services/alert-message.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CepService} from '../../_services/cep.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class NewImovelComponent implements OnInit {
   constructor(private imovelService: ImovelService,
               private alertService: AlertMessageService,
               private actRoute: ActivatedRoute,
+              private router: Router,
               private cepService: CepService) {
   }
 
@@ -36,6 +37,11 @@ export class NewImovelComponent implements OnInit {
         const message = (success as any).message;
         this.alertService.success(message, true);
         this.loading = false;
+        window.scroll(0,0);
+        setTimeout(() => {
+            this.router.navigate(['list-imovel']);
+          },
+          5000);
       }, error => {
         const message = (error as any).message;
         this.alertService.error(message);
