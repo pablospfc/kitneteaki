@@ -70,6 +70,36 @@ class Contrato extends Model
         return $insertId;
     }
 
+    public function remover($id) {
+        DB::transaction(function() use ($id) {
+
+            DocumentoContrato::where("id_contrato", $id)
+                ->delete();
+            ItemContrato::where("id_contrato", $id)
+                ->delete();
+            FiadorContrato::where("id_contrato", $id)
+                ->delete();
+            OcupantesImovel::where("id_contrato", $id)
+                ->delete();
+            TestemunhasContrato::where("id_contrato", $id)
+                ->delete();
+
+            ParcelaItem::join("parcela", "parcela_item.id_parcela", "=", "parcela.id")
+                ->join("contrato", "parcela.id_contrato", "=", "contrato.id")
+                ->where("contrato.id", $id)
+                ->forceDelete();
+
+            Imovel::join("contrato", "imovel.id", "=", "contrato.id_imovel")
+                ->where("contrato.id", $id)
+                ->update(['id_status' => 7]);
+
+            Parcela::where("id_contrato", $id)
+                ->delete();
+            Contrato::destroy($id);
+        });
+
+    }
+
     private function extractDayFromDate($data)
     {
         $timestamp = strtotime($data);
@@ -105,6 +135,7 @@ class Contrato extends Model
             "con.id as id",
             "con.valor",
             "con.vigencia",
+            "con.dias",
             "con.valor_total",
             "con.primeiro_vencimento"
         )

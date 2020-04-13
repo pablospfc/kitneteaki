@@ -18,7 +18,9 @@
 
       <div class="box-tools pull-right">
         <!-- BOTÕES DE ADICIONAR-->
-        <button type="button" class="btn btn-success pull-right" [routerLink]="['/new-contrato']"><i class="fa fa-plus"></i> Adicionar</button>
+        <button type="button" class="btn btn-success pull-right" [routerLink]="['/new-contrato']"><i
+          class="fa fa-plus"></i> Adicionar
+        </button>
       </div>
     </div>
     <!-- /.box-header -->
@@ -29,13 +31,15 @@
         <thead>
         <tr>
           <th>Status</th>
-          <th>Tipo de Contrato</th>
-          <th>Período Inicial</th>
-          <th>Período Final</th>
+          <th>Tipo</th>
+          <th>Período</th>
+          <th>Vigência</th>
           <th>Valor</th>
           <th>Inquilino</th>
           <th>Imóvel</th>
-          <th>Ação</th>
+          <th>Atualizar</th>
+          <th>Renovar</th>
+          <th>Remover</th>
         </tr>
         </thead>
         <tbody>
@@ -43,31 +47,36 @@
                                                       itemsPerPage: 10,
                                                       currentPage: page,
                                                       totalItems: totalRec}">
-          <td><span class="label" [ngClass]="{'label-warning': contrato.id_status == 3 || contrato.id_status == 11, 'label-success': contrato.id_status == 1, 'label-danger': contrato.id_status == 2, 'label-default': contrato.id_status == 12}">{{contrato.status}}</span></td>
+          <td><span class="label"
+                    [ngClass]="{'label-warning': contrato.id_status == 3 || contrato.id_status == 11, 'label-success': contrato.id_status == 1, 'label-danger': contrato.id_status == 2, 'label-default': contrato.id_status == 12}">{{contrato.status}}</span>
+          </td>
           <td>{{contrato.tipo_contrato}}</td>
-          <td>{{contrato.periodo_inicial | date: 'dd/MM/yyyy'}}</td>
-          <td>{{contrato.periodo_final | date: 'dd/MM/yyyy'}}</td>
+          <td>{{contrato.periodo_inicial | date: 'dd/MM/yyyy'}} ~ {{contrato.periodo_final | date: 'dd/MM/yyyy'}}</td>
+          <td>{{contrato.vigencia ? contrato.vigencia + ' meses' : contrato.dias + ' dias'}}</td>
           <td>{{contrato.valor | currency:"BRL":"symbol"}}</td>
           <td>{{contrato.locatario}}</td>
           <td>{{contrato.imovel}}</td>
           <td>
             <button type="button"
-                    [disabled]="contrato.id_status != 1"
+                    [disabled]="contrato.id_status != 1 && contrato.id_status != 11"
                     [routerLink]="['/update-contrato/'+contrato.id]"
                     class="btn btn-info btn-sm">
               <i class="fa fa-edit" aria-hidden="true"></i>
             </button>
-
-            <button type="button"
-                    class="btn btn-danger btn-sm">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-
+          </td>
+          <td>
             <button type="button"
                     [disabled]="contrato.id_status != 3"
                     [routerLink]="['/renovacao-contrato/'+contrato.id]"
                     class="btn btn-success btn-sm">
               <i class="fa fa-file-text" aria-hidden="true"></i>
+            </button>
+          </td>
+          <td>
+            <button type="button"
+                    (click)="openModalConfirmRemove(template, contrato.id)"
+                    class="btn btn-danger btn-sm">
+              <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </td>
         </tr>
@@ -81,12 +90,31 @@
         </tbody>
       </table>
       <div>
-        <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+        <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+                             (pageChange)="page = $event"></pagination-controls>
       </div>
     </div>
     <!-- /.box-body -->
 
   </div>
 </section>
+
+<ng-template #template>
+  <div class="alert-box">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirmação de exclusão</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Confirma a exclusão deste registro? Há muitos registros dependentes do contrato, como faturas.
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="confirmRemove()">Sim</button>
+      <button type="button" class="btn btn-default" (click)="decline()">Não</button>
+    </div>
+  </div>
+</ng-template>
 
 <ngx-loading [show]="loading"></ngx-loading>

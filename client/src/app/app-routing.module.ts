@@ -31,6 +31,7 @@ import {FaturaModalComponent} from './fatura/fatura-modal/fatura-modal.component
 import {BoletoTemplateComponent} from "./templates/boleto-template/boleto-template.component";
 import {BoletoComponent} from "./fatura/boleto/boleto.component";
 import {RenovacaoContratoComponent} from "./contrato/renovacao-contrato/renovacao-contrato.component";
+import {NewContaComponent} from "./conta/new-conta/new-conta.component";
 
 
 const routes: Routes = [
@@ -160,6 +161,14 @@ const routes: Routes = [
         resolve: {
           contrato: ContratoResolverGuard
         }
+      },
+      {
+        path: 'list-conta',
+        component: ListContaComponent
+      },
+      {
+        path: 'new-conta',
+        component: NewContaComponent
       }
     ]
   },

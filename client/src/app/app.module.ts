@@ -28,6 +28,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {AlertModule} from 'ngx-bootstrap';
 import {FaturaModule} from './fatura/fatura.module';
 import { BoletoTemplateComponent } from './templates/boleto-template/boleto-template.component';
+import { CompareDatesDirective } from './_directives/compare-dates.directive';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { BoletoTemplateComponent } from './templates/boleto-template/boleto-temp
     DashboardTemplateComponent,
     LoginTemplateComponent,
     BoletoTemplateComponent,
+    CompareDatesDirective,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import { BoletoTemplateComponent } from './templates/boleto-template/boleto-temp
       primaryColour: '#00a65a',
       secondaryColour: '#0e7fe1'
     }),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
   providers: [ AuthGuard,
     {

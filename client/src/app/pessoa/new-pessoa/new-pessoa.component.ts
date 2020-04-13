@@ -32,7 +32,7 @@ export class NewPessoaComponent implements OnInit {
     this.pessoaService.save(form.value)
       .subscribe(success => {
           const message = (success as any).message;
-          this.alertService.success(message, true);
+          this.alertService.success(message);
           window.scroll(0,0);
           setTimeout(() => {
               this.router.navigate(['list-pessoa']);

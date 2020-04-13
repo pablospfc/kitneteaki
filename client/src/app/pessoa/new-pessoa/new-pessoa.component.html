@@ -121,16 +121,27 @@
                 </select>
               </div>
 
-              <div class="form-group col-md-3">
-                <label for="cpf">CPF/CNPJ:</label>
+              <div class="form-group col-md-3" *ngIf="pessoa.id_tipo_pessoa == 1">
+                <label for="cpf">CPF:</label>
                 <input type="text"
                        [(ngModel)]="pessoa.cpf_cnpj"
-                       [disabled]="pessoa.id_nacionalidade == 2"
                        [required]="pessoa.id_nacionalidade == 1"
                        name="cpf_cnpj"
                        class="form-control"
                        id="cpf"
-                       placeholder="12"
+                       placeholder="CPF"
+                />
+              </div>
+
+              <div class="form-group col-md-3" *ngIf="pessoa.id_tipo_pessoa == 2">
+                <label for="cpf">CNPJ:</label>
+                <input type="text"
+                       [(ngModel)]="pessoa.cpf_cnpj"
+                       [required]="pessoa.id_nacionalidade == 1"
+                       name="cpf_cnpj"
+                       class="form-control"
+                       id="cnpj"
+                       placeholder="CNPJ"
                 />
               </div>
 
@@ -192,6 +203,7 @@
                        class="form-control"
                        id="telefone_celular"
                        name="telefone_celular"
+                       mask="(99) 9999-9999"
                        [(ngModel)]="pessoa.telefone_celular"
                        [required]="true"
                        placeholder="Telefone Celular"/>
@@ -203,14 +215,15 @@
                        class="form-control"
                        id="whatsapp"
                        name="whatsapp"
+                       maxlength="9"
                        [(ngModel)]="pessoa.whatsapp"
                        [required]="true"
                        placeholder="WhatsApp"/>
               </div>
 
               <div class="form-group col-md-4">
-                <label for="telefone_celular">E-mail:</label>
-                <input type="text"
+                <label for="email">E-mail:</label>
+                <input type="email"
                        class="form-control"
                        id="email"
                        name="email"

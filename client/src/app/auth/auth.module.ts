@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {AlertMessageComponent} from "../alert-message/alert-message.component";
 import {NgxLoadingModule} from "ngx-loading";
+import {AlertModule} from "ngx-bootstrap";
 
 @NgModule({
   declarations: [LoginComponent, PerfilComponent, AlertMessageComponent],
@@ -15,6 +16,7 @@ import {NgxLoadingModule} from "ngx-loading";
         RouterModule,
         FormsModule,
         NgxLoadingModule,
+        AlertModule,
     ],
   exports: [
     AlertMessageComponent

@@ -14,7 +14,6 @@ class ParcelaItem extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        "id",
         "id_parcela",
         "id_item",
         "valor",

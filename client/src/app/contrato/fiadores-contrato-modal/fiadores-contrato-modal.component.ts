@@ -39,7 +39,7 @@ export class FiadoresContratoModalComponent implements OnInit {
     this.fiadorService.save(form.value)
       .subscribe(success => {
           const message = success.message;
-          this.alertService.success(message, true);
+          this.alertService.success(message);
           this.loading = false;
         },
         error => {

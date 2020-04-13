@@ -35,7 +35,7 @@ export class NewImovelComponent implements OnInit {
     this.imovelService.save(form.value)
       .subscribe(success => {
         const message = (success as any).message;
-        this.alertService.success(message, true);
+        this.alertService.success(message);
         this.loading = false;
         window.scroll(0,0);
         setTimeout(() => {

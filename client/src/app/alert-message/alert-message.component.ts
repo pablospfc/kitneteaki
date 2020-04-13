@@ -9,22 +9,13 @@ import {AlertMessageService} from '../_services/alert-message.service';
 export class AlertMessageComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
-  message: any;
+  alerts: any[] = [];
   constructor(private alertService: AlertMessageService) { }
 
   ngOnInit() {
     this.subscription = this.alertService.getAlert()
       .subscribe(message => {
-        switch (message && message.type) {
-          case 'success':
-            message.cssClass = 'alert alert-success';
-            break;
-          case 'error':
-            message.cssClass = 'alert alert-danger';
-            break;
-        }
-
-        this.message = message;
+        this.alerts.push(message);
       });
   }
 

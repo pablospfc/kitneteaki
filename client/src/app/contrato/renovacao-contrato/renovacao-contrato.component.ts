@@ -18,6 +18,7 @@ export class RenovacaoContratoComponent implements OnInit {
   contrato: Contrato;
   public imoveis = [];
   public locatarios = [];
+  public isValidDateEnd: boolean;
   constructor(private pessoaService: PessoaService,
               private imovelService: ImovelService,
               private contratoService: ContratoService,
@@ -42,7 +43,7 @@ export class RenovacaoContratoComponent implements OnInit {
       .subscribe(success => {
         const message = success.message;
         const id = success.id ? success.id : null;
-        this.alertService.success(message, true);
+        this.alertService.success(message);
         this.router.navigate(['new-garantias-contrato', id]);
       }, error => {
         const message = error.message;
@@ -56,12 +57,10 @@ export class RenovacaoContratoComponent implements OnInit {
   cleanContrato() {
     this.contrato.referencia = null;
     this.contrato.vigencia = null;
-    this.contrato.data_fim = null;
     this.contrato.primeiro_vencimento = null;
     this.contrato.observacoes = null;
-    const newFimContrato = moment(this.contrato.data_fim).add(1, 'days');
-    // @ts-ignore
-    this.contrato.data_inicio = newFimContrato.format('YYYY-MM-DD');
+    const newInicioContrato = moment(this.contrato.data_fim).add(1, 'days');
+    this.contrato.data_inicio = newInicioContrato.format('YYYY-MM-DD');
   }
 
   getLocatarios() {

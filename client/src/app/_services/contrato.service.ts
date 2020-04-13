@@ -77,6 +77,15 @@ export class ContratoService {
       );
   }
 
+  public delete(id) {
+    return this.http.delete<any>(`${this.API}/excluir/${id}`)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
+
   public save(contrato) {
     if (contrato.id) {
       return this.update(contrato);

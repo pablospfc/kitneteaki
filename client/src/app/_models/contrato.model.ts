@@ -9,7 +9,7 @@ export class Contrato {
   valor: number;
   primeiro_vencimento: Date;
   dia_vencimento: string;
-  data_inicio: Date;
+  data_inicio: string;
   data_fim: string;
   inicio_estadia: Date;
   fim_estadia: Date;

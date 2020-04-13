@@ -48,6 +48,7 @@ export class ItensContratoModalComponent implements OnInit {
     this.itemContratoService.save(form.value)
       .subscribe(success => {
         this.alertService.success(success.message);
+        this.itemContrato = new ItemContrato();
         this.loading = false;
       }, error => {
         this.alertService.error(error.message);
