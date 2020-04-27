@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ModeloDocumentoModel} from '../../_models/modelo-documento.model';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import * as $ from 'jquery';
-import { insertAtCursor } from '../../../assets/scripts/textarea';
 import {NgForm} from '@angular/forms';
+import {ModeloDocumentoService} from "../../_services/modelo-documento.service";
+import {AlertMessageService} from "../../_services/alert-message.service";
 @Component({
   selector: 'app-new-modelo-documento',
   templateUrl: './new-modelo-documento.component.html',
@@ -13,15 +15,23 @@ export class NewModeloDocumentoComponent implements OnInit {
 
   modelo: ModeloDocumentoModel;
   public Editor = DecoupledEditor;
-  public textArea = DecoupledEditor.create();
-  constructor() { }
+  @ViewChild('editor', { static: false }) editor: CKEditorComponent;
+
+  constructor(private modeloDocumentoService: ModeloDocumentoService,
+              private alertMessageService: AlertMessageService) { }
 
   ngOnInit() {
     this.modelo = new ModeloDocumentoModel();
+    this.modelo.conteudo = 'Escreva aqui seu modelo de contrato';
   }
 
   onSubmit(form: NgForm) {
-
+    this.modeloDocumentoService.save(form.value)
+      .subscribe(data => {
+        this.alertMessageService.success(data.message);
+      }, error => {
+        this.alertMessageService.error(error.message);
+      });
   }
 
   public onReady(editor) {
@@ -31,13 +41,13 @@ export class NewModeloDocumentoComponent implements OnInit {
     );
   }
 
-  addText() {
-    //insertAtCursor(document.getElementById('text'), 'Hello');
-    this.textArea.model.change( writer => {
-      writer.insertText( 'foo', this.Editor.model.document.selection.getFirstPosition() );
-    } );
+  addText(arg) {
+    const appendData = arg;
+    const selection = this.editor.editorInstance.model.document.selection;
+    const range = selection.getFirstRange();
+    this.editor.editorInstance.model.change(writer => {
+      writer.insert(appendData, range.start);
+    });
   }
-
-
 
 }

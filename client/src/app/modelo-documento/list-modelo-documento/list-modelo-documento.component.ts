@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ModeloDocumentoService} from "../../_services/modelo-documento.service";
 
 @Component({
   selector: 'app-list-modelo-documento',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListModeloDocumentoComponent implements OnInit {
 
-  constructor() { }
+  public modelos = [];
+
+  constructor(private modeloDocumentoService: ModeloDocumentoService) { }
 
   ngOnInit() {
+    this.listar();
+  }
+
+  listar() {
+    this.modeloDocumentoService.list()
+      .subscribe(data => {
+        this.modelos = data;
+      }, error => {
+
+      });
   }
 
 }

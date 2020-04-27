@@ -1,6 +1,8 @@
 export class Conta {
   id: number;
   id_categoria_conta: number;
+  id_tipo_conta: number;
+  repetir_lancamento: boolean;
   descricao: string;
   valor: number;
   id_recorrencia_conta: number;

@@ -69,6 +69,10 @@ Route::group(['middleware' => 'cors'], function() {
     Route::post("conta/cadastrar","ContaController@store");
     Route::put("conta/atualizar/{id}","ContaController@update");
     Route::get("conta/listar","ContaController@index");
+    Route::get("conta/getById/{id}","ContaController@show");
+    Route::delete("conta/excluir/{id}","ContaController@destroy");
+
+    Route::get("categoriaconta/getByTipoConta/{idTipoConta}","CategoriaContaController@getByTipoConta");
 
     Route::post("contrato/cadastrar","ContratoController@store");
     Route::post("contrato/renovar","ContratoController@renovar");
@@ -77,6 +81,12 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("contrato/listar","ContratoController@index");
     Route::delete("contrato/excluir/{id}","ContratoController@destroy");
     Route::put("contrato/concluir/{id}","ContratoController@concluir");
+
+    Route::post("modelodocumento/cadastrar","ModeloDocumentoController@store");
+    Route::put("modelodocumento/atualizar/{id}","ModeloDocumentoController@update");
+    Route::get("modelodocumento/buscar/{id}","ModeloDocumentoController@show");
+    Route::get("modelodocumento/listar","ModeloDocumentoController@index");
+    Route::delete("modelodocumento/excluir/{id}","ModeloDocumentoController@destroy");
 
     Route::get("parcela/listParcelas/","ParcelaController@index");
     Route::get("parcela/getByContrato/{id}","ParcelaController@getByContrato");

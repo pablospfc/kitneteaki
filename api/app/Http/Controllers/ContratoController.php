@@ -53,7 +53,6 @@ class ContratoController extends Controller
     {
         try {
             $id = $this->contrato->salvar($request->all());
-            error_log($id);
             return response()->json(['message' => 'Dados cadastrados com sucesso.', 'id' => $id], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);

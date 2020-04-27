@@ -26,8 +26,102 @@
     <!-- /.box-header -->
     <app-alert-message></app-alert-message>
     <div class="box-body">
-      <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-      <table id="example1" class="table table-bordered table-striped">
+      <form #formFiltro="ngForm" name="formFiltro" role="form">
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="id_tipo_conta">Tipo</label>
+            <select class="form-control"
+                    id="id_tipo_conta"
+                    [(ngModel)]="filtro.id_tipo_conta"
+                    (change)="getCategoriasConta($event.target.value)"
+                    name="id_tipo_conta">
+              <option [value]="null">Todos</option>
+              <option [value]="1">Débitos</option>
+              <option [value]="2">Créditos</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="id_categoria_conta">Categoria</label>
+            <select class="form-control"
+                    id="id_categoria_conta"
+                    [(ngModel)]="filtro.id_categoria_conta"
+                    name="id_categoria_conta">
+              <option [value]="null">Todos</option>
+              <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="periodo_inicial">Período Inicial</label>
+            <input type="date"
+                   class="form-control"
+                   id="periodo_inicial"
+                   name="periodo_inicial"
+                   [(ngModel)]="filtro.periodo_inicial"
+                   [required]="false"/>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="periodo_final">Período Final</label>
+            <input type="date"
+                   class="form-control"
+                   id="periodo_final"
+                   name="periodo_final"
+                   [(ngModel)]="filtro.periodo_final"
+                   [required]="filtro.periodo_inicial"/>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="valor_inicial">Valor Inicial</label>
+            <input type="text"
+                   class="form-control"
+                   id="valor_inicial"
+                   name="valor_inicial"
+                   [(ngModel)]="filtro.valor_inicial"/>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="valor_final">Valor Final</label>
+            <input type="text"
+                   class="form-control"
+                   id="valor_final"
+                   name="valor_final"
+                   [(ngModel)]="filtro.valor_final"/>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="id_status">Status</label>
+            <select class="form-control"
+                    id="id_status"
+                    [(ngModel)]="filtro.id_status"
+                    name="id_status">
+              <option [value]="null">Todos</option>
+              <option [value]="4">Em Aberto</option>
+              <option [value]="6">Liquidado</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="id_imovel">Imóvel</label>
+            <select class="form-control"
+                    id="id_imovel"
+                    [(ngModel)]="filtro.id_imovel"
+                    name="id_imovel">
+              <option [value]="null">Todos</option>
+              <option *ngFor="let imovel of imoveis" [value]="imovel.id">{{imovel.nome}}</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="row">
+
+        </div>
+        <button type="button" (click)="list()" class="btn btn-success">Buscar</button>
+        <button type="button" (click)="clear()" class="btn btn-default">Limpar</button>
+      </form>
+      <hr>
+      <table id="example1" class="table table-bordered table-striped table-hover">
         <thead>
         <tr>
           <th>Categoria</th>
@@ -55,7 +149,7 @@
           <td>{{conta.imovel ? conta.imovel : 'Não se aplica'}}</td>
           <td>
             <button type="button"
-                    [routerLink]="['/update-conta/'+conta.id]"
+                    [routerLink]="['/update-conta/' + conta.id]"
                     class="btn btn-info btn-sm">
               <i class="fa fa-edit" aria-hidden="true"></i>
             </button>

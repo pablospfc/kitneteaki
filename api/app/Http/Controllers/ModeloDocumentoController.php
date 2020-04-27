@@ -2,32 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Conta;
+use App\Model\ModeloDocumento;
 use Illuminate\Http\Request;
 
-class ContaController extends Controller
+class ModeloDocumentoController extends Controller
 {
-
-    private $conta;
-
-    function __construct()
-    {
-        $this->conta = new Conta();
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    private $modeloDocumento;
+
+    function __construct()
+    {
+        $this->modeloDocumento = new ModeloDocumento();
+    }
+
+    public function index()
     {
         try {
-            $dados = $this->conta->listar($request->all());
+            $dados = $this->modeloDocumento->getAll();
             return response()->json($dados, 200);
         }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema ao listar dados.'], 500);
+            return response()->json(['message' => 'Ocorreu um problema ao listar modelos de documentos'],500);
         }
     }
 
@@ -50,11 +49,11 @@ class ContaController extends Controller
     public function store(Request $request)
     {
         try {
-            $this->conta->salvar($request->all());
-            return response()->json(['message' => 'Conta cadastrada com sucesso'], 200);
-        }catch(\Exception $e) {
+            \App\Model\ModeloDocumento::create($request->all());
+            return response()->json(['message' => 'Dados cadastrados com sucesso.'],200);
+        } catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema ao salvar conta'],500);
+            return response()->json(['message' => 'Ocorreu um problema ao cadastrar dados.'],500);
         }
     }
 
@@ -67,10 +66,11 @@ class ContaController extends Controller
     public function show($id)
     {
         try {
-            $dados = $this->conta->getById($id);
+            $dados = \App\Model\ModeloDocumento::find($id);
             return response()->json($dados,200);
-        } catch(\Exception $e) {
-            return response()->json(['message' => 'Ocorreu um problema ao buscar dados'],500);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao mostrar dados.'],500);
         }
     }
 
@@ -95,14 +95,12 @@ class ContaController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $data = $request->all();
-            unset($data['id_tipo_conta']);
-            \App\Model\Conta::where("id", $id)
-                ->update($data);
-            return response()->json(['message' => 'Dados atualizados com sucesso.'],200);
+            \App\Model\ModeloDocumento::where('id',$id)
+                ->update($request->all());
+            return response()->json(['message' => 'Dados atualizados com sucesso'],200);
         }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema ao atualizar dados.'],500);
+            return response()->json(['message' => 'Ocorreu um problema ao atualizar dados'],500);
         }
     }
 
@@ -115,11 +113,11 @@ class ContaController extends Controller
     public function destroy($id)
     {
         try {
-            \App\Model\Conta::destroy($id);
-            return response()->json(['message' => 'Registro excluído com sucesso'],200);
+            \App\Model\ModeloDocumento::destroy($id);
+            return response()->json(['message' => 'Dado excluído com sucesso'],200);
         }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema na exclusão de registro'],500);
+            return response()->json(['message' => 'Ocorreu um problema ao excluir dados'], 500);
         }
     }
 }

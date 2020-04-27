@@ -1,1 +1,179 @@
-<p>new-conta works!</p>
+<section class="content-header">
+  <h1>
+    Contas
+    <small>{{conta.id ? 'Atualizar' : 'Adicionar'}}</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Conta</a></li>
+    <li class="active">{{conta.id ? 'Atualizar' : 'Adicionar'}}</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">{{conta.id ? 'Atualizar' : 'Adicionar'}} Conta</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form #contaForm="ngForm" name="contaForm" role="form" (ngSubmit)="onSubmit(contaForm)">
+          <input type="hidden" name="id" [(ngModel)]="conta.id"/>
+
+          <app-alert-message></app-alert-message>
+
+          <div class="box-body">
+
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="id_tipo_conta">Tipo</label>
+                <select class="form-control"
+                        id="id_tipo_conta"
+                        [(ngModel)]="conta.id_tipo_conta"
+                        (change)="getCategoriasConta($event.target.value)"
+                        [required]="true"
+                        name="id_tipo_conta">
+                  <option [value]="1">Débitos</option>
+                  <option [value]="2">Créditos</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="id_categoria_conta">Categoria</label>
+                <select class="form-control"
+                        id="id_categoria_conta"
+                        [(ngModel)]="conta.id_categoria_conta"
+                        [required]="true"
+                        name="id_categoria_conta">
+                  <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="descricao">Descrição</label>
+                <input type="text"
+                       class="form-control"
+                       id="descricao"
+                       name="descricao"
+                       [(ngModel)]="conta.descricao"
+                       [required]="true"
+                       placeholder="Descrição"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="valor">Valor</label>
+                <input type="text"
+                       class="form-control"
+                       id="valor"
+                       name="valor"
+                       [(ngModel)]="conta.valor"
+                       [required]="true"
+                       placeholder="Valor"/>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="competencia">Competência</label>
+                <input type="date"
+                       class="form-control"
+                       id="competencia"
+                       name="competencia"
+                       [(ngModel)]="conta.competencia"
+                       [required]="true"
+                       placeholder="Competência"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="data_vencimento">Vencimento</label>
+                <input type="date"
+                       class="form-control"
+                       id="data_vencimento"
+                       name="data_vencimento"
+                       [(ngModel)]="conta.data_vencimento"
+                       [required]="true"
+                       placeholder="Vencimento"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="id_imovel">Imóvel</label>
+                <select class="form-control"
+                        id="id_imovel"
+                        [(ngModel)]="conta.id_imovel"
+                        [required]="false"
+                        name="id_imovel">
+                  <option *ngFor="let imovel of imoveis" [value]="imovel.id">{{imovel.nome}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           name="repetir_lancamento"
+                           [required]="false"
+                           [(ngModel)]="conta.repetir_lancamento"/> Repetir Lançamento
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="conta.repetir_lancamento == true">
+              <div class="form-group col-md-4">
+                <label for="id_recorrencia_conta">Recorrência</label>
+                <select class="form-control"
+                        id="id_recorrencia_conta"
+                        [(ngModel)]="conta.id_recorrencia_conta"
+                        [required]="false"
+                        name="id_recorrencia_conta">
+                  <option [value]="1">Diariamente</option>
+                  <option [value]="2">Semanalmente</option>
+                  <option [value]="3">Mensalmente</option>
+                  <option [value]="4">Bimestralmente</option>
+                  <option [value]="5">Trimestralmente</option>
+                  <option [value]="6">Semestralmente</option>
+                  <option [value]="7">Anualmente</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="ocorrencia">Ocorrencia</label>
+                <input type="text"
+                       class="form-control"
+                       id="ocorrencia"
+                       name="ocorrencia"
+                       [(ngModel)]="conta.ocorrencia"
+                       [required]="false"
+                       placeholder="ocorrencia"/>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="ocorrencia">Observações</label>
+                <textarea class="form-control"
+                          id="observacoes"
+                          name="observacoes"
+                          [(ngModel)]="conta.observacoes"
+                          [required]="false">
+                  </textarea>
+              </div>
+            </div>
+
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <button type="submit" class="btn btn-primary" [disabled]="!contaForm.valid">Salvar</button>
+              <button type="button" class="btn btn-success" [routerLink]="['/list-conta']">Voltar</button>
+            </div>
+
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -6,17 +6,19 @@ import {RouterModule} from "@angular/router";
 import {AuthModule} from "../auth/auth.module";
 import {NgxLoadingModule} from "ngx-loading";
 import {NgxPaginationModule} from "ngx-pagination";
+import {FormsModule} from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [ListContaComponent, NewContaComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    AuthModule,
-    NgxLoadingModule,
-    NgxPaginationModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule,
+        AuthModule,
+        NgxLoadingModule,
+        NgxPaginationModule,
+        FormsModule
+    ]
 })
 export class ContaModule { }

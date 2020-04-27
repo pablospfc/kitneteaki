@@ -28,10 +28,11 @@ import {ParcelasContratoModalComponent} from './contrato/parcelas-contrato-modal
 import {GeracaoParcelasModalComponent} from './contrato/geracao-parcelas-modal/geracao-parcelas-modal.component';
 import {ListFaturaComponent} from './fatura/list-fatura/list-fatura.component';
 import {FaturaModalComponent} from './fatura/fatura-modal/fatura-modal.component';
-import {BoletoTemplateComponent} from "./templates/boleto-template/boleto-template.component";
-import {BoletoComponent} from "./fatura/boleto/boleto.component";
-import {RenovacaoContratoComponent} from "./contrato/renovacao-contrato/renovacao-contrato.component";
-import {NewContaComponent} from "./conta/new-conta/new-conta.component";
+import {BoletoTemplateComponent} from './templates/boleto-template/boleto-template.component';
+import {BoletoComponent} from './fatura/boleto/boleto.component';
+import {RenovacaoContratoComponent} from './contrato/renovacao-contrato/renovacao-contrato.component';
+import {NewContaComponent} from './conta/new-conta/new-conta.component';
+import {ContaResolverGuard} from './_guards/conta-resolver.guard';
 
 
 const routes: Routes = [
@@ -168,7 +169,17 @@ const routes: Routes = [
       },
       {
         path: 'new-conta',
-        component: NewContaComponent
+        component: NewContaComponent,
+        resolve: {
+          conta: ContaResolverGuard
+        }
+      },
+      {
+        path: 'update-conta/:id',
+        component: NewContaComponent,
+        resolve: {
+          conta: ContaResolverGuard
+        }
       }
     ]
   },

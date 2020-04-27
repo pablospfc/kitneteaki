@@ -54,10 +54,28 @@
             </div>
 
             <div class="row">
-              <button (click)="addText()" >Adicionar</button>
+              <label>Selecione os campos para preencher o documento: </label>
+              <div class="form-group col-md-12">
+                    <button type="button" (click)="addText('Inquilino')" class="btn btn-default">
+                      Inquilino
+                    </button>
+                    <button type="button" (click)="addText('Proprietário')" class="btn btn-info">
+                      Proprietário
+                    </button>
+                    <button type="button" (click)="addText('Imóvel')" class="btn btn-danger">
+                      Imóvel
+                    </button>
+                    <button type="button" (click)="addText('Valor')" class="btn btn-warning">
+                      Valor
+                    </button>
+                    <button type="button" (click)="addText('Vigência')" class="btn btn-success">
+                      Vigência
+                    </button>
+            </div>
+
               <div class="box-body pad">
                 <label for="tipo_modelo_documento">Conteúdo: </label>
-                <ckeditor id="text" [editor]="Editor" data="<p>Hello, world!</p>" (ready)="onReady($event)"></ckeditor>
+                <ckeditor #editor id="text" [editor]="Editor" name="conteudo" [(ngModel)]="modelo.conteudo" (ready)="onReady($event)"></ckeditor>
                 <!--<textarea id="text"></textarea>-->
               </div>
             </div>

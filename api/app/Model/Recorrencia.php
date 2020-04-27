@@ -1,16 +1,18 @@
 <?php
 
+
 namespace App\Model;
+
 
 use Illuminate\Database\Eloquent\Model;
 
-class CategoriaConta extends Model
+class Recorrencia extends Model
 {
-    protected $table = "categoria_conta";
+    protected $table = "recorrencia_conta";
     protected $primaryKey = "id";
     public $timestamps = true;
     protected $fillable = [
-      "id_tipo_conta",
-      "nome"
+        "nome"
     ];
+
 }
