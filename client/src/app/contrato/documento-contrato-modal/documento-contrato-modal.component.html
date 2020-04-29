@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Documento de Contrato</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<app-alert-message></app-alert-message>
+<form #documentoContratoForm="ngForm" name="itemContratoForm" role="form" (ngSubmit)="addItemContrato(documentoContratoForm)">
+  <div class="modal-body">
+    <div class="form-group">
+      <ckeditor id="text" [editor]="Editor" name="contrato" [(ngModel)]="contrato.contrato" (ready)="onReady($event)"></ckeditor>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" [disabled]="!documentoContratoForm.valid">Salvar</button>
+  </div>
+</form>
+
+<ngx-loading [show]="loading"></ngx-loading>

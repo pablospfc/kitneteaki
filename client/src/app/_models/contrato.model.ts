@@ -6,6 +6,8 @@ export class Contrato {
   id_locador: number;
   id_imovel: number;
   id_tipo_contrato: number;
+  id_forma_pagamento: number;
+  id_modelo_documento: number;
   valor: number;
   primeiro_vencimento: Date;
   dia_vencimento: string;
@@ -18,6 +20,7 @@ export class Contrato {
   valor_total: number;
   referencia: string;
   observacoes: string;
+  contrato: string;
   renovou: boolean;
   chave: string;
 

@@ -23,126 +23,160 @@
 
         <app-alert-message></app-alert-message>
         <div class="box-body">
+          <div class="row">
+            <div class="form-group col-md-3">
+              <label for="id_forma_pagamento">Forma de Pagamento</label>
+              <select class="form-control"
+                      id="id_forma_pagamento"
+                      [(ngModel)]="contrato.id_forma_pagamento"
+                      [required]="true"
+                      name="id_forma_pagamento">
+                <option [value]="1">Dinheiro</option>
+                <option [value]="2">Boleto Bancário</option>
+                <option [value]="3">Cartão de Crédito</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <label for="id_modelo_documento">Documentos para o Contrato</label>
+              <select class="form-control"
+                      id="id_modelo_documento"
+                      [(ngModel)]="contrato.id_modelo_documento"
+                      [required]="true"
+                      name="id_modelo_documento">
+                <option *ngFor="let modeloDocumento of modelosDocumentos" [value]="modeloDocumento.id">{{modeloDocumento.nome}}</option>
+              </select>
+              <button type="button" (click)="openModalContrato(contrato.id_modelo_documento)" [disabled]="!contrato.id_modelo_documento" class="btn btn-info">Criar Contrato</button>
+              <button type="button" class="btn btn-success">Editar Contrato</button>
+            </div>
+          </div>
 
-            <main>
-              <article class="panel-group bs-accordion" id="accordion" role="tablist" aria-multiselectable="true">
-                <section class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingOne">
-                    <h4 class="panel-title">
-                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Itens de Contrato
-                        <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body">
-                      <div class="pull-right">
-                        <button type="button"
-                                (click)="openModalItemContrato()"
-                                class="btn btn-success btn-sm">
-                          Adicionar
-                        </button>
-                      </div>
-                      <br/><br/>
-                      <table id="tblItensContrato" class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                          <th>Item</th>
-                          <th>Valor</th>
-                          <th>Ação</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr *ngFor="let item of itensContrato">
-                          <td>{{item.item}}</td>
-                          <td>{{item.valor | currency:"BRL":"symbol"}}</td>
-                          <td>
-                            <button type="button"
-                                    (click)="openModalItemContrato(item.id)"
-                                    class="btn btn-info btn-sm">
-                              <i class="fa fa-edit" aria-hidden="true"></i>
-                            </button>
-                            <button type="button"
-                                    (click)="openModalConfirmRemove('item-contrato', template, item.id)"
-                                    class="btn btn-danger btn-sm">
-                              <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                          </td>
-                        </tr>
-                        </tbody>
-                      </table>
+          <main>
+            <article class="panel-group bs-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+              <section class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                       aria-expanded="true" aria-controls="collapseOne">
+                      Itens de Contrato
+                      <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <div class="pull-right">
+                      <button type="button"
+                              (click)="openModalItemContrato()"
+                              class="btn btn-success btn-sm">
+                        Adicionar
+                      </button>
                     </div>
+                    <br/><br/>
+                    <table id="tblItensContrato" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Valor</th>
+                        <th>Ação</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let item of itensContrato">
+                        <td>{{item.item}}</td>
+                        <td>{{item.valor | currency:"BRL":"symbol"}}</td>
+                        <td>
+                          <button type="button"
+                                  (click)="openModalItemContrato(item.id)"
+                                  class="btn btn-info btn-sm">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                          </button>
+                          <button type="button"
+                                  (click)="openModalConfirmRemove('item-contrato', template, item.id)"
+                                  class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
                   </div>
-                </section>
-                <section class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingTwo">
-                    <h4 class="panel-title">
-                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Parcelas de Contrato
-                        <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="panel-body">
-                      <div class="pull-right">
-                        <button type="button"
-                                (click)="openModalGeracaoParcelas()"
-                                [disabled]="parcelas.length"
-                                class="btn btn-success btn-sm pull-right">Gerar Parcelas
-                        </button>
-                      </div>
-                      <br/><br/>
-                      <table class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                          <th>Parcela</th>
-                          <th>Período</th>
-                          <th>Valor</th>
-                          <th>Status</th>
-                          <th>Vencimento</th>
-                          <th>Ação</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr *ngFor="let parcela of parcelas">
-                          <td>{{parcela.parcela}}</td>
-                          <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} - {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
-                          <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
-                          <td>{{parcela.status}}</td>
-                          <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
-                          <td>
-                            <button type="button"
-                                    class="btn btn-info btn-sm">
-                              <i class="fa fa-edit" aria-hidden="true"></i>
-                            </button>
-                            <button type="button"
-                                    class="btn btn-danger btn-sm">
-                              <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                          </td>
-                        </tr>
-                        <tr class="animate-repeat" *ngIf="parcelas.length == 0">
-                          <td colspan="8" class="text-center">
-                            <em>
-                              Até o momento, nenhuma parcela foi lançada para este contrato.
-                            </em>
-                          </td>
-                        </tr>
-                        </tbody>
-                      </table>
+                </div>
+              </section>
+              <section class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Parcelas de Contrato
+                      <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                    <div class="pull-right">
+                      <button type="button"
+                              (click)="openModalGeracaoParcelas()"
+                              [disabled]="parcelas.length"
+                              class="btn btn-success btn-sm pull-right">Gerar Parcelas
+                      </button>
                     </div>
+                    <br/><br/>
+                    <table class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Parcela</th>
+                        <th>Período</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Vencimento</th>
+                        <th>Ação</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let parcela of parcelas">
+                        <td>{{parcela.parcela}}</td>
+                        <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}}
+                          - {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
+                        <td>{{parcela.status}}</td>
+                        <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
+                        <td>
+                          <button type="button"
+                                  class="btn btn-info btn-sm">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                          </button>
+                          <button type="button"
+                                  class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="animate-repeat" *ngIf="parcelas.length == 0">
+                        <td colspan="8" class="text-center">
+                          <em>
+                            Até o momento, nenhuma parcela foi lançada para este contrato.
+                          </em>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
                   </div>
-                </section>
-              </article>
-            </main>
+                </div>
+              </section>
+            </article>
+          </main>
         </div>
 
-          <div class="box-footer text-center">
-            <button type="button" class="btn btn-primary" [disabled]="!parcelas.length" (click)="concluirContrato()" >Finalizar</button>
-            <button type="button" class="btn btn-success" [routerLink]="['/new-garantias-contrato/'+idContrato]">Voltar</button>
-          </div>
+        <div class="box-footer text-center">
+          <button type="button" class="btn btn-primary" [disabled]="!parcelas.length" (click)="concluirContrato()">
+            Finalizar
+          </button>
+          <button type="button" class="btn btn-success" [routerLink]="['/new-garantias-contrato/'+idContrato]">Voltar
+          </button>
+        </div>
 
 
       </div>

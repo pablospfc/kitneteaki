@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {catchError, map} from "rxjs/operators";
-import {throwError} from "rxjs";
+import {Observable, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,15 @@ export class ModeloDocumentoService {
 
   public list() {
     return this.http.get<any>(`${this.API}/listar`)
+      .pipe(
+        map(data => {
+          return data;
+        })
+      );
+  }
+
+  public getById(id): Observable<any> {
+    return this.http.get<any>(`${this.API}/buscar/${id}`)
       .pipe(
         map(data => {
           return data;

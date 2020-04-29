@@ -1,4 +1,4 @@
-export class ModeloDocumentoModel {
+export class ModeloDocumento {
   id: number;
   id_tipo_modelo_documento: number;
   nome: string;

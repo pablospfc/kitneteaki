@@ -30,6 +30,7 @@ class Contrato extends Model
         "valor_total",
         "referencia",
         "observacoes",
+        "contrato",
         "renovou",
         "chave"
     ];

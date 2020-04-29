@@ -34,7 +34,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let modelo of modelos">
+        <tr *ngFor="let modelo of modelos | paginate: { id: 'listing_pagination',
+                                                      itemsPerPage: 10,
+                                                      currentPage: page,
+                                                      totalItems: totalRec}">
           <td>{{modelo.nome}}</td>
           <td>{{modelo.tipo_modelo_documento}}</td>
           <td>
@@ -49,10 +52,23 @@
             </button>
           </td>
         </tr>
+        <tr class="animate-repeat" *ngIf="modelos.length == 0">
+          <td colspan="8" class="text-center">
+            <em>
+              Nenhum resultado foi encontrado
+            </em>
+          </td>
+        </tr>
         </tbody>
       </table>
+      <div>
+        <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+                             (pageChange)="page = $event"></pagination-controls>
+      </div>
     </div>
     <!-- /.box-body -->
 
   </div>
 </section>
+
+<ngx-loading [show]="loading"></ngx-loading>

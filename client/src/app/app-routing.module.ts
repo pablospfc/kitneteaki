@@ -33,6 +33,8 @@ import {BoletoComponent} from './fatura/boleto/boleto.component';
 import {RenovacaoContratoComponent} from './contrato/renovacao-contrato/renovacao-contrato.component';
 import {NewContaComponent} from './conta/new-conta/new-conta.component';
 import {ContaResolverGuard} from './_guards/conta-resolver.guard';
+import {ModeloDocumentoGuard} from "./_guards/modelo-documento.guard";
+import {DocumentoContratoModalComponent} from "./contrato/documento-contrato-modal/documento-contrato-modal.component";
 
 
 const routes: Routes = [
@@ -99,6 +101,10 @@ const routes: Routes = [
         component: OcupantesImovelModalComponent
       },
       {
+        path: 'documento-contrato-modal',
+        component: DocumentoContratoModalComponent
+      },
+      {
         path: 'fiadores-contrato-modal',
         component: FiadoresContratoModalComponent
       },
@@ -154,7 +160,17 @@ const routes: Routes = [
       },
       {
         path: 'new-modelo-documento',
-        component: NewModeloDocumentoComponent
+        component: NewModeloDocumentoComponent,
+        resolve: {
+          modelo: ModeloDocumentoGuard
+        }
+      },
+      {
+        path: 'update-modelo-documento/:id',
+        component: NewModeloDocumentoComponent,
+        resolve: {
+          modelo: ModeloDocumentoGuard
+        }
       },
       {
         path: 'renovacao-contrato/:id',

@@ -8,6 +8,9 @@ import {ParcelaService} from '../../_services/parcela.service';
 import {ItensContratoModalComponent} from '../itens-contrato-modal/itens-contrato-modal.component';
 import {GeracaoParcelasModalComponent} from '../geracao-parcelas-modal/geracao-parcelas-modal.component';
 import {ContratoService} from "../../_services/contrato.service";
+import {DocumentoContratoModalComponent} from "../documento-contrato-modal/documento-contrato-modal.component";
+import {Contrato} from "../../_models/contrato.model";
+import {ModeloDocumentoService} from "../../_services/modelo-documento.service";
 
 @Component({
   selector: 'app-finalizacao-contrato',
@@ -18,10 +21,12 @@ export class FinalizacaoContratoComponent implements OnInit {
 
   public idContrato;
   public itensContrato = [];
+  public modelosDocumentos = [];
   public loading = false;
   public parcelas = [];
   public id: number;
   public item: string;
+  public contrato: Contrato;
   modalRef: BsModalRef;
   constructor(private route: ActivatedRoute,
               private modalService: BsModalService,
@@ -30,6 +35,7 @@ export class FinalizacaoContratoComponent implements OnInit {
               private itemContratoService: ItemContratoService,
               private contratoService: ContratoService,
               private router: Router,
+              private modeloDocumentoService: ModeloDocumentoService,
               private parcelaService: ParcelaService) {
     this.route.params.subscribe((params: Params) => {
       this.idContrato = params.id;
@@ -37,8 +43,10 @@ export class FinalizacaoContratoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.contrato = new Contrato();
     this.getItensContrato();
     this.getParcelas();
+    this.getModelosDocumentos();
   }
 
   concluirContrato() {
@@ -56,6 +64,15 @@ export class FinalizacaoContratoComponent implements OnInit {
         this.alertService.error(error.message);
         this.loading = false;
       });
+  }
+
+  openModalContrato(idModeloDocumento) {
+    this.modalRef = this.modalService.show(DocumentoContratoModalComponent, {
+      initialState: {
+        idContrato: this.idContrato,
+        idModeloDocumento: idModeloDocumento
+      }
+    });
   }
 
   openModalConfirmRemove(item: string, template: TemplateRef<any>, id: number) {
@@ -151,6 +168,15 @@ export class FinalizacaoContratoComponent implements OnInit {
       }, error => {
         this.alertService.error(error.message);
         this.loading = false;
+      });
+  }
+
+  getModelosDocumentos() {
+    this.modeloDocumentoService.list()
+      .subscribe(data => {
+        this.modelosDocumentos = data;
+      }, error => {
+
       });
   }
 

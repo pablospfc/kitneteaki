@@ -21,6 +21,8 @@ export class ContratoResolverGuard implements Resolve<Contrato> {
     id_locador: null,
     id_imovel: null,
     id_tipo_contrato: null,
+    id_forma_pagamento: null,
+    id_modelo_documento: null,
     valor: null,
     primeiro_vencimento: null,
     dia_vencimento: null,
@@ -35,6 +37,7 @@ export class ContratoResolverGuard implements Resolve<Contrato> {
     sinal: null,
     referencia: null,
     observacoes: null,
+    contrato: null,
     renovou: null,
     chave: null,
     });

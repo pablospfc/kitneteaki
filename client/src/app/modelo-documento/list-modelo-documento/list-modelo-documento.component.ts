@@ -9,7 +9,9 @@ import {ModeloDocumentoService} from "../../_services/modelo-documento.service";
 export class ListModeloDocumentoComponent implements OnInit {
 
   public modelos = [];
-
+  public loading;
+  public page = 1;
+  public totalRec;
   constructor(private modeloDocumentoService: ModeloDocumentoService) { }
 
   ngOnInit() {
@@ -17,11 +19,14 @@ export class ListModeloDocumentoComponent implements OnInit {
   }
 
   listar() {
+    this.loading = true;
     this.modeloDocumentoService.list()
       .subscribe(data => {
         this.modelos = data;
+        this.totalRec = this.modelos.length;
+        this.loading = false;
       }, error => {
-
+        this.loading = false;
       });
   }
 

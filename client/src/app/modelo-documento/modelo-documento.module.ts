@@ -6,6 +6,8 @@ import {RouterModule} from "@angular/router";
 import { ListModeloDocumentoComponent } from './list-modelo-documento/list-modelo-documento.component';
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import {AuthModule} from "../auth/auth.module";
+import {NgxLoadingModule} from "ngx-loading";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 
@@ -16,7 +18,9 @@ import {AuthModule} from "../auth/auth.module";
     FormsModule,
     RouterModule,
     CKEditorModule,
-    AuthModule
+    AuthModule,
+    NgxLoadingModule,
+    NgxPaginationModule
   ]
 })
 export class ModeloDocumentoModule { }

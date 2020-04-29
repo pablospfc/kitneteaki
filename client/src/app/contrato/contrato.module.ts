@@ -17,16 +17,19 @@ import { ItensContratoModalComponent } from './itens-contrato-modal/itens-contra
 import { ParcelasContratoModalComponent } from './parcelas-contrato-modal/parcelas-contrato-modal.component';
 import { GeracaoParcelasModalComponent } from './geracao-parcelas-modal/geracao-parcelas-modal.component';
 import { RenovacaoContratoComponent } from './renovacao-contrato/renovacao-contrato.component';
+import { DocumentoContratoModalComponent } from './documento-contrato-modal/documento-contrato-modal.component';
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 
 @NgModule({
-  declarations: [ListContratoComponent, NewContratoComponent, NewGarantiasContratoComponent, FinalizacaoContratoComponent, OcupantesImovelModalComponent, TestemunhasContratoModalComponent, FiadoresContratoModalComponent, ItensContratoModalComponent, ParcelasContratoModalComponent, GeracaoParcelasModalComponent, RenovacaoContratoComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    AuthModule,
-    NgxLoadingModule,
-    NgxPaginationModule,
-  ]
+  declarations: [ListContratoComponent, NewContratoComponent, NewGarantiasContratoComponent, FinalizacaoContratoComponent, OcupantesImovelModalComponent, TestemunhasContratoModalComponent, FiadoresContratoModalComponent, ItensContratoModalComponent, ParcelasContratoModalComponent, GeracaoParcelasModalComponent, RenovacaoContratoComponent, DocumentoContratoModalComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        AuthModule,
+        NgxLoadingModule,
+        NgxPaginationModule,
+        CKEditorModule,
+    ]
 })
 export class ContratoModule { }
