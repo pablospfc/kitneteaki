@@ -32,6 +32,15 @@ export class ModeloDocumentoService {
       );
   }
 
+  public getDocumentoContrato(id, idContrato) {
+    return this.http.get<any>(`${this.API}/getDocumentoContrato/${id}/${idContrato}`)
+      .pipe(
+        map(data => {
+          return data;
+        })
+      );
+  }
+
   public save(modeloDocumento) {
     if (modeloDocumento.id) {
       return this.update(modeloDocumento);

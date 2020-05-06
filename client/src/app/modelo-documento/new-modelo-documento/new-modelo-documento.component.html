@@ -54,29 +54,124 @@
             </div>
 
             <div class="row">
-              <label>Selecione os campos para preencher o documento: </label>
-              <div class="form-group col-md-12">
-                    <button type="button" (click)="addText('<<inquilino>>')" class="btn btn-default">
-                      Inquilino
-                    </button>
-                    <button type="button" (click)="addText('<<proprietario>>')" class="btn btn-info">
-                      Proprietário
-                    </button>
-                    <button type="button" (click)="addText('<<imovel>>')" class="btn btn-danger">
-                      Imóvel
-                    </button>
-                    <button type="button" (click)="addText('<<valor>>')" class="btn btn-warning">
-                      Valor
-                    </button>
-                    <button type="button" (click)="addText('<<vigencia>>')" class="btn btn-success">
-                      Vigência
-                    </button>
-            </div>
-
-              <div class="box-body pad">
+              <div class="box-body pad col-md-8">
                 <label for="tipo_modelo_documento">Conteúdo: </label>
                 <ckeditor #editor id="text" [editor]="Editor" name="conteudo" [(ngModel)]="modelo.conteudo" (ready)="onReady($event)"></ckeditor>
                 <!--<textarea id="text"></textarea>-->
+              </div>
+
+              <div class="box-body pad col-md-4">
+                <label>Variáveis: </label>
+                <main>
+                  <article class="panel-group bs-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                    <section class="panel panel-primary">
+                      <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Inquilino
+                            <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          <ul>
+                            <li (click)="addText('nome_inquilino')">Nome</li>
+                            <li (click)="addText('rg_inquilino')">RG</li>
+                            <li (click)="addText('cpf_inquilino')">CPF</li>
+                            <li (click)="addText('passaporte_inquilino')">Passaporte</li>
+                            <li (click)="addText('estado_civil_inquilino')">Estado Civil</li>
+                            <li (click)="addText('naturalidade_inquilino')">Naturalidade</li>
+                            <li (click)="addText('orgao_exp_inquilino')">Órgão Expedidor</li>
+                            <li (click)="addText('profissao_inquilino')">Profissão</li>
+                            <li (click)="addText('cep_inquilino')">CEP</li>
+                            <li (click)="addText('logradouro_inquilino')">Logradouro</li>
+                            <li (click)="addText('bairro_inquilino')">Bairro</li>
+                            <li (click)="addText('email_inquilino')">E-mail</li>
+                            <li (click)="addText('telefone_inquilino')">Telefone</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="panel panel-primary">
+                      <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Proprietário
+                            <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                          <ul>
+                            <li (click)="addText('nome_proprietario')">Nome</li>
+                            <li (click)="addText('rg_proprietario')">RG</li>
+                            <li (click)="addText('cpf_proprietario')">CPF</li>
+                            <li (click)="addText('passaporte_proprietario')">Passaporte</li>
+                            <li (click)="addText('estado_civil_proprietario')">Estado Civil</li>
+                            <li (click)="addText('naturalidade_proprietario')">Naturalidade</li>
+                            <li (click)="addText('orgao_exp_proprietario')">Órgão Expedidor</li>
+                            <li (click)="addText('profissao_proprietario')">Profissão</li>
+                            <li (click)="addText('cep_proprietario')">CEP</li>
+                            <li (click)="addText('logradouro_proprietario')">Logradouro</li>
+                            <li (click)="addText('bairro_proprietario')">Bairro</li>
+                            <li (click)="addText('email_proprietario')">E-mail</li>
+                            <li (click)="addText('telefone_proprietario')">Telefone</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="panel panel-primary">
+                      <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Contrato
+                            <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                          <ul>
+                            <li (click)="addText('valor_total_contrato')" >Valor Total</li>
+                            <li (click)="addText('dia_vencimento_contrato')">Dia de Vencimento</li>
+                            <li (click)="addText('data_inicio_contrato')">Data Inicial</li>
+                            <li (click)="addText('data_fim_contrato')">Data Final</li>
+                            <li (click)="addText('vigencia_contrato')">Vigência</li>
+                            <li (click)="addText('dias_contrato')">Dias</li>
+                            <li (click)="addText('forma_pagamento_contrato')">Forma de Pagamento</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="panel panel-primary">
+                      <div class="panel-heading" role="tab" id="headingFour">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Imóvel
+                            <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                        <div class="panel-body">
+                          <ul>
+                            <li (click)="addText('nome_imovel')">Nome</li>
+                            <li (click)="addText('valor_imovel')">Valor</li>
+                            <li (click)="addText('numero_imovel')">Número</li>
+                            <li (click)="addText('logradouro_imovel')">Logradouro</li>
+                            <li (click)="addText('cep_imovel')">CEP</li>
+                            <li (click)="addText('complemento_imovel')">Complemento</li>
+                            <li (click)="addText('bairro_imovel')">Bairro</li>
+                            <li (click)="addText('cidade_imovel')">Cidade</li>
+                            <li (click)="addText('estado_imovel')">Estado</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </section>
+                  </article>
+                </main>
               </div>
             </div>
 

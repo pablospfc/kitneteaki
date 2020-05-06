@@ -94,7 +94,10 @@ const routes: Routes = [
       },
       {
         path: 'finalizacao-contrato/:id',
-        component: FinalizacaoContratoComponent
+        component: FinalizacaoContratoComponent,
+        resolve: {
+          contrato: ContratoResolverGuard
+        }
       },
       {
         path: 'ocupantes-imovel-modal',

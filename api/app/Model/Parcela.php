@@ -152,6 +152,7 @@ class Parcela extends Model
             $parcelas[] = [
                 'id_status' => 4,
                 'id_contrato' => $id,
+                'id_forma_pagamento' => $contrato['id_forma_pagamento'],
                 'data_vencimento' => $vencimento,
                 'competencia' => $vencimento,
                 'valor' => $valorTotal,

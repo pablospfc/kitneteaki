@@ -18,6 +18,8 @@ class Contrato extends Model
         "id_locador",
         "id_imovel",
         "id_tipo_contrato",
+        "id_modelo_documento",
+        "id_forma_pagamento",
         "valor",
         "primeiro_vencimento",
         "dia_vencimento",
@@ -34,8 +36,6 @@ class Contrato extends Model
         "renovou",
         "chave"
     ];
-
-    //
 
     public function salvar($data)
     {

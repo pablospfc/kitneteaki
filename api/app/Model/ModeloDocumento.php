@@ -29,5 +29,37 @@ class ModeloDocumento extends Model
             ->get();
     }
 
+    public function getDocumentoContrato($id, $idContrato){
+      $modelo = self::find($id);
+      $contrato = Contrato::select(
+         "im.nome as imovel",
+         "pr.nome as proprietario",
+         "in.nome as inquilino",
+         "co.valor as valor",
+         "co.vigencia as vigencia"
+      )->from("contrato as co")
+          ->leftJoin("pessoa as pr", "co.id_locador", "=", "pr.id")
+          ->join("pessoa as in", "co.id_locatario", "=", "in.id")
+          ->join("imovel as im", "co.id_imovel", "=", "im.id")
+          ->where("co.id", $idContrato)
+          ->first();
+
+      $documento = str_replace([
+          "*proprietario*",
+          "*inquilino*",
+          "*imovel*",
+          "*valor*",
+          "*vigencia*"
+      ],[
+          $contrato['proprietario'],
+          $contrato['inquilino'],
+          $contrato['imovel'],
+          $contrato['valor'],
+          $contrato['vigencia']
+      ], $modelo['conteudo']);
+
+      return $documento;
+    }
+
 
 }

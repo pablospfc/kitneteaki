@@ -47,8 +47,8 @@
                       name="id_modelo_documento">
                 <option *ngFor="let modeloDocumento of modelosDocumentos" [value]="modeloDocumento.id">{{modeloDocumento.nome}}</option>
               </select>
-              <button type="button" (click)="openModalContrato(contrato.id_modelo_documento)" [disabled]="!contrato.id_modelo_documento" class="btn btn-info">Criar Contrato</button>
-              <button type="button" class="btn btn-success">Editar Contrato</button>
+              <button type="button" (click)="openModalContrato(contrato.id_modelo_documento)" [disabled]="!contrato.id_modelo_documento" class="btn btn-info">{{contrato.contrato ? 'Editar' : 'Criar'}} Contrato</button>
+              <input type="hidden" name="id_status" [(ngModel)]="contrato.id_status"/>
             </div>
           </div>
 
@@ -177,7 +177,6 @@
           <button type="button" class="btn btn-success" [routerLink]="['/new-garantias-contrato/'+idContrato]">Voltar
           </button>
         </div>
-
 
       </div>
     </div>

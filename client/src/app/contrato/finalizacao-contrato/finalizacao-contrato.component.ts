@@ -27,6 +27,12 @@ export class FinalizacaoContratoComponent implements OnInit {
   public id: number;
   public item: string;
   public contrato: Contrato;
+  public data = {
+    id: null,
+    id_status: null,
+    id_forma_pagamento: null,
+    id_modelo_documento: null
+  };
   modalRef: BsModalRef;
   constructor(private route: ActivatedRoute,
               private modalService: BsModalService,
@@ -35,6 +41,7 @@ export class FinalizacaoContratoComponent implements OnInit {
               private itemContratoService: ItemContratoService,
               private contratoService: ContratoService,
               private router: Router,
+              private actRoute: ActivatedRoute,
               private modeloDocumentoService: ModeloDocumentoService,
               private parcelaService: ParcelaService) {
     this.route.params.subscribe((params: Params) => {
@@ -44,6 +51,9 @@ export class FinalizacaoContratoComponent implements OnInit {
 
   ngOnInit() {
     this.contrato = new Contrato();
+    this.actRoute.data.subscribe(data => {
+      this.contrato = data.contrato;
+    });
     this.getItensContrato();
     this.getParcelas();
     this.getModelosDocumentos();
@@ -51,11 +61,17 @@ export class FinalizacaoContratoComponent implements OnInit {
 
   concluirContrato() {
     this.loading = true;
-    this.contratoService.concluirContrato(this.idContrato)
+    this.data = {
+      id: this.idContrato,
+      id_status: 1,
+      id_forma_pagamento: this.contrato.id_forma_pagamento,
+      id_modelo_documento: this.contrato.id_modelo_documento
+    };
+    this.contratoService.concluirContrato(this.data)
       .subscribe(data => {
         this.alertService.success(data.message);
         this.loading = false;
-        window.scroll(0,0);
+        window.scroll(0, 0);
         setTimeout(() => {
             this.router.navigate(['list-contrato']);
           },
@@ -63,6 +79,7 @@ export class FinalizacaoContratoComponent implements OnInit {
       }, error => {
         this.alertService.error(error.message);
         this.loading = false;
+        window.scroll(0, 0);
       });
   }
 

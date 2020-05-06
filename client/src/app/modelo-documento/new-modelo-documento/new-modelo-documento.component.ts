@@ -49,7 +49,7 @@ export class NewModeloDocumentoComponent implements OnInit {
   public onReady(editor) {
     editor.ui.view.editable.element.parentElement.insertBefore(
       editor.ui.view.toolbar.element,
-      editor.ui.view.editable.element
+      editor.ui.view.editable.element,
     );
   }
 

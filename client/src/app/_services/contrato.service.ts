@@ -29,11 +29,17 @@ export class ContratoService {
       );
   }
 
-  public concluirContrato(id) {
-    const data = {
-      id_status: 1
-    };
-    return this.http.put<any>(`${this.API}/concluir/${id}`, data)
+  public concluirContrato(data) {
+    return this.http.put<any>(`${this.API}/concluir/${data.id}`, data)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
+
+  public setDocumentoContrato(contrato) {
+    return this.http.put<any>(`${this.API}/setDocumentoContrato/${contrato.id}`, contrato)
       .pipe(
         catchError(error => {
           return throwError(error);

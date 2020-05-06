@@ -30,6 +30,16 @@ class ModeloDocumentoController extends Controller
         }
     }
 
+    public function getDocumentoContrato($id, $idContrato){
+        try {
+            $documento = $this->modeloDocumento->getDocumentoContrato($id, $idContrato);
+            return response()->json($documento,200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao carregar documento'.$e->getMessage()]);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

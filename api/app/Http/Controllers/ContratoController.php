@@ -128,6 +128,17 @@ class ContratoController extends Controller
         }
     }
 
+    public function setDocumentoContrato(Request $request, $id) {
+        try {
+            \App\Model\Contrato::where('id', $id)
+                ->update($request->all());
+            return response()->json(['message' => 'O documento de contrato foi atualizado com sucesso.'],200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(['message' => 'Ocorreu um problema ao atualizar documento de contrato.'],500);
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
