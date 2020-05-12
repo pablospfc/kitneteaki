@@ -4,8 +4,7 @@
     <small>{{conta.id ? 'Atualizar' : 'Adicionar'}}</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Conta</a></li>
+    <li><a href="#"><i class="fa fa-money"></i> Contas</a></li>
     <li class="active">{{conta.id ? 'Atualizar' : 'Adicionar'}}</li>
   </ol>
 </section>
@@ -165,7 +164,7 @@
 
             <!-- /.box-body -->
             <div class="box-footer text-center">
-              <button type="submit" class="btn btn-primary" [disabled]="!contaForm.valid">Salvar</button>
+              <button type="submit" class="btn btn-primary" [disabled]="!contaForm.valid" style="margin-right: 5px;">Salvar</button>
               <button type="button" class="btn btn-success" [routerLink]="['/list-conta']">Voltar</button>
             </div>
 

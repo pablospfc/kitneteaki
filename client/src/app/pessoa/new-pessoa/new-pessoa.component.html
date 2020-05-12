@@ -194,6 +194,91 @@
               </div>
             </div>
 
+            <h4>Endereço</h4>
+            <hr>
+
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="cep">CEP:</label>
+                <input type="text"
+                       class="form-control"
+                       id="cep"
+                       name="cep"
+                       mask="9999-999"
+                       (blur)="getCEP($event.target.value)"
+                       [(ngModel)]="pessoa.cep"
+                       [required]="true"
+                       placeholder="CEP"/>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="logradouro">Logradouro:</label>
+                <input type="text"
+                       class="form-control"
+                       id="logradouro"
+                       name="logradouro"
+                       [(ngModel)]="pessoa.logradouro"
+                       [required]="true"
+                       placeholder="Logradouro"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="bairro">Bairro:</label>
+                <input type="text"
+                       class="form-control"
+                       id="bairro"
+                       name="bairro"
+                       [(ngModel)]="pessoa.bairro"
+                       [required]="true"
+                       placeholder="Bairro"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="complemento">Complemento:</label>
+                <input type="text"
+                       class="form-control"
+                       id="complemento"
+                       name="complemento"
+                       [(ngModel)]="pessoa.complemento"
+                       [required]="true"
+                       placeholder="Complemento"/>
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="numero">Número:</label>
+                <input type="text"
+                       class="form-control"
+                       id="numero"
+                       name="numero"
+                       [(ngModel)]="pessoa.numero"
+                       [required]="true"
+                       placeholder="Número"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="cidade">Cidade:</label>
+                <input type="text"
+                       class="form-control"
+                       id="cidade"
+                       name="cidade"
+                       [(ngModel)]="pessoa.cidade"
+                       [required]="true"
+                       placeholder="Cidade"/>
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="estado">Estado:</label>
+                <input type="text"
+                       class="form-control"
+                       id="estado"
+                       name="estado"
+                       [(ngModel)]="pessoa.estado"
+                       [required]="true"
+                       placeholder="Estado"/>
+              </div>
+
+            </div>
+
             <h4>Contato</h4>
             <hr>
             <div class="row">
@@ -250,7 +335,7 @@
           </div>
           <!-- /.box-body -->
             <div class="box-footer text-center">
-              <button type="submit" class="btn btn-primary" [disabled]="!pessoaForm.valid">Salvar</button>
+              <button type="submit" class="btn btn-primary" [disabled]="!pessoaForm.valid" style="margin-right:5px;">Salvar</button>
               <button type="button" class="btn btn-success" [routerLink]="['/list-pessoa']">Voltar</button>
             </div>
 
@@ -260,3 +345,6 @@
     </div>
   </div>
 </section>
+
+
+<ngx-loading [show]="loading"></ngx-loading>

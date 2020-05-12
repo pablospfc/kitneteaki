@@ -1,11 +1,11 @@
 <section class="content-header">
   <h1>
-    Home
-    <small>Faturas</small>
+    Faturas
+    <small>Listar</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Faturas</li>
+    <li><a href="#"><i class="fa fa-barcode"></i> Faturas</a></li>
+    <li class="active">Listar</li>
   </ol>
 </section>
 
@@ -16,159 +16,173 @@
 
       <h3 class="box-title">Listagem de Faturas</h3>
 
+      <div class="box-tools pull-right">
+        <!-- BOTÕES DE ADICIONAR-->
+        <button type="button" class="btn pull-right"
+                [ngClass]="{'btn-success': filter == false, 'btn-default': filter == true}" (click)="openFilter()"><i
+          class="fa" [ngClass]="{'fa-search-plus': filter == false, 'fa-search-minus': filter == true}"></i> Busca
+          Avançada
+        </button>
+      </div>
+
     </div>
     <!-- /.box-header -->
     <app-alert-message></app-alert-message>
     <div class="box-body">
-      <form #formFiltro="ngForm" name="formFiltro" role="form">
-        <div class="row">
-          <div class="form-group col-md-3">
-            <label for="id_locatario">Inquilino</label>
-            <select class="form-control"
-                    id="id_locatario"
-                    [(ngModel)]="filtro.id_locatario"
-                    name="id_locatario">
-              <option *ngFor="let inquilino of inquilinos" [value]="inquilino.id">{{inquilino.nome}}</option>
-            </select>
-          </div>
+      <div class="panel panel-primary" *ngIf="filter == true">
+        <div class="panel-body">
+          <form #formFiltro="ngForm" name="formFiltro" role="form">
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="id_locatario">Inquilino</label>
+                <select class="form-control"
+                        id="id_locatario"
+                        [(ngModel)]="filtro.id_locatario"
+                        name="id_locatario">
+                  <option *ngFor="let inquilino of inquilinos" [value]="inquilino.id">{{inquilino.nome}}</option>
+                </select>
+              </div>
 
-          <div class="form-group col-md-4">
-            <label for="id_imovel">Imóvel</label>
-            <select class="form-control"
-                    id="id_imovel"
-                    [(ngModel)]="filtro.id_imovel"
-                    name="id_imovel">
-              <option *ngFor="let imovel of imoveis" [value]="imovel.id">{{imovel.nome}}</option>
-            </select>
-          </div>
+              <div class="form-group col-md-4">
+                <label for="id_imovel">Imóvel</label>
+                <select class="form-control"
+                        id="id_imovel"
+                        [(ngModel)]="filtro.id_imovel"
+                        name="id_imovel">
+                  <option *ngFor="let imovel of imoveis" [value]="imovel.id">{{imovel.nome}}</option>
+                </select>
+              </div>
 
-          <div class="form-group col-md-3">
-            <label for="id_tipo_contrato">Tipo de Contrato</label>
-            <select class="form-control"
-                    id="id_tipo_contrato"
-                    [(ngModel)]="filtro.id_tipo_contrato"
-                    name="id_tipo_contrato">
-              <option [value]="1">Aluguel</option>
-              <option [value]="2">Temporada</option>
-            </select>
-          </div>
+              <div class="form-group col-md-3">
+                <label for="id_tipo_contrato">Tipo de Contrato</label>
+                <select class="form-control"
+                        id="id_tipo_contrato"
+                        [(ngModel)]="filtro.id_tipo_contrato"
+                        name="id_tipo_contrato">
+                  <option [value]="1">Aluguel</option>
+                  <option [value]="2">Temporada</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="periodo_inicial">Período Inicial</label>
+                <input type="date"
+                       class="form-control"
+                       id="periodo_inicial"
+                       name="periodo_inicial"
+                       [(ngModel)]="filtro.periodo_inicial"
+                       [required]="false"/>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="periodo_final">Período Final</label>
+                <input type="date"
+                       class="form-control"
+                       id="periodo_final"
+                       name="periodo_final"
+                       [(ngModel)]="filtro.periodo_final"
+                       [required]="filtro.periodo_inicial"/>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="id_forma_pagamento">Forma de Pagamento</label>
+                <select class="form-control"
+                        id="id_forma_pagamento"
+                        [(ngModel)]="filtro.id_forma_pagamento"
+                        name="id_forma_pagamento">
+                  <option [value]="1">Dinheiro</option>
+                  <option [value]="2">Boleto Bancário</option>
+                  <option [value]="2">Cartão de Crédito</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="id_status">Status</label>
+                <select class="form-control"
+                        id="id_status"
+                        [(ngModel)]="filtro.id_status"
+                        name="id_status">
+                  <option [value]="4">Em Aberto</option>
+                  <option [value]="5">Atrasado</option>
+                  <option [value]="6">Liquidado</option>
+                </select>
+              </div>
+            </div>
+            <button type="button" (click)="listParcelas()" class="btn btn-success" style="margin-right: 5px;">Buscar
+            </button>
+            <button type="button" (click)="clear()" class="btn btn-default">Limpar</button>
+          </form>
         </div>
-        <div class="row">
-          <div class="form-group col-md-3">
-            <label for="periodo_inicial">Período Inicial</label>
-            <input type="date"
-                   class="form-control"
-                   id="periodo_inicial"
-                   name="periodo_inicial"
-                   [(ngModel)]="filtro.periodo_inicial"
-                   [required]="false"/>
-          </div>
+      </div>
 
-          <div class="form-group col-md-3">
-            <label for="periodo_final">Período Final</label>
-            <input type="date"
-                   class="form-control"
-                   id="periodo_final"
-                   name="periodo_final"
-                   [(ngModel)]="filtro.periodo_final"
-                   [required]="filtro.periodo_inicial"/>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="id_forma_pagamento">Forma de Pagamento</label>
-            <select class="form-control"
-                    id="id_forma_pagamento"
-                    [(ngModel)]="filtro.id_forma_pagamento"
-                    name="id_forma_pagamento">
-              <option [value]="1">Dinheiro</option>
-              <option [value]="2">Boleto Bancário</option>
-              <option [value]="2">Cartão de Crédito</option>
-            </select>
-          </div>
-
-          <div class="form-group col-md-2">
-            <label for="id_status">Status</label>
-            <select class="form-control"
-                    id="id_status"
-                    [(ngModel)]="filtro.id_status"
-                    name="id_status">
-              <option [value]="4">Em Aberto</option>
-              <option [value]="5">Atrasado</option>
-              <option [value]="6">Liquidado</option>
-            </select>
-          </div>
-        </div>
-        <button type="button" (click)="listParcelas()" class="btn btn-success">Buscar</button>
-        <button type="button" (click)="clear()" class="btn btn-default">Limpar</button>
-      </form>
-      <hr>
-      <table id="example1" class="table table-bordered table-striped">
-        <thead>
-        <tr>
-          <th>Inquilino</th>
-          <th>Status</th>
-          <th>Forma de Pagamento</th>
-          <th>Parcela</th>
-          <th>Período</th>
-          <th>Data de Vencimento</th>
-          <th>Valor Total</th>
-          <th>Ação</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let parcela of parcelas | paginate: { id: 'listing_pagination',
+          <table id="example1" class="table table-bordered table-hover">
+            <thead>
+            <tr>
+              <th>Inquilino</th>
+              <th>Status</th>
+              <th>Forma de Pagamento</th>
+              <th>Parcela</th>
+              <th>Período</th>
+              <th>Data de Vencimento</th>
+              <th>Valor Total</th>
+              <th>Ação</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let parcela of parcelas | paginate: { id: 'listing_pagination',
                                                       itemsPerPage: 10,
                                                       currentPage: page,
                                                       totalItems: totalRec}">
-          <td>{{parcela.inquilino}}</td>
-          <td><span class="label"
-                    [ngClass]="{'label-info': parcela.id_status == 6, 'label-success': parcela.id_status == 4, 'label-danger': parcela.id_status == 5}">{{parcela.status}}</span>
-          </td>
-          <td>{{parcela.forma_pagamento}}</td>
-          <td>{{parcela.parcela}}</td>
-          <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} ~ {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
-          <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
-          <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
-          <td>
-            <button type="button"
-                    (click)="openModalParcela(parcela.id)"
-                    class="btn btn-info btn-sm">
-              <i class="fa fa-edit" aria-hidden="true"></i>
-            </button>
+              <td>{{parcela.inquilino}}</td>
+              <td><span class="label"
+                        [ngClass]="{'label-info': parcela.id_status == 6, 'label-success': parcela.id_status == 4, 'label-danger': parcela.id_status == 5}">{{parcela.status}}</span>
+              </td>
+              <td>{{parcela.forma_pagamento}}</td>
+              <td>{{parcela.parcela}}</td>
+              <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} ~ {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
+              <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
+              <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
+              <td>
+                <button type="button"
+                        (click)="openModalParcela(parcela.id)"
+                        class="btn btn-info btn-sm" style="margin-right: 5px;">
+                  <i class="fa fa-edit" aria-hidden="true"></i>
+                </button>
 
-            <button type="button"
-                    class="btn btn-danger btn-sm">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
+                <button type="button"
+                        class="btn btn-danger btn-sm" style="margin-right: 5px;">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
 
-            <button type="button"
-                    (click)="gerarBoleto(parcela.id)"
-                    class="btn btn-success btn-sm">
-              <i class="fa fa-registered" aria-hidden="true"></i>
-            </button>
+                <button type="button"
+                        (click)="gerarBoleto(parcela.id)"
+                        class="btn btn-success btn-sm" style="margin-right: 5px;">
+                  <i class="fa fa-registered" aria-hidden="true"></i>
+                </button>
 
-            <button type="button"
-                    class="btn btn-default btn-sm">
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </button>
-          </td>
-        </tr>
-        <tr class="animate-repeat" *ngIf="parcelas.length == 0">
-          <td colspan="8" class="text-center">
-            <em>
-              Nenhum resultado foi encontrado
-            </em>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-      <div>
-        <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
-                             (pageChange)="page = $event"></pagination-controls>
+                <button type="button"
+                        class="btn btn-default btn-sm">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="animate-repeat" *ngIf="parcelas.length == 0">
+              <td colspan="8" class="text-center">
+                <em>
+                  Nenhum resultado foi encontrado
+                </em>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div>
+            <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+                                 (pageChange)="page = $event"></pagination-controls>
+          </div>
+        </div>
+        <!-- /.box-body -->
+
       </div>
-    </div>
-    <!-- /.box-body -->
-
-  </div>
 </section>
 
 <ngx-loading [show]="loading"></ngx-loading>

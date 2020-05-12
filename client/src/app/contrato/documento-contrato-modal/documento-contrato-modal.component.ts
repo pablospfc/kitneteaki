@@ -53,11 +53,14 @@ export class DocumentoContratoModalComponent implements OnInit {
   }
 
   getDocumentoContrato() {
+    this.loading = true;
     this.modeloDocumentoService.getDocumentoContrato(this.idModeloDocumento, this.idContrato)
       .subscribe(data => {
         this.contrato.contrato = data;
+        this.loading = false;
       }, error => {
-
+        this.alertMessageService.error(error);
+        this.loading = false;
       });
   }
 

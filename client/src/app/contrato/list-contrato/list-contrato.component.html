@@ -1,11 +1,11 @@
 <section class="content-header">
   <h1>
-    Home
-    <small>Contratos</small>
+    Contratos
+    <small>Listar</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Contratos</li>
+    <li><a href="#"><i class="fa fa-handshake-o"></i> Contratos</a></li>
+    <li class="active">Listar</li>
   </ol>
 </section>
 
@@ -14,7 +14,7 @@
     <div class="box-header">
       <i class="ion ion-clipboard"></i>
 
-      <h3 class="box-title">Gestão de Contratos</h3>
+      <h3 class="box-title">Listagem de Contratos</h3>
 
       <div class="box-tools pull-right">
         <!-- BOTÕES DE ADICIONAR-->
@@ -27,7 +27,7 @@
     <app-alert-message></app-alert-message>
     <div class="box-body">
       <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-      <table id="example1" class="table table-bordered table-striped">
+      <table id="example1" class="table table-bordered table-hover">
         <thead>
         <tr>
           <th>Status</th>
@@ -37,9 +37,7 @@
           <th>Valor</th>
           <th>Inquilino</th>
           <th>Imóvel</th>
-          <th>Atualizar</th>
-          <th>Renovar</th>
-          <th>Remover</th>
+          <th>Ação</th>
         </tr>
         </thead>
         <tbody>
@@ -60,19 +58,17 @@
             <button type="button"
                     [disabled]="contrato.id_status != 1 && contrato.id_status != 11"
                     [routerLink]="['/update-contrato/'+contrato.id]"
-                    class="btn btn-info btn-sm">
+                    class="btn btn-info btn-sm" style="margin-right: 5px;">
               <i class="fa fa-edit" aria-hidden="true"></i>
             </button>
-          </td>
-          <td>
+
             <button type="button"
                     [disabled]="contrato.id_status != 3"
                     [routerLink]="['/renovacao-contrato/'+contrato.id]"
-                    class="btn btn-success btn-sm">
+                    class="btn btn-success btn-sm" style="margin-right: 5px;">
               <i class="fa fa-file-text" aria-hidden="true"></i>
             </button>
-          </td>
-          <td>
+
             <button type="button"
                     (click)="openModalConfirmRemove(template, contrato.id)"
                     class="btn btn-danger btn-sm">

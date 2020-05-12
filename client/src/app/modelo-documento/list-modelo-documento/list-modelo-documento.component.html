@@ -4,9 +4,8 @@
     <small>Listar</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Modelos de Documentos</li>
-    <li class="active">Listar Modelos de Documentos</li>
+    <li><a href="#"><i class="fa fa-file-text-o"></i> Modelos de Documentos</a></li>
+    <li class="active">Listar</li>
   </ol>
 </section>
 
@@ -15,7 +14,7 @@
     <div class="box-header">
       <i class="ion ion-clipboard"></i>
 
-      <h3 class="box-title">Gestão de Modelos de Documentos</h3>
+      <h3 class="box-title">Listagem de Modelos de Documentos</h3>
 
       <div class="box-tools pull-right">
         <!-- BOTÕES DE ADICIONAR-->
@@ -25,7 +24,7 @@
     <!-- /.box-header -->
     <div class="box-body">
       <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-      <table id="tblPessoa" class="table table-bordered table-striped">
+      <table class="table table-bordered table-hover">
         <thead>
         <tr>
           <th>Nome</th>
@@ -43,11 +42,11 @@
           <td>
             <button type="button"
                     [routerLink]="['/update-modelo-documento/'+modelo.id]"
-                    class="btn btn-info btn-sm">
+                    class="btn btn-info btn-sm" >
               <i class="fa fa-edit" aria-hidden="true"></i>
             </button>
             <button type="button"
-                    class="btn btn-danger btn-sm">
+                    class="btn btn-danger btn-sm margin">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </td>

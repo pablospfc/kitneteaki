@@ -54,8 +54,6 @@ class Conta extends Model
         $valores = false;
         $imovel = false;
 
-        error_log(var_export($params,true));
-
         if (isset($params['id_tipo_conta']))
             $tipo = true;
         if (isset($params['id_categoria_conta']))

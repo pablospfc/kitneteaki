@@ -4,8 +4,7 @@
     <small>Adicionar</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Finalização de Contrato</a></li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> Finalização de Contrato</a></li>
     <li class="active">Adicionar</li>
   </ol>
 </section>
@@ -38,16 +37,22 @@
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-5">
               <label for="id_modelo_documento">Documentos para o Contrato</label>
-              <select class="form-control"
-                      id="id_modelo_documento"
-                      [(ngModel)]="contrato.id_modelo_documento"
-                      [required]="true"
-                      name="id_modelo_documento">
-                <option *ngFor="let modeloDocumento of modelosDocumentos" [value]="modeloDocumento.id">{{modeloDocumento.nome}}</option>
-              </select>
-              <button type="button" (click)="openModalContrato(contrato.id_modelo_documento)" [disabled]="!contrato.id_modelo_documento" class="btn btn-info">{{contrato.contrato ? 'Editar' : 'Criar'}} Contrato</button>
+              <div class="form-inline">
+                <select class="form-control"
+                        id="id_modelo_documento"
+                        [(ngModel)]="contrato.id_modelo_documento"
+                        [required]="true"
+                        name="id_modelo_documento">
+                  <option *ngFor="let modeloDocumento of modelosDocumentos"
+                          [value]="modeloDocumento.id">{{modeloDocumento.nome}}</option>
+                </select>
+                <button type="button" (click)="openModalContrato(contrato.id_modelo_documento)"
+                        [disabled]="!contrato.id_modelo_documento"
+                        class="btn btn-info">{{contrato.contrato ? 'Editar' : 'Criar'}} Contrato
+                </button>
+              </div>
               <input type="hidden" name="id_status" [(ngModel)]="contrato.id_status"/>
             </div>
           </div>
@@ -124,7 +129,7 @@
                       </button>
                     </div>
                     <br/><br/>
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-hover">
                       <thead>
                       <tr>
                         <th>Parcela</th>
@@ -171,7 +176,8 @@
         </div>
 
         <div class="box-footer text-center">
-          <button type="button" class="btn btn-primary" [disabled]="!parcelas.length" (click)="concluirContrato()">
+          <button type="button" class="btn btn-primary" [disabled]="!parcelas.length" (click)="concluirContrato()"
+                  style="margin-right: 5px;">
             Finalizar
           </button>
           <button type="button" class="btn btn-success" [routerLink]="['/new-garantias-contrato/'+idContrato]">Voltar

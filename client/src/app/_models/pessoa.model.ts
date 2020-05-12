@@ -12,6 +12,13 @@ export class Pessoa {
   data_nascimento: Date;
   orgao_expedidor?: string;
   data_emissao?: Date;
+  logradouro: string;
+  bairro: string;
+  cidade: string;
+  estado: string;
+  complemento: string;
+  cep: string;
+  numero: string;
   email: string;
   telefone_celular: string;
   whatsapp?: string;

@@ -1,11 +1,11 @@
 <section class="content-header">
   <h1>
-    Home
-    <small>Contas</small>
+    Contas
+    <small>Listar</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Contas</li>
+    <li><a href="#"><i class="fa fa-money"></i> Contas</a></li>
+    <li class="active">Listar</li>
   </ol>
 </section>
 
@@ -14,7 +14,7 @@
     <div class="box-header">
       <i class="ion ion-clipboard"></i>
 
-      <h3 class="box-title">Gestão de Contas</h3>
+      <h3 class="box-title">Listagem de Contas</h3>
 
       <div class="box-tools pull-right">
         <!-- BOTÕES DE ADICIONAR-->
@@ -117,11 +117,11 @@
         <div class="row">
 
         </div>
-        <button type="button" (click)="list()" class="btn btn-success">Buscar</button>
+        <button type="button" (click)="list()" class="btn btn-success" style="margin-right: 5px;">Buscar</button>
         <button type="button" (click)="clear()" class="btn btn-default">Limpar</button>
       </form>
       <hr>
-      <table id="example1" class="table table-bordered table-striped table-hover">
+      <table id="example1" class="table table-bordered table-hover">
         <thead>
         <tr>
           <th>Categoria</th>
@@ -131,8 +131,7 @@
           <th>Competência</th>
           <th>Data de Vencimento</th>
           <th>Imóvel</th>
-          <th>Atualizar</th>
-          <th>Remover</th>
+          <th>Ação</th>
         </tr>
         </thead>
         <tbody>
@@ -150,11 +149,10 @@
           <td>
             <button type="button"
                     [routerLink]="['/update-conta/' + conta.id]"
-                    class="btn btn-info btn-sm">
+                    class="btn btn-info btn-sm" style="margin-right: 5px;">
               <i class="fa fa-edit" aria-hidden="true"></i>
             </button>
-          </td>
-          <td>
+
             <button type="button"
                     (click)="openModalConfirmRemove(template, conta.id)"
                     class="btn btn-danger btn-sm">

@@ -20,6 +20,7 @@ export class NewModeloDocumentoComponent implements OnInit {
 
   modelo: ModeloDocumento;
   public Editor = DecoupledEditor;
+  public loading;
   @ViewChild('editor', { static: false }) editor: CKEditorComponent;
 
   constructor(private modeloDocumentoService: ModeloDocumentoService,
@@ -40,8 +41,10 @@ export class NewModeloDocumentoComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.modeloDocumentoService.save(form.value)
       .subscribe(data => {
+        window.scroll(0, 0);
         this.alertMessageService.success(data.message);
       }, error => {
+        window.scroll(0, 0);
         this.alertMessageService.error(error.message);
       });
   }
@@ -57,8 +60,11 @@ export class NewModeloDocumentoComponent implements OnInit {
     const appendData = arg;
     const selection = this.editor.editorInstance.model.document.selection;
     const range = selection.getFirstRange();
+    this.editor.editorInstance.model.document.fontSize
+    const selectedElement = selection.getSelectedElement();
     this.editor.editorInstance.model.change(writer => {
-      writer.insert(appendData, range.start);
+      writer.insert('<b>' + appendData + '</b>', range.start);
+      console.log(selectedElement);
     });
 
   }

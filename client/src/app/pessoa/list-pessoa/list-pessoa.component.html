@@ -4,9 +4,8 @@
     <small>Listar</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Pessoas</li>
-    <li class="active">Listar Pessoas</li>
+    <li><a href="#"><i class="fa fa-group"></i> Pessoas</a></li>
+    <li class="active">Listar</li>
   </ol>
 </section>
 
@@ -15,7 +14,7 @@
     <div class="box-header">
       <i class="ion ion-clipboard"></i>
 
-      <h3 class="box-title">Gestão de Pessoas</h3>
+      <h3 class="box-title">Listagem de Pessoas</h3>
 
       <div class="box-tools pull-right">
         <!-- BOTÕES DE ADICIONAR-->
@@ -25,7 +24,7 @@
     <!-- /.box-header -->
     <div class="box-body">
       <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-      <table id="tblPessoa" class="table table-bordered table-striped">
+      <table id="tblPessoa" class="table table-bordered table-hover">
         <thead>
         <tr>
           <th>Nome</th>
@@ -51,7 +50,7 @@
           <td>
             <button type="button"
                     [routerLink]="['/update-pessoa/'+pessoa.id]"
-                    class="btn btn-info btn-sm">
+                    class="btn btn-info btn-sm" style="margin-right:5px;">
               <i class="fa fa-edit" aria-hidden="true"></i>
             </button>
             <button type="button"

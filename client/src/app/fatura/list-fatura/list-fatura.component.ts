@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ParcelaService} from "../../_services/parcela.service";
 import {ImovelService} from "../../_services/imovel.service";
 import {PessoaService} from "../../_services/pessoa.service";
@@ -22,6 +22,7 @@ export class ListFaturaComponent implements OnInit {
   public page = 1;
   public totalRec: number;
   public loading = false;
+  public filter = false;
   public boleto;
   public filtro = {
     id_locatario: null,
@@ -33,12 +34,14 @@ export class ListFaturaComponent implements OnInit {
     periodo_final: null,
     periodo_inicial: null
   };
+
   constructor(private parcelaService: ParcelaService,
               private imovelService: ImovelService,
               private pessoaService: PessoaService,
               private modalService: BsModalService,
               private router: Router,
-              private alertService: AlertMessageService) { }
+              private alertService: AlertMessageService) {
+  }
 
   ngOnInit() {
     this.listParcelas();
@@ -47,7 +50,7 @@ export class ListFaturaComponent implements OnInit {
   }
 
   clear() {
-  this.filtro = {
+    this.filtro = {
       id_locatario: null,
       id_imovel: null,
       id_tipo_imovel: null,
@@ -59,12 +62,20 @@ export class ListFaturaComponent implements OnInit {
     };
   }
 
+  openFilter() {
+    if (this.filter === true) {
+      this.filter = false;
+    } else {
+      this.filter = true;
+    }
+  }
+
   openModalParcela(id: number) {
-   this.modalService.show(FaturaModalComponent, {
-     initialState: {
-       id: id
-     }
-   });
+    this.modalService.show(FaturaModalComponent, {
+      initialState: {
+        id: id
+      }
+    });
   }
 
   getImoveis() {
@@ -86,12 +97,12 @@ export class ListFaturaComponent implements OnInit {
   }
 
   getInquilinos() {
-   this.pessoaService.getInquilinos()
-     .subscribe(response => {
-       this.inquilinos = response;
-     }, error => {
+    this.pessoaService.getInquilinos()
+      .subscribe(response => {
+        this.inquilinos = response;
+      }, error => {
 
-     });
+      });
   }
 
   listParcelas() {

@@ -28,6 +28,13 @@ class Pessoa extends Model
         "email",
         "telefone_celular",
         "whatsapp",
+        "cep",
+        "logradouro",
+        "bairro",
+        "cidade",
+        "estado",
+        "numero",
+        "complemento",
         "profissao"
     ];
 

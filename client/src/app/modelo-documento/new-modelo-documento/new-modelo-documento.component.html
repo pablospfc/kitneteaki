@@ -4,8 +4,7 @@
     <small>{{modelo.id ? 'Atualizar' : 'Adicionar'}}</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Modelos de Documentos</a></li>
+    <li><a href="#"><i class="fa fa-file-text-o"></i> Modelos de Documentos<</a></li>
     <li class="active">{{modelo.id ? 'Atualizar' : 'Adicionar'}}</li>
   </ol>
 </section>
@@ -178,7 +177,7 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-primary" [disabled]="!modeloForm.valid">Salvar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!modeloForm.valid" style="margin-right: 5px;">Salvar</button>
             <button type="button" class="btn btn-success" [routerLink]="['/list-modelo-documento']">Voltar</button>
           </div>
 
@@ -188,3 +187,5 @@
     </div>
   </div>
 </section>
+
+<ngx-loading [show]="loading"></ngx-loading>

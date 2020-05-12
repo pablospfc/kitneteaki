@@ -4,8 +4,7 @@
     <small>{{contrato.id ? 'Atualizar' : 'Adicionar'}}</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Contrato</a></li>
+    <li><a href="#"><i class="fa fa-handshake-o"></i> Contratos</a></li>
     <li class="active">{{contrato.id ? 'Atualizar' : 'Adicionar'}}</li>
   </ol>
 </section>
@@ -78,8 +77,8 @@
               </div>
             </div>
 
-            <h4>Data e Recorrência do Contrato</h4>
-            <hr>
+            <h4 *ngIf="contrato.id_tipo_contrato">Data e Recorrência do Contrato</h4>
+            <hr *ngIf="contrato.id_tipo_contrato">
             <div class="row">
               <div class="form-group col-md-3" *ngIf="contrato.id_tipo_contrato == 2">
                 <label for="inicio_estadia">Início da Estadia</label>
@@ -213,7 +212,7 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-primary" [disabled]="!contratoForm.valid">Continuar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!contratoForm.valid" style="margin-right: 5px;">Continuar</button>
             <button type="button" class="btn btn-success" [routerLink]="['/list-contrato']">Voltar</button>
           </div>
 
