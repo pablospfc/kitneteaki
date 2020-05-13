@@ -122,8 +122,28 @@ class Contrato extends Model
         return $year;
     }
 
-    public function getAll()
+    public function getAll($params)
     {
+        $inquilino = false;
+        $tipoContrato = false;
+        $imovel = false;
+        $vigencias = false;
+        $valores = false;
+        $status = false;
+
+        if (isset($params['id_locatario']))
+            $inquilino = true;
+        if (isset($params['id_tipo_contrato']))
+            $tipoContrato = true;
+        if (isset($params['id_status']))
+            $status = true;
+        if(isset($params['vigencia_inicial']) && isset($params['vigencia_final']))
+            $vigencias = true;
+        if(isset($params['valor_inicial']) && isset($params['valor_final']))
+            $valores = true;
+        if (isset($params['id_imovel']))
+            $imovel = true;
+
         return self::select(
             "imo.nome as imovel",
             "loc.nome as locatario",
@@ -145,6 +165,26 @@ class Contrato extends Model
             ->join("pessoa as loc", "con.id_locatario", "=", "loc.id")
             ->join("imovel as imo", "con.id_imovel", "=", "imo.id")
             ->join("tipo_contrato as tco", "con.id_tipo_contrato", "=", "tco.id")
+            ->when($inquilino, function ($query) use ($params)  {
+                return $query->where('con.id_locatario', $params['id_locatario']);
+            })
+            ->when($tipoContrato, function ($query) use ($params)  {
+                return $query->where('con.id_tipo_contrato', $params['id_tipo_contrato']);
+            })
+            ->when($status, function ($query) use ($params)  {
+                return $query->where('con.id_status', $params['id_status']);
+            })
+            ->when($vigencias, function ($query) use ($params) {
+                return $query->whereRaw("(con.vigencia >= ? AND con.vigencia <= ?)",
+                    [$params['vigencia_inicial'], $params['vigencia_final']]);
+            })
+            ->when($valores, function ($query) use ($params) {
+                return $query->whereRaw("(con.valor >= ? AND con.valor <= ?)",
+                    [$params['valor_inicial'], $params['valor_final']]);
+            })
+            ->when($imovel, function ($query) use ($params)  {
+                return $query->where('con.id_imovel', $params['id_imovel']);
+            })
             ->orderBy("loc.nome")
             ->get()
             ->toArray();

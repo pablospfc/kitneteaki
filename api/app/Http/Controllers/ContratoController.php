@@ -22,10 +22,10 @@ class ContratoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $dados = $this->contrato->getAll();
+            $dados = $this->contrato->getAll($request->all());
             return response()->json($dados, 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);

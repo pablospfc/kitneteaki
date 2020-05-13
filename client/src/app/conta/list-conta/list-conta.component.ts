@@ -19,6 +19,7 @@ export class ListContaComponent implements OnInit {
   public categorias = [];
   public totalRec;
   public page = 1;
+  public filter = false;
   public filtro = {
     id_tipo_conta: null,
     id_categoria_conta: null,
@@ -81,6 +82,14 @@ export class ListContaComponent implements OnInit {
       valor_final: null,
       id_imovel: null,
     };
+  }
+
+  openFilter() {
+    if (this.filter === true) {
+      this.filter = false;
+    } else {
+      this.filter = true;
+    }
   }
 
   getCategoriasConta(idTipoConta: number) {

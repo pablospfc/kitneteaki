@@ -2,6 +2,8 @@ import {Component, OnInit, TemplateRef} from '@angular/core';
 import {ContratoService} from '../../_services/contrato.service';
 import {AlertMessageService} from "../../_services/alert-message.service";
 import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
+import {ImovelService} from "../../_services/imovel.service";
+import {PessoaService} from "../../_services/pessoa.service";
 
 @Component({
   selector: 'app-list-contrato',
@@ -15,15 +17,32 @@ export class ListContratoComponent implements OnInit {
   public totalRec;
   public page = 1;
   public id;
+  public filter = false;
+  public imoveis = [];
+  public inquilinos = [];
+  public filtro = {
+   id_locatario: null,
+   id_tipo_contrato: null,
+   id_status: null,
+   vigencia_inicial: null,
+   vigencia_final: null,
+   valor_inicial: null,
+   valor_final: null,
+   id_imovel: null,
+  };
   modalRef: BsModalRef;
 
   constructor(private contratoService: ContratoService,
+              private imovelService: ImovelService,
+              private pessoaService: PessoaService,
               private modalService: BsModalService,
               private alertMessageService: AlertMessageService) {
   }
 
   ngOnInit() {
     this.getAll();
+    this.getImoveis();
+    this.getInquilinos();
   }
 
   openModalConfirmRemove(template: TemplateRef<any>, id: number) {
@@ -57,7 +76,7 @@ export class ListContratoComponent implements OnInit {
 
   getAll() {
     this.loading = true;
-    return this.contratoService.list()
+    return this.contratoService.list(this.filtro)
       .subscribe(success => {
         this.contratos = success;
         this.loading = false;
@@ -68,6 +87,45 @@ export class ListContratoComponent implements OnInit {
         this.alertMessageService.error(error.message);
         this.loading = false;
       });
+  }
+
+  clear() {
+    this.filtro = {
+      id_locatario: null,
+      id_tipo_contrato: null,
+      id_status: null,
+      vigencia_inicial: null,
+      vigencia_final: null,
+      valor_inicial: null,
+      valor_final: null,
+      id_imovel: null,
+    };
+  }
+
+  getImoveis() {
+    this.imovelService.list()
+      .subscribe(data => {
+        this.imoveis = data;
+      }, error => {
+
+      });
+  }
+
+  getInquilinos() {
+    this.pessoaService.getInquilinos()
+      .subscribe(data => {
+        this.inquilinos = data;
+      }, error => {
+
+      });
+  }
+
+  openFilter() {
+    if (this.filter === true) {
+      this.filter = false;
+    } else {
+      this.filter = true;
+    }
   }
 
 }
