@@ -2,10 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Parcela;
+use App\Model\ParcelaItem;
 use Illuminate\Http\Request;
 
 class ParcelaItemController extends Controller
 {
+    private $parcelaItem;
+
+    function __construct()
+    {
+        $this->parcelaItem = new ParcelaItem();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -91,7 +100,7 @@ class ParcelaItemController extends Controller
     public function destroy($id)
     {
         try {
-            \App\Model\ParcelaItem::destroy($id);
+            $this->parcelaItem->remove($id);
             return response()->json(['message' => 'Excluído com sucesso'], 200);
         }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);

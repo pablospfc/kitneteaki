@@ -41,6 +41,15 @@ export class ParcelaService {
       );
   }
 
+  public update(dados) {
+    return this.http.put<any>(`${this.API}/atualizar/${dados.id}`, dados)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
+
   public getByContrato(id: number) {
     return this.http.get<any>(`${this.API}/getByContrato/${id}`)
       .pipe(

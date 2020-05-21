@@ -6,6 +6,7 @@ import {ParcelaItemService} from '../../_services/parcela-item.service';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {ItemService} from '../../_services/item.service';
 import {ParcelaItem} from '../../_models/parcela-item.model';
+import {BsModalRef} from "ngx-bootstrap/modal";
 
 @Component({
   selector: 'app-fatura-modal',
@@ -29,11 +30,18 @@ export class FaturaModalComponent implements OnInit {
     valor: null,
   };
 
-  //newAttributes: any = {}
+  public dados: any =  {
+    id: null,
+    id_forma_pagamento: null,
+    data_vencimento: null,
+    itens: null
+  };
+
   public loading = false;
 
   constructor(private parcelaService: ParcelaService,
               private parcelaItemService: ParcelaItemService,
+              private modalRef: BsModalRef,
               private alertMessage: AlertMessageService,
               private itemService: ItemService) {
   }
@@ -50,7 +58,19 @@ export class FaturaModalComponent implements OnInit {
   }
 
   updateFatura(form: NgForm) {
-    console.log(form.value);
+    this.dados = {
+      id: form.value.id,
+      id_forma_pagamento: form.value.id_forma_pagamento,
+      data_vencimento: form.value.data_vencimento,
+      itens: this.itemsParcela
+    };
+
+    this.parcelaService.update(this.dados)
+      .subscribe(data => {
+        this.alertMessage.success(data.message);
+      }, error => {
+        this.alertMessage.error(error.message);
+      });
   }
 
   getById(id: number) {
@@ -62,19 +82,13 @@ export class FaturaModalComponent implements OnInit {
       });
   }
 
-  loadGrid() {
-
-  }
-
   addField() {
     this.itemsParcela.push({
       id: '',
       id_item: '',
-      id_parcela: '',
+      id_parcela: this.id,
       valor: '',
     });
-    //this.newAttributes = {};
-    //console.log(this.itemsParcela);
   }
 
   remove(index, id) {
@@ -82,23 +96,18 @@ export class FaturaModalComponent implements OnInit {
     if (!id) {
       this.itemsParcela.splice(index, 1);
       this.loading = false;
+      window.scroll(0, 0);
     } else {
-      this.itemsParcela.splice(index, 1);
-      this.loading = false;
-      /*
       this.parcelaItemService.excluir(id)
         .subscribe(data => {
           this.itemsParcela.splice(index, 1);
-          console.log(this.itemsParcela);
+          this.alertMessage.success(data.message);
           this.loading = false;
         }, error => {
           this.alertMessage.error(error);
           this.loading = false;
         });
-        */
-
     }
-    //console.log(this.itemsParcela);
   }
 
   getItemsParcela(id: number) {
@@ -108,13 +117,10 @@ export class FaturaModalComponent implements OnInit {
         this.itemsParcela = data;
         this.loading = false;
       }, error => {
-        this.alertMessage.error(error);
+        console.log(error);
+        this.alertMessage.error(error.message);
         this.loading = false;
       });
-  }
-
-  enableEdit() {
-
   }
 
   getItens() {

@@ -47,7 +47,7 @@ class Parcela extends Model
             $formaPagamento = true;
         if (isset($params['id_status']))
             $status = true;
-        if(isset($params['periodo_inicial']) && isset($params['periodo_final']))
+        if (isset($params['periodo_inicial']) && isset($params['periodo_final']))
             $periodos = true;
 
 
@@ -64,16 +64,16 @@ class Parcela extends Model
             ->join("status as st", "pa.id_status", "=", "st.id")
             ->leftJoin("forma_pagamento as fp", "pa.id_forma_pagamento", "=", "fp.id")
             ->join("imovel as im", "co.id_imovel", "=", "im.id")
-            ->when($imovel, function ($query) use ($params)  {
+            ->when($imovel, function ($query) use ($params) {
                 return $query->where('co.id_imovel', $params['id_imovel']);
             })
-            ->when($locatario, function ($query) use ($params)  {
+            ->when($locatario, function ($query) use ($params) {
                 return $query->where('co.id_locatario', $params['id_locatario']);
             })
-            ->when($tipoContrato, function ($query) use ($params)  {
+            ->when($tipoContrato, function ($query) use ($params) {
                 return $query->where('co.id_tipo_contrato', $params['id_tipo_contrato']);
             })
-            ->when($formaPagamento, function ($query) use ($params)  {
+            ->when($formaPagamento, function ($query) use ($params) {
                 return $query->where('pa.id_forma_pagamento', $params['id_forma_pagamento']);
             })
             ->when($status, function ($query) use ($params) {
@@ -83,6 +83,8 @@ class Parcela extends Model
                 return $query->whereRaw("(pa.periodo_inicial >= ? AND pa.periodo_final <= ?)",
                     [$params['periodo_inicial'], $params['periodo_final']]);
             })
+            ->orderBy( "pe.nome", "asc")
+            ->orderBy("pa.data_vencimento","asc")
             ->get()
             ->toArray();
     }
@@ -181,6 +183,46 @@ class Parcela extends Model
         }
     }
 
+    public function updateParcela($dados, $id)
+    {
+        DB::transaction(function () use ($dados, $id) {
+            //atualiza os itens de parcela caso já existam ou cadastra caso não existam
+            foreach ($dados['itens'] as $item) {
+                if (!empty($item['id'])) {
+                    ParcelaItem::where('id', $item['id'])
+                        ->update($item);
+                } else {
+                    ParcelaItem::create($item);
+                }
+            }
+            //soma os valores dos itens da fatura para atualizar o valor da fatura
+            $somaItens = DB::table("parcela_item")
+                ->select(
+                    DB::raw("sum(parcela_item.valor) as soma")
+                )
+                ->where("parcela_item.id_parcela", $id)
+                ->first();
+
+            $valorParcela = DB::table("contrato")
+                ->select(
+                    DB::raw("contrato.valor")
+                )
+                ->join("parcela", "contrato.id", "=", "parcela.id_contrato")
+                ->where("parcela.id", $id)
+                ->first();
+
+            $soma = $somaItens->soma + $valorParcela->valor;
+
+            //atualiza os dados da parcela
+            self::where("id", $id)
+                ->update([
+                    "id_forma_pagamento" => $dados['id_forma_pagamento'],
+                    "data_vencimento" => $dados['data_vencimento'],
+                    "valor" => $soma,
+                ]);
+        });
+    }
+
     private function getValorTotal($id, $valor)
     {
         $totalItens = DB::table('item_contrato')
@@ -200,10 +242,10 @@ class Parcela extends Model
         $ano = $partes[0];
         $mes = $partes[1];
         $dia = $partes[2];
-        $DP = Array($ano, $mes, $dia);
+        $DP = array($ano, $mes, $dia);
 // ARRAY PARA AS DATAS
-        $data_array = Array($DP[0], $DP[1], $DP[2]);
-        $data_array2 = Array($DP[0], $DP[1], $DP[2]);
+        $data_array = array($DP[0], $DP[1], $DP[2]);
+        $data_array2 = array($DP[0], $DP[1], $DP[2]);
         $datas = [];
 // ARMAZENANDO MÊS DA DATA MENOS 1
         $n = $data_array[1] - 1;

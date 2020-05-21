@@ -127,8 +127,7 @@ class ParcelaController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            \App\Model\Parcela::where('id', $id)
-                          ->update($request->all());
+            $this->parcela->updateParcela($request->all(), $id);
             return response()->json(['message' => 'Dado atualizado com sucesso.'],200);
         }catch(\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);

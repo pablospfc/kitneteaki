@@ -18,4 +18,12 @@ class ParcelaItem extends Model
         "id_item",
         "valor",
     ];
+
+    public function remove($id) {
+        $parcelaItem = self::find($id);
+        //$valor = $parcela['valor'];
+        self::destroy($id);
+        self::where('id', $id)
+            ->update(['valor' => 1]);
+    }
 }

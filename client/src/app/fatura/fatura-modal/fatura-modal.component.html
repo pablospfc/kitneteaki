@@ -5,10 +5,10 @@
   </button>
 </div>
 <app-alert-message></app-alert-message>
-<!--<form #faturaForm="ngForm" name="faturaForm" role="form" (ngSubmit)="updateFatura(faturaForm)">-->
-<div class="modal-body">
-<!--
 <form #faturaForm="ngForm" name="faturaForm" role="form" (ngSubmit)="updateFatura(faturaForm)">
+<div class="modal-body">
+
+<!--<form #faturaForm="ngForm" name="faturaForm" role="form" (ngSubmit)="updateFatura(faturaForm)">-->
   <input type="hidden" name="id" [(ngModel)]="parcela.id">
   <div class="modal-body">
     <div class="form-group">
@@ -35,20 +35,17 @@
     </div>
 
     <div class="form-group">
-      <label for="vencimento">Vencimento</label>
+      <label for="data_vencimento">Vencimento</label>
       <input type="date"
              class="form-control"
-             id="vencimento"
-             name="vencimento"
+             id="data_vencimento"
+             name="data_vencimento"
              [(ngModel)]="parcela.data_vencimento"
              [required]="true"/>
     </div>
   </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">Atualizar</button>
-  </div>
-</form>
--->
+<!--</form>-->
+
 <div class="row">
   <div class="box-tools pull-right">
     <!-- BOTÕES DE ADICIONAR-->
@@ -103,5 +100,5 @@
 <div class="modal-footer">
   <button type="submit" class="btn btn-primary">Atualizar</button>
 </div>
-<!--</form>-->
+</form>
 <ngx-loading [show]="loading"></ngx-loading>

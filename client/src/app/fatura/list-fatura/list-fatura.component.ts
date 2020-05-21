@@ -76,6 +76,10 @@ export class ListFaturaComponent implements OnInit {
         id: id
       }
     });
+
+    this.modalService.onHide.subscribe((reason: string) => {
+      this.listParcelas();
+    });
   }
 
   getImoveis() {
@@ -113,6 +117,7 @@ export class ListFaturaComponent implements OnInit {
         this.totalRec = this.parcelas.length;
         this.loading = false;
       }, error => {
+        this.alertService.error(error);
         this.loading = false;
       });
 
