@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {ParcelaService} from "../../_services/parcela.service";
 import {ImovelService} from "../../_services/imovel.service";
 import {PessoaService} from "../../_services/pessoa.service";
 import {AlertMessageService} from "../../_services/alert-message.service";
 import {NgForm} from '@angular/forms';
-import {BsModalService} from "ngx-bootstrap/modal";
+import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 import {FaturaModalComponent} from "../fatura-modal/fatura-modal.component";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
@@ -24,6 +24,7 @@ export class ListFaturaComponent implements OnInit {
   public loading = false;
   public filter = false;
   public boleto;
+  public id;
   public filtro = {
     id_locatario: null,
     id_imovel: null,
@@ -34,6 +35,7 @@ export class ListFaturaComponent implements OnInit {
     periodo_final: null,
     periodo_inicial: null
   };
+  modalRef: BsModalRef;
 
   constructor(private parcelaService: ParcelaService,
               private imovelService: ImovelService,
@@ -60,6 +62,35 @@ export class ListFaturaComponent implements OnInit {
       periodo_final: null,
       periodo_inicial: null
     };
+  }
+
+  openModalConfirmRemove(template: TemplateRef<any>, id: number) {
+    this.id = id;
+    this.modalRef = this.modalService.show(template, {
+      class: 'modal-sm',
+      initialState: {
+        id: id
+      }
+    });
+  }
+
+  decline(): void {
+    this.modalRef.hide();
+  }
+
+  confirmRemove() {
+    this.loading = true;
+    this.parcelaService.delete(this.id)
+      .subscribe(data => {
+        this.alertService.success(data.message);
+        this.loading = false;
+      }, error => {
+        this.alertService.error(error.message);
+        this.loading = false;
+      });
+
+    this.modalRef.hide();
+    this.listParcelas();
   }
 
   openFilter() {

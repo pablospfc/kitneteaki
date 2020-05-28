@@ -45,6 +45,16 @@
             <i class="fa fa-handshake-o"></i> <span>Contrato</span>
           </a>
         </li>
+        <li>
+          <a href="#" [routerLink]="['/list-ocorrencias']" >
+            <i class="fa fa-cab"></i> <span>Ocorrências</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" [routerLink]="['/list-interessados']" >
+            <i class="fa fa-hand-paper-o"></i> <span>Interessados</span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-money"></i>
@@ -60,6 +70,21 @@
         </li>
         <li class="treeview">
           <a href="#">
+            <i class="fa fa-bar-chart"></i>
+            <span>Relatórios</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#" [routerLink]="['/rel-contratos']"><i class="fa fa-circle-o"></i> Contratos</a></li>
+            <li><a href="#" [routerLink]="['/rel-balancete']"><i class="fa fa-circle-o"></i> Balancete</a></li>
+            <li><a href="#" [routerLink]="['/rel-inadimplentes']"><i class="fa fa-circle-o"></i> Inadimplentes</a></li>
+            <li><a href="#" [routerLink]="['/rel-imoveis']"><i class="fa fa-circle-o"></i> Imóveis</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Cadastros</span>
             <span class="pull-right-container">
@@ -68,7 +93,16 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="#" [routerLink]="['/list-modelo-documento']"><i class="fa fa-circle-o"></i> Modelo de Documento</a></li>
+            <li><a href="#" [routerLink]="['/list-tipo-imovel']"><i class="fa fa-circle-o"></i> Tipos de Imóveis</a></li>
+            <li><a href="#" [routerLink]="['/list-item-fatura']"><i class="fa fa-circle-o"></i> Itens para Faturas</a></li>
+            <li><a href="#" [routerLink]="['/list-forma-pagamento']"><i class="fa fa-circle-o"></i> Formas de Pagamento</a></li>
+            <li><a href="#" [routerLink]="['/list-categoria-conta']"><i class="fa fa-circle-o"></i> Categorias de Conta</a></li>
           </ul>
+        </li>
+        <li>
+          <a href="#" [routerLink]="['/list-usuarios']" >
+            <i class="fa fa-user"></i> <span>Usuários</span>
+          </a>
         </li>
       </ul>
     </section>

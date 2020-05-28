@@ -150,6 +150,7 @@
                 </button>
 
                 <button type="button"
+                        (click)="openModalConfirmRemove(template, parcela.id)"
                         class="btn btn-danger btn-sm" style="margin-right: 5px;">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
@@ -184,5 +185,23 @@
 
       </div>
 </section>
+
+<ng-template #template>
+  <div class="alert-box">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirmação de exclusão</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Confirma a exclusão deste registro?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="confirmRemove()">Sim</button>
+      <button type="button" class="btn btn-default" (click)="decline()">Não</button>
+    </div>
+  </div>
+</ng-template>
 
 <ngx-loading [show]="loading"></ngx-loading>
