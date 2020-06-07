@@ -32,7 +32,7 @@
                 <select class="form-control"
                         id="id_tipo_conta"
                         [(ngModel)]="conta.id_tipo_conta"
-                        (change)="getCategoriasConta($event.target.value)"
+                        (change)="getPlanosConta($event.target.value)"
                         [required]="true"
                         name="id_tipo_conta">
                   <option [value]="1">Débitos</option>
@@ -41,13 +41,13 @@
               </div>
 
               <div class="form-group col-md-3">
-                <label for="id_categoria_conta">Categoria</label>
+                <label for="id_plano_conta">Plano de Contas</label>
                 <select class="form-control"
-                        id="id_categoria_conta"
-                        [(ngModel)]="conta.id_categoria_conta"
+                        id="id_plano_conta"
+                        [(ngModel)]="conta.id_plano_conta"
                         [required]="true"
-                        name="id_categoria_conta">
-                  <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
+                        name="id_plano_conta">
+                  <option *ngFor="let plano of planos" [value]="plano.id">{{plano.nome}}</option>
                 </select>
               </div>
 

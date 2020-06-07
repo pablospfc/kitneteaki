@@ -3,7 +3,7 @@ import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 import {ContaService} from "../../_services/conta.service";
 import {AlertMessageService} from "../../_services/alert-message.service";
 import {ImovelService} from "../../_services/imovel.service";
-import {CategoriaContaService} from "../../_services/categoria-conta.service";
+import {PlanoContaService} from "../../_services/plano-conta.service";
 
 @Component({
   selector: 'app-list-conta',
@@ -16,13 +16,13 @@ export class ListContaComponent implements OnInit {
   public id;
   public contas = [];
   public imoveis = [];
-  public categorias = [];
+  public planos = [];
   public totalRec;
   public page = 1;
   public filter = false;
   public filtro = {
     id_tipo_conta: null,
-    id_categoria_conta: null,
+    id_plano_conta: null,
     id_status: null,
     periodo_inicial: null,
     periodo_final: null,
@@ -35,7 +35,7 @@ export class ListContaComponent implements OnInit {
   constructor(private modalService: BsModalService,
               private alertService: AlertMessageService,
               private imovelService: ImovelService,
-              private categoriaContaService: CategoriaContaService,
+              private planoContaService: PlanoContaService,
               private contaService: ContaService) {
   }
 
@@ -74,7 +74,7 @@ export class ListContaComponent implements OnInit {
   clear() {
     this.filtro = {
       id_tipo_conta: null,
-      id_categoria_conta: null,
+      id_plano_conta: null,
       id_status: null,
       periodo_inicial: null,
       periodo_final: null,
@@ -92,10 +92,10 @@ export class ListContaComponent implements OnInit {
     }
   }
 
-  getCategoriasConta(idTipoConta: number) {
-    this.categoriaContaService.getByTipoConta(idTipoConta)
+  getPlanosConta(idTipoConta: number) {
+    this.planoContaService.getByTipoConta(idTipoConta)
       .subscribe(data => {
-        this.categorias = data;
+        this.planos = data;
       }, error => {
 
       });

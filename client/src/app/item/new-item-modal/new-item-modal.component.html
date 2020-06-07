@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{item.id ? 'Atualizar' : 'Adicionar'}} Item de Fatura</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<app-alert-message></app-alert-message>
+<form #itemForm="ngForm" name="fiadorForm" role="form" (ngSubmit)="onSubmit(itemForm)">
+  <input type="hidden" name="id" [(ngModel)]="item.id"/>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text"
+             class="form-control"
+             id="nome"
+             [(ngModel)]="item.nome"
+             name="nome"
+             [required]="true"/>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" [disabled]="!itemForm.valid">{{item.id ? 'Atualizar' : 'Adicionar'}}</button>
+  </div>
+</form>
+
+<ngx-loading [show]="loading"></ngx-loading>
+
+

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Mockery\Exception;
 
-class ItemController extends Controller
+class PlanoContaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,23 @@ class ItemController extends Controller
     public function index()
     {
         try {
-            $data = \App\Model\Item::all();
-            return response()->json($data, 200);
+            $dados = \App\Model\PlanoConta::all();
+            return response()->json($dados, 200);
+        } catch (\Exception $e) {
+            \App\Model\Log::create(["message" => $e->getMessage()]);
+            return response()->json(["message" => "Ocorreu um problema ao carregar dados."]);
+        }
+    }
+
+    public function getByTipoConta($idTipoConta)
+    {
+        try {
+            $dados = \App\Model\PlanoConta::where("id_tipo_conta", $idTipoConta)
+                ->get();
+            return response()->json($dados, 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema ao listar dados.'], 200);
+            return response()->json(['message' => 'Ocorreu um problema ao listar Plano de Contas.' . $e->getMessage()], 500);
         }
     }
 
@@ -42,7 +53,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         try {
-            \App\Model\Item::create($request->all());
+            \App\Model\PlanoConta::create($request->all());
             return response()->json(['message' => 'Dados cadastrados com sucesso.'], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
@@ -59,7 +70,7 @@ class ItemController extends Controller
     public function show($id)
     {
         try {
-            $data = \App\Model\Item::find($id);
+            $data = \App\Model\PlanoConta::find($id);
             return response()->json($data, 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
@@ -88,7 +99,7 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            \App\Model\Item::where('id', $id)
+            \App\Model\PlanoConta::where('id', $id)
                 ->update($request->all());
             return response()->json(['message' => 'Dados atualizados com sucesso.'], 200);
         } catch (\Exception $e) {
@@ -106,7 +117,7 @@ class ItemController extends Controller
     public function destroy($id)
     {
         try {
-            \App\Model\Item::destroy($id);
+            \App\Model\PlanoConta::destroy($id);
             return response()->json(['message' => 'Dado excluído com sucesso'], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);

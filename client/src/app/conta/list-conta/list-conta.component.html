@@ -43,7 +43,7 @@
                 <select class="form-control"
                         id="id_tipo_conta"
                         [(ngModel)]="filtro.id_tipo_conta"
-                        (change)="getCategoriasConta($event.target.value)"
+                        (change)="getPlanosConta($event.target.value)"
                         name="id_tipo_conta">
                   <option [value]="null">Todos</option>
                   <option [value]="1">Débitos</option>
@@ -52,13 +52,13 @@
               </div>
 
               <div class="form-group col-md-3">
-                <label for="id_categoria_conta">Categoria</label>
+                <label for="id_plano_conta">Plano de Conta</label>
                 <select class="form-control"
-                        id="id_categoria_conta"
-                        [(ngModel)]="filtro.id_categoria_conta"
-                        name="id_categoria_conta">
+                        id="id_plano_conta"
+                        [(ngModel)]="filtro.id_plano_conta"
+                        name="id_plano_conta">
                   <option [value]="null">Todos</option>
-                  <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
+                  <option *ngFor="let plano of planos" [value]="plano.id">{{plano.nome}}</option>
                 </select>
               </div>
 
@@ -131,7 +131,7 @@
       <table id="example1" class="table table-bordered table-hover">
         <thead>
         <tr>
-          <th>Categoria</th>
+          <th>Plano de Conta</th>
           <th>Tipo</th>
           <th>Descrição</th>
           <th>Valor</th>
@@ -146,7 +146,7 @@
                                                       itemsPerPage: 10,
                                                       currentPage: page,
                                                       totalItems: totalRec}">
-          <td>{{conta.categoria}}</td>
+          <td>{{conta.plano}}</td>
           <td><span class="label"
                     [ngClass]="{'label-danger': conta.id_tipo_conta == 1, 'label-success': conta.id_tipo_conta == 2}">{{conta.tipo}}</span>
           </td>

@@ -29,6 +29,10 @@ import {AlertModule} from 'ngx-bootstrap';
 import {FaturaModule} from './fatura/fatura.module';
 import { BoletoTemplateComponent } from './templates/boleto-template/boleto-template.component';
 import { CompareDatesDirective } from './_directives/compare-dates.directive';
+import {PlanoContaModule} from './plano-conta/plano-conta.module';
+import {TipoImovelModule} from './tipo-imovel/tipo-imovel.module';
+import {FormaPagamentoModule} from './forma-pagamento/forma-pagamento.module';
+import {ItemModule} from './item/item.module';
 
 
 @NgModule({
@@ -48,6 +52,10 @@ import { CompareDatesDirective } from './_directives/compare-dates.directive';
     LayoutModule,
     AuthModule,
     ContaModule,
+    PlanoContaModule,
+    TipoImovelModule,
+    FormaPagamentoModule,
+    ItemModule,
     HomeModule,
     ContratoModule,
     ImovelModule,

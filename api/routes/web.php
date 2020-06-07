@@ -72,8 +72,6 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("conta/getById/{id}","ContaController@show");
     Route::delete("conta/excluir/{id}","ContaController@destroy");
 
-    Route::get("categoriaconta/getByTipoConta/{idTipoConta}","CategoriaContaController@getByTipoConta");
-
     Route::post("contrato/cadastrar","ContratoController@store");
     Route::post("contrato/renovar","ContratoController@renovar");
     Route::put("contrato/atualizar/{id}","ContratoController@update");
@@ -110,14 +108,37 @@ Route::group(['middleware' => 'cors'], function() {
     Route::put("usuario/atualizar/{id}","UserController@update");
     Route::get("usuario/listar","UserController@index");
 
+    Route::get("tipoimovel/listar","TipoImovelController@index");
+    Route::get("tipoimovel/getById/{id}","TipoImovelController@show");
+    Route::post("tipoimovel/cadastrar","TipoImovelController@store");
+    Route::put("tipoimovel/atualizar/{id}","TipoImovelController@update");
+    Route::delete("tipoimovel/excluir/{id}","TipoImovelController@destroy");
+
+    Route::get("planoconta/listar","PlanoContaController@index");
+    Route::get("planoconta/getById/{id}","PlanoContaController@show");
+    Route::post("planoconta/cadastrar","PlanoContaController@store");
+    Route::put("planoconta/atualizar/{id}","PlanoContaController@update");
+    Route::delete("planoconta/excluir/{id}","PlanoContaController@destroy");
+    Route::get("planoconta/getByTipoConta/{idTipoConta}","PlanoContaController@getByTipoConta");
+
+    Route::get("item/listar","ItemController@index");
+    Route::get("item/getById/{id}","ItemController@show");
+    Route::post("item/cadastrar","ItemController@store");
+    Route::put("item/atualizar/{id}","ItemController@update");
+    Route::delete("item/excluir/{id}","ItemController@destroy");
+
+    Route::get("formapagamento/listar","FormaPagamentoController@index");
+    Route::get("formapagamento/getById/{id}","FormaPagamentoController@show");
+    Route::post("formapagamento/cadastrar","FormaPagamentoController@store");
+    Route::put("formapagamento/atualizar/{id}","FormaPagamentoController@update");
+    Route::delete("formapagamento/excluir/{id}","FormaPagamentoController@destroy");
+
     Route::get("tipostatus/listar","TipoStatusController@index");
     Route::get("tipopessoa/listar","TipoPessoaController@index");
     Route::get("tipopagamento/listar","TipoPagamentoController@index");
-    Route::get("tipoimovel/listar","TipoImovelController@index");
     Route::get("tipodocumentocontrato/listar","TipoDocumentoContratoController@index");
     Route::get("tipocontrato/listar","TipoContratoController@index");
     Route::get("tipoconta/listar","TipoContaController@index");
-    Route::get("item/listar","ItemController@index");
     Route::get("status/listar","StatusController@index");
     Route::get("mes/listar","MesController@index");
     Route::get("estadocivil/listar","EstadoCivilController@index");

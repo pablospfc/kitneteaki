@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
-import {catchError, map} from 'rxjs/operators';
-import {throwError} from 'rxjs';
+import {environment} from "../../environments/environment";
+import {HttpClient} from "@angular/common/http";
+import {catchError, map} from "rxjs/operators";
+import {throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItemService {
+export class FormaPagamentoService {
 
-  private readonly API = `${environment.API}/item`;
+  private readonly API = `${environment.API}/formapagamento`;
   constructor(private http: HttpClient) { }
 
-  public list() {
+  list() {
     return this.http.get<any>(`${this.API}/listar`)
       .pipe(
-        map(response => {
-          return response;
+        map(data => {
+          return data;
         })
       );
   }
@@ -30,8 +30,8 @@ export class ItemService {
       );
   }
 
-  private create(item) {
-    return this.http.post<any>(`${this.API}/cadastrar`, item)
+  private create(formaPagamento) {
+    return this.http.post<any>(`${this.API}/cadastrar`, formaPagamento)
       .pipe(
         catchError(error => {
           return throwError(error);
@@ -39,8 +39,8 @@ export class ItemService {
       );
   }
 
-  private update(item) {
-    return this.http.put<any>(`${this.API}/atualizar/${item.id}`, item)
+  private update(formaPagamento) {
+    return this.http.put<any>(`${this.API}/atualizar/${formaPagamento.id}`, formaPagamento)
       .pipe(
         catchError(error => {
           return throwError(error);
@@ -48,11 +48,11 @@ export class ItemService {
       );
   }
 
-  public save(item) {
-    if (item.id) {
-      return this.update(item);
+  public save(formaPagamento) {
+    if (formaPagamento.id) {
+      return this.update(formaPagamento);
     }
-    return this.create(item);
+    return this.create(formaPagamento);
   }
 
   public remove(id) {

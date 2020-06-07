@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Mockery\Exception;
 
-class ItemController extends Controller
+class TipoImovelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,11 @@ class ItemController extends Controller
     public function index()
     {
         try {
-            $data = \App\Model\Item::all();
-            return response()->json($data, 200);
+            $dados = \App\Model\TipoImovel::all();
+            return response()->json($dados, 200);
         } catch (\Exception $e) {
-            \App\Model\Log::create(['message' => $e->getMessage()]);
-            return response()->json(['message' => 'Ocorreu um problema ao listar dados.'], 200);
+            \App\Model\Log::create(["message" => $e->getMessage()]);
+            return response()->json(["message" => "Ocorreu um problema ao carregar dados."]);
         }
     }
 
@@ -42,7 +41,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         try {
-            \App\Model\Item::create($request->all());
+            \App\Model\TipoImovel::create($request->all());
             return response()->json(['message' => 'Dados cadastrados com sucesso.'], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
@@ -59,7 +58,7 @@ class ItemController extends Controller
     public function show($id)
     {
         try {
-            $data = \App\Model\Item::find($id);
+            $data = \App\Model\TipoImovel::find($id);
             return response()->json($data, 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
@@ -88,7 +87,7 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            \App\Model\Item::where('id', $id)
+            \App\Model\TipoImovel::where('id', $id)
                 ->update($request->all());
             return response()->json(['message' => 'Dados atualizados com sucesso.'], 200);
         } catch (\Exception $e) {
@@ -106,7 +105,7 @@ class ItemController extends Controller
     public function destroy($id)
     {
         try {
-            \App\Model\Item::destroy($id);
+            \App\Model\TipoImovel::destroy($id);
             return response()->json(['message' => 'Dado excluído com sucesso'], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);

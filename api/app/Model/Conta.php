@@ -12,7 +12,7 @@ class Conta extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        "id_categoria_conta",
+        "id_plano_conta",
         "descricao",
         "valor",
         "id_recorrencia_conta",
@@ -23,32 +23,11 @@ class Conta extends Model
         "data_vencimento",
     ];
 
-    /*
-    public function listar(){
-        return self::select(
-            "con.*",
-            "ctg.nome as categoria",
-            "rec.nome as recorrencia",
-            "imo.nome as imovel",
-            "tip.id as id_tipo_conta",
-            "tip.nome as tipo"
-        )
-            ->from("conta as con")
-            ->join("categoria_conta as ctg", "con.id_categoria_conta", "=", "ctg.id")
-            ->join("recorrencia_conta as rec", "con.id_recorrencia_conta", "=", "rec.id")
-            ->join("tipo_conta as tip", "ctg.id_tipo_conta", "=", "tip.id")
-            ->leftJoin("imovel as imo", "con.id_imovel", "=", "imo.id")
-            ->orderBy("con.competencia")
-            ->get()
-            ->toArray();
-    }
-    */
-
     public function listar($params)
     {
 
         $tipo = false;
-        $categoria = false;
+        $plano = false;
         $status = false;
         $periodos = false;
         $valores = false;
@@ -56,8 +35,8 @@ class Conta extends Model
 
         if (isset($params['id_tipo_conta']))
             $tipo = true;
-        if (isset($params['id_categoria_conta']))
-            $categoria = true;
+        if (isset($params['id_plano_conta']))
+            $plano = true;
         if (isset($params['id_status']))
             $status = true;
         if(isset($params['periodo_inicial']) && isset($params['periodo_final']))
@@ -70,22 +49,22 @@ class Conta extends Model
 
         return self::select(
             "con.*",
-            "ctg.nome as categoria",
+            "pla.nome as plano",
             "rec.nome as recorrencia",
             "imo.nome as imovel",
             "tip.id as id_tipo_conta",
             "tip.nome as tipo"
         )
             ->from("conta as con")
-            ->join("categoria_conta as ctg", "con.id_categoria_conta", "=", "ctg.id")
+            ->join("plano_conta as pla", "con.id_plano_conta", "=", "pla.id")
             ->join("recorrencia_conta as rec", "con.id_recorrencia_conta", "=", "rec.id")
-            ->join("tipo_conta as tip", "ctg.id_tipo_conta", "=", "tip.id")
+            ->join("tipo_conta as tip", "pla.id_tipo_conta", "=", "tip.id")
             ->leftJoin("imovel as imo", "con.id_imovel", "=", "imo.id")
             ->when($tipo, function ($query) use ($params)  {
-                return $query->where('ctg.id_tipo_conta', $params['id_tipo_conta']);
+                return $query->where('pla.id_tipo_conta', $params['id_tipo_conta']);
             })
-            ->when($categoria, function ($query) use ($params)  {
-                return $query->where('con.id_categoria_conta', $params['id_categoria_conta']);
+            ->when($plano, function ($query) use ($params)  {
+                return $query->where('con.id_plano_conta', $params['id_plano_conta']);
             })
             ->when($status, function ($query) use ($params)  {
                 return $query->where('con.id_status', $params['id_status']);
@@ -112,8 +91,8 @@ class Conta extends Model
             "tip.id as id_tipo_conta"
         )
             ->from("conta as con")
-            ->join("categoria_conta as ctg", "con.id_categoria_conta", "=", "ctg.id")
-            ->join("tipo_conta as tip", "ctg.id_tipo_conta", "=", "tip.id")
+            ->join("plano_conta as pla", "con.id_plano_conta", "=", "pla.id")
+            ->join("tipo_conta as tip", "pla.id_tipo_conta", "=", "tip.id")
             ->where("con.id", $id)
             ->first();
     }

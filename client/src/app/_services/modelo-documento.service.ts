@@ -65,4 +65,13 @@ export class ModeloDocumentoService {
         })
       );
   }
+
+  public remove(id) {
+    return this.http.delete<any>(`${this.API}/excluir/${id}`)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
 }

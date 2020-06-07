@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{tipoImovel.id ? 'Atualizar' : 'Adicionar'}} Tipo de Imóvel</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<app-alert-message></app-alert-message>
+<form #tipoImovelForm="ngForm" name="fiadorForm" role="form" (ngSubmit)="onSubmit(tipoImovelForm)">
+  <input type="hidden" name="id" [(ngModel)]="tipoImovel.id"/>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text"
+             class="form-control"
+             id="nome"
+             [(ngModel)]="tipoImovel.nome"
+             name="nome"
+             [required]="true"/>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" [disabled]="!tipoImovelForm.valid">{{tipoImovel.id ? 'Atualizar' : 'Adicionar'}}</button>
+  </div>
+</form>
+
+<ngx-loading [show]="loading"></ngx-loading>
+

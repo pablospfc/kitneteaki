@@ -4,7 +4,7 @@ import {NgForm} from "@angular/forms";
 import {ContaService} from "../../_services/conta.service";
 import {AlertMessageService} from "../../_services/alert-message.service";
 import {ImovelService} from "../../_services/imovel.service";
-import {CategoriaContaService} from "../../_services/categoria-conta.service";
+import {PlanoContaService} from "../../_services/plano-conta.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -16,12 +16,12 @@ export class NewContaComponent implements OnInit {
 
   public conta: Conta;
   public loading: boolean;
-  public categorias = [];
+  public planos = [];
   public imoveis = [];
 
   constructor(private contaService: ContaService,
               private imovelService: ImovelService,
-              private categoriaContaService: CategoriaContaService,
+              private planoContaService: PlanoContaService,
               private route: Router,
               private actRoute: ActivatedRoute,
               private alertService: AlertMessageService) {}
@@ -30,7 +30,7 @@ export class NewContaComponent implements OnInit {
     this.conta = new Conta();
     this.actRoute.data.subscribe(data => {
       this.conta = data.conta;
-      this.getCategoriasConta(this.conta.id_tipo_conta);
+      this.getPlanosConta(this.conta.id_tipo_conta);
     });
     this.getImoveis();
   }
@@ -48,10 +48,10 @@ export class NewContaComponent implements OnInit {
       });
   }
 
-  getCategoriasConta(idTipoConta: number) {
-    this.categoriaContaService.getByTipoConta(idTipoConta)
+  getPlanosConta(idTipoConta: number) {
+    this.planoContaService.getByTipoConta(idTipoConta)
       .subscribe(data => {
-        this.categorias = data;
+        this.planos = data;
       }, error => {
 
       });

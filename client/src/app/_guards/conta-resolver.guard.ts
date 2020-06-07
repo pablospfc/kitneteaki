@@ -17,7 +17,7 @@ export class ContaResolverGuard implements Resolve<Conta> {
 
     return of({
         id: null,
-        id_categoria_conta: null,
+        id_plano_conta: null,
         id_tipo_conta: null,
         repetir_lancamento: null,
         descricao: null,

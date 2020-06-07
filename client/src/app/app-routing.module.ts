@@ -33,8 +33,14 @@ import {BoletoComponent} from './fatura/boleto/boleto.component';
 import {RenovacaoContratoComponent} from './contrato/renovacao-contrato/renovacao-contrato.component';
 import {NewContaComponent} from './conta/new-conta/new-conta.component';
 import {ContaResolverGuard} from './_guards/conta-resolver.guard';
-import {ModeloDocumentoGuard} from "./_guards/modelo-documento.guard";
-import {DocumentoContratoModalComponent} from "./contrato/documento-contrato-modal/documento-contrato-modal.component";
+import {ModeloDocumentoGuard} from './_guards/modelo-documento.guard';
+import {DocumentoContratoModalComponent} from './contrato/documento-contrato-modal/documento-contrato-modal.component';
+import {ListPlanoContaComponent} from './plano-conta/list-plano-conta/list-plano-conta.component';
+import {ListItemComponent} from './item/list-item/list-item.component';
+import {ListFormaPagamentoComponent} from './forma-pagamento/list-forma-pagamento/list-forma-pagamento.component';
+import {ListTipoImovelComponent} from './tipo-imovel/list-tipo-imovel/list-tipo-imovel.component';
+import {NewTipoImovelModalComponent} from "./tipo-imovel/new-tipo-imovel-modal/new-tipo-imovel-modal.component";
+import {NewItemModalComponent} from "./item/new-item-modal/new-item-modal.component";
 
 
 const routes: Routes = [
@@ -132,8 +138,32 @@ const routes: Routes = [
         component: FaturaModalComponent
       },
       {
+        path: 'new-tipo-imovel',
+        component: NewTipoImovelModalComponent
+      },
+      {
+        path: 'new-item',
+        component: NewItemModalComponent
+      },
+      {
         path: 'list-imovel',
         component: ListImovelComponent
+      },
+      {
+        path: 'list-plano-conta',
+        component: ListPlanoContaComponent
+      },
+      {
+        path: 'list-forma-pagamento',
+        component: ListFormaPagamentoComponent
+      },
+      {
+        path: 'list-item-fatura',
+        component: ListItemComponent
+      },
+      {
+        path: 'list-tipo-imovel',
+        component: ListTipoImovelComponent
       },
       {
         path: 'list-fatura',
