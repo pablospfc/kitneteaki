@@ -33,6 +33,8 @@ import {PlanoContaModule} from './plano-conta/plano-conta.module';
 import {TipoImovelModule} from './tipo-imovel/tipo-imovel.module';
 import {FormaPagamentoModule} from './forma-pagamento/forma-pagamento.module';
 import {ItemModule} from './item/item.module';
+import {OcorrenciaModule} from "./ocorrencia/ocorrencia.module";
+import {UsuarioModule} from "./usuario/usuario.module";
 
 
 @NgModule({
@@ -63,6 +65,8 @@ import {ItemModule} from './item/item.module';
     PessoaModule,
     FaturaModule,
     RelatorioModule,
+    OcorrenciaModule,
+    UsuarioModule,
     NgxPaginationModule,
     AlertModule.forRoot(),
     NgxLoadingModule.forRoot({animationType: ngxLoadingAnimationTypes.circle,

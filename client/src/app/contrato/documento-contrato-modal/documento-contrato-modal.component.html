@@ -8,7 +8,7 @@
 <form #documentoContratoForm="ngForm" name="documentoContratoForm" role="form" (ngSubmit)="onSubmit(documentoContratoForm)">
   <div class="modal-body">
     <div class="form-group">
-      <ckeditor id="text" [editor]="Editor" name="contrato" [(ngModel)]="contrato.contrato" (ready)="onReady($event)"></ckeditor>
+      <ckeditor #editor id="text" [editor]="Editor" name="contrato" [(ngModel)]="contrato.contrato" (ready)="onReady($event)"></ckeditor>
     </div>
 
   </div>

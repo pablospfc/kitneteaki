@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Pagamento de Fatura</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<app-alert-message></app-alert-message>
+<form #pagamentoFaturaForm="ngForm" name="faturaForm" role="form" (ngSubmit)="onSubmit(pagamentoFaturaForm)">
+  <div class="modal-body">
+
+    <!--<form #faturaForm="ngForm" name="faturaForm" role="form" (ngSubmit)="updateFatura(faturaForm)">-->
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="data_pagamento">Data de Pagamento</label>
+        <input type="date"
+               class="form-control"
+               id="data_pagamento"
+               name="data_pagamento"
+               [(ngModel)]="parcela.data_pagamento"
+               [required]="true"/>
+      </div>
+
+      <div class="form-group">
+        <label for="valor_pago">Valor Pago</label>
+        <input type="text"
+               class="form-control"
+               id="valor_pago"
+               name="valor_pago"
+               [(ngModel)]="parcela.valor_pago"
+               [required]="true"/>
+      </div>
+    </div>
+    <!--</form>-->
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </div>
+</form>
+<ngx-loading [show]="loading"></ngx-loading>
+

@@ -59,7 +59,7 @@ class PessoaController extends Controller
     public function store(Request $request)
     {
         try {
-            $response = \App\Model\Pessoa::create($request->all());
+            $this->pessoa->inserir($request->all());
             return response()->json(['message' => 'Dados cadastrados com sucesso.'], 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);

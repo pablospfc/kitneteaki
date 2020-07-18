@@ -77,6 +77,15 @@ export class ParcelaService {
       );
   }
 
+  public realizarPagamento(dados) {
+    return this.http.put<any>(`${this.API}/realizarPagamento/${dados.id}`, dados)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
+
   public delete(id: number) {
     return this.http.delete<any>(`${this.API}/excluir/${id}`)
       .pipe(

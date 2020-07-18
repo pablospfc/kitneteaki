@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{planoConta.id ? 'Atualizar' : 'Adicionar'}} Plano de Conta</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <app-alert-message></app-alert-message>
+  <form #planoContaForm="ngForm" name="fiadorForm" role="form" (ngSubmit)="onSubmit(planoContaForm)">
+    <input type="hidden" name="id" [(ngModel)]="planoConta.id"/>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text"
+               class="form-control"
+               id="nome"
+               [(ngModel)]="planoConta.nome"
+               name="nome"
+               [required]="true"/>
+      </div>
+
+      <div class="form-group">
+        <label for="id_tipo_conta">Tipo</label>
+        <select class="form-control"
+                id="id_tipo_conta"
+                [(ngModel)]="planoConta.id_tipo_conta"
+                [required]="true"
+                name="id_tipo_conta">
+          <option [value]="1">Débitos</option>
+          <option [value]="2">Créditos</option>
+        </select>
+      </div>
+
+  
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!planoContaForm.valid">{{planoConta.id ? 'Atualizar' : 'Adicionar'}}</button>
+    </div>
+  </form>
+  
+  <ngx-loading [show]="loading"></ngx-loading>
+  
+  

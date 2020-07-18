@@ -1,1 +1,95 @@
-<p>list-plano-conta works!</p>
+<section class="content-header">
+    <h1>
+      Plano de Conta
+      <small>Listar</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-file-text-o"></i> PLano de Conta</a></li>
+      <li class="active">Listar</li>
+    </ol>
+  </section>
+
+  <section class="content">
+    <div class="box box-primary">
+      <div class="box-header">
+        <i class="ion ion-clipboard"></i>
+
+        <h3 class="box-title">Listagem de Planos de Contas</h3>
+
+        <div class="box-tools pull-right">
+          <!-- BOTÕES DE ADICIONAR-->
+          <button type="button"  class="btn btn-success pull-right" (click)="openModalForm()"><i class="fa fa-plus"></i> Adicionar</button>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <app-alert-message></app-alert-message>
+      <div class="box-body">
+        <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Ação</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let planoConta of planosContas | paginate: { id: 'listing_pagination',
+                                                        itemsPerPage: 10,
+                                                        currentPage: page,
+                                                        totalItems: totalRec}">
+            <td>{{planoConta.nome}}</td>
+            <td>{{planoConta.tipo}}</td>
+            <td>
+              <button type="button"
+                      (click)="openModalForm(planoConta.id)"
+                      class="btn btn-info btn-sm" >
+                <i class="fa fa-edit" aria-hidden="true"></i>
+              </button>
+              <button type="button"
+                      (click)="openModalConfirmRemove(template,planoConta.id)"
+                      class="btn btn-danger btn-sm margin">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+          <tr class="animate-repeat" *ngIf="planosContas.length == 0">
+            <td colspan="8" class="text-center">
+              <em>
+                Nenhum resultado foi encontrado
+              </em>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+                               (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+      <!-- /.box-body -->
+
+    </div>
+  </section>
+
+  <ng-template #template>
+    <div class="alert-box">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Confirmação de exclusão</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Confirma a exclusão deste registro?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="confirmRemove()">Sim</button>
+        <button type="button" class="btn btn-default" (click)="decline()">Não</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ngx-loading [show]="loading"></ngx-loading>
+
+

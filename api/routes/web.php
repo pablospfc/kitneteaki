@@ -93,6 +93,7 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("parcela/getById/{id}","ParcelaController@show");
     Route::delete("parcela/excluir/{id}","ParcelaController@destroy");
     Route::put("parcela/atualizar/{id}","ParcelaController@update");
+    Route::put("parcela/realizarPagamento/{id}","ParcelaController@realizarPagamento");
     Route::get("parcela/getParcelas/{id}","ParcelaController@getParcelas");
     Route::get("parcela/gerarParcelas/{id}","ParcelaController@gerarParcelas");
     Route::get("parcela/gerarBoleto","ParcelaController@gerarBoleto");
@@ -114,6 +115,18 @@ Route::group(['middleware' => 'cors'], function() {
     Route::put("tipoimovel/atualizar/{id}","TipoImovelController@update");
     Route::delete("tipoimovel/excluir/{id}","TipoImovelController@destroy");
 
+    Route::get("tipoocorrencia/listar","TipoOcorrenciaController@index");
+    Route::get("tipoocorrencia/getById/{id}","TipoOcorrenciaController@show");
+    Route::post("tipoocorrencia/cadastrar","TipoOcorrenciaController@store");
+    Route::put("tipoocorrencia/atualizar/{id}","TipoOcorrenciaController@update");
+    Route::delete("tipoocorrencia/excluir/{id}","TipoOcorrenciaController@destroy");
+
+    Route::get("ocorrencia/listar","OcorrenciaController@index");
+    Route::get("ocorrencia/getById/{id}","OcorrenciaController@show");
+    Route::post("ocorrencia/cadastrar","OcorrenciaController@store");
+    Route::put("ocorrencia/atualizar/{id}","OcorrenciaController@update");
+    Route::delete("ocorrencia/excluir/{id}","OcorrenciaController@destroy");
+
     Route::get("planoconta/listar","PlanoContaController@index");
     Route::get("planoconta/getById/{id}","PlanoContaController@show");
     Route::post("planoconta/cadastrar","PlanoContaController@store");
@@ -125,6 +138,12 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("item/getById/{id}","ItemController@show");
     Route::post("item/cadastrar","ItemController@store");
     Route::put("item/atualizar/{id}","ItemController@update");
+    Route::delete("item/excluir/{id}","ItemController@destroy");
+
+    Route::get("usuario/listar","UsuarioController@index");
+    Route::get("usuario/getById/{id}","UsuarioController@show");
+    Route::put("usuario/ativarEdesativar/{id}","UsuarioController@ativarEdesativar");
+    Route::put("usuario/atualizar/{id}","UsuarioController@update");
     Route::delete("item/excluir/{id}","ItemController@destroy");
 
     Route::get("formapagamento/listar","FormaPagamentoController@index");

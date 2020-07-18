@@ -178,6 +178,12 @@
                     [disabled]="contrato.id_status != 3"
                     [routerLink]="['/renovacao-contrato/'+contrato.id]"
                     class="btn btn-success btn-sm" style="margin-right: 5px;">
+              <i class="fa fa-refresh" aria-hidden="true"></i>
+            </button>
+
+            <button type="button"
+                    (click)="gerarPdf(contrato.id)"
+                    class="btn btn-primary btn-sm" style="margin-right: 5px;">
               <i class="fa fa-file-text" aria-hidden="true"></i>
             </button>
 

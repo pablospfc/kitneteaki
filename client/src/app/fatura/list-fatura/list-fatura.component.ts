@@ -8,6 +8,7 @@ import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 import {FaturaModalComponent} from "../fatura-modal/fatura-modal.component";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
+import {PagamentoFaturaModalComponent} from "../pagamento-fatura-modal/pagamento-fatura-modal.component";
 
 @Component({
   selector: 'app-list-fatura',
@@ -71,6 +72,40 @@ export class ListFaturaComponent implements OnInit {
       initialState: {
         id: id
       }
+    });
+  }
+
+  openModalConfirmLiquidarFatura(template: TemplateRef<any>, id: number) {
+    this.id = id;
+    this.modalRef = this.modalService.show(template, {
+      class: 'modal-sm',
+      initialState: {
+        id: id
+      }
+    });
+  }
+
+  realizarPagamento() {
+    this.loading = true;
+    this.parcelaService.realizarPagamento(this.id)
+      .subscribe(response => {
+        this.alertService.success(response.message);
+        this.loading = false;
+      }, error => {
+        this.alertService.success(error.message);
+        this.loading = false;
+      });
+  }
+
+  openModalPagamento(id: number) {
+    this.modalService.show(PagamentoFaturaModalComponent, {
+      initialState: {
+        id: id
+      }
+    });
+
+    this.modalService.onHide.subscribe((reason: string) => {
+      this.listParcelas();
     });
   }
 

@@ -68,6 +68,17 @@ class ParcelaController extends Controller
         }
     }
 
+    public function realizarPagamento(Request $request, $id) {
+        try {
+            \App\Model\Parcela::where("id", $id)
+                ->update($request->all());
+            return response()->json(["message" => "Fatura liquidada com sucesso"],200);
+        }catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
+            return response()->json(["message" => "Erro ao liquidar fatura"],500);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

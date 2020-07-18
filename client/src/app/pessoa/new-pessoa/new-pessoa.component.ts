@@ -5,6 +5,7 @@ import {PessoaService} from '../../_services/pessoa.service';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {ActivatedRoute, Resolve, Router} from '@angular/router';
 import {CepService} from "../../_services/cep.service";
+import {Usuario} from "../../_models/usuario.model";
 
 @Component({
   selector: 'app-new-pessoa',
@@ -14,8 +15,10 @@ import {CepService} from "../../_services/cep.service";
 export class NewPessoaComponent implements OnInit {
 
   public pessoa: Pessoa;
+  public usuario: Usuario;
   public loading;
   formValue: any;
+  public data: any;
   constructor(private pessoaService: PessoaService,
               private alertService: AlertMessageService,
               private cepService: CepService,
@@ -25,20 +28,57 @@ export class NewPessoaComponent implements OnInit {
 
   ngOnInit() {
     this.pessoa = new Pessoa();
+    this.usuario = new Usuario();
     this.actRoute.data.subscribe(data => {
       this.pessoa = data.pessoa;
     });
   }
 
+  tratarDados(data) {
+  this.data =  {
+      data_pessoa: {
+        id_estado_civil: data.id_estado_civil,
+        id_tipo_pessoa: data.id_tipo_pessoa,
+        id_genero: data.id_genero,
+        id_categoria_pessoa: data.id_categoria_pessoa,
+        id_nacionalidade: data.id_nacionalidade,
+        nome: data.nome,
+        cpf_cnpj: data.cpf_cnpj,
+        rg: data.rg,
+        passaporte: data.passaporte,
+        data_nascimento: data.data_nascimento,
+        orgao_expedidor: data.orgao_expedidor,
+        data_emissao: data.data_emissao,
+        logradouro: data.logradouro,
+        bairro: data.bairro,
+        cidade: data.cidade,
+        estado: data.estado,
+        complemento: data.complemento,
+        cep: data.cep,
+        numero: data.numero,
+        email: data.email,
+        telefone_celular: data.telefone_celular,
+        whatsapp: data.whatsapp,
+        profissao: data.profissao
+      },
+      data_usuario: {
+        login: data.login,
+        password: data.password,
+      }
+    };
+  }
+
+
   onSubmit(form: NgForm) {
     this.loading = true;
     this.formValue = form.value;
-    this.pessoaService.save(form.value)
+    this.tratarDados(form.value);
+    this.pessoaService.save(this.data)
       .subscribe(success => {
           const message = (success as any).message;
           this.alertService.success(message);
           this.loading = false;
-          window.scroll(0,0);
+          window.scroll(0, 0);
           setTimeout(() => {
               this.router.navigate(['list-pessoa']);
             },
@@ -49,6 +89,11 @@ export class NewPessoaComponent implements OnInit {
           this.alertService.error(message);
           this.loading = false;
         });
+
+  }
+
+  setLogin(value) {
+   this.usuario.login = value;
   }
 
   getCEP(cep: string) {

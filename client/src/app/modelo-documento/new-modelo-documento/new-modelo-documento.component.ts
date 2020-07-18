@@ -63,7 +63,7 @@ export class NewModeloDocumentoComponent implements OnInit {
     this.editor.editorInstance.model.document.fontSize
     const selectedElement = selection.getSelectedElement();
     this.editor.editorInstance.model.change(writer => {
-      writer.insert('<b>' + appendData + '</b>', range.start);
+      writer.insert(appendData, range.start);
       console.log(selectedElement);
     });
 

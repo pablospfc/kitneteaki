@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
 use phpDocumentor\Reflection\Types\Self_;
 
@@ -37,6 +38,25 @@ class Pessoa extends Model
         "complemento",
         "profissao"
     ];
+
+    public function inserir($data) {
+        DB::transaction(function () use ($data) {
+            $idPessoa = self::create($data['data_pessoa'])->id;
+            if (!empty($data['data_usuario'])){
+                $idPerfil = $data['data_pessoa']['id_categoria_pessoa'] == 1 ? 2 : 3;
+                User::create([
+                  "name"           => $data['data_pessoa']["nome"],
+                  "id_pessoa"      => $idPessoa,
+                  "id_perfil"      => $idPerfil,
+                  "login"          => $data['data_pessoa']['cpf_cnpj'],
+                  "password"       => bcrypt($data['data_usuario']['password']),
+                  "remember_token" => str_random(10),
+                  "ativo"          => true
+                ]);
+            }
+        });
+
+    }
 
     public function getAll(){
         return self::select(

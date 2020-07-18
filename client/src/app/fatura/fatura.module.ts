@@ -5,14 +5,15 @@ import {AuthModule} from '../auth/auth.module';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {NgxLoadingModule} from 'ngx-loading';
 import {RouterModule} from '@angular/router';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import { FaturaModalComponent } from './fatura-modal/fatura-modal.component';
 import { BoletoComponent } from './boleto/boleto.component';
+import { PagamentoFaturaModalComponent } from './pagamento-fatura-modal/pagamento-fatura-modal.component';
 
 
 
 @NgModule({
-  declarations: [ListFaturaComponent, FaturaModalComponent, BoletoComponent],
+  declarations: [ListFaturaComponent, FaturaModalComponent, BoletoComponent, PagamentoFaturaModalComponent],
   imports: [
     CommonModule,
     AuthModule,

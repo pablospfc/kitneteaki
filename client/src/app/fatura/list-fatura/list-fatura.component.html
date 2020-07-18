@@ -123,8 +123,8 @@
               <th>Forma de Pagamento</th>
               <th>Parcela</th>
               <th>Período</th>
-              <th>Data de Vencimento</th>
-              <th>Valor Total</th>
+              <th>Vencimento</th>
+              <th>Valor</th>
               <th>Ação</th>
             </tr>
             </thead>
@@ -156,15 +156,12 @@
                 </button>
 
                 <button type="button"
-                        (click)="gerarBoleto(parcela.id)"
+                        (click)="openModalPagamento(parcela.id)"
+                        [disabled]="parcela.id_status == 6"
                         class="btn btn-success btn-sm" style="margin-right: 5px;">
-                  <i class="fa fa-registered" aria-hidden="true"></i>
-                </button>
-
-                <button type="button"
-                        class="btn btn-default btn-sm">
                   <i class="fa fa-check" aria-hidden="true"></i>
                 </button>
+
               </td>
             </tr>
             <tr class="animate-repeat" *ngIf="parcelas.length == 0">
@@ -199,6 +196,24 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-primary" (click)="confirmRemove()">Sim</button>
+      <button type="button" class="btn btn-default" (click)="decline()">Não</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #templateLiquidar>
+  <div class="alert-box">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirmação de pagamento</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Confirma o pagamento desta fatura?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="confirmLiquidacaoFatura()">Sim</button>
       <button type="button" class="btn btn-default" (click)="decline()">Não</button>
     </div>
   </div>

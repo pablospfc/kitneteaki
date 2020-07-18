@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{formaPagamento.id ? 'Atualizar' : 'Adicionar'}} Forma de Pagamento</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <app-alert-message></app-alert-message>
+  <form #formaPagamentoForm="ngForm" name="formaPagamentoForm" role="form" (ngSubmit)="onSubmit(formaPagamentoForm)">
+    <input type="hidden" name="id" [(ngModel)]="formaPagamento.id"/>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text"
+               class="form-control"
+               id="nome"
+               [(ngModel)]="formaPagamento.nome"
+               name="nome"
+               [required]="true"/>
+      </div>
+  
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!formaPagamentoForm.valid">{{formaPagamento.id ? 'Atualizar' : 'Adicionar'}}</button>
+    </div>
+  </form>
+  
+  <ngx-loading [show]="loading"></ngx-loading>
+  
+  
+  

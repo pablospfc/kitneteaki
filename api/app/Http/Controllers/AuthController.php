@@ -25,6 +25,10 @@ class AuthController extends Controller
 
             $user = $this->jwtAuth->authenticate($token);
 
+            if ($user['ativo'] == false){
+                return response()->json(['error' => 'Você não está habilitado para acessar o sistema.'], 401);
+            }
+
         return response()->json(compact('token','user'));
     }
 

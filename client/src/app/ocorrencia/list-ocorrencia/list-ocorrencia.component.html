@@ -1,0 +1,131 @@
+<section class="content-header">
+    <h1>
+      Ocorrências
+      <small>Listar</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-money"></i> Ocorrências</a></li>
+      <li class="active">Listar</li>
+    </ol>
+  </section>
+  
+  <section class="content">
+    <div class="box box-primary">
+      <div class="box-header">
+        <i class="ion ion-clipboard"></i>
+  
+        <h3 class="box-title">Listagem de Ocorrências</h3>
+  
+        <div class="box-tools pull-right">
+          <!-- BOTÕES DE ADICIONAR-->
+          <button type="button"
+                  class="btn"
+                  style="margin-right: 5px;"
+                  [ngClass]="{'btn-success': filter == false, 'btn-default': filter == true}" (click)="openFilter()"><i
+            class="fa" [ngClass]="{'fa-search-plus': filter == false, 'fa-search-minus': filter == true}"></i> Busca
+            Avançada
+          </button>
+
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <app-alert-message></app-alert-message>
+      <div class="box-body">
+        <div class="panel panel-primary" *ngIf="filter == true">
+          <div class="panel-body">
+            <form #formFiltro="ngForm" name="formFiltro" role="form">
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label for="id_tipo_ocorrencia">Tipo</label>
+                  <select class="form-control"
+                          id="id_tipo_ocorrencia"
+                          [(ngModel)]="filtro.id_tipo_ocorrencia"
+                          name="id_tipo_ocorrencia">
+                    <option *ngFor="let tipo of tiposOcorrencias" [value]="tipo.id">{{tipo.nome}}</option>
+                  </select>
+                </div>
+  
+                <div class="form-group col-md-3">
+                  <label for="data_inicial">Data Inicial</label>
+                  <input type="date"
+                         class="form-control"
+                         id="data_inicial"
+                         name="data_inicial"
+                         [(ngModel)]="filtro.data_inicial"
+                         [required]="false"/>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="data_final">Data Final</label>
+                  <input type="date"
+                         class="form-control"
+                         id="data_final"
+                         name="data_final"
+                         [(ngModel)]="filtro.data_final"
+                         [required]="filtro.data_inicial"/>
+                </div>
+  
+                <div class="form-group col-md-3">
+                  <label for="hora_inicial">Hora Inicial</label>
+                  <input type="time"
+                         class="form-control"
+                         id="hora_inicial"
+                         name="hora_inicial"
+                         [(ngModel)]="filtro.hora_inicial"/>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="hora_final">Hora Final</label>
+                  <input type="time"
+                         class="form-control"
+                         id="hora_final"
+                         name="hora_final"
+                         [(ngModel)]="filtro.hora_final"/>
+                </div>
+              </div>
+              <button type="button" (click)="list()" class="btn btn-success" style="margin-right: 5px;">Buscar</button>
+              <button type="button" (click)="clear()" class="btn btn-default">Limpar</button>
+            </form>
+          </div>
+        </div>
+        <table id="example1" class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Descrição</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let ocorrencia of ocorrencias | paginate: { id: 'listing_pagination',
+                                                        itemsPerPage: 10,
+                                                        currentPage: page,
+                                                        totalItems: totalRec}">
+            <td>{{ocorrencia.tipo_ocorrencia}}</td>
+            <td>{{ocorrencia.data | date: 'dd/MM/yyyy'}}</td>
+            <td>{{ocorrencia.hora | date: 'hh:mm a'}}</td>
+            <td>{{ocorrencia.descricao}}</td>
+          </tr>
+          <tr class="animate-repeat" *ngIf="ocorrencias.length == 0">
+            <td colspan="8" class="text-center">
+              <em>
+                Nenhum resultado foi encontrado
+              </em>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+                               (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+      <!-- /.box-body -->
+  
+    </div>
+  </section>
+  
+  <ngx-loading [show]="loading"></ngx-loading>
+  
+  

@@ -1,9 +1,11 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {ContratoService} from '../../_services/contrato.service';
-import {AlertMessageService} from "../../_services/alert-message.service";
-import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
-import {ImovelService} from "../../_services/imovel.service";
-import {PessoaService} from "../../_services/pessoa.service";
+import {AlertMessageService} from '../../_services/alert-message.service';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {ImovelService} from '../../_services/imovel.service';
+import {PessoaService} from '../../_services/pessoa.service';
+import * as jsPDF from 'jspdf';
+import my from "../../../assets/bower_components/moment/src/locale/my";
 
 @Component({
   selector: 'app-list-contrato',
@@ -50,9 +52,33 @@ export class ListContratoComponent implements OnInit {
     this.modalRef = this.modalService.show(template, {
       class: 'modal-sm',
       initialState: {
-        id: id
+        id
       }
     });
+  }
+
+  gerarPdf(id) {
+    let margins = {
+      top: 10,
+      bottom: 30,
+      left: 10,
+      right: 5,
+    };
+    this.contratoService.getById(id)
+      .subscribe(response => {
+        const documento = new jsPDF();
+        // documento.fromHTML(response.contrato, margins.left, margins.top, { width: 522},
+        //   function (dispose) {
+        //   documento.output('dataurlnewwindow');
+        // }, margins);
+        // //documento.autoPrint();
+        // //documento.output('dataurlnewwindow');
+        var myWindow = window.open();
+        myWindow.document.write(response.contrato);
+        myWindow.print();
+      }, error => {
+
+      });
   }
 
   confirmRemove() {

@@ -14,7 +14,10 @@ class PlanoContaController extends Controller
     public function index()
     {
         try {
-            $dados = \App\Model\PlanoConta::all();
+            //$dados = \App\Model\PlanoConta::all();
+            $dados = \App\Model\PlanoConta::join("tipo_conta", "plano_conta.id_tipo_conta", "=", "tipo_conta.id")
+            ->select("plano_conta.*", "tipo_conta.nome as tipo")
+            ->get();
             return response()->json($dados, 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(["message" => $e->getMessage()]);

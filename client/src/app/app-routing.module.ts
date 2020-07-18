@@ -41,6 +41,12 @@ import {ListFormaPagamentoComponent} from './forma-pagamento/list-forma-pagament
 import {ListTipoImovelComponent} from './tipo-imovel/list-tipo-imovel/list-tipo-imovel.component';
 import {NewTipoImovelModalComponent} from "./tipo-imovel/new-tipo-imovel-modal/new-tipo-imovel-modal.component";
 import {NewItemModalComponent} from "./item/new-item-modal/new-item-modal.component";
+import {ListOcorrenciaComponent} from "./ocorrencia/list-ocorrencia/list-ocorrencia.component";
+import {NewFormaPagamentoModalComponent} from "./forma-pagamento/new-forma-pagamento-modal/new-forma-pagamento-modal.component";
+import {NewPlanoContaModalComponent} from "./plano-conta/new-plano-conta-modal/new-plano-conta-modal.component";
+import {PagamentoFaturaModalComponent} from "./fatura/pagamento-fatura-modal/pagamento-fatura-modal.component";
+import {ListUsuarioComponent} from "./usuario/list-usuario/list-usuario.component";
+import {UpdateUsuarioModalComponent} from "./usuario/update-usuario-modal/update-usuario-modal.component";
 
 
 const routes: Routes = [
@@ -154,8 +160,32 @@ const routes: Routes = [
         component: ListPlanoContaComponent
       },
       {
+        path: 'new-plano-conta',
+        component: NewPlanoContaModalComponent
+      },
+      {
         path: 'list-forma-pagamento',
         component: ListFormaPagamentoComponent
+      },
+      {
+        path: 'new-forma-pagamento',
+        component: NewFormaPagamentoModalComponent
+      },
+      {
+        path: 'new-pagamento-fatura',
+        component: PagamentoFaturaModalComponent
+      },
+      {
+        path: 'update-usuario-modal',
+        component: UpdateUsuarioModalComponent
+      },
+      {
+        path: 'list-ocorrencia',
+        component: ListOcorrenciaComponent
+      },
+      {
+        path: 'list-usuario',
+        component: ListUsuarioComponent
       },
       {
         path: 'list-item-fatura',

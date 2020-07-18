@@ -19,7 +19,7 @@ export class DocumentoContratoModalComponent implements OnInit {
   @Input() idModeloDocumento: number;
   public Editor = DecoupledEditor;
   public loading: boolean;
-  contrato: Contrato;
+  public contrato: Contrato;
 
   constructor(private modeloDocumentoService: ModeloDocumentoService,
               private alertMessageService: AlertMessageService,
@@ -29,12 +29,15 @@ export class DocumentoContratoModalComponent implements OnInit {
 
   ngOnInit() {
     this.contrato = new Contrato();
-    this.getDocumentoContrato();
+    //this.getById(this.idContrato);
+    this.getDocumentoContrato(this.idContrato);
   }
 
   public onSubmit(form: NgForm) {
     this.loading = true;
     this.contrato.id = this.idContrato;
+    this.contrato.id_modelo_documento = this.idModeloDocumento;
+    this.contrato.contrato = form.value.contrato;
     this.contratoService.setDocumentoContrato(this.contrato)
       .subscribe(data => {
         this.alertMessageService.success(data.message);
@@ -45,6 +48,16 @@ export class DocumentoContratoModalComponent implements OnInit {
       });
   }
 
+  public getById(id) {
+    this.contratoService.getById(id)
+      .subscribe(data => {
+        this.contrato = data;
+        console.log(this.contrato);
+      }, error => {
+
+      });
+  }
+
   public onReady(editor) {
     editor.ui.view.editable.element.parentElement.insertBefore(
       editor.ui.view.toolbar.element,
@@ -52,16 +65,26 @@ export class DocumentoContratoModalComponent implements OnInit {
     );
   }
 
-  getDocumentoContrato() {
+  getDocumentoContrato(idContrato) {
     this.loading = true;
-    this.modeloDocumentoService.getDocumentoContrato(this.idModeloDocumento, this.idContrato)
+    this.contratoService.getById(idContrato)
       .subscribe(data => {
-        this.contrato.contrato = data;
+        this.contrato.contrato = data.contrato;
+        if (this.contrato.contrato === null) {
+          this.modeloDocumentoService.getDocumentoContrato(this.idModeloDocumento, this.idContrato)
+            .subscribe(res => {
+              this.contrato.contrato = res;
+              this.loading = false;
+            }, error => {
+              this.alertMessageService.error(error);
+              this.loading = false;
+            });
+        }
         this.loading = false;
       }, error => {
-        this.alertMessageService.error(error);
         this.loading = false;
       });
+
   }
 
 }

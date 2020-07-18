@@ -124,11 +124,12 @@
               <div class="form-group col-md-3" *ngIf="pessoa.id_tipo_pessoa == 1">
                 <label for="cpf">CPF:</label>
                 <input type="text"
-                       [(ngModel)]="pessoa.cpf_cnpj"
-                       [required]="pessoa.id_nacionalidade == 1"
                        name="cpf_cnpj"
                        class="form-control"
                        id="cpf"
+                       [(ngModel)]="pessoa.cpf_cnpj"
+                       [required]="pessoa.id_nacionalidade == 1"
+                       (blur)="setLogin($event.target.value)"
                        placeholder="CPF"
                 />
               </div>
@@ -136,11 +137,12 @@
               <div class="form-group col-md-3" *ngIf="pessoa.id_tipo_pessoa == 2">
                 <label for="cpf">CNPJ:</label>
                 <input type="text"
-                       [(ngModel)]="pessoa.cpf_cnpj"
-                       [required]="pessoa.id_nacionalidade == 1"
                        name="cpf_cnpj"
                        class="form-control"
                        id="cnpj"
+                       [(ngModel)]="pessoa.cpf_cnpj"
+                       [required]="pessoa.id_nacionalidade == 1"
+                       (blur)="setLogin($event.target.value)"
                        placeholder="CNPJ"
                 />
               </div>
@@ -176,6 +178,7 @@
                        [(ngModel)]="pessoa.passaporte"
                        [disabled]="pessoa.id_nacionalidade == 1"
                        [required]="pessoa.id_nacionalidade == 2"
+                       (blur)="setLogin($event.target.value)"
                        class="form-control"
                        id="passaporte"
                        placeholder="Passaporte"/>
@@ -332,6 +335,42 @@
                        placeholder="Profissão"/>
               </div>
             </div>
+        <div *ngIf="pessoa.id_categoria_pessoa != 3" >
+            <h4>Usuário</h4>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="login">Login:</label>
+                <input type="text"
+                       class="form-control"
+                       id="login"
+                       name="login"
+                       [(ngModel)]="usuario.login"
+                       [readOnly]="true"
+                       placeholder="Login"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="password">Senha:</label>
+                <input type="password"
+                       class="form-control"
+                       id="password"
+                       name="password"
+                       [(ngModel)]="usuario.password"
+                       [required]="true"
+                       placeholder="Senha"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="confirm_password">Confirma Senha:</label>
+                <input type="password"
+                       class="form-control"
+                       id="confirm_password"
+                       name="confirm_password"
+                       [(ngModel)]="usuario.confirm_password"
+                       [required]="true"
+                       placeholder="Confirmação de Senha"/>
+              </div>
+            </div>
+          </div>
           </div>
           <!-- /.box-body -->
             <div class="box-footer text-center">
