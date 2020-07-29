@@ -74,6 +74,7 @@ export class DocumentoContratoModalComponent implements OnInit {
           this.modeloDocumentoService.getDocumentoContrato(this.idModeloDocumento, this.idContrato)
             .subscribe(res => {
               this.contrato.contrato = res;
+              console.log(this.contrato.contrato);
               this.loading = false;
             }, error => {
               this.alertMessageService.error(error);

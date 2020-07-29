@@ -7,6 +7,7 @@ import {AuthModule} from "../auth/auth.module";
 import {NgxLoadingModule} from "ngx-loading";
 import {NgxPaginationModule} from "ngx-pagination";
 import {FormsModule} from "@angular/forms";
+import {CurrencyMaskModule} from "ng2-currency-mask";
 
 
 
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
         AuthModule,
         NgxLoadingModule,
         NgxPaginationModule,
-        FormsModule
+        FormsModule,
+        CurrencyMaskModule
     ]
 })
 export class ContaModule { }

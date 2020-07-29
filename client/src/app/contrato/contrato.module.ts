@@ -19,6 +19,7 @@ import { GeracaoParcelasModalComponent } from './geracao-parcelas-modal/geracao-
 import { RenovacaoContratoComponent } from './renovacao-contrato/renovacao-contrato.component';
 import { DocumentoContratoModalComponent } from './documento-contrato-modal/documento-contrato-modal.component';
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import {CurrencyMaskModule} from "ng2-currency-mask";
 
 @NgModule({
   declarations: [ListContratoComponent, NewContratoComponent, NewGarantiasContratoComponent, FinalizacaoContratoComponent, OcupantesImovelModalComponent, TestemunhasContratoModalComponent, FiadoresContratoModalComponent, ItensContratoModalComponent, ParcelasContratoModalComponent, GeracaoParcelasModalComponent, RenovacaoContratoComponent, DocumentoContratoModalComponent],
@@ -30,6 +31,7 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
         NgxLoadingModule,
         NgxPaginationModule,
         CKEditorModule,
+        CurrencyMaskModule,
     ]
 })
 export class ContratoModule { }

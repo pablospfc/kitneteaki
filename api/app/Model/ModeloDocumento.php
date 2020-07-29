@@ -86,11 +86,12 @@ class ModeloDocumento extends Model
           ->where("con.id", $idContrato)
           ->first();
 
+      error_log(var_export($contrato,true));
+
       $documento = str_replace([
           "nome_inquilino",
           "rg_inquilino",
-          "cpf_cnpj_inquilino",
-          "passaporte_inquilino",
+          "cpf_cnpj_passaporte_inquilino",
           "estado_civil_inquilino",
           "naturalidade_inquilino",
           "orgao_exp_inquilino",
@@ -102,8 +103,7 @@ class ModeloDocumento extends Model
           "telefone_inquilino",
           "nome_proprietario",
           "rg_proprietario",
-          "cpf_cnpj_proprietario",
-          "passaporte_proprietario",
+          "cpf_cnpj_passaporte_proprietario",
           "estado_civil_proprietario",
           "naturalidade_proprietario",
           "orgao_exp_proprietario",
@@ -132,8 +132,7 @@ class ModeloDocumento extends Model
       ],[
           $contrato['nome_inquilino'],
           $contrato["rg_inquilino"],
-          $contrato["cpf_inquilino"],
-          $contrato["passaporte_inquilino"],
+          $contrato["cpf_cnpj_inquilino"] ? $contrato["cpf_cnpj_inquilino"] : $contrato["passaporte_inquilino"],
           $contrato["estado_civil_inquilino"],
           $contrato["naturalidade_inquilino"],
           $contrato["orgao_exp_inquilino"],
@@ -145,8 +144,7 @@ class ModeloDocumento extends Model
           $contrato["telefone_inquilino"],
           $contrato["nome_proprietario"],
           $contrato["rg_proprietario"],
-          $contrato["cpf_cnpj_proprietario"],
-          $contrato["passaporte_proprietario"],
+          $contrato["cpf_cnpj_proprietario"] ? $contrato["cpf_cnpj_proprietario"] : $contrato["passaporte_proprietario"],
           $contrato["estado_civil_proprietario"],
           $contrato["naturalidade_proprietario"],
           $contrato["orgao_exp_proprietario"],

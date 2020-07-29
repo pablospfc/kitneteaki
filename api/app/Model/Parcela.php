@@ -99,6 +99,7 @@ class Parcela extends Model
             ->join("contrato as co", "pa.id_contrato", "=", "co.id")
             ->join("status as st", "pa.id_status", "=", "st.id")
             ->where("pa.id_contrato", $id)
+            ->orderBy("pa.parcela")
             ->get()
             ->toArray();
     }

@@ -165,6 +165,8 @@
                        [(ngModel)]="imovel.valor_iptu"
                        [required]="true"
                        [disabled]="imovel.id_transacao_imovel == 2"
+                       currencyMask
+                       [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
                        placeholder="IPTU"/>
               </div>
 
@@ -177,6 +179,8 @@
                        [(ngModel)]="imovel.valor_condominio"
                        [disabled]="imovel.id_transacao_imovel == 2 || imovel.id_tipo_imovel != 3"
                        [required]="true"
+                       currencyMask
+                       [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
                        placeholder="Valor de Condomínio"/>
               </div>
 
@@ -188,6 +192,8 @@
                        name="valor_imovel"
                        [(ngModel)]="imovel.valor_imovel"
                        [required]="true"
+                       currencyMask
+                       [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
                        placeholder="Valor de Imóvel"/>
               </div>
             </div>

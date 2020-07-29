@@ -14,6 +14,7 @@ export class PagamentoFaturaModalComponent implements OnInit {
   @Input()  id: number;
   parcela: Parcela;
   public loading;
+  public mask = '\^(\d{1,3}(\.\d{3})*|\\d+)(\,\d{2})?$\'';
   constructor(private parcelaService: ParcelaService,
               private modalRef: BsModalRef,
               private alertService: AlertMessageService) { }

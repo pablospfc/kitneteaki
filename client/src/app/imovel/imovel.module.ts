@@ -7,16 +7,18 @@ import {RouterModule} from "@angular/router";
 import {AuthModule} from "../auth/auth.module";
 import {NgxPaginationModule} from "ngx-pagination";
 import {NgxLoadingModule} from "ngx-loading";
+import {CurrencyMaskModule} from "ng2-currency-mask";
 
 @NgModule({
   declarations: [ListImovelComponent, NewImovelComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    AuthModule,
-    NgxPaginationModule,
-    NgxLoadingModule
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        AuthModule,
+        NgxPaginationModule,
+        NgxLoadingModule,
+        CurrencyMaskModule
+    ]
 })
 export class ImovelModule { }

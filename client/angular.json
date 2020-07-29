@@ -28,10 +28,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/select2/dist/css/select2.min.css"
             ],
             "scripts": [
               "src/assets/bower_components/jquery/dist/jquery.min.js",
+              "node_modules/select2/dist/js/select2.min.js",
               "src/assets/bower_components/jquery-ui/jquery-ui.min.js",
               "src/assets/bower_components/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/bower_components/raphael/raphael.min.js",

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Pessoa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Tymon\JWTAuth\JWTAuth;
 
 class PessoaController extends Controller
 {

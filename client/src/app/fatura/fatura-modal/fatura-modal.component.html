@@ -83,6 +83,8 @@
                [(ngModel)]="itemParcela.valor"
                [required]="false"
                name="valor{{i}}"
+               currencyMask
+               [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
                placeholder="Valor"/>
       </td>
       <td>

@@ -5,7 +5,6 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {ImovelService} from '../../_services/imovel.service';
 import {PessoaService} from '../../_services/pessoa.service';
 import * as jsPDF from 'jspdf';
-import my from "../../../assets/bower_components/moment/src/locale/my";
 
 @Component({
   selector: 'app-list-contrato',

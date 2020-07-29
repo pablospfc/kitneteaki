@@ -4,11 +4,10 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use mysql_xdevapi\Exception;
-use phpDocumentor\Reflection\Types\Self_;
 
 class Pessoa extends Model
 {
+
     protected $table = "pessoa";
     protected $primaryKey = "id";
     public $incrementing = true;
@@ -44,7 +43,7 @@ class Pessoa extends Model
             $idPessoa = self::create($data['data_pessoa'])->id;
             if (!empty($data['data_usuario'])){
                 $idPerfil = $data['data_pessoa']['id_categoria_pessoa'] == 1 ? 2 : 3;
-                User::create([
+                $idUsuario = User::create([
                   "name"           => $data['data_pessoa']["nome"],
                   "id_pessoa"      => $idPessoa,
                   "id_perfil"      => $idPerfil,
@@ -52,7 +51,12 @@ class Pessoa extends Model
                   "password"       => bcrypt($data['data_usuario']['password']),
                   "remember_token" => str_random(10),
                   "ativo"          => true
-                ]);
+                ])->id;
+
+                if ($idPerfil == 2) {
+                    User::where("id", $idUsuario)
+                        ->update(["token" => md5(uniqid($idUsuario, true))]);
+                }
             }
         });
 

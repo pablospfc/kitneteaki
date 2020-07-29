@@ -9,6 +9,8 @@ import {FormsModule} from '@angular/forms';
 import { FaturaModalComponent } from './fatura-modal/fatura-modal.component';
 import { BoletoComponent } from './boleto/boleto.component';
 import { PagamentoFaturaModalComponent } from './pagamento-fatura-modal/pagamento-fatura-modal.component';
+import {TextMaskModule} from "angular2-text-mask";
+import {CurrencyMaskModule} from "ng2-currency-mask";
 
 
 
@@ -20,7 +22,9 @@ import { PagamentoFaturaModalComponent } from './pagamento-fatura-modal/pagament
     NgxPaginationModule,
     NgxLoadingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    TextMaskModule,
+    CurrencyMaskModule
   ]
 })
 export class FaturaModule { }

@@ -28,6 +28,8 @@
                name="valor"
                [(ngModel)]="itemContrato.valor"
                [required]="false"
+               currencyMask
+               [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
                placeholder="Valor"/>
       </div>
 

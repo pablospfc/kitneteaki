@@ -125,6 +125,7 @@
               <th>Período</th>
               <th>Vencimento</th>
               <th>Valor</th>
+              <th>Valor Pago</th>
               <th>Ação</th>
             </tr>
             </thead>
@@ -142,6 +143,7 @@
               <td>{{parcela.periodo_inicial | date: 'dd/MM/yyyy'}} ~ {{parcela.periodo_final | date: 'dd/MM/yyyy'}}</td>
               <td>{{parcela.data_vencimento | date: 'dd/MM/yyyy'}}</td>
               <td>{{parcela.valor | currency:"BRL":"symbol"}}</td>
+              <td>{{parcela.valor_pago | currency:"BRL":"symbol"}}</td>
               <td>
                 <button type="button"
                         (click)="openModalParcela(parcela.id)"
