@@ -12,11 +12,19 @@ class ModeloDocumento extends Model
     protected $primaryKey = 'id';
     protected $table = "modelo_documento";
     public $timestamps = true;
+    private $user;
     protected $fillable = [
         "id_tipo_modelo_documento",
         "nome",
         "conteudo",
+        "token"
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        $this->user = auth('api')->user();
+        parent::__construct($attributes);
+    }
 
     public function getAll()
     {
@@ -26,6 +34,9 @@ class ModeloDocumento extends Model
         )
             ->from("modelo_documento as mo")
             ->join("tipo_modelo_documento as tp", "mo.id_tipo_modelo_documento", "=", "tp.id")
+            ->when($this->user['id_perfil'] != 1, function ($query) {
+                return $query->where('mo.token', $this->user['token']);
+            })
             ->get();
     }
 
@@ -83,10 +94,11 @@ class ModeloDocumento extends Model
           ->join("nacionalidade as nci", "inq.id_nacionalidade", "=", "nci.id")
           ->leftJoin("nacionalidade as ncp", "pro.id_nacionalidade", "=", "ncp.id")
           ->join("forma_pagamento as fpg", "con.id_forma_pagamento", "=", "fpg.id")
+          ->when($this->user['id_perfil'] != 1, function ($query) {
+              return $query->where('con.token', $this->user['token']);
+          })
           ->where("con.id", $idContrato)
           ->first();
-
-      error_log(var_export($contrato,true));
 
       $documento = str_replace([
           "nome_inquilino",

@@ -10,6 +10,7 @@ import {ModeloDocumentoService} from '../../_services/modelo-documento.service';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {ModeloDocumento} from '../../_models/modelo-documento.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from "../../_services/auth.service";
 
 @Component({
   selector: 'app-new-modelo-documento',
@@ -26,6 +27,7 @@ export class NewModeloDocumentoComponent implements OnInit {
   constructor(private modeloDocumentoService: ModeloDocumentoService,
               private router: Router,
               private actRoute: ActivatedRoute,
+              private authService: AuthService,
               private alertMessageService: AlertMessageService) { }
 
   ngOnInit() {
@@ -39,6 +41,7 @@ export class NewModeloDocumentoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    form.value.token = this.authService.getUser().token;
     this.modeloDocumentoService.save(form.value)
       .subscribe(data => {
         window.scroll(0, 0);
@@ -60,7 +63,7 @@ export class NewModeloDocumentoComponent implements OnInit {
     const appendData = arg;
     const selection = this.editor.editorInstance.model.document.selection;
     const range = selection.getFirstRange();
-    this.editor.editorInstance.model.document.fontSize
+    this.editor.editorInstance.model.document.fontSize;
     const selectedElement = selection.getSelectedElement();
     this.editor.editorInstance.model.change(writer => {
       writer.insert(appendData, range.start);

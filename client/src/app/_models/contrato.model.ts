@@ -22,6 +22,6 @@ export class Contrato {
   observacoes: string;
   contrato: string;
   renovou: boolean;
-  chave: string;
+  token: string;
 
 }

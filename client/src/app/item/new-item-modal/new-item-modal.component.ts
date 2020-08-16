@@ -4,6 +4,7 @@ import {Item} from '../../_models/item.model';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import {ItemService} from '../../_services/item.service';
+import {AuthService} from "../../_services/auth.service";
 
 @Component({
   selector: 'app-new-item-modal',
@@ -17,6 +18,7 @@ export class NewItemModalComponent implements OnInit {
 
   constructor(private itemService: ItemService,
               private alertMessageService: AlertMessageService,
+              private authService: AuthService,
               private modalRef: BsModalRef) { }
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class NewItemModalComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     this.loading = true;
+    form.value.token = this.authService.getUser().token;
     this.itemService.save(form.value)
       .subscribe(response => {
         this.alertMessageService.success(response.message);

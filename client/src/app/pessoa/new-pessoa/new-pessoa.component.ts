@@ -4,8 +4,9 @@ import {NgForm} from '@angular/forms';
 import {PessoaService} from '../../_services/pessoa.service';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {ActivatedRoute, Resolve, Router} from '@angular/router';
-import {CepService} from "../../_services/cep.service";
-import {Usuario} from "../../_models/usuario.model";
+import {CepService} from '../../_services/cep.service';
+import {Usuario} from '../../_models/usuario.model';
+import {AuthService} from '../../_services/auth.service';
 
 @Component({
   selector: 'app-new-pessoa',
@@ -17,11 +18,11 @@ export class NewPessoaComponent implements OnInit {
   public pessoa: Pessoa;
   public usuario: Usuario;
   public loading;
-  formValue: any;
   public data: any;
   constructor(private pessoaService: PessoaService,
               private alertService: AlertMessageService,
               private cepService: CepService,
+              private authService: AuthService,
               private actRoute: ActivatedRoute,
               private router: Router) {
   }
@@ -59,7 +60,8 @@ export class NewPessoaComponent implements OnInit {
         email: data.email,
         telefone_celular: data.telefone_celular,
         whatsapp: data.whatsapp,
-        profissao: data.profissao
+        profissao: data.profissao,
+        token: this.authService.getUser().token
       },
       data_usuario: {
         login: data.login,
@@ -71,7 +73,6 @@ export class NewPessoaComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.loading = true;
-    this.formValue = form.value;
     this.tratarDados(form.value);
     this.pessoaService.save(this.data)
       .subscribe(success => {

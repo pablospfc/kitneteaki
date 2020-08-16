@@ -26,6 +26,8 @@ export class ListImovelComponent implements OnInit {
         this.imoveis = response;
         this.totalRec = this.imoveis.length;
         this.loading = false;
+      }, error => {
+        this.loading = false;
       });
   }
 

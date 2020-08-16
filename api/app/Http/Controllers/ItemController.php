@@ -12,10 +12,21 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    private $user;
+
+    function __construct()
+    {
+        $this->user = auth('api')->user();
+    }
+
     public function index()
     {
         try {
-            $data = \App\Model\Item::all();
+            $data = \App\Model\Item::when($this->user['id_perfil'] != 1, function ($query) {
+                return $query->where('token', $this->user['token']);
+            })->get();
+            //error_log(var_export($data,true));
             return response()->json($data, 200);
         } catch (\Exception $e) {
             \App\Model\Log::create(['message' => $e->getMessage()]);
@@ -37,7 +48,7 @@ class ItemController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -54,7 +65,7 @@ class ItemController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
@@ -83,7 +94,7 @@ class ItemController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -101,7 +112,7 @@ class ItemController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {

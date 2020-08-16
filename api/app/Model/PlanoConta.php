@@ -13,7 +13,8 @@ class PlanoConta extends Model
     public $timestamps = true;
     protected $fillable = [
         "id_tipo_conta",
-        "nome"
+        "nome",
+        "token"
     ];
 
 }

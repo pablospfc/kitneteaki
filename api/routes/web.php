@@ -16,14 +16,23 @@ Route::get('/', function () {
     return view('app');
 });
 
-//Route::resource('pessoa', 'PessoaController');
+//Route::group([
+//    'namespace' => 'Api',
+//    'middleware' => 'auth:api',
+//    'prefix' => 'auth',
+//], function ($router) {
+//    Route::post('login', 'AuthController@login');
+//    Route::post('logout', 'AuthController@logout');
+//    Route::post('refresh', 'AuthController@refresh');
+//    Route::post('me', 'AuthController@me');
+//});
 
-//Route::group(['middleware' => 'jwt.auth'], function() {
-Route::group(['middleware' => 'cors'], function() {
-    Route::post('auth/login','AuthController@login');
-    Route::post('auth/refresh','AuthController@refresh');
-    Route::get('auth/logout','AuthController@logout');
+Route::post('auth/login', 'AuthController@login');
 
+Route::group(['middleware' => ['cors', 'apiJwt']], function() {
+    Route::post('auth/logout', 'AuthController@logout');
+    Route::post('auth/me', 'AuthController@me');
+    Route::post('auth/refresh', 'AuthController@refresh');
     Route::post("pessoa/cadastrar","PessoaController@store");
     Route::put("pessoa/atualizar/{id}","PessoaController@update");
     Route::get("pessoa/listar","PessoaController@index");
@@ -101,13 +110,13 @@ Route::group(['middleware' => 'cors'], function() {
     Route::get("parcelaitem/getByParcela/{id}","ParcelaItemController@getByParcela");
     Route::delete("parcelaitem/excluir/{id}","ParcelaItemController@destroy");
 
-    Route::post("documento/cadastrar","DocumentoContratoController@store");
-    Route::put("documento/atualizar/{id}","DocumentoContratoController@update");
-    Route::get("documento/listar","DocumentoContratoController@index");
+//    Route::post("documento/cadastrar","DocumentoContratoController@store");
+//    Route::put("documento/atualizar/{id}","DocumentoContratoController@update");
+//    Route::get("documento/listar","DocumentoContratoController@index");
 
-    Route::post("usuario/cadastrar","UserController@store");
-    Route::put("usuario/atualizar/{id}","UserController@update");
-    Route::get("usuario/listar","UserController@index");
+//    Route::post("usuario/cadastrar","UserController@store");
+//    Route::put("usuario/atualizar/{id}","UserController@update");
+//    Route::get("usuario/listar","UserController@index");
 
     Route::get("tipoimovel/listar","TipoImovelController@index");
     Route::get("tipoimovel/getById/{id}","TipoImovelController@show");
@@ -115,11 +124,11 @@ Route::group(['middleware' => 'cors'], function() {
     Route::put("tipoimovel/atualizar/{id}","TipoImovelController@update");
     Route::delete("tipoimovel/excluir/{id}","TipoImovelController@destroy");
 
-    Route::get("tipoocorrencia/listar","TipoOcorrenciaController@index");
-    Route::get("tipoocorrencia/getById/{id}","TipoOcorrenciaController@show");
-    Route::post("tipoocorrencia/cadastrar","TipoOcorrenciaController@store");
-    Route::put("tipoocorrencia/atualizar/{id}","TipoOcorrenciaController@update");
-    Route::delete("tipoocorrencia/excluir/{id}","TipoOcorrenciaController@destroy");
+//    Route::get("tipoocorrencia/listar","TipoOcorrenciaController@index");
+//    Route::get("tipoocorrencia/getById/{id}","TipoOcorrenciaController@show");
+//    Route::post("tipoocorrencia/cadastrar","TipoOcorrenciaController@store");
+//    Route::put("tipoocorrencia/atualizar/{id}","TipoOcorrenciaController@update");
+//    Route::delete("tipoocorrencia/excluir/{id}","TipoOcorrenciaController@destroy");
 
     Route::get("ocorrencia/listar","OcorrenciaController@index");
     Route::get("ocorrencia/getById/{id}","OcorrenciaController@show");
@@ -152,14 +161,14 @@ Route::group(['middleware' => 'cors'], function() {
     Route::put("formapagamento/atualizar/{id}","FormaPagamentoController@update");
     Route::delete("formapagamento/excluir/{id}","FormaPagamentoController@destroy");
 
-    Route::get("tipostatus/listar","TipoStatusController@index");
-    Route::get("tipopessoa/listar","TipoPessoaController@index");
-    Route::get("tipopagamento/listar","TipoPagamentoController@index");
-    Route::get("tipodocumentocontrato/listar","TipoDocumentoContratoController@index");
-    Route::get("tipocontrato/listar","TipoContratoController@index");
-    Route::get("tipoconta/listar","TipoContaController@index");
-    Route::get("status/listar","StatusController@index");
-    Route::get("mes/listar","MesController@index");
-    Route::get("estadocivil/listar","EstadoCivilController@index");
+//    Route::get("tipostatus/listar","TipoStatusController@index");
+//    Route::get("tipopessoa/listar","TipoPessoaController@index");
+//    Route::get("tipopagamento/listar","TipoPagamentoController@index");
+//    Route::get("tipodocumentocontrato/listar","TipoDocumentoContratoController@index");
+//    Route::get("tipocontrato/listar","TipoContratoController@index");
+//    Route::get("tipoconta/listar","TipoContaController@index");
+//    Route::get("status/listar","StatusController@index");
+//    Route::get("mes/listar","MesController@index");
+//    Route::get("estadocivil/listar","EstadoCivilController@index");
 
 });

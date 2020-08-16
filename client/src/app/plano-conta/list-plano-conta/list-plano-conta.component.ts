@@ -17,7 +17,7 @@ export class ListPlanoContaComponent implements OnInit {
   public id;
   public loading;
   modalRef: BsModalRef;
-  
+
   constructor(private planoContaService: PlanoContaService,
               private alertService: AlertMessageService,
               private modalService: BsModalService) { }

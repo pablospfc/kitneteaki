@@ -47,6 +47,7 @@
                         id="id_locatario"
                         [(ngModel)]="filtro.id_locatario"
                         name="id_locatario">
+                  <option [value]="null">Todos</option>
                   <option *ngFor="let inquilino of inquilinos" [value]="inquilino.id">{{inquilino.nome}}</option>
                 </select>
               </div>
@@ -55,8 +56,9 @@
                 <label for="id_tipo_contrato">Tipo de Contrato</label>
                 <select class="form-control"
                         id="id_tipo_contrato"
-                        [(ngModel)]="filtro.id_locatario"
+                        [(ngModel)]="filtro.id_tipo_contrato"
                         name="id_tipo_contrato">
+                  <option [value]="null">Todos</option>
                   <option [value]="1">Aluguel</option>
                   <option [value]="2">Temporada</option>
                 </select>
@@ -68,6 +70,7 @@
                         id="id_imovel"
                         [(ngModel)]="filtro.id_imovel"
                         name="id_imovel">
+                  <option [value]="null">Todos</option>
                   <option *ngFor="let imovel of imoveis" [value]="imovel.id">{{imovel.nome}}</option>
                 </select>
               </div>
@@ -118,6 +121,7 @@
                         id="id_status"
                         [(ngModel)]="filtro.id_status"
                         name="id_status">
+                  <option [value]="null">Todos</option>
                   <option [value]="1">Vigente</option>
                   <option [value]="2">Cancelado</option>
                   <option [value]="3">Vencido</option>

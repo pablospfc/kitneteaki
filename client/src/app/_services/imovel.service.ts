@@ -10,11 +10,6 @@ import {Imovel} from '../_models/imovel.model';
 export class ImovelService {
 
   private readonly API = `${environment.API}/imovel`;
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-    })
-  };
 
   constructor(private http: HttpClient) { }
 
@@ -44,7 +39,7 @@ export class ImovelService {
   }
 
   private create(imovel) {
-    return this.http.post(`${this.API}/cadastrar`, imovel, this.httpOptions)
+    return this.http.post(`${this.API}/cadastrar`, imovel)
       .pipe(
         catchError(error => {
           return throwError(error);

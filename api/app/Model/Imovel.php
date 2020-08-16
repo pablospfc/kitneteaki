@@ -9,6 +9,7 @@ class Imovel extends Model
 {
     protected $table = "imovel";
     public $timestamps = true;
+    private $user;
     protected $fillable = [
       "id_tipo_imovel",
       "id_status",
@@ -30,8 +31,14 @@ class Imovel extends Model
       "bairro",
       "cidade",
       "estado",
-      "chave"
+      "token"
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        $this->user = (auth('api'))->user();
+        parent::__construct($attributes);
+    }
 
     public function getAll() {
         return self::select(
@@ -47,6 +54,9 @@ class Imovel extends Model
             ->join("tipo_imovel as tip","imo.id_tipo_imovel","=","tip.id")
             ->join("transacao_imovel as tra","imo.id_transacao_imovel", "=", "tra.id")
             ->join("status as sta", "imo.id_status", "=", "sta.id")
+            ->when($this->user['id_perfil'] != 1, function ($query) {
+                return $query->where('imo.token', $this->user['token']);
+            })
             ->orderBy("imo.nome")
             ->get()
             ->toArray();
@@ -66,6 +76,9 @@ class Imovel extends Model
             ->join("transacao_imovel as tra","imo.id_transacao_imovel", "=", "tra.id")
             ->join("status as sta", "imo.id_status", "=", "sta.id")
             ->where("imo.id_transacao_imovel",$id)
+            ->when($this->user['id_perfil'] != 1, function ($query) {
+                return $query->where('imo.token', $this->user['token']);
+            })
             ->orderBy("imo.nome")
             ->get()
             ->toArray();

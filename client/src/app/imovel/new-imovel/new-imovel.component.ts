@@ -5,6 +5,7 @@ import {ImovelService} from '../../_services/imovel.service';
 import {AlertMessageService} from '../../_services/alert-message.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CepService} from '../../_services/cep.service';
+import {AuthService} from "../../_services/auth.service";
 
 @Component({
   selector: 'app-new-imovel',
@@ -19,6 +20,7 @@ export class NewImovelComponent implements OnInit {
   constructor(private imovelService: ImovelService,
               private alertService: AlertMessageService,
               private actRoute: ActivatedRoute,
+              private authService: AuthService,
               private router: Router,
               private cepService: CepService) {
   }
@@ -32,12 +34,13 @@ export class NewImovelComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.loading = true;
+    form.value.token = this.authService.getUser().token;
     this.imovelService.save(form.value)
       .subscribe(success => {
         const message = (success as any).message;
         this.alertService.success(message);
         this.loading = false;
-        window.scroll(0,0);
+        window.scroll(0, 0);
         setTimeout(() => {
             this.router.navigate(['list-imovel']);
           },

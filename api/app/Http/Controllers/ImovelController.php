@@ -54,11 +54,12 @@ class ImovelController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
         try{
+            error_log(var_export($request->all(),true));
             \App\Model\Imovel::create($request->all());
             return response()->json(['message'=>"Dados inseridos com sucesso."],200);
         }catch(\Exception $e){

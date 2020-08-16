@@ -10,16 +10,18 @@ use Tymon\JWTAuth\JWTAuth;
 class PessoaController extends Controller
 {
     private $pessoa;
+    private $user;
 
     function __construct()
     {
         $this->pessoa = new Pessoa();
+        $this->user = (auth('api'))->user();
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -27,6 +29,7 @@ class PessoaController extends Controller
             $data = $this->pessoa->getAll();
             return response()->json($data, 200);
         } catch (\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um problema ao listar dados'],500);
         }
     }
@@ -34,9 +37,13 @@ class PessoaController extends Controller
     public function getPessoas($idCategoriaPessoa){
         try{
             $data = \App\Model\Pessoa::where("id_categoria_pessoa", $idCategoriaPessoa)
+                ->when($this->user['id_perfil'] != 1, function ($query) {
+                    return $query->where('token', $this->user['token']);
+                })
                 ->get();
             return response()->json($data, 200);
         } catch(\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             return response()->json(['message' => 'Ocorreu um problema ao listar dados'],500);
         }
     }
@@ -55,7 +62,7 @@ class PessoaController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -80,6 +87,7 @@ class PessoaController extends Controller
             $data = \App\Model\Pessoa::find($id);
             return response()->json($data, 200);
         } catch (\Exception $e) {
+            \App\Model\Log::create(['message' => $e->getMessage()]);
             throw new \Exception("Ocorreu um problema ao listar dados");
         }
     }
@@ -100,7 +108,7 @@ class PessoaController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -118,7 +126,7 @@ class PessoaController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {

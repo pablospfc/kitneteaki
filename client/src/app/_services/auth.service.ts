@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {catchError, map} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   public logout() {
-    return this.http.get(`${this.API}/logout`)
+    return this.http.post(`${this.API}/logout`, {})
       .subscribe(resp => {
         localStorage.clear();
         this.router.navigate(['/login']);

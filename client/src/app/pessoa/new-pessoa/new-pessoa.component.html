@@ -86,7 +86,7 @@
                         [(ngModel)]="pessoa.id_categoria_pessoa"
                         [required]="true"
                         name="id_categoria_pessoa">
-                  <option [value]="1">Proprietário</option>
+                  <option [value]="1" [disabled]="authService.getUser().id_perfil != 1">Proprietário</option>
                   <option [value]="2">Inquilino</option>
                   <option [value]="3">Fiador</option>
                   <option [value]="5">Operador de Sistema</option>

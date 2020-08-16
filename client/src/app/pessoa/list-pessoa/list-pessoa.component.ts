@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PessoaService} from "../../_services/pessoa.service";
 import {Pessoa} from "../../_models/pessoa.model";
 import {ActivatedRoute, Router} from "@angular/router";
+import {error} from "util";
 
 @Component({
   selector: 'app-list-pessoa',
@@ -29,6 +30,8 @@ export class ListPessoaComponent implements OnInit {
         this.pessoas = response;
         this.loading = false;
         this.totalRec = this.pessoas.length;
+      }, error => {
+        this.loading = false;
       });
   }
 

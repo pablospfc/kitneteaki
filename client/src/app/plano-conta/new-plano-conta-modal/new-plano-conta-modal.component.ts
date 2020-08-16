@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { PlanoContaService } from 'src/app/_services/plano-conta.service';
 import { AlertMessageService } from 'src/app/_services/alert-message.service';
 import { BsModalRef } from 'ngx-bootstrap';
+import {AuthService} from '../../_services/auth.service';
 
 @Component({
   selector: 'app-new-plano-conta-modal',
@@ -17,6 +18,7 @@ export class NewPlanoContaModalComponent implements OnInit {
   public id;
   constructor(private planoContaService: PlanoContaService,
               private alertMessageService: AlertMessageService,
+              private authService: AuthService,
               private modalRef: BsModalRef) { }
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class NewPlanoContaModalComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     this.loading = true;
+    form.value.token = this.authService.getUser().token;
     this.planoContaService.save(form.value)
       .subscribe(response => {
         this.alertMessageService.success(response.message);

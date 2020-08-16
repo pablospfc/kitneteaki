@@ -13,6 +13,7 @@ class Parcela extends Model
     protected $table = "parcela";
     protected $primaryKey = "id";
     public $timestamps = true;
+    private $user;
     protected $fillable = [
         "id_status",
         "id_forma_pagamento",
@@ -26,6 +27,12 @@ class Parcela extends Model
         "periodo_inicial",
         "periodo_final",
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        $this->user = auth('api')->user();
+        parent::__construct($attributes);
+    }
 
     public function listParcelas($params)
     {
@@ -82,6 +89,9 @@ class Parcela extends Model
             ->when($periodos, function ($query) use ($params) {
                 return $query->whereRaw("(pa.periodo_inicial >= ? AND pa.periodo_final <= ?)",
                     [$params['periodo_inicial'], $params['periodo_final']]);
+            })
+            ->when($this->user['id_perfil'] != 1, function ($query) {
+                return $query->where('pe.token', $this->user['token']);
             })
             ->orderBy( "pe.nome", "asc")
             ->orderBy("pa.data_vencimento","asc")

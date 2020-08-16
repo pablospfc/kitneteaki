@@ -11,12 +11,21 @@ class PlanoContaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $user;
+
+    function __construct()
+    {
+        $this->user = auth('api')->user();
+    }
+
     public function index()
     {
         try {
-            //$dados = \App\Model\PlanoConta::all();
             $dados = \App\Model\PlanoConta::join("tipo_conta", "plano_conta.id_tipo_conta", "=", "tipo_conta.id")
             ->select("plano_conta.*", "tipo_conta.nome as tipo")
+                ->when($this->user['id_perfil'] != 1, function ($query) {
+                    return $query->where('plano_conta.token', $this->user['token']);
+                })
             ->get();
             return response()->json($dados, 200);
         } catch (\Exception $e) {
@@ -29,6 +38,9 @@ class PlanoContaController extends Controller
     {
         try {
             $dados = \App\Model\PlanoConta::where("id_tipo_conta", $idTipoConta)
+                ->when($this->user['id_perfil'] != 1, function ($query) {
+                    return $query->where('plano_conta.token', $this->user['token']);
+                })
                 ->get();
             return response()->json($dados, 200);
         } catch (\Exception $e) {
@@ -51,7 +63,7 @@ class PlanoContaController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -68,7 +80,7 @@ class PlanoContaController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
@@ -97,7 +109,7 @@ class PlanoContaController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -115,7 +127,7 @@ class PlanoContaController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {

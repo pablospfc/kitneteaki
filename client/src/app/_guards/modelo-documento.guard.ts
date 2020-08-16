@@ -18,7 +18,8 @@ export class ModeloDocumentoGuard implements Resolve<ModeloDocumento> {
       id: null,
       id_tipo_modelo_documento: null,
       nome: null,
-      conteudo: null
+      conteudo: null,
+      token: null
     });
   }
 

@@ -28,7 +28,7 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
               .pipe(
                 flatMap(data => {
                   localStorage.setItem('token', data.token);
-                  const cloneRequest = request.clone({setHeaders: {'Authorization': `Bearer ${data.token}`}});
+                  const cloneRequest = request.clone({setHeaders: {Authorization: `Bearer ${data.token}`}});
 
                   return next.handle(cloneRequest);
                 })

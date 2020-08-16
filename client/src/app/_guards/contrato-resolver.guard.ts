@@ -39,7 +39,7 @@ export class ContratoResolverGuard implements Resolve<Contrato> {
     observacoes: null,
     contrato: null,
     renovou: null,
-    chave: null,
+    token: null,
     });
 
   }

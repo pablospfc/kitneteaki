@@ -11,6 +11,7 @@ class Contrato extends Model
     protected $table = "contrato";
     protected $primaryKey = "id";
     public $timestamps = true;
+    private $user;
     protected $fillable = [
         "id_contrato",
         "id_status",
@@ -34,8 +35,14 @@ class Contrato extends Model
         "observacoes",
         "contrato",
         "renovou",
-        "chave"
+        "token"
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        $this->user = (auth('api'))->user();
+        parent::__construct($attributes);
+    }
 
     public function salvar($data)
     {
@@ -124,26 +131,6 @@ class Contrato extends Model
 
     public function getAll($params)
     {
-        $inquilino = false;
-        $tipoContrato = false;
-        $imovel = false;
-        $vigencias = false;
-        $valores = false;
-        $status = false;
-
-        if (isset($params['id_locatario']))
-            $inquilino = true;
-        if (isset($params['id_tipo_contrato']))
-            $tipoContrato = true;
-        if (isset($params['id_status']))
-            $status = true;
-        if(isset($params['vigencia_inicial']) && isset($params['vigencia_final']))
-            $vigencias = true;
-        if(isset($params['valor_inicial']) && isset($params['valor_final']))
-            $valores = true;
-        if (isset($params['id_imovel']))
-            $imovel = true;
-
         return self::select(
             "imo.nome as imovel",
             "loc.nome as locatario",
@@ -165,25 +152,28 @@ class Contrato extends Model
             ->join("pessoa as loc", "con.id_locatario", "=", "loc.id")
             ->join("imovel as imo", "con.id_imovel", "=", "imo.id")
             ->join("tipo_contrato as tco", "con.id_tipo_contrato", "=", "tco.id")
-            ->when($inquilino, function ($query) use ($params)  {
+            ->when(isset($params['id_locatario']), function ($query) use ($params) {
                 return $query->where('con.id_locatario', $params['id_locatario']);
             })
-            ->when($tipoContrato, function ($query) use ($params)  {
+            ->when(isset($params['id_tipo_contrato']), function ($query) use ($params)  {
                 return $query->where('con.id_tipo_contrato', $params['id_tipo_contrato']);
             })
-            ->when($status, function ($query) use ($params)  {
+            ->when(isset($params['id_status']), function ($query) use ($params)  {
                 return $query->where('con.id_status', $params['id_status']);
             })
-            ->when($vigencias, function ($query) use ($params) {
+            ->when(isset($params['vigencia_inicial']) && isset($params['vigencia_final']), function ($query) use ($params) {
                 return $query->whereRaw("(con.vigencia >= ? AND con.vigencia <= ?)",
                     [$params['vigencia_inicial'], $params['vigencia_final']]);
             })
-            ->when($valores, function ($query) use ($params) {
+            ->when(isset($params['valor_inicial']) && isset($params['valor_final']), function ($query) use ($params) {
                 return $query->whereRaw("(con.valor >= ? AND con.valor <= ?)",
                     [$params['valor_inicial'], $params['valor_final']]);
             })
-            ->when($imovel, function ($query) use ($params)  {
+            ->when(isset($params['id_imovel']), function ($query) use ($params)  {
                 return $query->where('con.id_imovel', $params['id_imovel']);
+            })
+            ->when($this->user['id_perfil'] != 1, function ($query) {
+                return $query->where('con.token', $this->user['token']);
             })
             ->orderBy("loc.nome")
             ->get()

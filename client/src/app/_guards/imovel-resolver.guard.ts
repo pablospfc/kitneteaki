@@ -36,6 +36,7 @@ export class ImovelResolverGuard implements Resolve<Imovel> {
       bairro: null,
       cidade: null,
       estado: null,
+      token: null,
   });
   }
 }

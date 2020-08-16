@@ -11,12 +11,23 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
+    private $user;
+
+    function __construct()
+    {
+        $this->user = auth('api')->user();
+    }
+
     public function index()
     {
         try {
             $dados = \App\Model\User::join("perfil", "users.id_perfil", "=", "perfil.id")
                 ->join("pessoa", "users.id_pessoa", "=", "pessoa.id")
                 ->select("perfil.nome as perfil", "users.*")
+                ->when($this->user['id_perfil'] != 1, function ($query) {
+                    return $query->where('users.token', $this->user['token']);
+                })
                 ->get();
             return response()->json($dados,200);
         }catch(\Exception $e) {
