@@ -22,7 +22,7 @@ export class NewPessoaComponent implements OnInit {
   constructor(private pessoaService: PessoaService,
               private alertService: AlertMessageService,
               private cepService: CepService,
-              private authService: AuthService,
+              public authService: AuthService,
               private actRoute: ActivatedRoute,
               private router: Router) {
   }

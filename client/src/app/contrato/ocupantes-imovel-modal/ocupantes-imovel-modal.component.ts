@@ -20,7 +20,7 @@ export class OcupantesImovelModalComponent implements OnInit {
 
   constructor(private ocupanteService: OcupanteImovelService,
               private alertService: AlertMessageService,
-              private modalRef: BsModalRef) {
+              public modalRef: BsModalRef) {
   }
 
   ngOnInit() {

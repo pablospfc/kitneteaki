@@ -37,7 +37,7 @@ export class ListItemComponent implements OnInit {
       });
   }
 
-  openModalForm(id: any) {
+  openModalForm(id: any = null) {
     this.modalRef = this.modalService.show(NewItemModalComponent, {
       initialState: {
         id: id,

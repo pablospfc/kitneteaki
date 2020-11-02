@@ -19,7 +19,7 @@ export class NewPlanoContaModalComponent implements OnInit {
   constructor(private planoContaService: PlanoContaService,
               private alertMessageService: AlertMessageService,
               private authService: AuthService,
-              private modalRef: BsModalRef) { }
+              public modalRef: BsModalRef) { }
 
   ngOnInit() {
     this.planoConta = new PlanoConta();

@@ -50,9 +50,9 @@ export class NewContratoComponent implements OnInit {
       });
   }
 
-  calcularFimContrato(data: Date, vigencia: number) {
-    let dataInicial = moment(data);
-    let dataFinal = moment(dataInicial).add(vigencia, 'M');
+  calcularFimContrato(data: string, vigencia: number) {
+    const dataInicial = moment(data);
+    const dataFinal = moment(dataInicial).add(vigencia, 'M');
     this.contrato.data_fim = dataFinal.format('YYYY-MM-DD');
   }
 
@@ -81,13 +81,15 @@ export class NewContratoComponent implements OnInit {
       });
   }
 
-  verificaDisponibilidade(inicio: Date, fim: Date) {
+  verificaDisponibilidade(inicio: string, fim: string) {
     const inicioEstadia = moment(inicio);
     const fimEstadia = moment(fim);
     if (inicioEstadia != null  && fimEstadia != null) {
       const duration = moment.duration(fimEstadia.diff(inicioEstadia));
       const dias = duration.asDays();
       this.contrato.dias = dias;
+    } else {
+      this.contrato.dias = 0;
     }
   }
 

@@ -8,7 +8,7 @@ import $ from 'jquery';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
     let $: JQueryStatic = (window as any)["jQuery"];

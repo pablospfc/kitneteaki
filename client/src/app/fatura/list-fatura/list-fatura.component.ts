@@ -41,7 +41,7 @@ export class ListFaturaComponent implements OnInit {
   constructor(private parcelaService: ParcelaService,
               private imovelService: ImovelService,
               private pessoaService: PessoaService,
-              private modalService: BsModalService,
+              public modalService: BsModalService,
               private router: Router,
               private alertService: AlertMessageService) {
   }

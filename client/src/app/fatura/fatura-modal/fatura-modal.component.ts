@@ -41,7 +41,7 @@ export class FaturaModalComponent implements OnInit {
 
   constructor(private parcelaService: ParcelaService,
               private parcelaItemService: ParcelaItemService,
-              private modalRef: BsModalRef,
+              public modalRef: BsModalRef,
               private alertMessage: AlertMessageService,
               private itemService: ItemService) {
   }

@@ -23,7 +23,7 @@ export class DocumentoContratoModalComponent implements OnInit {
 
   constructor(private modeloDocumentoService: ModeloDocumentoService,
               private alertMessageService: AlertMessageService,
-              private modalRef: BsModalRef,
+              public modalRef: BsModalRef,
               private contratoService: ContratoService) {
   }
 

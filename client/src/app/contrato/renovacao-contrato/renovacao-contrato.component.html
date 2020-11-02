@@ -88,7 +88,7 @@
                        id="inicio_estadia"
                        name="data_inicio"
                        [(ngModel)]="contrato.data_inicio"
-                       (blur)="verificaDisponibilidade(contrato.data_inicio, contrato.data_fim) && contrato.data_inicio"
+                       (blur)="verificaDisponibilidade(contrato.data_inicio, contrato.data_fim)"
                        [required]="contrato.id_tipo_contrato == 2"
                        placeholder="Início da Estadia"/>
               </div>

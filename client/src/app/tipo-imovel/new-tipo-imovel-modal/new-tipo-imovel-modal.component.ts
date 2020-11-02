@@ -16,7 +16,7 @@ export class NewTipoImovelModalComponent implements OnInit {
   public loading;
   constructor(private tipoImovelService: TipoImovelService,
               private alertMessageService: AlertMessageService,
-              private modalRef: BsModalRef) { }
+              public modalRef: BsModalRef) { }
 
   ngOnInit() {
     this.tipoImovel = new TipoImovel();

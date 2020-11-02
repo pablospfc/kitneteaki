@@ -38,7 +38,7 @@ export class ListFormaPagamentoComponent implements OnInit {
     });
   }
 
-  openModalForm(id: any) {
+  openModalForm(id: any = null) {
     this.modalRef = this.modalService.show(NewFormaPagamentoModalComponent, {
       initialState: {
         id: id,
@@ -60,7 +60,7 @@ export class ListFormaPagamentoComponent implements OnInit {
     });
   }
 
-  confirmRemove(id) {
+  confirmRemove() {
     this.loading = true;
     this.formaPagamentoService.remove(this.id)
       .subscribe(response => {

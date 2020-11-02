@@ -21,7 +21,7 @@ export class ItensContratoModalComponent implements OnInit {
   constructor(private alertService: AlertMessageService,
               private itemContratoService: ItemContratoService,
               private itemService: ItemService,
-              private modalRef: BsModalRef) { }
+              public modalRef: BsModalRef) { }
 
   ngOnInit() {
     this.itemContrato = new ItemContrato();

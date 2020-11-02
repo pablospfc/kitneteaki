@@ -16,7 +16,7 @@ export class UpdateUsuarioModalComponent implements OnInit {
   usuario: Usuario;
   perfis = [];
   public loading;
-  constructor(private modalRef: BsModalRef,
+  constructor(public modalRef: BsModalRef,
               private alertService: AlertMessageService,
               private usuarioService: UsuarioService) { }
 

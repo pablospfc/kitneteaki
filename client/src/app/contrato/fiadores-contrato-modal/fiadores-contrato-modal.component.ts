@@ -22,7 +22,7 @@ export class FiadoresContratoModalComponent implements OnInit {
   constructor(private fiadorService: FiadorService,
               private alertService: AlertMessageService,
               private pessoaService: PessoaService,
-              private modalRef: BsModalRef) {
+              public modalRef: BsModalRef) {
   }
 
   ngOnInit() {

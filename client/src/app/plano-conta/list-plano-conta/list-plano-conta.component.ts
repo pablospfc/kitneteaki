@@ -38,7 +38,7 @@ export class ListPlanoContaComponent implements OnInit {
       });
   }
 
-  openModalForm(id) {
+  openModalForm(id = null) {
     this.modalRef = this.modalService.show(NewPlanoContaModalComponent, {
       initialState: {
         id: id,

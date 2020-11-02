@@ -18,7 +18,7 @@ export class GeracaoParcelasModalComponent implements OnInit {
               private parcelaService: ParcelaService,
               private alertService: AlertMessageService,
               private router: Router,
-              private modalRef: BsModalRef) { }
+              public modalRef: BsModalRef) { }
 
   ngOnInit() {
     this.mostrarParcelas();

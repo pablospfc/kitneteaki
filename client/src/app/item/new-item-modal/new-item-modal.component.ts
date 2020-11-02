@@ -19,7 +19,7 @@ export class NewItemModalComponent implements OnInit {
   constructor(private itemService: ItemService,
               private alertMessageService: AlertMessageService,
               private authService: AuthService,
-              private modalRef: BsModalRef) { }
+              public modalRef: BsModalRef) { }
 
   ngOnInit() {
     this.item = new Item();

@@ -18,7 +18,7 @@ export class TestemunhasContratoModalComponent implements OnInit {
   public loading;
   constructor(private testemunhaService: TestemunhaContratoService,
               private alertService: AlertMessageService,
-              private modalRef: BsModalRef) { }
+              public modalRef: BsModalRef) { }
 
   ngOnInit() {
     this.testemunha = new TestemunhaContrato();
