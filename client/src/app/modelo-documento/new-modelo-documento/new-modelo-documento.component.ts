@@ -22,7 +22,7 @@ export class NewModeloDocumentoComponent implements OnInit {
   modelo: ModeloDocumento;
   public Editor = DecoupledEditor;
   public loading;
-  @ViewChild('editor', { static: false }) editor: CKEditorComponent;
+  @ViewChild('editor') editor: CKEditorComponent;
 
   constructor(private modeloDocumentoService: ModeloDocumentoService,
               private router: Router,
