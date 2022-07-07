@@ -35,7 +35,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng-select2": "^1.2.2",
     "ng2-currency-mask": "^9.0.2",
     "ngx-bootstrap": "^5.2.0",
